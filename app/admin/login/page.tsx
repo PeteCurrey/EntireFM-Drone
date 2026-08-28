@@ -21,8 +21,12 @@ export default function AdminLoginPage() {
     setError(null)
 
     // Master credentials check
+    const normalizedEmail = email.trim().toLowerCase()
     if (
-      (email === 'pete@entirefm.com' || email === 'pete@avorria.com' || email === 'admin@tfts.co.uk') &&
+      (normalizedEmail === 'petecurrey@gmail.com' ||
+        normalizedEmail === 'pete@entirefm.com' ||
+        normalizedEmail === 'pete@avorria.com' ||
+        normalizedEmail === 'admin@tfts.co.uk') &&
       password === 'Vivaro2104!!'
     ) {
       document.cookie = 'admin_bypass=true; path=/; max-age=86400; SameSite=Lax'
@@ -84,7 +88,7 @@ export default function AdminLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-[2px] py-2.5 px-3.5 text-sm text-[#0f172a] outline-none focus:border-[#0066ff] focus:bg-white transition-colors"
-                placeholder="pete@entirefm.com"
+                placeholder="petecurrey@gmail.com"
               />
             </div>
 
