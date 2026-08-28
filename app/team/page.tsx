@@ -49,7 +49,7 @@ export default function TeamPage() {
             <div className="w-12 h-[1px] bg-accent" />
             <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">Operations Leadership</span>
           </div>
-          <h1 className="font-display text-7xl md:text-8xl text-white mb-8 tracking-wider leading-none">THE<br/><span className="text-accent underline underline-offset-8">TEAM</span></h1>
+          <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6">THE<br/><span className="text-accent underline underline-offset-8">TEAM</span></h1>
           <p className="font-body text-lg md:text-xl text-white/40 leading-relaxed max-w-[600px]">
             Technology is only as capable as the operators behind it. EntireFM Drone is driven by certified aviation professionals, geospatial analysts, and industrial inspection specialists.
           </p>

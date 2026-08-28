@@ -44,7 +44,7 @@ export default async function FleetDetailPage({ params }: { params: Promise<{ sl
             <div className="w-12 h-[1px] bg-accent" />
             <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">{data.type}</span>
           </div>
-          <h1 className="font-display text-7xl md:text-9xl text-white tracking-wider leading-none">{data.name}</h1>
+          <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6">{data.name}</h1>
         </div>
       </section>
 

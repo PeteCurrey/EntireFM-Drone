@@ -401,7 +401,7 @@ Recommended Route: ${result?.title}.`
             >
               <div className="mb-16">
                 <SectionTag number="01" text="Requirement" />
-                <h1 className="font-display text-5xl md:text-7xl text-white mt-8 uppercase tracking-tighter leading-none">
+                <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mt-6 mb-5 uppercase">
                   What do you need the <br/><span className="text-accent underline underline-offset-8 decoration-accent/30">Drone Output to help you do?</span>
                 </h1>
               </div>
@@ -440,7 +440,7 @@ Recommended Route: ${result?.title}.`
                   <ChevronLeft className="w-3 h-3" /> Back
                 </button>
                 <SectionTag number="02" text="Environment" />
-                <h1 className="font-display text-5xl md:text-7xl text-white mt-8 uppercase tracking-tighter leading-none">
+                <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mt-6 mb-5 uppercase">
                   What type of <br/><span className="text-accent">Site or Asset is involved?</span>
                 </h1>
               </div>
@@ -483,7 +483,7 @@ Recommended Route: ${result?.title}.`
                   <ChevronLeft className="w-3 h-3" /> Back
                 </button>
                 <SectionTag number="03" text="Format" />
-                <h1 className="font-display text-5xl md:text-7xl text-white mt-8 uppercase tracking-tighter leading-none">
+                <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mt-6 mb-5 uppercase">
                   What type of <br/><span className="text-accent underline underline-offset-8">Deliverable would be most useful?</span>
                 </h1>
               </div>
@@ -532,7 +532,7 @@ Recommended Route: ${result?.title}.`
                   <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">Recommended Output</span>
                 </div>
                 
-                <h1 className="font-display text-[6vw] md:text-[4vw] leading-none text-white mb-8 uppercase tracking-tighter">
+                <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 uppercase">
                    {result?.title}
                 </h1>
                 
@@ -631,7 +631,7 @@ Recommended Route: ${result?.title}.`
                     <RotateCcw className="w-3 h-3" /> Start Over
                  </button>
                  <SectionTag number="Compare" text="Output Types" />
-                 <h1 className="font-display text-5xl md:text-7xl text-white mt-8 uppercase tracking-tighter leading-none">
+                 <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mt-6 mb-5 uppercase">
                     Not Sure? <span className="text-accent">Compare Output Families</span>
                  </h1>
               </div>

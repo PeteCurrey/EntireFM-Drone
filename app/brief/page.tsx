@@ -729,7 +729,7 @@ export default function ProjectBriefPage() {
             <div className="w-12 h-[1px] bg-accent" />
             <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">Technical Intake</span>
           </div>
-          <h1 className="font-display text-[8vw] md:text-[6vw] leading-[0.85] text-white mb-10 uppercase tracking-tighter">
+          <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6 uppercase">
             START A DRONE <br/><span className="text-accent underline underline-offset-8 decoration-accent/30">PROJECT BRIEF</span>
           </h1>
           <p className="font-body text-xl md:text-2xl font-light text-white/50 max-w-3xl uppercase tracking-widest leading-relaxed mb-12">

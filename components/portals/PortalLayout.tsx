@@ -82,7 +82,7 @@ export default function PortalLayout({
               </div>
               <span className="font-ui text-[10px] tracking-[0.4em] uppercase text-white/30">{statusText}</span>
             </div>
-            <h1 className="font-display text-4xl md:text-6xl uppercase tracking-tighter mb-4">{title}</h1>
+            <h1 className="text-[clamp(2rem,3.1vw,2.75rem)] font-extralight tracking-[-0.035em] leading-[1.05] text-white mb-3 uppercase">{title}</h1>
             <p className="font-body text-sm text-white/40 uppercase tracking-widest max-w-2xl">{subtitle}</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-6 w-full lg:w-auto">

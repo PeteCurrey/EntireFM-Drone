@@ -193,7 +193,7 @@ export default function BundlesPage() {
             <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">Commercial Solutions</span>
             <div className="w-12 h-[1px] bg-accent" />
           </div>
-          <h1 className="font-display text-hero leading-none mb-8 tracking-wider">
+          <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6">
             COMMERCIAL DRONE SERVICE BUNDLES<br/>
             <span className="text-accent">BUILT AROUND PROJECT OUTCOMES</span>
           </h1>

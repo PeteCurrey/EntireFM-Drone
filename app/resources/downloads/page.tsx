@@ -33,7 +33,7 @@ export default function LeadMagnetHub() {
             <div className="w-12 h-[1px] bg-accent" />
             <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">Resource Library</span>
           </div>
-          <h1 className="font-display text-5xl md:text-8xl text-white mb-8 tracking-tighter leading-[0.9] uppercase">
+          <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6 uppercase">
             Commercial Drone <br/><span className="text-accent underline underline-offset-8 decoration-accent/20">Guides & Checklists</span>
           </h1>
           <p className="font-body text-xl md:text-2xl text-white/50 leading-relaxed max-w-4xl uppercase tracking-widest font-light mb-12">

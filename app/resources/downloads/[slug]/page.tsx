@@ -98,7 +98,7 @@ export default async function LeadMagnetPage({ params }: Props) {
             <div className="lg:col-span-5 space-y-12">
                <div className="space-y-8">
                   <div className="svc-tag"><SectionTag number="RESOURCE" text={asset.type} /></div>
-                  <h1 className="font-display text-4xl md:text-6xl text-white uppercase tracking-tighter leading-none">
+                  <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6 uppercase">
                     {asset.title}
                   </h1>
                   <p className="font-body text-xl text-white/50 leading-relaxed uppercase tracking-widest font-light italic border-l-2 border-accent/20 pl-8">

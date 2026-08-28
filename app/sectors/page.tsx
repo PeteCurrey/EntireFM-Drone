@@ -85,17 +85,17 @@ export default function SectorsPage() {
             <div className="w-12 h-[1px] bg-accent" />
             <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">Sector Expertise</span>
           </div>
-          <h1 className="font-display text-7xl md:text-8xl text-white mb-8 tracking-tighter leading-none uppercase">
+          <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6">
             DRONE SERVICES <br/><span className="text-accent underline underline-offset-8 decoration-accent/30">BY SECTOR</span>
           </h1>
-          <p className="font-body text-xl md:text-2xl text-white/60 leading-relaxed mb-12 max-w-[800px] uppercase tracking-widest font-light">
+          <p className="text-sm sm:text-base lg:text-[1.0625rem] font-light leading-relaxed text-white/70 mb-8 max-w-2xl">
             Explore commercial drone inspection, surveying, mapping, thermal imaging, aerial media and immersive capture workflows tailored to the unique operational constraints of your industry.
           </p>
           <div className="flex flex-col sm:flex-row gap-8 mb-16">
-            <Link href="/brief?source=sectors-index" className="bg-accent text-dark font-display text-2xl tracking-[0.1em] px-12 py-6 hover:bg-white transition-all text-center flex items-center justify-center gap-4 group">
+            <Link href="/brief?source=sectors-index" className="px-6 py-3.5 text-sm font-normal rounded-[2px] bg-accent text-white hover:bg-accent-light transition-all text-center inline-flex items-center justify-center gap-2 group">
               Start Project Brief <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
             </Link>
-            <Link href="/project-brief-assistant" className="border border-white/20 text-white font-display text-2xl tracking-[0.1em] px-12 py-6 hover:bg-white hover:text-dark transition-all text-center">
+            <Link href="/project-brief-assistant" className="px-6 py-3.5 text-sm font-normal rounded-[2px] border border-white/15 bg-white/[0.04] text-white hover:bg-white/[0.08] hover:border-white/30 transition-all text-center">
               Use Brief Assistant
             </Link>
           </div>

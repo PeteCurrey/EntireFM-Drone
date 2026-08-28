@@ -81,19 +81,19 @@ export default function GaussianSplatShowcasePage() {
             <div className="w-12 h-[1px] bg-accent" />
             <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">3D Visual Intelligence</span>
           </div>
-          <h1 className="font-display text-hero leading-[0.9] mb-12 tracking-wider uppercase">
+          <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6 uppercase">
             GAUSSIAN SPLAT <br/>
             <span className="text-accent underline underline-offset-8 decoration-accent/20">DRONE CAPTURE</span> <br/>
             FOR IMMERSIVE <br/>SITE VISUALISATION
           </h1>
-          <p className="font-body text-xl md:text-2xl text-white/60 leading-relaxed mb-16 max-w-[850px] uppercase tracking-widest font-light">
+          <p className="text-sm sm:text-base lg:text-[1.0625rem] font-light leading-relaxed text-white/70 mb-8 max-w-2xl">
             Photorealistic 3D visualisation created from drone and ground-level imagery — helping clients explore, present and preserve real-world sites beyond flat photos or video.
           </p>
           <div className="flex flex-col sm:flex-row gap-8 mb-20">
-            <Link href="#demo" className="bg-accent text-dark font-display text-2xl tracking-[0.1em] px-12 py-6 hover:bg-white transition-all text-center">
+            <Link href="#demo" className="px-6 py-3.5 text-sm font-normal rounded-[2px] bg-accent text-white hover:bg-accent-light transition-all text-center">
               LAUNCH INTERACTIVE DEMO
             </Link>
-            <Link href="/services/gaussian-splat-capture" className="border border-white/20 text-white font-display text-2xl tracking-[0.1em] px-12 py-6 hover:bg-white hover:text-dark transition-all text-center">
+            <Link href="/services/gaussian-splat-capture" className="px-6 py-3.5 text-sm font-normal rounded-[2px] border border-white/15 bg-white/[0.04] text-white hover:bg-white/[0.08] hover:border-white/30 transition-all text-center">
               REQUEST SPLAT CAPTURE
             </Link>
           </div>

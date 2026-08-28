@@ -139,7 +139,7 @@ export default async function ServicePage({ params }: Props) {
               <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">{service.category}</span>
             </div>
             
-            <h1 className="font-display text-[15vw] md:text-[8vw] leading-[0.85] text-white mb-12">
+            <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6">
               {service.headline.map((line, i) => (
                 <div key={i} className="overflow-hidden">
                   <span className={`block translate-y-full animate-[reveal-up_1s_forwards] ${i === service.headline.length - 1 ? 'text-accent' : ''}`} style={{ animationDelay: `${0.4 + (i * 0.1)}s` }}>
@@ -149,7 +149,7 @@ export default async function ServicePage({ params }: Props) {
               ))}
             </h1>
 
-            <p className="font-body text-xl md:text-2xl font-light text-white/50 max-w-[600px] mb-12 opacity-0 animate-[fade-in_1s_1s_forwards]">
+            <p className="text-sm sm:text-base lg:text-[1.0625rem] font-light leading-relaxed text-white/70 max-w-2xl mb-8 opacity-0 animate-[fade-in_1s_1s_forwards]">
               {service.intro}
             </p>
 

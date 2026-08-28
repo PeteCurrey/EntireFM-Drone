@@ -126,7 +126,7 @@ export default function OperationsStandardPage() {
             <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">Operational Excellence</span>
           </div>
           
-          <h1 className="font-display text-5xl md:text-7xl text-white mb-8 tracking-tighter leading-none uppercase">
+          <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6 uppercase">
             The EntireFM<br/>Operations Standard
           </h1>
           

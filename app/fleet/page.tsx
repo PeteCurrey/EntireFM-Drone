@@ -158,7 +158,7 @@ export default function FleetPage() {
             <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">Technical Capability</span>
           </div>
           
-          <h1 className="font-display text-[8vw] md:text-[5vw] leading-[0.85] text-white mb-10 uppercase tracking-tighter">
+          <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6 uppercase">
             COMMERCIAL DRONE FLEET & <br/>
             <span className="text-accent underline underline-offset-8">SPECIALIST CAPTURE</span> CAPABILITY
           </h1>

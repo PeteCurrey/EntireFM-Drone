@@ -101,7 +101,7 @@ export default function ClientPortalDemosIndex() {
             <div className="w-12 h-[1px] bg-accent" />
             <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">Delivery Experience</span>
           </div>
-          <h1 className="font-display text-6xl md:text-8xl text-white mb-8 tracking-tighter leading-none uppercase">
+          <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6 uppercase">
             CLIENT PORTAL <br/><span className="text-accent underline underline-offset-8 decoration-accent/30">DEMO EXPERIENCE</span>
           </h1>
           <p className="font-body text-xl md:text-2xl text-white/60 leading-relaxed mb-12 max-w-[900px] uppercase tracking-widest font-light">

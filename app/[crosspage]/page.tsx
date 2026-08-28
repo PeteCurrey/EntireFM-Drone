@@ -137,19 +137,19 @@ export default async function CrossPage({ params }: Props) {
               <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">Strategic Deployment · {location.name}</span>
             </div>
             
-            <h1 className="font-display text-[10vw] md:text-[6vw] leading-[0.85] text-white mb-12">
+            <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6">
               {service.headline[0].toUpperCase()}<br/>
               <span className="text-accent">{location.name.toUpperCase()}</span>
             </h1>
 
-            <p className="font-body text-xl md:text-2xl font-light text-white/50 max-w-2xl mb-12 opacity-0 animate-[fade-in_1s_1s_forwards]">
+            <p className="text-sm sm:text-base lg:text-[1.0625rem] font-light text-white/70 max-w-2xl mb-8 opacity-0 animate-[fade-in_1s_1s_forwards] leading-relaxed">
               {service.intro} EntireFM Drone is the leading provider of {service.title.toLowerCase()} for commercial and industrial clients across {location.name} and {location.region}.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-8 opacity-0 animate-[fade-in_1s_1.2s_forwards]">
               <Link 
                 href="/contact"
-                className="group flex items-center gap-6 bg-accent text-dark px-10 py-5 font-display text-2xl tracking-[0.1em] transition-all hover:bg-white"
+                className="group inline-flex items-center gap-2 bg-accent text-white px-6 py-3.5 text-sm font-normal rounded-[2px] transition-all hover:bg-accent-light shadow-[0_0_20px_rgba(0,102,255,0.25)]"
               >
                 REQUEST QUOTE <ArrowRight className="w-6 h-6 group-hover:translate-x-3 transition-transform duration-300" />
               </Link>

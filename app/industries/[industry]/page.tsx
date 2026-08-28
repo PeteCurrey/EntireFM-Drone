@@ -83,7 +83,7 @@ export default async function IndustryPage({ params }: Props) {
               <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">Industry Solutions</span>
             </div>
             
-            <h1 className="font-display text-[12vw] md:text-[8vw] leading-[0.85] text-white mb-12 uppercase">
+            <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6 uppercase">
               {data.headline.map((line, i) => (
                 <div key={i}>
                   <span className={i === 1 ? 'text-accent' : ''}>{line}</span>
@@ -92,7 +92,7 @@ export default async function IndustryPage({ params }: Props) {
               ))}
             </h1>
 
-            <p className="font-body text-xl md:text-2xl font-light text-white/50 max-w-2xl opacity-0 animate-[fade-in_1s_1s_forwards]">
+            <p className="text-sm sm:text-base lg:text-[1.0625rem] font-light leading-relaxed text-white/70 max-w-2xl opacity-0 animate-[fade-in_1s_1s_forwards]">
               {data.description}
             </p>
           </div>

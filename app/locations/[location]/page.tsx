@@ -121,25 +121,25 @@ export default async function LocationPage({ params }: Props) {
             <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">Strategic Hub · {data.name}</span>
           </div>
           
-          <h1 className="font-display text-[8vw] md:text-[6vw] leading-[0.85] text-white mb-10 uppercase tracking-tighter">
+          <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6 uppercase">
             DRONE SERVICES <br/>
             <span className="text-accent underline underline-offset-8 decoration-accent/30">{data.name.toUpperCase()}</span>
           </h1>
 
-          <p className="font-body text-xl md:text-2xl font-light text-white/50 max-w-4xl mx-auto mb-12 opacity-0 animate-[fade-in_1s_1s_forwards] uppercase tracking-widest leading-relaxed">
+          <p className="text-sm sm:text-base lg:text-[1.0625rem] font-light text-white/70 max-w-2xl mx-auto mb-8 opacity-0 animate-[fade-in_1s_1s_forwards] leading-relaxed">
             EntireFM Drone provides commercial drone inspections, surveying and mapping, thermal imaging, construction monitoring, aerial media and immersive 3D capture for {data.name} property, construction, infrastructure, energy and asset management projects.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 opacity-0 animate-[fade-in_1s_1.2s_forwards]">
             <Link 
               href={`/brief?location=${data.slug}`}
-              className="group bg-accent text-dark px-10 py-6 font-display text-2xl tracking-widest flex items-center gap-4 hover:bg-white transition-all shadow-[0_20px_40px_rgba(205,174,130,0.15)]"
+              className="group bg-accent text-white px-6 py-3.5 text-sm font-normal rounded-[2px] flex items-center justify-center gap-2 hover:bg-accent-light transition-all shadow-[0_0_20px_rgba(0,102,255,0.25)]"
             >
               START PROJECT BRIEF <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
             </Link>
             <Link 
               href="/services"
-              className="font-ui text-[14px] font-bold tracking-[0.4em] uppercase text-white/40 hover:text-white transition-colors"
+              className="text-xs font-light tracking-[0.14em] uppercase text-white/60 hover:text-white transition-colors"
             >
               View Drone Services
             </Link>

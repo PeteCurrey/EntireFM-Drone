@@ -126,7 +126,7 @@ export default async function ResourceArticlePage({ params }: Props) {
                 <span className="px-4 py-1.5 border border-accent/40 text-accent bg-accent/5">{post.category}</span>
                 <span className="text-white/30">{post.readTime} Read</span>
               </div>
-              <h1 className="font-display text-[7vw] md:text-[5vw] text-white uppercase leading-[0.9] mb-12 tracking-tighter">
+              <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6 uppercase">
                 {post.title}
               </h1>
               <p className="font-body text-xl md:text-2xl text-white/50 uppercase tracking-widest font-light leading-relaxed mb-12 max-w-3xl">

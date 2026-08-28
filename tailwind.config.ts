@@ -8,18 +8,15 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        // Work Sans is now the sole public-facing typeface
-        // 200 = display/brand, 300 = UI, 400 = body
-        // These aliases preserve backward-compatibility with existing font-display / font-ui / font-body classes
+        // Work Sans is the sole public-facing typeface across EntireFM
         sans:    ['var(--font-work-sans)', 'system-ui', 'sans-serif'],
         display: ['var(--font-work-sans)', 'system-ui', 'sans-serif'],
         body:    ['var(--font-work-sans)', 'system-ui', 'sans-serif'],
         ui:      ['var(--font-work-sans)', 'system-ui', 'sans-serif'],
       },
       fontWeight: {
-        // Semantic aliases matching EntireFM masterbrand spec
-        brand:   '200',  // dominant display weight
-        subtle:  '300',  // supporting UI
+        brand:   '200',  // dominant display weight (Work Sans Extra Light)
+        subtle:  '300',  // supporting UI (Work Sans Light)
       },
       colors: {
         accent: '#0066ff',
@@ -29,9 +26,13 @@ const config: Config = {
         mid: '#0d0628',
       },
       fontSize: {
-        hero:    ['clamp(72px, 9vw, 136px)',  { lineHeight: '0.92' }],
-        section: ['clamp(52px, 6.5vw, 96px)', { lineHeight: '0.95' }],
-        contact: ['clamp(64px, 8vw, 112px)',  { lineHeight: '0.93' }],
+        // Masterbrand uniform typography scales
+        hero:    ['clamp(2.25rem, 3.7vw, 3.5rem)',  { lineHeight: '1.02', letterSpacing: '-0.04em' }],
+        section: ['clamp(1.75rem, 2.8vw, 2.5rem)',  { lineHeight: '1.05', letterSpacing: '-0.03em' }],
+        contact: ['clamp(2.25rem, 3.7vw, 3.5rem)',  { lineHeight: '1.02', letterSpacing: '-0.04em' }],
+        'display-xl': ['clamp(2.25rem, 3.7vw, 3.5rem)', { lineHeight: '1.02', letterSpacing: '-0.04em' }],
+        'display-lg': ['clamp(2rem, 3.1vw, 2.75rem)',    { lineHeight: '1.05', letterSpacing: '-0.035em' }],
+        'display-md': ['clamp(1.625rem, 2.4vw, 2.125rem)',{ lineHeight: '1.08', letterSpacing: '-0.03em' }],
       },
     },
   },

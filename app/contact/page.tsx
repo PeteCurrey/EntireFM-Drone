@@ -60,7 +60,7 @@ export default function ContactPage() {
       <div className="relative z-10 w-full max-w-[1200px] px-10 md:px-20 grid grid-cols-1 lg:grid-cols-2 gap-20">
         <div>
           <div className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent mb-6 text-glow">Communication Terminal</div>
-          <h1 className="font-display text-7xl text-white mb-10 tracking-widest leading-none">LET&apos;S GET<br/>AIRBORNE</h1>
+          <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6">LET&apos;S GET<br/>AIRBORNE</h1>
           <p className="font-body text-xl font-light text-white/40 leading-relaxed max-w-[500px] mb-12 uppercase tracking-widest">
             Have a project in mind or need technical advice on UAV integration? Reach out to our operations team or start a formal briefing.
           </p>
