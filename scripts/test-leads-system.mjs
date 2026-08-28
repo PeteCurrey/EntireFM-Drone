@@ -26,6 +26,12 @@ async function runTests() {
   }
 
   try {
+    // Ensure data directory exists
+    const dataDir = path.join(process.cwd(), 'data')
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true })
+    }
+
     // Reset test data
     fs.writeFileSync(leadsPath, JSON.stringify([], null, 2))
 
