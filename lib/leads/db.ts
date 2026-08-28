@@ -255,19 +255,24 @@ export async function updateLead(id: string, updates: Partial<Lead>): Promise<Le
  */
 export async function getLeadMetrics(): Promise<LeadMetrics> {
   const leads = await getLeads()
+
+  // Use a fixed snapshot — never mutate this object
   const now = new Date()
+  const todayYear  = now.getFullYear()
+  const todayMonth = now.getMonth()
+  const todayDate  = now.getDate()
 
-  // Start of today in local time
-  const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime()
+  // Start of today (midnight local time)
+  const startOfToday = new Date(todayYear, todayMonth, todayDate).getTime()
 
-  // Start of this week (Monday)
-  const day = now.getDay()
-  const diff = now.getDate() - day + (day === 0 ? -6 : 1) // adjust when day is sunday
-  const startOfWeek = new Date(now.setDate(diff))
-  startOfWeek.setHours(0, 0, 0, 0)
+  // End of today (23:59:59 local time) — calculated from the *original* date values
+  const endOfToday = new Date(todayYear, todayMonth, todayDate, 23, 59, 59).getTime()
+
+  // Start of this week (Monday) — use a separate Date so we don't mutate `now`
+  const dayOfWeek = now.getDay()
+  const daysSinceMonday = dayOfWeek === 0 ? 6 : dayOfWeek - 1
+  const startOfWeek = new Date(todayYear, todayMonth, todayDate - daysSinceMonday, 0, 0, 0)
   const startOfWeekTs = startOfWeek.getTime()
-
-  const endOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59).getTime()
 
   let newLeads = 0
   let leadsToday = 0
