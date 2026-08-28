@@ -51,8 +51,8 @@ export default function InspectionSection() {
       className="noise-overlay min-h-screen py-32 px-8 md:px-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20 relative"
     >
       <VideoBackground
-        src="/videos/inspection.mp4"
-        poster="/images/inspection_poster.png"
+        src="/media/drone/roof-facade/tfts-commercial-roof-inspection.mp4"
+        poster="/media/drone/roof-facade/tfts-commercial-roof-inspection.jpg"
         brightness={0.65}
         saturation={1.2}
       />
@@ -92,13 +92,13 @@ export default function InspectionSection() {
 
         <div className="svc-cta flex flex-col sm:flex-row gap-6">
           <Link
-            href="/services/drone-inspection"
+            href="/services/roof-inspections"
             className="bg-accent text-white font-display text-xl tracking-[0.1em] px-8 py-4 hover:bg-accent-light transition-all flex items-center justify-center gap-3 group"
           >
-            Explore Drone Inspections <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
+            Explore Roof Surveys <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
           </Link>
           <Link
-            href="/brief?service=drone-inspection"
+            href="/brief?service=roof-inspections"
             className="border border-white/20 text-white font-display text-xl tracking-[0.1em] px-8 py-4 hover:bg-white/10 transition-all text-center flex items-center justify-center"
           >
             Start Inspection Brief
@@ -110,14 +110,14 @@ export default function InspectionSection() {
       <div className="relative z-10 flex-1 w-full max-w-[500px]">
         <div className="space-y-4">
           <ScanReveal
-            baseImage="/images/inspection_poster.png"
-            alt="Roofing defect scan comparison"
+            baseImage="/media/drone/roof-facade/tfts-roof-defect-scan-base.jpg"
+            alt="Commercial roof condition inspection and defect scan telemetry"
             labelLeft="48MP Optical"
             labelRight="Defect Telemetry"
             autoScan={false}
           />
           <div className="flex items-center justify-between font-mono text-[9px] text-white/40 px-2 uppercase">
-            <span>Sensor: 4/3 CMOS Hasselblad</span>
+            <span>Asset: Commercial Roof Envelope</span>
             <span>Accuracy: Sub-20mm Resolution</span>
           </div>
         </div>

@@ -51,8 +51,8 @@ export default function ThermalSection() {
       className="noise-overlay min-h-screen py-32 px-8 md:px-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 relative"
     >
       <VideoBackground
-        src="/videos/thermal.mp4"
-        poster="/images/thermal_poster.jpg"
+        src="/media/drone/thermal/tfts-rooftop-solar-thermal.mp4"
+        poster="/media/drone/thermal/tfts-rooftop-solar-thermal.jpg"
         brightness={0.65}
         saturation={1.2}
       />
@@ -108,7 +108,7 @@ export default function ThermalSection() {
 
       {/* Right Column: Interactive Before/After Split Slider */}
       <div className="relative z-10 flex-1 w-full max-w-[520px]">
-        <ThermalCompare baseImage="/images/thermal_poster.jpg" />
+        <ThermalCompare baseImage="/media/drone/thermal/tfts-rooftop-solar-thermal.jpg" />
         <div className="mt-3 flex items-center justify-between font-mono text-[9px] text-white/40 px-2 uppercase">
           <span>FLIR 640×512 Radiometric Sensor</span>
           <span>Thermal Sensitivity: ≤50 mK</span>

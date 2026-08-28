@@ -43,8 +43,8 @@ export default function EventsSection() {
       className="noise-overlay min-h-screen py-32 px-8 md:px-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 relative"
     >
       <VideoBackground
-        src="/videos/events.mp4"
-        poster="/images/events_poster.jpg"
+        src="/videos/photography.mp4"
+        poster="/images/photography_poster.png"
         brightness={0.65}
         saturation={1.25}
       />

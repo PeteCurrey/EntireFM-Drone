@@ -50,8 +50,8 @@ export default function AgricultureSection() {
       className="noise-overlay min-h-screen py-32 px-8 md:px-20 flex flex-col lg:flex-row-reverse items-center justify-between gap-12 lg:gap-16 relative"
     >
       <VideoBackground
-        src="/videos/agriculture.mp4"
-        poster="/images/agriculture_poster.jpg"
+        src="/media/drone/agriculture/tfts-rural-estate-survey.mp4"
+        poster="/media/drone/agriculture/tfts-rural-estate-survey.jpg"
         brightness={0.65}
         saturation={1.2}
       />

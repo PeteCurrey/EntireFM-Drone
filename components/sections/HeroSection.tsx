@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Play, ArrowRight } from 'lucide-react'
 import { gsap } from '@/lib/gsap-init'
-import VideoBackground from '@/components/ui/VideoBackground'
+import HeroVideoSequence from '@/components/ui/HeroVideoSequence'
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -51,13 +51,9 @@ export default function HeroSection() {
       data-index="0"
       className="noise-overlay min-h-screen pt-32 sm:pt-36 lg:pt-40 pb-20 px-6 sm:px-12 lg:px-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 relative"
     >
-      <VideoBackground
-        src="/videos/hero.mp4"
-        poster="/images/hero_poster.jpg"
-        alt="TFTS Drone — commercial aerial surveys, thermal imaging and inspection"
+      <HeroVideoSequence
         brightness={0.65}
         saturation={1.2}
-        isHero={true}
       />
       <div className="grid-lines" />
 
