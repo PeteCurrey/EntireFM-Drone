@@ -1,62 +1,51 @@
-import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
+import { getLeads, createLead, updateLead } from '@/lib/leads/db'
 
 export async function GET(req: Request) {
   try {
-    const supabase = await createClient()
     const { searchParams } = new URL(req.url)
-    const status = searchParams.get('status')
-    const search = searchParams.get('search')
+    const status = searchParams.get('status') || undefined
+    const search = searchParams.get('search') || undefined
+    const priority = searchParams.get('priority') || undefined
+    const service = searchParams.get('service') || undefined
+    const limit = searchParams.get('limit') ? parseInt(searchParams.get('limit')!, 10) : undefined
 
-    let query = supabase
-      .from('leads')
-      .select('*')
-      .order('created_at', { ascending: false })
-
-    if (status && status !== 'all') {
-      query = query.eq('status', status)
-    }
-
-    if (search) {
-      query = query.or(`full_name.ilike.%${search}%,email_address.ilike.%${search}%,message_body.ilike.%${search}%`)
-    }
-
-    const { data, error } = await query
-
-    if (error) {
-      console.error('Fetch Leads Error:', error)
-      return NextResponse.json({ error: error.message }, { status: 500 })
-    }
-
-    return NextResponse.json(data)
+    const leads = await getLeads({ status, search, priority, service, limit })
+    return NextResponse.json(leads)
   } catch (error) {
-    console.error('Admin API Error:', error)
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+    console.error('Admin API getLeads error:', error)
+    return NextResponse.json({ error: 'Failed to fetch leads' }, { status: 500 })
+  }
+}
+
+export async function POST(req: Request) {
+  try {
+    const body = await req.json()
+    const newLead = await createLead(body)
+    return NextResponse.json(newLead, { status: 201 })
+  } catch (error) {
+    console.error('Admin API createLead error:', error)
+    return NextResponse.json({ error: 'Failed to create lead' }, { status: 500 })
   }
 }
 
 export async function PATCH(req: Request) {
   try {
-    const supabase = await createClient()
-    const { id, status } = await req.json()
+    const body = await req.json()
+    const { id, ...updates } = body
 
-    if (!id || !status) {
-      return NextResponse.json({ error: 'ID and Status are required' }, { status: 400 })
+    if (!id) {
+      return NextResponse.json({ error: 'Lead ID is required' }, { status: 400 })
     }
 
-    const { error } = await supabase
-      .from('leads')
-      .update({ status })
-      .eq('id', id)
-
-    if (error) {
-      console.error('Update Lead Error:', error)
-      return NextResponse.json({ error: error.message }, { status: 500 })
+    const updated = await updateLead(id, updates)
+    if (!updated) {
+      return NextResponse.json({ error: 'Lead not found' }, { status: 404 })
     }
 
-    return NextResponse.json({ success: true })
+    return NextResponse.json(updated)
   } catch (error) {
-    console.error('Admin API Error:', error)
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+    console.error('Admin API updateLead error:', error)
+    return NextResponse.json({ error: 'Failed to update lead' }, { status: 500 })
   }
 }

@@ -3,23 +3,35 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import VideoBackground from '@/components/ui/VideoBackground'
-import { Send, Phone, Mail, MapPin, ArrowRight } from 'lucide-react'
+import { Send, Phone, Mail, MapPin, ArrowRight, CheckCircle2 } from 'lucide-react'
 import { trackEvent, recordJourneyStep } from '@/lib/analytics'
 import { useAttribution } from '@/components/analytics/useAttribution'
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle')
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    service: 'Commercial Drone Survey',
+    message: '',
+    _hp: '', // honeypot
+  })
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
   const { getAttributionData } = useAttribution()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (status === 'submitting') return
     setStatus('submitting')
-    
+    setErrorMessage('')
+
     const attribution = getAttributionData()
 
     trackEvent('contact_form_submitted', {
-      ...attribution
+      service: formData.service,
+      ...attribution,
     })
 
     try {
@@ -29,17 +41,25 @@ export default function ContactPage() {
         body: JSON.stringify({
           ...formData,
           type: 'standard',
-          attribution: attribution
-        })
+          source_page: '/contact',
+          attribution,
+        }),
       })
 
-      if (!response.ok) throw new Error('Transmission failed')
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to submit enquiry')
+      }
+
       setStatus('success')
       recordJourneyStep('Submitted standard contact form')
-    } catch (err) {
+    } catch (err: unknown) {
       console.error('Contact error:', err)
-      // Fallback for demo
-      setTimeout(() => setStatus('success'), 1200)
+      setStatus('error')
+      setErrorMessage(
+        err instanceof Error ? err.message : 'Unable to submit enquiry. Please try again or call us directly.'
+      )
     }
   }
 
@@ -49,98 +69,210 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="min-h-screen relative flex items-center justify-center pt-20">
+    <main className="min-h-screen relative flex items-center justify-center pt-28 pb-20">
       <VideoBackground src="/videos/contact.mp4" poster="/images/contact_poster.png" brightness={0.3} />
-      
+
       {/* Grid Lines Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
 
-      <div className="relative z-10 w-full max-w-[1200px] px-10 md:px-20 grid grid-cols-1 lg:grid-cols-2 gap-20">
+      <div className="relative z-10 w-full max-w-[1200px] px-6 sm:px-10 md:px-20 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
         <div>
-          <div className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent mb-6 text-glow">Communication Terminal</div>
-          <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6">LET&apos;S GET<br/>AIRBORNE</h1>
-          <p className="font-body text-xl font-light text-white/40 leading-relaxed max-w-[500px] mb-12 uppercase tracking-widest">
-            Have a project in mind or need technical advice on UAV integration? Reach out to our operations team or start a formal briefing.
+          <div className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent mb-6">
+            Commercial Enquiries
+          </div>
+          <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6">
+            COMMERCIAL DRONE<br />
+            <span className="text-accent">SURVEYS & INSPECTION</span>
+          </h1>
+          <p className="font-body text-base md:text-lg font-light text-white/50 leading-relaxed max-w-[500px] mb-10">
+            Have a project in mind or need technical advice on UAV deployment across UK airspace? Reach out to our operations desk or submit a detailed brief.
           </p>
 
-          <div className="mb-12">
-            <Link 
-              href="/brief" 
-              className="group inline-flex items-center gap-6 bg-accent text-dark px-8 py-5 font-display text-xl tracking-widest hover:bg-white transition-all shadow-[0_20px_40px_rgba(205,174,130,0.15)]"
+          <div className="mb-10">
+            <Link
+              href="/brief"
+              className="group inline-flex items-center gap-4 bg-accent text-white px-8 py-4 font-display text-xl tracking-widest hover:bg-accent-light transition-all shadow-[0_10px_30px_rgba(0,102,255,0.2)]"
             >
-              START PROJECT BRIEF <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+              START PROJECT BRIEF <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
             </Link>
           </div>
 
-          <div className="space-y-8">
-            <div className="flex items-center gap-6 group cursor-pointer">
-              <div className="w-12 h-12 bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent transition-colors duration-500">
-                <Mail className="w-5 h-5 text-accent group-hover:text-white" />
+          <div className="space-y-6">
+            <div className="flex items-center gap-5">
+              <div className="w-11 h-11 bg-white/5 border border-white/10 flex items-center justify-center text-accent">
+                <Mail className="w-5 h-5" />
               </div>
               <div>
-                <div className="font-ui text-[9px] tracking-[0.2em] uppercase text-white/30">Project Enquiries</div>
-                <div className="font-display text-xl text-white group-hover:text-accent transition-colors">Direct Brief Submission</div>
+                <div className="font-ui text-[9px] tracking-[0.2em] uppercase text-white/30">Direct Email</div>
+                <a href="mailto:enquiries@tfts.co.uk" className="text-sm font-medium text-white hover:text-accent transition-colors">
+                  enquiries@tfts.co.uk
+                </a>
               </div>
             </div>
 
-            <div className="flex items-center gap-6 group cursor-pointer">
-              <div className="w-12 h-12 bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent transition-colors duration-500">
-                <MapPin className="w-5 h-5 text-accent group-hover:text-white" />
+            <div className="flex items-center gap-5">
+              <div className="w-11 h-11 bg-white/5 border border-white/10 flex items-center justify-center text-accent">
+                <MapPin className="w-5 h-5" />
               </div>
               <div>
                 <div className="font-ui text-[9px] tracking-[0.2em] uppercase text-white/30">Operations Scope</div>
-                <div className="font-display text-xl text-white group-hover:text-accent transition-colors">United Kingdom (Nationwide)</div>
+                <div className="text-sm font-medium text-white">United Kingdom (Nationwide Coverage)</div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="bg-dark/40 backdrop-blur-3xl border border-white/10 p-10 md:p-14 relative overflow-hidden">
+        {/* Contact Form Card */}
+        <div className="bg-dark/60 backdrop-blur-2xl border border-white/10 p-8 sm:p-12 relative">
           {status === 'success' ? (
-            <div className="h-full flex flex-col items-center justify-center text-center animate-in fade-in zoom-in duration-500 py-10">
-              <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(200,169,110,0.2)]">
-                <Send className="w-6 h-6 text-dark" />
+            <div className="h-full flex flex-col items-center justify-center text-center py-12 animate-in fade-in duration-500">
+              <div className="w-14 h-14 bg-accent text-white rounded-full flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(0,102,255,0.4)]">
+                <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h3 className="font-display text-3xl text-white mb-4 uppercase tracking-widest">TRANSMISSION RECEIVED</h3>
-              <p className="font-body text-white/30 text-sm italic">Acknowledged. Our team will respond shortly.</p>
-              <button onClick={() => setStatus('idle')} className="mt-8 font-ui text-[10px] text-accent tracking-widest uppercase hover:text-white transition-colors">Send Another Signal</button>
+              <h3 className="font-display text-3xl text-white mb-3 tracking-wide uppercase">
+                Enquiry Received
+              </h3>
+              <p className="font-body text-white/60 text-sm leading-relaxed max-w-md mb-8">
+                Thank you. Your enquiry has been received. A member of the TFTS technical operations team will review your requirements and contact you shortly.
+              </p>
+              <button
+                onClick={() => {
+                  setStatus('idle')
+                  setFormData({ name: '', email: '', phone: '', company: '', service: 'Commercial Drone Survey', message: '', _hp: '' })
+                }}
+                className="font-ui text-[11px] text-accent tracking-widest uppercase hover:underline"
+              >
+                Send Another Message →
+              </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} onFocus={handleFormFocus} className="space-y-8">
-              <div className="space-y-3">
-                <label className="font-ui text-[10px] tracking-[0.3em] uppercase text-white/30">Signal Origin (Name)</label>
-                <input 
-                  required type="text" value={formData.name} onChange={p => setFormData(d => ({ ...d, name: p.target.value }))}
-                  className="w-full bg-transparent border-b border-white/10 py-3 text-white outline-none focus:border-accent transition-colors font-body"
+            <form onSubmit={handleSubmit} onFocus={handleFormFocus} className="space-y-6">
+              {/* Honeypot field (hidden from legitimate users) */}
+              <input
+                type="text"
+                name="_hp"
+                value={formData._hp}
+                onChange={(e) => setFormData((d) => ({ ...d, _hp: e.target.value }))}
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+
+              {status === 'error' && (
+                <div className="p-3 bg-red-500/10 border border-red-500/30 text-red-400 text-xs rounded-[2px]">
+                  {errorMessage}
+                </div>
+              )}
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="font-ui text-[10px] tracking-[0.2em] uppercase text-white/40">
+                    Full Name *
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => setFormData((d) => ({ ...d, name: e.target.value }))}
+                    className="w-full bg-white/5 border border-white/10 p-3 text-white text-sm outline-none focus:border-accent transition-colors rounded-[2px]"
+                    placeholder="Jane Smith"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="font-ui text-[10px] tracking-[0.2em] uppercase text-white/40">
+                    Email Address *
+                  </label>
+                  <input
+                    required
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData((d) => ({ ...d, email: e.target.value }))}
+                    className="w-full bg-white/5 border border-white/10 p-3 text-white text-sm outline-none focus:border-accent transition-colors rounded-[2px]"
+                    placeholder="jane@company.co.uk"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="font-ui text-[10px] tracking-[0.2em] uppercase text-white/40">
+                    Telephone Number
+                  </label>
+                  <input
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData((d) => ({ ...d, phone: e.target.value }))}
+                    className="w-full bg-white/5 border border-white/10 p-3 text-white text-sm outline-none focus:border-accent transition-colors rounded-[2px]"
+                    placeholder="07123 456789"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="font-ui text-[10px] tracking-[0.2em] uppercase text-white/40">
+                    Company / Organisation
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.company}
+                    onChange={(e) => setFormData((d) => ({ ...d, company: e.target.value }))}
+                    className="w-full bg-white/5 border border-white/10 p-3 text-white text-sm outline-none focus:border-accent transition-colors rounded-[2px]"
+                    placeholder="Acme Estates Ltd"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="font-ui text-[10px] tracking-[0.2em] uppercase text-white/40">
+                  Service Requirement
+                </label>
+                <select
+                  value={formData.service}
+                  onChange={(e) => setFormData((d) => ({ ...d, service: e.target.value }))}
+                  className="w-full bg-dark/80 border border-white/10 p-3 text-white text-sm outline-none focus:border-accent transition-colors rounded-[2px]"
+                >
+                  <option value="Commercial Drone Survey">Commercial Drone Survey (General)</option>
+                  <option value="Drone Roof Inspections">Drone Roof & Parapet Inspection</option>
+                  <option value="Façade & Cladding Inspection">High-Level Façade & Cladding Inspection</option>
+                  <option value="Thermal Imaging & Energy Loss">Radiometric Thermal Imaging & Heat Loss</option>
+                  <option value="Solar Panel PV Inspection">Solar PV Farm & Rooftop Array Audit</option>
+                  <option value="Surveying & Photogrammetry">Surveying, Mapping & Photogrammetry</option>
+                  <option value="Construction Monitoring">Construction Progress & Site Monitoring</option>
+                  <option value="TFTS 3D Spatial Capture">TFTS 3D Interactive Spatial Capture</option>
+                </select>
+              </div>
+
+              <div className="space-y-2">
+                <label className="font-ui text-[10px] tracking-[0.2em] uppercase text-white/40">
+                  Project Details & Scope *
+                </label>
+                <textarea
+                  required
+                  rows={4}
+                  value={formData.message}
+                  onChange={(e) => setFormData((d) => ({ ...d, message: e.target.value }))}
+                  className="w-full bg-white/5 border border-white/10 p-3.5 text-white text-sm outline-none focus:border-accent transition-colors rounded-[2px]"
+                  placeholder="Describe your site location, access constraints, required deliverables..."
                 />
               </div>
-              <div className="space-y-3">
-                <label className="font-ui text-[10px] tracking-[0.3em] uppercase text-white/30">Response Frequency (Email)</label>
-                <input 
-                  required type="email" value={formData.email} onChange={p => setFormData(d => ({ ...d, email: p.target.value }))}
-                  className="w-full bg-transparent border-b border-white/10 py-3 text-white outline-none focus:border-accent transition-colors font-body"
-                />
-              </div>
-              <div className="space-y-3">
-                <label className="font-ui text-[10px] tracking-[0.3em] uppercase text-white/30">Message Data</label>
-                <textarea 
-                  required rows={5} value={formData.message} onChange={p => setFormData(d => ({ ...d, message: p.target.value }))}
-                  className="w-full bg-white/5 border border-white/10 p-4 text-white outline-none focus:border-accent transition-colors font-body text-sm"
-                />
-              </div>
-              <button 
-                type="submit" disabled={status === 'submitting'}
-                className="w-full bg-accent text-dark font-display text-2xl tracking-[0.2em] py-5 hover:bg-white transition-all duration-300 disabled:opacity-50 relative overflow-hidden group"
+
+              <button
+                type="submit"
+                disabled={status === 'submitting'}
+                className="w-full bg-accent hover:bg-accent-light text-white font-display text-xl tracking-wider py-4 transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2 rounded-[2px] shadow-[0_5px_20px_rgba(0,102,255,0.25)]"
               >
-                <span className={status === 'submitting' ? 'opacity-0' : 'opacity-100'}>
-                  {status === 'submitting' ? 'TRANSMITTING...' : 'SEND MESSAGE'}
-                </span>
-                {status === 'submitting' && (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-5 h-5 border-2 border-dark/30 border-t-dark rounded-full animate-spin" />
-                  </div>
+                {status === 'submitting' ? (
+                  <>
+                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <span>Transmitting Enquiry...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Submit Enquiry</span>
+                    <Send className="w-4 h-4" />
+                  </>
                 )}
               </button>
             </form>

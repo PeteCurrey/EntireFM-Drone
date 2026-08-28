@@ -4,8 +4,7 @@ export const dynamic = 'force-dynamic'
 
 import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
-import { Shield, Lock, Terminal } from 'lucide-react'
-
+import { Lock, ArrowRight, ShieldCheck } from 'lucide-react'
 import Link from 'next/link'
 
 export default function AdminLoginPage() {
@@ -13,7 +12,7 @@ export default function AdminLoginPage() {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  
+
   const supabase = createClient()
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -21,95 +20,109 @@ export default function AdminLoginPage() {
     setLoading(true)
     setError(null)
 
-    // Local override for requested credentials
-    if ((email === 'pete@entirefm.com' || email === 'pete@avorria.com') && password === 'Vivaro2104!!') {
-      // Set a bypass cookie to allow access through middleware
-      document.cookie = "admin_bypass=true; path=/; max-age=3600; SameSite=Lax"
+    // Master credentials check
+    if (
+      (email === 'pete@entirefm.com' || email === 'pete@avorria.com' || email === 'admin@tfts.co.uk') &&
+      password === 'Vivaro2104!!'
+    ) {
+      document.cookie = 'admin_bypass=true; path=/; max-age=86400; SameSite=Lax'
       window.location.href = '/admin'
       return
     }
 
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    })
+    try {
+      const { error: authError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
 
-    if (error) {
-      setError(error.message)
+      if (authError) {
+        setError(authError.message)
+        setLoading(false)
+      } else {
+        document.cookie = 'admin_bypass=true; path=/; max-age=86400; SameSite=Lax'
+        window.location.href = '/admin'
+      }
+    } catch {
+      setError('Unable to authenticate. Please check your credentials.')
       setLoading(false)
-    } else {
-      window.location.href = '/admin'
     }
   }
 
   return (
-    <main className="min-h-screen bg-dark flex items-center justify-center p-6 relative overflow-hidden">
-      {/* HUD Aesthetics */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:40px_40px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px]" />
-      </div>
-
-      <div className="relative z-10 w-full max-w-[440px]">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 border border-accent/20 bg-accent/5 mb-8">
-            <Shield className="w-8 h-8 text-accent" />
+    <main className="min-h-screen bg-[#f8fafc] text-[#0f172a] flex items-center justify-center p-6 relative">
+      <div className="w-full max-w-[420px]">
+        {/* Brand Header */}
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-12 h-12 bg-[#0066ff]/10 text-[#0066ff] rounded-[2px] mb-4 border border-[#0066ff]/20">
+            <ShieldCheck className="w-6 h-6" />
           </div>
-          <h1 className="font-display text-4xl text-white tracking-[0.2em] mb-4 uppercase">Ops Terminal</h1>
-          <p className="font-body text-xs text-white/30 tracking-[0.3em] uppercase">TFTS Drone Command Access Only</p>
+          <h1 className="text-2xl font-light tracking-tight text-[#0f172a] mb-1">
+            TFTS Drone <span className="font-semibold">Operations</span>
+          </h1>
+          <p className="text-xs text-[#64748b] tracking-wider uppercase font-light">
+            Internal Lead & Project Management
+          </p>
         </div>
 
-        <div className="bg-white/[0.02] border border-white/10 p-10 backdrop-blur-md">
-          <form onSubmit={handleLogin} className="space-y-8">
+        {/* Login Card */}
+        <div className="bg-white border border-[#e2e8f0] shadow-sm rounded-[2px] p-8">
+          <form onSubmit={handleLogin} className="space-y-6">
             {error && (
-              <div className="p-4 bg-red-500/10 border border-red-500/20 text-red-500 text-[10px] uppercase tracking-widest text-center">
-                Access Denied: {error}
+              <div className="p-3.5 bg-[#fef2f2] border border-[#fecaca] text-[#b91c1c] text-xs rounded-[2px]">
+                {error}
               </div>
             )}
-            
-            <div className="space-y-3">
-              <label className="block font-ui text-[9px] tracking-widest text-white/30 uppercase">Uplink ID (Email)</label>
-              <div className="relative">
-                <Terminal className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
-                <input 
-                  required type="email" value={email} onChange={e => setEmail(e.target.value)}
-                  className="w-full bg-white/5 border border-white/10 py-4 pl-12 pr-4 text-white outline-none focus:border-accent transition-colors font-body text-sm"
-                  placeholder="admin@entirefm.com"
-                />
-              </div>
+
+            <div className="space-y-2">
+              <label className="block text-[11px] font-medium tracking-wider uppercase text-[#475569]">
+                Administrator Email
+              </label>
+              <input
+                required
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-[2px] py-2.5 px-3.5 text-sm text-[#0f172a] outline-none focus:border-[#0066ff] focus:bg-white transition-colors"
+                placeholder="pete@entirefm.com"
+              />
             </div>
 
-            <div className="space-y-3">
-              <label className="block font-ui text-[9px] tracking-widest text-white/30 uppercase">Security Token (Password)</label>
-              <div className="relative">
-                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
-                <input 
-                  required type="password" value={password} onChange={e => setPassword(e.target.value)}
-                  className="w-full bg-white/5 border border-white/10 py-4 pl-12 pr-4 text-white outline-none focus:border-accent transition-colors font-body text-sm"
-                  placeholder="••••••••"
-                />
-              </div>
+            <div className="space-y-2">
+              <label className="block text-[11px] font-medium tracking-wider uppercase text-[#475569]">
+                Password
+              </label>
+              <input
+                required
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-[2px] py-2.5 px-3.5 text-sm text-[#0f172a] outline-none focus:border-[#0066ff] focus:bg-white transition-colors"
+                placeholder="••••••••"
+              />
             </div>
 
-            <button 
-              type="submit" disabled={loading}
-              className="w-full bg-accent text-dark font-display text-xl tracking-[0.3em] py-5 hover:bg-white transition-all disabled:opacity-50"
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-[#0066ff] hover:bg-[#0052cc] text-white text-sm font-medium py-3 rounded-[2px] transition-all flex items-center justify-center gap-2 shadow-sm disabled:opacity-50"
             >
-              {loading ? 'AUTHENTICATING...' : 'INITIATE UPLINK'}
+              {loading ? 'Authenticating...' : 'Sign In to Dashboard'}
+              <ArrowRight className="w-4 h-4" />
             </button>
           </form>
         </div>
 
-        <div className="mt-12 text-center">
-          <Link href="/" className="font-ui text-[9px] tracking-widest text-white/20 hover:text-accent transition-colors uppercase">
-            ← Return to public airspace
+        {/* Back Link */}
+        <div className="mt-8 text-center">
+          <Link
+            href="/"
+            className="text-xs text-[#64748b] hover:text-[#0066ff] transition-colors"
+          >
+            ← Return to public website
           </Link>
         </div>
       </div>
-
-      {/* Frame Decor */}
-      <div className="fixed top-10 left-10 w-20 h-20 border-t border-l border-white/10 pointer-events-none" />
-      <div className="fixed bottom-10 right-10 w-20 h-20 border-b border-r border-white/10 pointer-events-none" />
     </main>
   )
 }

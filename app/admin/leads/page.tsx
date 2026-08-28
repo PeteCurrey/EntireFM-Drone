@@ -1,287 +1,422 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect, useCallback } from 'react'
+import Link from 'next/link'
 import { 
-  Users, 
-  Flame, 
-  CheckCircle2, 
-  Clock, 
-  AlertCircle, 
   Search, 
   Filter, 
   Download, 
-  ArrowRight,
-  Target,
-  Activity,
-  BarChart3,
-  ExternalLink,
-  ChevronRight,
-  MoreVertical,
-  Loader2
+  Users, 
+  ChevronRight, 
+  AlertCircle, 
+  Clock, 
+  Phone, 
+  Mail,
+  RefreshCw,
+  SlidersHorizontal,
+  X
 } from 'lucide-react'
-import Link from 'next/link'
-import SectionTag from '@/components/ui/SectionTag'
+import { Lead, LeadStatus, LeadPriority } from '@/lib/leads/types'
+
+const STATUSES: (LeadStatus | 'All')[] = [
+  'All',
+  'New',
+  'Contacted',
+  'Qualified',
+  'Quote Required',
+  'Quote Sent',
+  'Won',
+  'Lost',
+  'Spam',
+]
+
+const PRIORITIES: (LeadPriority | 'All')[] = ['All', 'Urgent', 'High', 'Medium', 'Low']
 
 export default function AdminLeadsPage() {
-  const [activeTab, setActiveTab] = useState('all')
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [leads, setLeads] = useState<any[]>([])
+  const [leads, setLeads] = useState<Lead[]>([])
   const [loading, setLoading] = useState(true)
-  const [searchTerm, setSearchTerm] = useState('')
+  const [search, setSearch] = useState('')
+  const [selectedStatus, setSelectedStatus] = useState<string>('All')
+  const [selectedPriority, setSelectedPriority] = useState<string>('All')
+  const [selectedService, setSelectedService] = useState<string>('All')
+
+  const fetchLeads = useCallback(async () => {
+    setLoading(true)
+    try {
+      const params = new URLSearchParams()
+      if (selectedStatus !== 'All') params.set('status', selectedStatus)
+      if (selectedPriority !== 'All') params.set('priority', selectedPriority)
+      if (selectedService !== 'All') params.set('service', selectedService)
+      if (search.trim()) params.set('search', search.trim())
+
+      const res = await fetch(`/api/admin/leads?${params.toString()}`)
+      if (res.ok) {
+        const data = await res.json()
+        setLeads(data)
+      }
+    } catch (err) {
+      console.error('Error fetching leads:', err)
+    } finally {
+      setLoading(false)
+    }
+  }, [selectedStatus, selectedPriority, selectedService, search])
 
   useEffect(() => {
-    async function fetchLeads() {
-      setLoading(true)
-      try {
-        const response = await fetch(`/api/admin/leads?status=${activeTab}&search=${searchTerm}`)
-        const data = await response.json()
-        if (Array.isArray(data)) {
-          setLeads(data)
-        }
-      } catch (err) {
-        console.error('Failed to fetch leads:', err)
-      } finally {
-        setLoading(false)
-      }
-    }
     fetchLeads()
-  }, [activeTab, searchTerm])
+  }, [fetchLeads])
 
-  const getQualityColor = (quality: string) => {
-    switch (quality) {
-      case 'Hot': return 'text-orange-500 bg-orange-500/10 border-orange-500/20'
-      case 'Qualified': return 'text-accent bg-accent/10 border-accent/20'
-      case 'Nurture': return 'text-blue-400 bg-blue-400/10 border-blue-400/20'
-      default: return 'text-white/30 bg-white/5 border-white/10'
+  const exportCSV = () => {
+    if (leads.length === 0) return
+
+    const headers = [
+      'ID',
+      'Date',
+      'Full Name',
+      'Company',
+      'Email',
+      'Phone',
+      'Service',
+      'Status',
+      'Priority',
+      'Source Page',
+      'Lead Source',
+      'UTM Source',
+      'UTM Campaign',
+      'Message',
+    ]
+
+    const rows = leads.map((l) => [
+      l.id,
+      new Date(l.created_at).toISOString(),
+      `"${(l.full_name || '').replace(/"/g, '""')}"`,
+      `"${(l.company_name || '').replace(/"/g, '""')}"`,
+      `"${(l.email || '').replace(/"/g, '""')}"`,
+      `"${(l.phone || '').replace(/"/g, '""')}"`,
+      `"${(l.service || '').replace(/"/g, '""')}"`,
+      l.status,
+      l.priority,
+      `"${(l.source_page || '').replace(/"/g, '""')}"`,
+      l.lead_source,
+      `"${(l.utm_source || '').replace(/"/g, '""')}"`,
+      `"${(l.utm_campaign || '').replace(/"/g, '""')}"`,
+      `"${(l.message || '').replace(/"/g, '""')}"`,
+    ])
+
+    const csvContent = [headers.join(','), ...rows.map((r) => r.join(','))].join('\n')
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.setAttribute('href', url)
+    link.setAttribute('download', `tfts-leads-export-${new Date().toISOString().slice(0, 10)}.csv`)
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
+  const getStatusBadge = (status: string) => {
+    switch (status) {
+      case 'New':
+        return 'bg-[#eff6ff] text-[#0066ff] border-[#bfdbfe]'
+      case 'Contacted':
+        return 'bg-[#f0fdf4] text-[#16a34a] border-[#bbf7d0]'
+      case 'Qualified':
+        return 'bg-[#faf5ff] text-[#9333ea] border-[#e9d5ff]'
+      case 'Quote Required':
+      case 'Quote Sent':
+        return 'bg-[#fffbeb] text-[#d97706] border-[#fde68a]'
+      case 'Won':
+        return 'bg-[#ecfdf5] text-[#059669] border-[#a7f3d0]'
+      case 'Lost':
+        return 'bg-[#fef2f2] text-[#dc2626] border-[#fecaca]'
+      case 'Spam':
+        return 'bg-[#f1f5f9] text-[#64748b] border-[#cbd5e1]'
+      default:
+        return 'bg-[#f8fafc] text-[#475569] border-[#e2e8f0]'
     }
   }
 
-  const getStatusColor = (status: string) => {
-    switch (status?.toLowerCase()) {
-      case 'new': return 'text-accent'
-      case 'won': return 'text-green-400'
-      case 'lost': return 'text-red-400'
-      default: return 'text-white/50'
+  const getPriorityBadge = (priority: string) => {
+    switch (priority) {
+      case 'Urgent':
+        return 'text-[#dc2626] font-semibold'
+      case 'High':
+        return 'text-[#ea580c] font-medium'
+      case 'Medium':
+        return 'text-[#0284c7]'
+      case 'Low':
+        return 'text-[#64748b]'
+      default:
+        return 'text-[#64748b]'
     }
   }
 
   return (
-    <main className="min-h-screen bg-dark text-white pt-32 pb-20 px-8 md:px-20">
-      <div className="max-w-[1600px] mx-auto">
-        
-        {/* Header */}
-        <header className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16 pb-12 border-b border-white/5">
-           <div>
-             <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-px bg-accent" />
-                <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">TFTS Drone Command Centre</span>
-             </div>
-             <h1 className="font-display text-5xl md:text-6xl text-white uppercase tracking-tighter leading-none">
-                Lead <span className="text-accent">Qualification</span>
-             </h1>
-           </div>
-           <div className="flex items-center gap-4">
-              <button className="flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 font-ui text-[10px] tracking-widest uppercase hover:bg-white/10 transition-colors">
-                 <Download className="w-3 h-3" /> Export CSV
-              </button>
-              <Link href="/brief" className="flex items-center gap-2 px-6 py-3 bg-accent text-dark font-ui text-[10px] tracking-widest uppercase hover:bg-white transition-colors">
-                 Manual Entry +
-              </Link>
-           </div>
-        </header>
-
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-white/10 border border-white/10 mb-16">
-           {[
-             { label: 'Total Leads', val: '148', icon: Users, trend: '+12%' },
-             { label: 'Hot Leads', val: '24', icon: Flame, trend: '+8%', color: 'text-orange-500' },
-             { label: 'Qualified', val: '86', icon: CheckCircle2, trend: '+5%', color: 'text-accent' },
-             { label: 'Avg Lead Score', val: '64', icon: BarChart3, trend: '+3%' }
-           ].map((stat, i) => (
-             <div key={i} className="bg-mid p-10">
-                <div className="flex justify-between items-start mb-6">
-                   <div className="p-3 bg-white/5 rounded-sm">
-                      <stat.icon className={`w-5 h-5 ${stat.color || 'text-white/40'}`} />
-                   </div>
-                   <span className="font-ui text-[9px] text-green-400 tracking-widest uppercase">{stat.trend}</span>
-                </div>
-                <div className="font-display text-4xl text-white mb-2">{stat.val}</div>
-                <div className="font-ui text-[10px] tracking-[0.2em] uppercase text-white/30">{stat.label}</div>
-             </div>
-           ))}
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-light text-[#0f172a] tracking-tight">
+            Lead <span className="font-semibold">Management</span>
+          </h1>
+          <p className="text-xs text-[#64748b] mt-0.5">
+            Filter, search, and manage all commercial enquiries received across TFTS Drone.
+          </p>
         </div>
-
-        {/* Filters & Tabs */}
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-8 mb-8">
-           <div className="flex gap-4 border-b border-white/5 w-full lg:w-auto">
-              {['all', 'hot', 'qualified', 'nurture'].map(tab => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`px-8 py-4 font-ui text-[10px] tracking-[0.3em] uppercase transition-all relative ${activeTab === tab ? 'text-accent' : 'text-white/30 hover:text-white'}`}
-                >
-                  {tab}
-                  {activeTab === tab && <motion.div layoutId="tab-underline" className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent" />}
-                </button>
-              ))}
-           </div>
-           <div className="flex items-center gap-4 w-full lg:w-auto">
-               <div className="relative flex-1 lg:w-80">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20" />
-                  <input 
-                    type="text" 
-                    placeholder="SEARCH LEADS..." 
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 pl-12 pr-4 py-3 font-ui text-[10px] tracking-widest text-white uppercase focus:outline-none focus:border-accent/50 transition-colors"
-                  />
-               </div>
-              <button className="p-3 bg-white/5 border border-white/10 text-white/40 hover:text-white transition-colors">
-                 <Filter className="w-4 h-4" />
-              </button>
-           </div>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={fetchLeads}
+            disabled={loading}
+            className="p-2 border border-[#cbd5e1] hover:bg-white text-[#475569] rounded-[2px] text-xs transition-colors"
+            title="Refresh Leads"
+          >
+            <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
+          </button>
+          <button
+            onClick={exportCSV}
+            disabled={leads.length === 0}
+            className="px-3.5 py-2 border border-[#cbd5e1] hover:bg-white text-[#0f172a] text-xs font-medium rounded-[2px] transition-colors flex items-center gap-1.5 shadow-sm disabled:opacity-40"
+          >
+            <Download className="w-3.5 h-3.5 text-[#64748b]" />
+            <span>Export CSV</span>
+          </button>
         </div>
-
-        {/* Lead Table */}
-        <div className="bg-mid border border-white/5 overflow-x-auto">
-           <table className="w-full border-collapse text-left">
-              <thead>
-                 <tr className="border-b border-white/10 bg-white/[0.02]">
-                    <th className="p-6 font-ui text-[9px] tracking-[0.3em] uppercase text-white/30">Lead ID</th>
-                    <th className="p-6 font-ui text-[9px] tracking-[0.3em] uppercase text-white/30">Contact / Company</th>
-                    <th className="p-6 font-ui text-[9px] tracking-[0.3em] uppercase text-white/30">Service / Bundle</th>
-                    <th className="p-6 font-ui text-[9px] tracking-[0.3em] uppercase text-white/30">Location / Sector</th>
-                    <th className="p-6 font-ui text-[9px] tracking-[0.3em] uppercase text-white/30 text-center">Score</th>
-                    <th className="p-6 font-ui text-[9px] tracking-[0.3em] uppercase text-white/30 text-center">Quality</th>
-                    <th className="p-6 font-ui text-[9px] tracking-[0.3em] uppercase text-white/30 text-center">Status</th>
-                    <th className="p-6 font-ui text-[9px] tracking-[0.3em] uppercase text-white/30">Date</th>
-                    <th className="p-6"></th>
-                 </tr>
-              </thead>
-               <tbody className="divide-y divide-white/5">
-                  {loading ? (
-                    <tr>
-                      <td colSpan={9} className="p-20 text-center">
-                        <Loader2 className="w-8 h-8 text-accent animate-spin mx-auto mb-4" />
-                        <span className="font-ui text-[10px] tracking-widest uppercase text-white/20">Establishing Uplink...</span>
-                      </td>
-                    </tr>
-                  ) : leads.length === 0 ? (
-                    <tr>
-                      <td colSpan={9} className="p-20 text-center">
-                        <span className="font-ui text-[10px] tracking-widest uppercase text-white/20">No signals detected.</span>
-                      </td>
-                    </tr>
-                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                  ) : (leads as any[]).map((lead) => (
-                    <tr key={lead.id} className="hover:bg-white/[0.02] transition-colors group">
-                       <td className="p-6 font-ui text-[10px] tracking-widest text-white/40">{lead.id.substring(0, 8)}</td>
-                       <td className="p-6">
-                          <div className="font-display text-lg text-white uppercase tracking-widest mb-1">{lead.full_name}</div>
-                          <div className="font-ui text-[9px] text-white/30 uppercase tracking-widest">{lead.metadata?.company || 'N/A'}</div>
-                       </td>
-                       <td className="p-6">
-                          <div className="font-ui text-[10px] text-white/60 uppercase tracking-widest mb-1">{lead.metadata?.serviceInterest || lead.lead_type}</div>
-                          <div className="font-ui text-[9px] text-accent/50 uppercase tracking-widest">{lead.metadata?.packageInterest || 'Direct Enquiry'}</div>
-                       </td>
-                       <td className="p-6">
-                          <div className="font-ui text-[10px] text-white/60 uppercase tracking-widest mb-1">{lead.metadata?.location || 'Unknown'}</div>
-                          <div className="font-ui text-[9px] text-white/30 uppercase tracking-widest">{lead.metadata?.sector || 'N/A'}</div>
-                       </td>
-                       <td className="p-6 text-center">
-                          <div className="font-display text-2xl text-white">{lead.metadata?.score || '--'}</div>
-                       </td>
-                       <td className="p-6 text-center">
-                          <span className={`inline-block px-4 py-1 border font-ui text-[9px] tracking-[0.2em] uppercase rounded-full ${getQualityColor(lead.metadata?.quality || 'Qualified')}`}>
-                             {lead.metadata?.quality || 'Qualified'}
-                          </span>
-                       </td>
-                       <td className="p-6 text-center">
-                          <div className={`font-ui text-[10px] tracking-widest uppercase ${getStatusColor(lead.status)}`}>
-                             {lead.status}
-                          </div>
-                       </td>
-                       <td className="p-6 font-ui text-[10px] tracking-widest text-white/30 uppercase">
-                          {new Date(lead.created_at).toLocaleDateString()}
-                       </td>
-                       <td className="p-6 text-right">
-                          <Link href={`/admin/leads/${lead.id}`} className="p-2 text-white/20 hover:text-accent transition-colors inline-block">
-                             <ChevronRight className="w-5 h-5" />
-                          </Link>
-                       </td>
-                    </tr>
-                  ))}
-               </tbody>
-           </table>
-        </div>
-
-        {/* Footer Metrics */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-           <div className="bg-white/[0.02] border border-white/5 p-12">
-              <h3 className="font-display text-xl text-white uppercase tracking-widest mb-8">Highest Converting Service</h3>
-              <div className="space-y-6">
-                 {[
-                   { name: 'Roof Inspections', rate: '68%', count: '42' },
-                   { name: 'Construction Monitoring', rate: '54%', count: '31' },
-                   { name: 'Surveying & Mapping', rate: '42%', count: '18' }
-                 ].map(s => (
-                   <div key={s.name} className="flex items-end justify-between">
-                      <div>
-                         <div className="font-ui text-[10px] tracking-widest uppercase text-white/60 mb-2">{s.name}</div>
-                         <div className="h-1 bg-white/5 w-48 overflow-hidden">
-                            <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: parseInt(s.rate)/100 }} className="h-full bg-accent origin-left" />
-                         </div>
-                      </div>
-                      <div className="text-right">
-                         <div className="font-display text-xl text-white">{s.rate}</div>
-                         <div className="font-ui text-[8px] text-white/20 tracking-widest uppercase">{s.count} Leads</div>
-                      </div>
-                   </div>
-                 ))}
-              </div>
-           </div>
-
-           <div className="bg-white/[0.02] border border-white/5 p-12">
-              <h3 className="font-display text-xl text-white uppercase tracking-widest mb-8">Leads From Tools</h3>
-              <div className="space-y-6">
-                 {[
-                   { name: 'Project Brief Assistant', count: '56', conversion: '12%' },
-                   { name: 'Output Selector', count: '42', conversion: '18%' },
-                   { name: 'Pricing Engine', count: '18', conversion: '24%' }
-                 ].map(tool => (
-                   <div key={tool.name} className="flex items-center justify-between p-4 bg-dark/40 border border-white/5">
-                      <div>
-                         <div className="font-ui text-[10px] tracking-widest uppercase text-white/60 mb-1">{tool.name}</div>
-                         <div className="font-ui text-[8px] text-accent/50 tracking-widest uppercase">{tool.conversion} Conv. Rate</div>
-                      </div>
-                      <div className="font-display text-2xl text-white">{tool.count}</div>
-                   </div>
-                 ))}
-              </div>
-           </div>
-
-           <div className="bg-accent/5 border border-accent/10 p-12">
-              <h3 className="font-display text-xl text-accent uppercase tracking-widest mb-8">Bundle Demand</h3>
-              <div className="space-y-6">
-                 {[
-                   { name: 'Roof Intelligence Pack', demand: 'High', leads: '28' },
-                   { name: 'Construction Progress Pack', demand: 'Medium', leads: '19' },
-                   { name: 'Survey Data Pack', demand: 'Medium', leads: '14' }
-                 ].map(b => (
-                   <div key={b.name} className="flex items-center justify-between">
-                      <div>
-                         <div className="font-ui text-[11px] tracking-widest uppercase text-accent mb-1">{b.name}</div>
-                         <div className="font-ui text-[8px] text-accent/30 tracking-widest uppercase">Demand: {b.demand}</div>
-                      </div>
-                      <div className="font-display text-2xl text-accent">{b.leads}</div>
-                   </div>
-                 ))}
-              </div>
-           </div>
-        </div>
-
       </div>
-    </main>
+
+      {/* Filter and Search Bar */}
+      <div className="bg-white border border-[#e2e8f0] p-4 rounded-[2px] shadow-sm space-y-4">
+        <div className="flex flex-col md:flex-row items-center gap-4">
+          {/* Search Input */}
+          <div className="relative flex-1 w-full">
+            <Search className="w-4 h-4 text-[#94a3b8] absolute left-3 top-1/2 -translate-y-1/2" />
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search by contact name, company, email, phone, or message contents..."
+              className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-[2px] pl-9 pr-8 py-2 text-xs text-[#0f172a] outline-none focus:border-[#0066ff] focus:bg-white transition-colors"
+            />
+            {search && (
+              <button
+                onClick={() => setSearch('')}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#94a3b8] hover:text-[#0f172a]"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            )}
+          </div>
+
+          {/* Quick Status Dropdown */}
+          <div className="flex items-center gap-2 w-full md:w-auto">
+            <select
+              value={selectedStatus}
+              onChange={(e) => setSelectedStatus(e.target.value)}
+              className="bg-[#f8fafc] border border-[#cbd5e1] rounded-[2px] px-3 py-2 text-xs text-[#334155] outline-none focus:border-[#0066ff]"
+            >
+              {STATUSES.map((s) => (
+                <option key={s} value={s}>
+                  Status: {s}
+                </option>
+              ))}
+            </select>
+
+            <select
+              value={selectedPriority}
+              onChange={(e) => setSelectedPriority(e.target.value)}
+              className="bg-[#f8fafc] border border-[#cbd5e1] rounded-[2px] px-3 py-2 text-xs text-[#334155] outline-none focus:border-[#0066ff]"
+            >
+              {PRIORITIES.map((p) => (
+                <option key={p} value={p}>
+                  Priority: {p}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        {/* Status Pills */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs border-t border-[#f1f5f9] pt-3">
+          <span className="text-[11px] font-medium text-[#94a3b8] mr-2 shrink-0">Quick Filter:</span>
+          {STATUSES.map((s) => {
+            const isSelected = selectedStatus === s
+            return (
+              <button
+                key={s}
+                onClick={() => setSelectedStatus(s)}
+                className={`px-2.5 py-1 text-[11px] rounded-[2px] transition-colors shrink-0 ${
+                  isSelected
+                    ? 'bg-[#0066ff] text-white font-medium shadow-sm'
+                    : 'bg-[#f1f5f9] text-[#475569] hover:bg-[#e2e8f0]'
+                }`}
+              >
+                {s}
+              </button>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* Main Leads Table */}
+      <div className="bg-white border border-[#e2e8f0] rounded-[2px] shadow-sm overflow-hidden">
+        <div className="overflow-x-auto">
+          {loading ? (
+            <div className="p-16 text-center text-xs text-[#64748b]">
+              <div className="w-6 h-6 border-2 border-[#0066ff] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+              Loading enquiries...
+            </div>
+          ) : leads.length === 0 ? (
+            <div className="p-16 text-center">
+              <Users className="w-8 h-8 text-[#cbd5e1] mx-auto mb-3" />
+              <h3 className="text-sm font-medium text-[#0f172a] mb-1">No Leads Found</h3>
+              <p className="text-xs text-[#64748b] max-w-sm mx-auto">
+                No enquiry records matched your search filters. Try clearing your search or status filter.
+              </p>
+            </div>
+          ) : (
+            <table className="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr className="border-b border-[#e2e8f0] bg-[#f8fafc] text-[#64748b] font-medium">
+                  <th className="py-3 px-4 w-6"></th>
+                  <th className="py-3 px-4">Date</th>
+                  <th className="py-3 px-4">Contact & Company</th>
+                  <th className="py-3 px-4">Service</th>
+                  <th className="py-3 px-4">Contact Info</th>
+                  <th className="py-3 px-4">Source Page</th>
+                  <th className="py-3 px-4 text-center">Priority</th>
+                  <th className="py-3 px-4 text-center">Status</th>
+                  <th className="py-3 px-4 text-right"></th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[#f1f5f9]">
+                {leads.map((lead) => {
+                  const isNew = lead.status === 'New'
+                  return (
+                    <tr
+                      key={lead.id}
+                      className={`hover:bg-[#f8fafc] transition-colors group ${
+                        isNew ? 'bg-[#f0f7ff]/40' : ''
+                      }`}
+                    >
+                      {/* Unread indicator dot */}
+                      <td className="py-3.5 px-3 text-center">
+                        {isNew && (
+                          <span
+                            className="inline-block w-2 h-2 rounded-full bg-[#0066ff] shadow-sm"
+                            title="New Unreviewed Lead"
+                          />
+                        )}
+                      </td>
+
+                      {/* Date */}
+                      <td className="py-3.5 px-4 text-[#64748b] whitespace-nowrap">
+                        <span className="font-medium text-[#334155] block">
+                          {new Date(lead.created_at).toLocaleDateString('en-GB', {
+                            day: '2-digit',
+                            month: 'short',
+                          })}
+                        </span>
+                        <span className="text-[10px] text-[#94a3b8]">
+                          {new Date(lead.created_at).toLocaleTimeString('en-GB', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                          })}
+                        </span>
+                      </td>
+
+                      {/* Name & Company */}
+                      <td className="py-3.5 px-4">
+                        <Link
+                          href={`/admin/leads/${lead.id}`}
+                          className="font-medium text-[#0f172a] hover:text-[#0066ff] block"
+                        >
+                          {lead.full_name}
+                        </Link>
+                        {lead.company_name ? (
+                          <span className="text-[11px] text-[#64748b] block">{lead.company_name}</span>
+                        ) : (
+                          <span className="text-[10px] text-[#94a3b8] italic block">No company specified</span>
+                        )}
+                      </td>
+
+                      {/* Service */}
+                      <td className="py-3.5 px-4">
+                        <span className="font-medium text-[#1e293b] block">{lead.service}</span>
+                        {lead.service_detail && (
+                          <span className="text-[10px] text-[#0066ff] block">{lead.service_detail}</span>
+                        )}
+                      </td>
+
+                      {/* Contact Info (Clickable) */}
+                      <td className="py-3.5 px-4 text-[#475569] space-y-0.5">
+                        <a
+                          href={`mailto:${lead.email}`}
+                          className="text-[#0066ff] hover:underline flex items-center gap-1 block truncate max-w-[180px]"
+                        >
+                          <Mail className="w-3 h-3 shrink-0" />
+                          <span className="truncate">{lead.email}</span>
+                        </a>
+                        {lead.phone && (
+                          <a
+                            href={`tel:${lead.phone}`}
+                            className="text-[#475569] hover:text-[#0f172a] flex items-center gap-1 block"
+                          >
+                            <Phone className="w-3 h-3 shrink-0" />
+                            <span>{lead.phone}</span>
+                          </a>
+                        )}
+                      </td>
+
+                      {/* Source Page & Channel */}
+                      <td className="py-3.5 px-4 text-[#64748b] max-w-[160px]">
+                        <code className="text-[10px] bg-[#f1f5f9] px-1.5 py-0.5 rounded text-[#475569] block truncate">
+                          {lead.source_page || '/'}
+                        </code>
+                        <span className="text-[10px] text-[#94a3b8] block capitalize">
+                          {lead.lead_source.replace('_', ' ')}
+                        </span>
+                      </td>
+
+                      {/* Priority */}
+                      <td className="py-3.5 px-4 text-center">
+                        <span className={`text-[11px] ${getPriorityBadge(lead.priority)}`}>
+                          {lead.priority}
+                        </span>
+                      </td>
+
+                      {/* Status */}
+                      <td className="py-3.5 px-4 text-center">
+                        <span
+                          className={`inline-block px-2.5 py-0.5 text-[10px] font-medium border rounded-[2px] ${getStatusBadge(
+                            lead.status
+                          )}`}
+                        >
+                          {lead.status}
+                        </span>
+                      </td>
+
+                      {/* Detail CTA */}
+                      <td className="py-3.5 px-4 text-right">
+                        <Link
+                          href={`/admin/leads/${lead.id}`}
+                          className="p-1.5 hover:bg-[#f1f5f9] text-[#64748b] hover:text-[#0066ff] rounded inline-block transition-colors"
+                          title="Open Lead"
+                        >
+                          <ChevronRight className="w-4 h-4" />
+                        </Link>
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          )}
+        </div>
+
+        {/* Footer Count */}
+        <div className="p-4 border-t border-[#e2e8f0] bg-[#f8fafc] flex items-center justify-between text-xs text-[#64748b]">
+          <span>Showing {leads.length} recorded enquiries</span>
+          <span className="text-[11px] text-[#94a3b8]">Sorted by newest first</span>
+        </div>
+      </div>
+    </div>
   )
 }

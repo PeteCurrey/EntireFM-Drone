@@ -1,57 +1,68 @@
 'use client'
 
-import { useState, use, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect, use } from 'react'
+import Link from 'next/link'
 import { 
   ChevronLeft, 
-  Target, 
+  Phone, 
+  Mail, 
+  Building, 
   MapPin, 
   Calendar, 
-  Briefcase, 
-  Building2, 
-  Activity, 
+  Clock, 
   FileText, 
+  Activity, 
   CheckCircle2, 
-  ExternalLink, 
-  AlertCircle,
-  Clock,
-  Phone,
-  Mail,
-  User,
-  ArrowRight,
-  ClipboardList,
+  AlertCircle, 
+  Copy, 
+  Check, 
+  ExternalLink,
   ShieldCheck,
-  Zap,
-  Hammer,
-  Image as ImageIcon,
-  Box,
-  Copy,
-  ChevronRight,
-  Loader2
+  Save,
+  Send
 } from 'lucide-react'
-import Link from 'next/link'
-import SectionTag from '@/components/ui/SectionTag'
+import { Lead, LeadStatus, LeadPriority } from '@/lib/leads/types'
+
+const STATUS_OPTIONS: LeadStatus[] = [
+  'New',
+  'Contacted',
+  'Qualified',
+  'Quote Required',
+  'Quote Sent',
+  'Won',
+  'Lost',
+  'Spam',
+]
+
+const PRIORITY_OPTIONS: LeadPriority[] = ['Low', 'Medium', 'High', 'Urgent']
 
 export default function LeadDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [lead, setLead] = useState<any>(null)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [timeline, setTimeline] = useState<any[]>([])
+  const [lead, setLead] = useState<Lead | null>(null)
   const [loading, setLoading] = useState(true)
-  const [status, setStatus] = useState('New')
-  const [copied, setCopied] = useState(false)
+  const [saving, setSaving] = useState(false)
+  const [status, setStatus] = useState<LeadStatus>('New')
+  const [priority, setPriority] = useState<LeadPriority>('Medium')
+  const [adminNotes, setAdminNotes] = useState('')
+  const [nextFollowUp, setNextFollowUp] = useState('')
+  const [assignedTo, setAssignedTo] = useState('')
+  const [copiedField, setCopiedField] = useState<string | null>(null)
+  const [saveSuccess, setSaveSuccess] = useState(false)
 
   useEffect(() => {
     async function fetchLead() {
       try {
-        const response = await fetch(`/api/admin/leads`)
-        const data = await response.json()
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const currentLead = data.find((l: any) => l.id === id)
-        if (currentLead) {
-          setLead(currentLead)
-          setStatus(currentLead.status)
+        const res = await fetch(`/api/admin/leads/${id}`)
+        if (res.ok) {
+          const data: Lead = await res.json()
+          setLead(data)
+          setStatus(data.status)
+          setPriority(data.priority || 'Medium')
+          setAdminNotes(data.admin_notes || '')
+          setAssignedTo(data.assigned_to || '')
+          if (data.next_follow_up_at) {
+            setNextFollowUp(data.next_follow_up_at.split('T')[0])
+          }
         }
       } catch (err) {
         console.error('Failed to fetch lead:', err)
@@ -62,320 +73,489 @@ export default function LeadDetailPage({ params }: { params: Promise<{ id: strin
     fetchLead()
   }, [id])
 
-  const handleStatusChange = async (newStatus: string) => {
+  const handleSave = async () => {
+    setSaving(true)
+    setSaveSuccess(false)
     try {
-      const response = await fetch('/api/admin/leads', {
+      const res = await fetch(`/api/admin/leads/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id, status: newStatus })
+        body: JSON.stringify({
+          status,
+          priority,
+          admin_notes: adminNotes,
+          assigned_to: assignedTo,
+          next_follow_up_at: nextFollowUp ? new Date(nextFollowUp).toISOString() : null,
+          last_contacted_at: status === 'Contacted' ? new Date().toISOString() : lead?.last_contacted_at,
+        }),
       })
-      if (response.ok) {
-        setStatus(newStatus)
+      if (res.ok) {
+        const updated: Lead = await res.json()
+        setLead(updated)
+        setSaveSuccess(true)
+        setTimeout(() => setSaveSuccess(false), 3000)
       }
     } catch (err) {
-      console.error('Failed to update status:', err)
+      console.error('Failed to save lead updates:', err)
+    } finally {
+      setSaving(false)
     }
   }
 
-  const getQualityColor = (quality: string) => {
-    switch (quality) {
-      case 'Hot': return 'text-orange-500 bg-orange-500/10 border-orange-500/20'
-      case 'Qualified': return 'text-accent bg-accent/10 border-accent/20'
-      case 'Nurture': return 'text-blue-400 bg-blue-400/10 border-blue-400/20'
-      default: return 'text-white/30 bg-white/5 border-white/10'
-    }
-  }
-
-  const copyEmail = () => {
-    if (lead) {
-      navigator.clipboard.writeText(lead.email)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    }
+  const copyToClipboard = (text: string, fieldName: string) => {
+    navigator.clipboard.writeText(text)
+    setCopiedField(fieldName)
+    setTimeout(() => setCopiedField(null), 2000)
   }
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-dark flex flex-col items-center justify-center">
-        <Loader2 className="w-12 h-12 text-accent animate-spin mb-6" />
-        <span className="font-ui text-xs tracking-[0.4em] uppercase text-white/20">Decrypting Lead Intel...</span>
+      <div className="p-20 text-center text-xs text-[#64748b]">
+        <div className="w-6 h-6 border-2 border-[#0066ff] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+        Loading lead dossier...
       </div>
     )
   }
 
   if (!lead) {
     return (
-      <div className="min-h-screen bg-dark flex flex-col items-center justify-center">
-        <AlertCircle className="w-12 h-12 text-red-400 mb-6" />
-        <span className="font-ui text-xs tracking-[0.4em] uppercase text-white/20">Lead Signal Lost</span>
-        <Link href="/admin/leads" className="mt-8 text-accent underline underline-offset-4 font-ui text-[10px] tracking-widest uppercase">Return to Command Centre</Link>
+      <div className="p-20 text-center">
+        <AlertCircle className="w-8 h-8 text-[#dc2626] mx-auto mb-3" />
+        <h2 className="text-sm font-semibold text-[#0f172a] mb-1">Lead Record Not Found</h2>
+        <p className="text-xs text-[#64748b] mb-6">
+          The requested lead ID does not exist or has been removed.
+        </p>
+        <Link
+          href="/admin/leads"
+          className="px-4 py-2 bg-[#0066ff] text-white text-xs font-medium rounded-[2px]"
+        >
+          Return to Leads
+        </Link>
       </div>
     )
   }
 
-  const attr = lead.attribution || {}
-  const journey = attr.journey_summary || []
-
   return (
-    <main className="min-h-screen bg-dark text-white pt-32 pb-20 px-8 md:px-20">
-      <div className="max-w-[1400px] mx-auto">
-        
-        {/* Navigation */}
-        <Link href="/admin/leads" className="flex items-center gap-2 font-ui text-[9px] tracking-widest uppercase text-white/30 hover:text-white mb-12">
-           <ChevronLeft className="w-3 h-3" /> Back to Leads
+    <div className="space-y-8 max-w-6xl">
+      {/* Top Breadcrumb & Actions */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <Link
+          href="/admin/leads"
+          className="text-xs text-[#64748b] hover:text-[#0066ff] flex items-center gap-1 font-medium transition-colors"
+        >
+          <ChevronLeft className="w-4 h-4" /> Back to Leads
         </Link>
 
-        {/* Lead Header */}
-        <header className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-12 mb-16 pb-12 border-b border-white/5">
-            <div>
-               <div className="flex items-center gap-4 mb-6">
-                  <span className={`inline-block px-4 py-1 border font-ui text-[9px] tracking-[0.2em] uppercase rounded-full ${getQualityColor(lead.metadata?.quality || 'Hot')}`}>
-                     {lead.metadata?.quality || 'Hot'} Lead
-                  </span>
-                  <span className="font-ui text-[10px] tracking-widest text-white/30 uppercase">{lead.id.substring(0, 8)} · Submitted {new Date(lead.created_at).toLocaleString()}</span>
-               </div>
-               <h1 className="font-display text-5xl md:text-6xl text-white uppercase tracking-tighter mb-4 leading-none">
-                  {lead.full_name} <span className="text-white/20">/</span> <span className="text-accent">{lead.metadata?.company || 'Direct'}</span>
-               </h1>
-               <div className="flex flex-wrap gap-8">
-                  <button onClick={copyEmail} className="flex items-center gap-3 text-white/40 hover:text-white transition-colors group">
-                     <Mail className="w-4 h-4 group-hover:text-accent" />
-                     <span className="font-ui text-[10px] tracking-widest uppercase">{copied ? 'COPIED!' : lead.email_address}</span>
-                  </button>
-                  <div className="flex items-center gap-3 text-white/40">
-                     <Phone className="w-4 h-4" />
-                     <span className="font-ui text-[10px] tracking-widest uppercase">{lead.metadata?.phone || 'N/A'}</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-white/40">
-                     <User className="w-4 h-4" />
-                     <span className="font-ui text-[10px] tracking-widest uppercase">{lead.metadata?.role || 'N/A'}</span>
-                  </div>
-               </div>
+        <div className="flex items-center gap-3">
+          {lead.phone && (
+            <a
+              href={`tel:${lead.phone}`}
+              className="px-3.5 py-2 border border-[#cbd5e1] hover:bg-white text-[#0f172a] text-xs font-medium rounded-[2px] transition-colors inline-flex items-center gap-1.5 shadow-sm"
+            >
+              <Phone className="w-3.5 h-3.5 text-[#10b981]" />
+              <span>Call Lead</span>
+            </a>
+          )}
+          <a
+            href={`mailto:${lead.email}?subject=TFTS%20Drone%20Enquiry%20—%20${encodeURIComponent(lead.service)}`}
+            className="px-3.5 py-2 bg-[#0066ff] hover:bg-[#0052cc] text-white text-xs font-medium rounded-[2px] transition-colors inline-flex items-center gap-1.5 shadow-sm"
+          >
+            <Mail className="w-3.5 h-3.5" />
+            <span>Email Lead</span>
+          </a>
+        </div>
+      </div>
+
+      {/* Main Header Card */}
+      <div className="bg-white border border-[#e2e8f0] p-6 rounded-[2px] shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div>
+          <div className="flex items-center gap-3 mb-2">
+            <span className="text-xs font-mono text-[#64748b]">{lead.id}</span>
+            <span className="text-[#cbd5e1]">•</span>
+            <span className="text-xs text-[#64748b]">
+              Received {new Date(lead.created_at).toLocaleString('en-GB', {
+                dateStyle: 'medium',
+                timeStyle: 'short',
+              })}
+            </span>
+          </div>
+          <h1 className="text-2xl font-semibold text-[#0f172a] tracking-tight">
+            {lead.full_name}
+          </h1>
+          {lead.company_name && (
+            <div className="text-sm font-medium text-[#475569] mt-0.5 flex items-center gap-1.5">
+              <Building className="w-4 h-4 text-[#94a3b8]" />
+              <span>{lead.company_name}</span>
             </div>
-           
-           <div className="flex flex-col items-end gap-6">
-              <div className="text-right">
-                 <div className="font-ui text-[9px] tracking-[0.4em] uppercase text-white/30 mb-2">Lead Score</div>
-                 <div className="font-display text-7xl text-white">{lead.score}<span className="text-white/10 text-2xl">/100</span></div>
-              </div>
-              <div className="flex gap-4">
-                 <select 
-                   value={status}
-                   onChange={e => handleStatusChange(e.target.value)}
-                   className="bg-white/5 border border-white/10 px-6 py-3 font-ui text-[10px] tracking-widest uppercase text-white focus:outline-none"
-                 >
-                    <option value="New">Status: New</option>
-                    <option value="Reviewed">Status: Reviewed</option>
-                    <option value="Contacted">Status: Contacted</option>
-                    <option value="Quoted">Status: Quoted</option>
-                    <option value="Won">Status: Won</option>
-                    <option value="Lost">Status: Lost</option>
-                 </select>
-                 <button className="bg-accent text-dark px-8 py-3 font-display text-xl tracking-widest hover:bg-white transition-all">
-                    CREATE QUOTE
-                 </button>
-              </div>
-           </div>
-        </header>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-           
-           {/* Left Column: Project Details */}
-           <div className="lg:col-span-8 space-y-16">
-              
-              {/* Description */}
-              <section>
-                 <h3 className="font-display text-2xl text-white uppercase tracking-widest mb-8 border-l-2 border-accent pl-6">Project Brief</h3>
-                 <div className="bg-white/[0.02] border border-white/5 p-10">
-                    <p className="font-body text-lg text-white/70 leading-relaxed uppercase tracking-widest italic">
-                       &quot;{lead.message_body || 'No description provided.'}&quot;
-                    </p>
-                 </div>
-              </section>
-
-              {/* Classification Grid */}
-              <section className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
-                 {[
-                   { label: 'Service Interested', val: lead.metadata?.serviceInterest || lead.lead_type, icon: Activity },
-                   { label: 'Recommended Bundle', val: lead.metadata?.packageInterest || 'N/A', icon: Target, accent: true },
-                   { label: 'Output Family', val: lead.metadata?.outcomes?.[0] || 'N/A', icon: FileText },
-                   { label: 'Sector', val: lead.metadata?.sector || 'N/A', icon: Building2 },
-                   { label: 'Location', val: lead.metadata?.location || 'Unknown', icon: MapPin },
-                   { label: 'Site Type', val: lead.metadata?.siteType || 'N/A', icon: Briefcase },
-                   { label: 'Urgency', val: lead.metadata?.urgency || 'N/A', icon: Clock },
-                   { label: 'Complexity', val: 'Assessment Pending', icon: AlertCircle }
-                 ].map((item, i) => (
-                   <div key={i} className="bg-dark p-8 group">
-                      <div className="flex items-center gap-4 mb-4">
-                         <item.icon className={`w-4 h-4 ${item.accent ? 'text-accent' : 'text-white/20'}`} />
-                         <span className="font-ui text-[9px] tracking-widest uppercase text-white/30">{item.label}</span>
-                      </div>
-                      <div className={`font-display text-xl uppercase tracking-widest ${item.accent ? 'text-accent' : 'text-white'}`}>
-                         {item.val}
-                      </div>
-                   </div>
-                 ))}
-              </section>
-
-              {/* Deliverables & Constraints */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                 <div className="bg-white/[0.02] border border-white/5 p-10">
-                    <h4 className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent mb-8">Selected Deliverables</h4>
-                    <ul className="space-y-4">
-                       {(lead.metadata?.deliverables || []).map((d: string) => (
-                         <li key={d} className="flex items-center gap-4">
-                            <CheckCircle2 className="w-4 h-4 text-accent/50" />
-                            <span className="font-ui text-[10px] tracking-widest text-white/60 uppercase">{d}</span>
-                         </li>
-                       ))}
-                       {(!lead.metadata?.deliverables || lead.metadata?.deliverables.length === 0) && (
-                          <li className="font-ui text-[10px] tracking-widest text-white/20 uppercase italic">None specified</li>
-                       )}
-                    </ul>
-                 </div>
-                 <div className="bg-white/[0.02] border border-white/5 p-10">
-                    <h4 className="font-ui text-[11px] tracking-[0.4em] uppercase text-red-400 mb-8">Known Constraints</h4>
-                    <ul className="space-y-4">
-                       {(lead.metadata?.constraints || []).map((c: string) => (
-                         <li key={c} className="flex items-center gap-4">
-                            <AlertCircle className="w-4 h-4 text-red-400/30" />
-                            <span className="font-ui text-[10px] tracking-widest text-white/60 uppercase">{c}</span>
-                         </li>
-                       ))}
-                       {(!lead.metadata?.constraints || lead.metadata?.constraints.length === 0) && (
-                          <li className="font-ui text-[10px] tracking-widest text-white/20 uppercase italic">None specified</li>
-                       )}
-                    </ul>
-                 </div>
-              </div>
-
-              {/* Journey & Attribution */}
-              <section className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                 <div className="bg-dark/40 border border-white/5 p-10">
-                    <h4 className="font-ui text-[10px] tracking-[0.4em] uppercase text-accent mb-8">Lead Journey Timeline</h4>
-                    <div className="space-y-6 relative before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
-                       {lead.attribution.journey_summary.map((step: string, i: number) => (
-                         <div key={i} className="flex gap-4 relative">
-                            <div className="w-4 h-4 rounded-full bg-dark border border-white/20 flex-shrink-0 z-10 flex items-center justify-center">
-                               <div className={`w-1.5 h-1.5 rounded-full ${i === lead.attribution.journey_summary.length - 1 ? 'bg-accent animate-pulse' : 'bg-white/10'}`} />
-                            </div>
-                            <span className="font-ui text-[10px] tracking-widest uppercase text-white/50">{step}</span>
-                         </div>
-                       ))}
-                    </div>
-                 </div>
-
-                 <div className="bg-dark/40 border border-white/5 p-10">
-                    <h4 className="font-ui text-[10px] tracking-[0.4em] uppercase text-white/30 mb-8">Attribution Details</h4>
-                    <div className="space-y-8">
-                       <div>
-                          <span className="block font-ui text-[8px] tracking-widest text-white/20 uppercase mb-2">First Touch</span>
-                          <div className="p-3 bg-white/[0.02] border border-white/5">
-                             <div className="font-ui text-[9px] tracking-widest uppercase text-accent mb-1">{lead.attribution.first_touch_source} / {lead.attribution.first_touch_medium}</div>
-                             <div className="font-ui text-[8px] tracking-widest uppercase text-white/40 truncate">{lead.attribution.first_touch_url}</div>
-                          </div>
-                       </div>
-                       <div>
-                          <span className="block font-ui text-[8px] tracking-widest text-white/20 uppercase mb-2">Last Touch</span>
-                          <div className="p-3 bg-white/[0.02] border border-white/5">
-                             <div className="font-ui text-[9px] tracking-widest uppercase text-accent mb-1">{lead.attribution.last_touch_source} / {lead.attribution.last_touch_medium}</div>
-                             <div className="font-ui text-[8px] tracking-widest uppercase text-white/40 truncate">{lead.attribution.last_touch_url}</div>
-                          </div>
-                       </div>
-                       <div>
-                          <span className="block font-ui text-[8px] tracking-widest text-white/20 uppercase mb-2">Campaign Context (UTMs)</span>
-                          <div className="grid grid-cols-2 gap-2">
-                             {['source', 'medium', 'campaign', 'content', 'term'].map(key => (
-                               <div key={key} className="p-2 bg-white/[0.01] border border-white/5">
-                                  <span className="block font-ui text-[7px] text-white/20 uppercase mb-1">{key}</span>
-                                  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                                  <span className="block font-ui text-[8px] text-white/60 uppercase truncate">{(lead.attribution as any)[`utm_${key}`]}</span>
-                               </div>
-                             ))}
-                          </div>
-                       </div>
-                    </div>
-                 </div>
-              </section>
-           </div>
-
-           {/* Right Column: Scoring & Actions */}
-           <div className="lg:col-span-4 space-y-12">
-              
-              {/* Score Breakdown */}
-              <div className="bg-mid border border-white/10 p-12">
-                 <h3 className="font-display text-2xl text-white uppercase tracking-widest mb-8">Score Breakdown</h3>
-                 <div className="space-y-8">
-                    {[
-                      { label: 'Commercial Intent', score: lead.breakdown.intent, max: 25 },
-                      { label: 'Project Clarity', score: lead.breakdown.clarity, max: 20 },
-                      { label: 'Commercial Value', score: lead.breakdown.value, max: 20 },
-                      { label: 'Urgency / Readiness', score: lead.breakdown.readiness, max: 15 },
-                      { label: 'Strategic Fit', score: lead.breakdown.strategic, max: 20 }
-                    ].map((item, i) => (
-                      <div key={i}>
-                         <div className="flex justify-between font-ui text-[9px] tracking-[0.2em] uppercase mb-3">
-                            <span className="text-white/40">{item.label}</span>
-                            <span className="text-white">{item.score} / {item.max}</span>
-                         </div>
-                         <div className="h-1 bg-white/5 relative">
-                            <motion.div 
-                              initial={{ scaleX: 0 }} 
-                              animate={{ scaleX: item.score / item.max }} 
-                              className="absolute inset-0 bg-accent origin-left" 
-                            />
-                         </div>
-                      </div>
-                    ))}
-                 </div>
-                 <div className="mt-12 p-6 bg-accent/5 border border-accent/10">
-                    <p className="font-body text-[10px] text-accent/80 uppercase tracking-widest leading-relaxed italic text-center">
-                       This lead meets high-priority criteria for sector, location, and commercial output.
-                    </p>
-                 </div>
-              </div>
-
-              {/* Next Action */}
-              <div className="bg-accent/10 border border-accent/20 p-12">
-                 <div className="flex items-center gap-4 mb-8">
-                    <Zap className="w-5 h-5 text-accent" />
-                    <h3 className="font-display text-2xl text-accent uppercase tracking-widest">Next Action</h3>
-                 </div>
-                 <p className="font-body text-lg text-white leading-relaxed uppercase tracking-widest mb-10">
-                    {lead.nextAction}
-                 </p>
-                 <div className="space-y-4">
-                    <button className="w-full flex items-center justify-between p-6 bg-dark border border-white/10 hover:border-accent transition-all group">
-                       <span className="font-ui text-[10px] tracking-widest uppercase text-white/60 group-hover:text-white">Prepare FM Quote</span>
-                       <ChevronRight className="w-4 h-4 text-accent" />
-                    </button>
-                    <button className="w-full flex items-center justify-between p-6 bg-dark border border-white/10 hover:border-accent transition-all group">
-                       <span className="font-ui text-[10px] tracking-widest uppercase text-white/60 group-hover:text-white">Request Site Photos</span>
-                       <ChevronRight className="w-4 h-4 text-accent" />
-                    </button>
-                 </div>
-              </div>
-
-              {/* Admin Actions */}
-              <div className="bg-white/[0.02] border border-white/5 p-12">
-                 <h4 className="font-ui text-[10px] tracking-[0.4em] uppercase text-white/30 mb-8">Admin Controls</h4>
-                 <div className="space-y-4">
-                    <button className="w-full text-left p-6 bg-dark/40 border border-white/5 hover:bg-white/5 transition-all font-ui text-[9px] tracking-widest uppercase text-white/40">
-                       Move to Nurture Pipeline
-                    </button>
-                    <button className="w-full text-left p-6 bg-dark/40 border border-white/5 hover:bg-white/5 transition-all font-ui text-[9px] tracking-widest uppercase text-white/40">
-                       Assign to Project Manager
-                    </button>
-                    <button className="w-full text-left p-6 bg-dark/40 border border-white/5 hover:bg-white/5 transition-all font-ui text-[9px] tracking-widest uppercase text-red-400/40 hover:text-red-400">
-                       Archive Lead
-                    </button>
-                 </div>
-              </div>
-
-           </div>
+          )}
         </div>
 
+        <div className="flex flex-wrap items-center gap-4 text-xs">
+          <div className="p-3 bg-[#f8fafc] border border-[#e2e8f0] rounded-[2px]">
+            <span className="text-[10px] text-[#94a3b8] uppercase tracking-wider block mb-0.5">
+              Target Service
+            </span>
+            <span className="font-semibold text-[#0f172a]">{lead.service}</span>
+          </div>
+          <div className="p-3 bg-[#f8fafc] border border-[#e2e8f0] rounded-[2px]">
+            <span className="text-[10px] text-[#94a3b8] uppercase tracking-wider block mb-0.5">
+              Source Channel
+            </span>
+            <span className="font-semibold text-[#0f172a] capitalize">
+              {lead.lead_source.replace('_', ' ')}
+            </span>
+          </div>
+        </div>
       </div>
-    </main>
+
+      {/* 2-Column Detail Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* Left Column: Contact, Message & Attribution (8 cols) */}
+        <div className="lg:col-span-8 space-y-6">
+          {/* Enquiry Message / Scope */}
+          <div className="bg-white border border-[#e2e8f0] p-6 rounded-[2px] shadow-sm">
+            <h2 className="text-xs font-semibold text-[#0f172a] uppercase tracking-wider mb-4 flex items-center gap-2">
+              <FileText className="w-4 h-4 text-[#0066ff]" />
+              <span>Enquiry Message & Scope</span>
+            </h2>
+            <div className="bg-[#f8fafc] border border-[#e2e8f0] p-4 rounded-[2px]">
+              <p className="text-sm text-[#1e293b] leading-relaxed whitespace-pre-wrap">
+                {lead.message || 'No additional message provided with this submission.'}
+              </p>
+            </div>
+
+            {/* Extra Technical Metadata if available */}
+            {lead.metadata && Object.keys(lead.metadata).length > 0 && (
+              <div className="mt-6 pt-6 border-t border-[#f1f5f9]">
+                <h3 className="text-xs font-medium text-[#64748b] uppercase tracking-wider mb-3">
+                  Technical Specifications & Form Data
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  {lead.metadata.siteType && (
+                    <div className="p-2.5 bg-[#f8fafc] rounded border border-[#f1f5f9]">
+                      <span className="text-[10px] text-[#94a3b8] block">Site Type</span>
+                      <span className="font-medium text-[#334155]">{lead.metadata.siteType}</span>
+                    </div>
+                  )}
+                  {lead.metadata.urgency && (
+                    <div className="p-2.5 bg-[#f8fafc] rounded border border-[#f1f5f9]">
+                      <span className="text-[10px] text-[#94a3b8] block">Urgency</span>
+                      <span className="font-medium text-[#334155]">{lead.metadata.urgency}</span>
+                    </div>
+                  )}
+                  {lead.metadata.packageInterest && (
+                    <div className="p-2.5 bg-[#f8fafc] rounded border border-[#f1f5f9]">
+                      <span className="text-[10px] text-[#94a3b8] block">Bundle Interest</span>
+                      <span className="font-medium text-[#334155]">{lead.metadata.packageInterest}</span>
+                    </div>
+                  )}
+                  {lead.metadata.band && (
+                    <div className="p-2.5 bg-[#f8fafc] rounded border border-[#f1f5f9]">
+                      <span className="text-[10px] text-[#94a3b8] block">Cost Estimate Band</span>
+                      <span className="font-medium text-[#334155]">
+                        {lead.metadata.band.label} ({lead.metadata.band.range})
+                      </span>
+                    </div>
+                  )}
+                  {lead.metadata.deliverables && Array.isArray(lead.metadata.deliverables) && (
+                    <div className="sm:col-span-2 p-2.5 bg-[#f8fafc] rounded border border-[#f1f5f9]">
+                      <span className="text-[10px] text-[#94a3b8] block mb-1">Requested Deliverables</span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {lead.metadata.deliverables.map((d: string) => (
+                          <span
+                            key={d}
+                            className="bg-white border border-[#cbd5e1] px-2 py-0.5 rounded text-[11px] text-[#334155]"
+                          >
+                            {d}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Contact Information */}
+          <div className="bg-white border border-[#e2e8f0] p-6 rounded-[2px] shadow-sm">
+            <h2 className="text-xs font-semibold text-[#0f172a] uppercase tracking-wider mb-4 flex items-center gap-2">
+              <Phone className="w-4 h-4 text-[#0066ff]" />
+              <span>Contact Information</span>
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div className="p-3 bg-[#f8fafc] border border-[#e2e8f0] rounded-[2px]">
+                <span className="text-[10px] text-[#94a3b8] block mb-1">Email Address</span>
+                <div className="flex items-center justify-between">
+                  <a href={`mailto:${lead.email}`} className="font-medium text-[#0066ff] hover:underline">
+                    {lead.email}
+                  </a>
+                  <button
+                    onClick={() => copyToClipboard(lead.email, 'email')}
+                    className="text-[#94a3b8] hover:text-[#0f172a]"
+                    title="Copy Email"
+                  >
+                    {copiedField === 'email' ? <Check className="w-3.5 h-3.5 text-[#10b981]" /> : <Copy className="w-3.5 h-3.5" />}
+                  </button>
+                </div>
+              </div>
+
+              <div className="p-3 bg-[#f8fafc] border border-[#e2e8f0] rounded-[2px]">
+                <span className="text-[10px] text-[#94a3b8] block mb-1">Phone Number</span>
+                <div className="flex items-center justify-between">
+                  {lead.phone ? (
+                    <a href={`tel:${lead.phone}`} className="font-medium text-[#0f172a] hover:text-[#0066ff]">
+                      {lead.phone}
+                    </a>
+                  ) : (
+                    <span className="text-[#94a3b8] italic">Not provided</span>
+                  )}
+                  {lead.phone && (
+                    <button
+                      onClick={() => copyToClipboard(lead.phone, 'phone')}
+                      className="text-[#94a3b8] hover:text-[#0f172a]"
+                      title="Copy Phone"
+                    >
+                      {copiedField === 'phone' ? <Check className="w-3.5 h-3.5 text-[#10b981]" /> : <Copy className="w-3.5 h-3.5" />}
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {lead.site_address && (
+                <div className="sm:col-span-2 p-3 bg-[#f8fafc] border border-[#e2e8f0] rounded-[2px]">
+                  <span className="text-[10px] text-[#94a3b8] block mb-1">Site Location / Address</span>
+                  <div className="font-medium text-[#0f172a] flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#0066ff]" />
+                    <span>{lead.site_address} {lead.postcode}</span>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Acquisition & Attribution Context */}
+          <div className="bg-white border border-[#e2e8f0] p-6 rounded-[2px] shadow-sm">
+            <h2 className="text-xs font-semibold text-[#0f172a] uppercase tracking-wider mb-4 flex items-center gap-2">
+              <Activity className="w-4 h-4 text-[#0066ff]" />
+              <span>Acquisition & Attribution Intelligence</span>
+            </h2>
+
+            <div className="space-y-4 text-xs">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="p-3 bg-[#f8fafc] border border-[#e2e8f0] rounded-[2px]">
+                  <span className="text-[10px] text-[#94a3b8] block mb-0.5">Source Page</span>
+                  <Link
+                    href={lead.source_page}
+                    target="_blank"
+                    className="font-medium text-[#0066ff] hover:underline flex items-center gap-1"
+                  >
+                    <span>{lead.source_page}</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </Link>
+                </div>
+
+                <div className="p-3 bg-[#f8fafc] border border-[#e2e8f0] rounded-[2px]">
+                  <span className="text-[10px] text-[#94a3b8] block mb-0.5">Referrer</span>
+                  <span className="font-medium text-[#334155] truncate block">
+                    {lead.referrer || 'Direct Traffic'}
+                  </span>
+                </div>
+              </div>
+
+              {/* UTM Parameters */}
+              <div className="p-3 bg-[#f8fafc] border border-[#e2e8f0] rounded-[2px]">
+                <span className="text-[10px] text-[#94a3b8] uppercase tracking-wider block mb-2">
+                  Campaign Tracking (UTMs)
+                </span>
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-[11px]">
+                  <div>
+                    <span className="text-[10px] text-[#94a3b8] block">Source</span>
+                    <span className="font-medium text-[#0f172a]">{lead.utm_source || '—'}</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] text-[#94a3b8] block">Medium</span>
+                    <span className="font-medium text-[#0f172a]">{lead.utm_medium || '—'}</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] text-[#94a3b8] block">Campaign</span>
+                    <span className="font-medium text-[#0f172a]">{lead.utm_campaign || '—'}</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] text-[#94a3b8] block">Term</span>
+                    <span className="font-medium text-[#0f172a]">{lead.utm_term || '—'}</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] text-[#94a3b8] block">Content</span>
+                    <span className="font-medium text-[#0f172a]">{lead.utm_content || '—'}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column: Internal Management & Action Controls (4 cols) */}
+        <div className="lg:col-span-4 space-y-6">
+          {/* Status & Priority Management */}
+          <div className="bg-white border border-[#e2e8f0] p-6 rounded-[2px] shadow-sm space-y-5">
+            <h2 className="text-xs font-semibold text-[#0f172a] uppercase tracking-wider border-b border-[#f1f5f9] pb-3">
+              Internal Pipeline Control
+            </h2>
+
+            {/* Status */}
+            <div className="space-y-1.5">
+              <label className="block text-[11px] font-medium text-[#475569]">
+                Lead Status
+              </label>
+              <select
+                value={status}
+                onChange={(e) => setStatus(e.target.value as LeadStatus)}
+                className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-[2px] p-2.5 text-xs text-[#0f172a] outline-none focus:border-[#0066ff]"
+              >
+                {STATUS_OPTIONS.map((s) => (
+                  <option key={s} value={s}>
+                    {s}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Priority */}
+            <div className="space-y-1.5">
+              <label className="block text-[11px] font-medium text-[#475569]">
+                Priority
+              </label>
+              <select
+                value={priority}
+                onChange={(e) => setPriority(e.target.value as LeadPriority)}
+                className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-[2px] p-2.5 text-xs text-[#0f172a] outline-none focus:border-[#0066ff]"
+              >
+                {PRIORITY_OPTIONS.map((p) => (
+                  <option key={p} value={p}>
+                    {p}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Next Follow-Up Date */}
+            <div className="space-y-1.5">
+              <label className="block text-[11px] font-medium text-[#475569]">
+                Next Follow-Up Date
+              </label>
+              <input
+                type="date"
+                value={nextFollowUp}
+                onChange={(e) => setNextFollowUp(e.target.value)}
+                className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-[2px] p-2.5 text-xs text-[#0f172a] outline-none focus:border-[#0066ff]"
+              />
+            </div>
+
+            {/* Assigned Person */}
+            <div className="space-y-1.5">
+              <label className="block text-[11px] font-medium text-[#475569]">
+                Assigned Team Member
+              </label>
+              <input
+                type="text"
+                value={assignedTo}
+                onChange={(e) => setAssignedTo(e.target.value)}
+                placeholder="e.g. Pete Currey"
+                className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-[2px] p-2.5 text-xs text-[#0f172a] outline-none focus:border-[#0066ff]"
+              />
+            </div>
+
+            {/* Private Admin Notes */}
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between">
+                <label className="block text-[11px] font-medium text-[#475569]">
+                  Private Admin Notes
+                </label>
+                <span className="text-[10px] text-[#94a3b8] italic">Internal only</span>
+              </div>
+              <textarea
+                rows={4}
+                value={adminNotes}
+                onChange={(e) => setAdminNotes(e.target.value)}
+                placeholder="Add notes on call summary, site access requirements, quotes provided..."
+                className="w-full bg-[#f8fafc] border border-[#cbd5e1] rounded-[2px] p-2.5 text-xs text-[#0f172a] outline-none focus:border-[#0066ff] leading-relaxed"
+              />
+            </div>
+
+            {/* Save Button */}
+            <button
+              onClick={handleSave}
+              disabled={saving}
+              className="w-full bg-[#0066ff] hover:bg-[#0052cc] text-white text-xs font-medium py-3 rounded-[2px] transition-all flex items-center justify-center gap-2 shadow-sm disabled:opacity-50"
+            >
+              {saving ? (
+                <span>Saving Changes...</span>
+              ) : saveSuccess ? (
+                <>
+                  <Check className="w-4 h-4 text-white" />
+                  <span>Changes Saved</span>
+                </>
+              ) : (
+                <>
+                  <Save className="w-4 h-4" />
+                  <span>Save Lead Record</span>
+                </>
+              )}
+            </button>
+          </div>
+
+          {/* Timeline Summary */}
+          <div className="bg-[#f8fafc] border border-[#e2e8f0] p-5 rounded-[2px] space-y-3 text-xs">
+            <h3 className="text-[11px] font-semibold text-[#0f172a] uppercase tracking-wider">
+              Enquiry Timeline
+            </h3>
+            <div className="space-y-2 text-[#64748b]">
+              <div className="flex justify-between">
+                <span>Created:</span>
+                <span className="font-medium text-[#334155]">
+                  {new Date(lead.created_at).toLocaleDateString('en-GB', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric',
+                  })}
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span>Last Updated:</span>
+                <span className="font-medium text-[#334155]">
+                  {new Date(lead.updated_at).toLocaleDateString('en-GB', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric',
+                  })}
+                </span>
+              </div>
+              {lead.last_contacted_at && (
+                <div className="flex justify-between">
+                  <span>Last Contacted:</span>
+                  <span className="font-medium text-[#334155]">
+                    {new Date(lead.last_contacted_at).toLocaleDateString('en-GB', {
+                      day: '2-digit',
+                      month: 'short',
+                      year: 'numeric',
+                    })}
+                  </span>
+                </div>
+              )}
+              {lead.won_at && (
+                <div className="flex justify-between text-[#16a34a]">
+                  <span>Won Date:</span>
+                  <span className="font-medium">
+                    {new Date(lead.won_at).toLocaleDateString('en-GB')}
+                  </span>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }

@@ -2,14 +2,24 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
-import { Send, Phone, Mail, MapPin } from 'lucide-react'
+import { Send, Phone, Mail, MapPin, CheckCircle2 } from 'lucide-react'
 import VideoBackground from '@/components/ui/VideoBackground'
 import { useAttribution } from '@/components/analytics/useAttribution'
+import { trackEvent, recordJourneyStep } from '@/lib/analytics'
 
 export default function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null)
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' })
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle')
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    service: 'Commercial Drone Survey',
+    message: '',
+    _hp: '',
+  })
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
   const { getAttributionData } = useAttribution()
 
   useEffect(() => {
@@ -27,7 +37,7 @@ export default function ContactSection() {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top 70%',
-          }
+          },
         }
       )
     }, sectionRef)
@@ -36,10 +46,17 @@ export default function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (status === 'submitting') return
     setStatus('submitting')
-    
+    setErrorMessage('')
+
     const attribution = getAttributionData()
-    
+
+    trackEvent('homepage_contact_submitted', {
+      service: formData.service,
+      ...attribution,
+    })
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -47,120 +64,233 @@ export default function ContactSection() {
         body: JSON.stringify({
           ...formData,
           type: 'standard',
-          attribution
-        })
+          source_page: '/',
+          attribution,
+        }),
       })
 
-      if (!response.ok) throw new Error('Transmission failed')
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to submit enquiry')
+      }
+
       setStatus('success')
-    } catch (err) {
+      recordJourneyStep('Submitted homepage contact form')
+    } catch (err: unknown) {
       console.error('Contact error:', err)
-      // Fallback for environment constraints
-      setTimeout(() => setStatus('success'), 1200)
+      setStatus('error')
+      setErrorMessage(
+        err instanceof Error ? err.message : 'Unable to transmit enquiry. Please try again or email us directly.'
+      )
     }
   }
 
   return (
-    <section 
-      ref={sectionRef} 
-      id="contact" 
+    <section
+      ref={sectionRef}
+      id="contact"
       data-index="11"
-      className="min-h-screen bg-dark relative flex items-center justify-center py-40 px-10 md:px-20 overflow-hidden"
+      className="min-h-screen bg-dark relative flex items-center justify-center py-32 px-6 sm:px-10 md:px-20 overflow-hidden"
     >
-      <VideoBackground 
-        src="/videos/contact.mp4" 
+      <VideoBackground
+        src="/videos/contact.mp4"
         poster="/images/contact_poster.png"
-        brightness={0.3} 
+        brightness={0.3}
       />
-      
+
       {/* Grid Lines Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:60px_60px]" />
       </div>
 
-      <div className="relative z-10 w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-2 gap-20">
+      <div className="relative z-10 w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
         <div>
-          <div data-contact-anim className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent mb-6">Uplink Terminal</div>
-          <h2 data-contact-anim className="font-display text-7xl text-white mb-10 tracking-widest leading-none">READY FOR<br/>TAKEOFF?</h2>
-          <p data-contact-anim className="font-body text-xl font-light text-white/40 leading-relaxed max-w-[500px] mb-12 uppercase tracking-wide">
-            Whether it&apos;s a complex asset inspection or cinematic production, our fleet is standing by. Command starts here.
+          <div data-contact-anim className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent mb-6">
+            Project Engagement
+          </div>
+          <h2 data-contact-anim className="font-display text-5xl sm:text-6xl lg:text-7xl text-white mb-8 tracking-tight leading-none">
+            START YOUR<br />
+            <span className="text-accent">AERIAL BRIEF</span>
+          </h2>
+          <p data-contact-anim className="font-body text-base md:text-lg font-light text-white/50 leading-relaxed max-w-[500px] mb-10">
+            Whether scoping a single roof condition audit or rolling out nationwide commercial asset monitoring, our operations desk is ready to assist.
           </p>
 
-          <div className="space-y-12">
-            {[
-              { icon: Phone, label: 'Central Ops', value: 'EntireFM Operations Desk' },
-              { icon: Mail, label: 'Project Briefing', value: 'Direct Form & Brief Submission' },
-              { icon: MapPin, label: 'UK Coverage', value: 'Nationwide Deployment' }
-            ].map((item, i) => (
-              <div key={i} data-contact-anim className="flex items-center gap-8 group cursor-pointer">
-                <div className="w-14 h-14 bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent transition-all duration-500">
-                  <item.icon className="w-5 h-5 text-accent group-hover:text-dark transition-colors" />
-                </div>
-                <div>
-                  <div className="font-ui text-[9px] tracking-[0.3em] uppercase text-white/30 mb-1">{item.label}</div>
-                  <div className="font-display text-2xl text-white group-hover:text-accent transition-colors">{item.value}</div>
-                </div>
+          <div className="space-y-6">
+            <div data-contact-anim className="flex items-center gap-5">
+              <div className="w-12 h-12 bg-white/5 border border-white/10 flex items-center justify-center text-accent">
+                <Mail className="w-5 h-5" />
               </div>
-            ))}
+              <div>
+                <div className="font-ui text-[9px] tracking-[0.2em] uppercase text-white/30 mb-0.5">Direct Operations</div>
+                <a href="mailto:enquiries@tfts.co.uk" className="text-base font-medium text-white hover:text-accent transition-colors">
+                  enquiries@tfts.co.uk
+                </a>
+              </div>
+            </div>
+
+            <div data-contact-anim className="flex items-center gap-5">
+              <div className="w-12 h-12 bg-white/5 border border-white/10 flex items-center justify-center text-accent">
+                <MapPin className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="font-ui text-[9px] tracking-[0.2em] uppercase text-white/30 mb-0.5">Deployment Footprint</div>
+                <div className="text-base font-medium text-white">United Kingdom (Nationwide Coverage)</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div data-contact-anim className="bg-white/[0.02] border border-white/10 p-12 md:p-16 relative overflow-hidden backdrop-blur-sm">
+        {/* Contact Form Card */}
+        <div data-contact-anim className="bg-dark/70 border border-white/10 p-8 sm:p-12 relative backdrop-blur-md">
           {status === 'success' ? (
-            <div className="h-full flex flex-col items-center justify-center text-center animate-in fade-in zoom-in duration-700 py-20">
-              <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(0,102,255,0.35)]">
-                <Send className="w-8 h-8 text-dark" />
+            <div className="h-full flex flex-col items-center justify-center text-center py-16 animate-in fade-in duration-500">
+              <div className="w-14 h-14 bg-accent text-white rounded-full flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(0,102,255,0.4)]">
+                <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h3 className="font-display text-4xl text-white mb-4 uppercase tracking-[0.2em]">Signal Acknowledged</h3>
-              <p className="font-body text-white/40 text-sm uppercase tracking-widest">Our operations team will establish contact shortly.</p>
-              <button 
-                onClick={() => setStatus('idle')}
-                className="mt-10 font-ui text-[11px] text-accent tracking-widest uppercase hover:text-white transition-colors"
+              <h3 className="font-display text-3xl text-white mb-3 tracking-wide uppercase">
+                Enquiry Received
+              </h3>
+              <p className="font-body text-white/60 text-sm leading-relaxed max-w-md mb-8">
+                Thank you. Your enquiry has been received. A member of the TFTS team will contact you shortly to review your project requirements.
+              </p>
+              <button
+                onClick={() => {
+                  setStatus('idle')
+                  setFormData({ name: '', email: '', phone: '', company: '', service: 'Commercial Drone Survey', message: '', _hp: '' })
+                }}
+                className="font-ui text-[11px] text-accent tracking-widest uppercase hover:underline"
               >
-                Send another transmission
+                Submit another enquiry →
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-10">
-              <div className="space-y-4">
-                <label className="font-ui text-[10px] tracking-[0.3em] uppercase text-white/30">Operator Name</label>
-                <input 
-                  required type="text" 
-                  value={formData.name}
-                  onChange={e => setFormData(d => ({ ...d, name: e.target.value }))}
-                  className="w-full bg-transparent border-b border-white/10 py-4 text-white outline-none focus:border-accent transition-colors font-body text-lg"
-                />
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Honeypot field */}
+              <input
+                type="text"
+                name="_hp"
+                value={formData._hp}
+                onChange={(e) => setFormData((d) => ({ ...d, _hp: e.target.value }))}
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+
+              {status === 'error' && (
+                <div className="p-3 bg-red-500/10 border border-red-500/30 text-red-400 text-xs rounded-[2px]">
+                  {errorMessage}
+                </div>
+              )}
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="space-y-1.5">
+                  <label className="font-ui text-[10px] tracking-[0.2em] uppercase text-white/40">
+                    Full Name *
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => setFormData((d) => ({ ...d, name: e.target.value }))}
+                    className="w-full bg-white/5 border border-white/10 p-3 text-white text-sm outline-none focus:border-accent transition-colors rounded-[2px]"
+                    placeholder="John Doe"
+                  />
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="font-ui text-[10px] tracking-[0.2em] uppercase text-white/40">
+                    Email Address *
+                  </label>
+                  <input
+                    required
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData((d) => ({ ...d, email: e.target.value }))}
+                    className="w-full bg-white/5 border border-white/10 p-3 text-white text-sm outline-none focus:border-accent transition-colors rounded-[2px]"
+                    placeholder="john@company.co.uk"
+                  />
+                </div>
               </div>
-              <div className="space-y-4">
-                <label className="font-ui text-[10px] tracking-[0.3em] uppercase text-white/30">Response Frequency (Email)</label>
-                <input 
-                  required type="email" 
-                  value={formData.email}
-                  onChange={e => setFormData(d => ({ ...d, email: e.target.value }))}
-                  className="w-full bg-transparent border-b border-white/10 py-4 text-white outline-none focus:border-accent transition-colors font-body text-lg"
-                />
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="space-y-1.5">
+                  <label className="font-ui text-[10px] tracking-[0.2em] uppercase text-white/40">
+                    Telephone Number
+                  </label>
+                  <input
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData((d) => ({ ...d, phone: e.target.value }))}
+                    className="w-full bg-white/5 border border-white/10 p-3 text-white text-sm outline-none focus:border-accent transition-colors rounded-[2px]"
+                    placeholder="07123 456789"
+                  />
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="font-ui text-[10px] tracking-[0.2em] uppercase text-white/40">
+                    Company Name
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.company}
+                    onChange={(e) => setFormData((d) => ({ ...d, company: e.target.value }))}
+                    className="w-full bg-white/5 border border-white/10 p-3 text-white text-sm outline-none focus:border-accent transition-colors rounded-[2px]"
+                    placeholder="Acme Facilities Management"
+                  />
+                </div>
               </div>
-              <div className="space-y-4">
-                <label className="font-ui text-[10px] tracking-[0.3em] uppercase text-white/30">Mission Details</label>
-                <textarea 
-                  required rows={4} 
+
+              <div className="space-y-1.5">
+                <label className="font-ui text-[10px] tracking-[0.2em] uppercase text-white/40">
+                  Service of Interest
+                </label>
+                <select
+                  value={formData.service}
+                  onChange={(e) => setFormData((d) => ({ ...d, service: e.target.value }))}
+                  className="w-full bg-dark border border-white/10 p-3 text-white text-sm outline-none focus:border-accent transition-colors rounded-[2px]"
+                >
+                  <option value="Commercial Drone Survey">Commercial Drone Survey</option>
+                  <option value="Drone Roof Inspections">Drone Roof & Parapet Inspection</option>
+                  <option value="Façade & Cladding Inspection">High-Level Façade & Cladding Inspection</option>
+                  <option value="Thermal Imaging & Energy Loss">Radiometric Thermal Imaging & Heat Loss</option>
+                  <option value="Solar Panel PV Inspection">Solar PV Array Inspection</option>
+                  <option value="Surveying & Photogrammetry">Surveying & Photogrammetry</option>
+                  <option value="Construction Monitoring">Construction Progress & Site Monitoring</option>
+                  <option value="TFTS 3D Spatial Capture">TFTS 3D Interactive Spatial Capture</option>
+                </select>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="font-ui text-[10px] tracking-[0.2em] uppercase text-white/40">
+                  Project Scope & Location *
+                </label>
+                <textarea
+                  required
+                  rows={4}
                   value={formData.message}
-                  onChange={e => setFormData(d => ({ ...d, message: e.target.value }))}
-                  className="w-full bg-white/5 border border-white/10 p-6 text-white outline-none focus:border-accent transition-colors font-body text-sm"
+                  onChange={(e) => setFormData((d) => ({ ...d, message: e.target.value }))}
+                  className="w-full bg-white/5 border border-white/10 p-3.5 text-white text-sm outline-none focus:border-accent transition-colors rounded-[2px]"
+                  placeholder="Outline your site requirements, location, timeframe, or specific issues to inspect..."
                 />
               </div>
-              <button 
-                type="submit" 
+
+              <button
+                type="submit"
                 disabled={status === 'submitting'}
-                className="w-full bg-accent text-dark font-display text-2xl tracking-[0.3em] py-6 hover:bg-white transition-all duration-500 disabled:opacity-50 relative overflow-hidden group"
+                className="w-full bg-accent hover:bg-accent-light text-white font-display text-xl tracking-wider py-4 transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2 rounded-[2px] shadow-[0_5px_20px_rgba(0,102,255,0.25)]"
               >
-                <span className={status === 'submitting' ? 'opacity-0' : 'opacity-100'}>
-                  {status === 'submitting' ? 'TRANSMITTING...' : 'SEND TRANSMISSION'}
-                </span>
-                {status === 'submitting' && (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-6 h-6 border-2 border-dark/30 border-t-dark rounded-full animate-spin" />
-                  </div>
+                {status === 'submitting' ? (
+                  <>
+                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <span>Transmitting Enquiry...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Submit Enquiry</span>
+                    <Send className="w-4 h-4" />
+                  </>
                 )}
               </button>
             </form>
