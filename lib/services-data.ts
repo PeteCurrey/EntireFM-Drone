@@ -25,12 +25,12 @@ export const servicesData: ServiceData[] = [
   // PROPERTY & ASSETS
   {
     slug: 'drone-inspection',
-    title: 'Drone Inspection Services UK',
+    title: 'Commercial Drone Inspections UK',
     headline: ['DRONE', 'INSPECTION'],
     category: 'Property & Assets',
     intro: 'Drone-based visual inspection for roofs, facades, assets and hard-to-access areas, helping teams gather clear evidence without defaulting to scaffolding or MEWPs at the first inspection stage.',
-    metaTitle: 'Drone Inspection Services UK | CAA-Compliant | TFTS Drone',
-    metaDescription: 'Commercial drone inspections for roofs, facades and hard-to-access assets, supporting visual evidence, contractor scoping, maintenance planning and reporting workflows.',
+    metaTitle: 'Commercial Drone Inspections & Building Audits | TFTS Drone',
+    metaDescription: 'Specialist commercial drone inspections for buildings, roofs, façades, infrastructure and industrial assets. CAA-compliant UAV inspection data across the UK.',
     heroStat: [
       { value: 'PRO', label: 'Visual evidence' },
       { value: '4K', label: 'Ultra HD capture' },
@@ -68,12 +68,12 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: 'roof-inspections',
-    title: 'Drone Roof Inspections UK',
+    title: 'Drone Roof Surveys & Inspections UK',
     headline: ['DRONE', 'ROOF', 'INSPECTIONS'],
     category: 'Property & Assets',
     intro: 'Commercial roof, gutter, drainage and roof plant inspection using drone imagery, with optional annotated evidence and reporting outputs for maintenance, contractor and property workflows.',
-    metaTitle: 'Drone Roof Inspections UK | Commercial Roof Surveys | TFTS Drone',
-    metaDescription: 'Drone roof inspections for maintenance planning, contractor scoping, FM records and insurance documentation where clear visual evidence is required.',
+    metaTitle: 'Drone Roof Surveys & Commercial Roof Inspections | TFTS Drone',
+    metaDescription: 'Specialist commercial drone roof surveys and inspections. High-resolution condition evidence for membranes, gutters, parapets, plant penetrations and moisture ingress across the UK.',
     heroStat: [
       { value: 'Visual', label: 'Roof insight' },
       { value: '4K', label: 'Imaging quality' },
@@ -121,12 +121,12 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: 'facade-inspections',
-    title: 'Facade Drone Inspections UK',
+    title: 'Façade & Cladding Drone Inspections UK',
     headline: ['FACADE', 'INSPECTIONS'],
     category: 'Property & Assets',
     intro: 'High-resolution vertical imaging for commercial and residential facades — documenting cladding, masonry, and glazing condition at scale.',
-    metaTitle: 'Facade Drone Inspections UK | Vertical Building Surveys | TFTS Drone',
-    metaDescription: 'Professional drone facade inspections. Vertical building surveys for cladding, glazing and masonry. CAA-compliant, detailed defect reporting.',
+    metaTitle: 'Façade & Cladding Drone Inspections | TFTS Drone',
+    metaDescription: 'Specialist drone façade and cladding inspections. High-resolution visual condition evidence for high-level elevations, curtain walling, masonry and cladding panels across the UK.',
     heroStat: [
       { value: 'CLOSE', label: 'Visual capture' },
       { value: '4K', label: 'Detail' },
@@ -350,8 +350,8 @@ export const servicesData: ServiceData[] = [
     headline: ['SURVEYING', '& MAPPING'],
     category: 'Construction & Surveying',
     intro: 'high-detail precision topographic surveys, orthomosaic maps, and LiDAR point clouds — delivered faster and at a fraction of the cost of traditional ground survey methods.',
-    metaTitle: 'Drone Surveying & Mapping UK | LiDAR & Orthomosaic | TFTS Drone',
-    metaDescription: 'Professional drone surveying and mapping services across the UK. Topographic surveys, orthomosaic maps, LiDAR point clouds and 3D models. CAA-compliant, GCP accuracy.',
+    metaTitle: 'Drone Surveying, Mapping & Photogrammetry | TFTS Drone',
+    metaDescription: 'Specialist drone surveying and aerial mapping across the UK. Orthomosaic mapping, LiDAR point clouds, 3D photogrammetry and volumetric site data.',
     heroStat: [
       { value: 'HIGH', label: 'RTK relative accuracy' },
       { value: 'HIGH', label: 'Coverage capability' },
@@ -398,12 +398,12 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: 'construction-monitoring',
-    title: 'Construction Drone Monitoring UK',
+    title: 'Construction Progress Drone Monitoring UK',
     headline: ['CONSTRUCTION', 'MONITORING'],
     category: 'Construction & Surveying',
     intro: 'Scheduled drone flights that keep stakeholders informed from groundworks to handover — progress reports, volumetric earthworks, and time-lapse documentation.',
-    metaTitle: 'Construction Drone Monitoring UK | Progress Surveys | TFTS Drone',
-    metaDescription: 'Professional construction drone monitoring. Scheduled progress flights, earthworks volumetrics, and stakeholder updates. CAA-compliant.',
+    metaTitle: 'Drone Construction Progress Monitoring | TFTS Drone',
+    metaDescription: 'Scheduled drone construction progress monitoring. Repeatable aerial surveys, time-lapse milestone records, orthomosaics and stakeholder progress reporting across the UK.',
     heroStat: [
       { value: '4D', label: 'Time-lapse documentation' },
       { value: 'HIGH', label: 'Earthworks tracking' },
@@ -762,12 +762,12 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: 'solar-panel-inspections',
-    title: 'Solar Panel Drone Inspections UK',
+    title: 'Solar PV Drone Inspections UK',
     headline: ['SOLAR PANEL', 'INSPECTIONS'],
     category: 'Infrastructure & Energy',
     intro: 'Efficiency-focused thermal audits for commercial PV arrays and solar farms — identifying cell-level faults and underperforming strings at scale.',
-    metaTitle: 'Solar Panel Drone Inspections UK | Thermal PV Audits | TFTS Drone',
-    metaDescription: 'Professional solar panel drone inspections. Thermal cell-level fault detection, string audits and anomaly reporting. CAA-compliant, IEC compliant reporting.',
+    metaTitle: 'Solar PV Drone Inspections & Thermography | TFTS Drone',
+    metaDescription: 'Commercial solar PV drone inspections. Radiometric thermal anomaly detection, string fault mapping and visual audits for rooftop and utility-scale solar arrays across the UK.',
     heroStat: [
       { value: '100%', label: 'Array coverage' },
       { value: 'CELL', label: 'Level detail' },
@@ -811,12 +811,12 @@ export const servicesData: ServiceData[] = [
   // SPECIALIST & RESPONSE
   {
     slug: 'thermal-imaging',
-    title: 'Thermal Drone Imaging UK',
+    title: 'Thermal Drone Surveys UK',
     headline: ['THERMAL', 'IMAGING'],
     category: 'Specialist & Response',
     intro: 'Thermal drone capture for buildings, roofs, solar panels and assets, helping identify temperature anomalies that may support further investigation, maintenance planning or energy-related review.',
-    metaTitle: 'Thermal Drone Imaging UK | Radiometric Building Surveys | TFTS Drone',
-    metaDescription: 'Professional thermal drone imaging surveys. Radiometric surveys for building envelopes, solar farms, and electrical inspection. CAA-compliant.',
+    metaTitle: 'Thermal Drone Surveys & Aerial Thermography | TFTS Drone',
+    metaDescription: 'Specialist thermal drone surveys and radiometric aerial thermography. Identify building heat loss, flat roof water ingress indicators and electrical anomalies across the UK.',
     heroStat: [
       { value: 'HIGH', label: 'Radiometric resolution' },
       { value: 'PRO', label: 'Thermal sensor' },
@@ -1210,12 +1210,12 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: 'tfts-3d',
-    title: 'TFTS 3D Capture Service',
+    title: 'TFTS 3D — 3D Drone Modelling & Digital Site Capture',
     headline: ['TFTS 3D', 'CAPTURE'],
     category: 'Specialist & Response',
     intro: 'Drone and ground-level image capture for photorealistic 3D visualisation, immersive site walkthroughs and digital twin-style visual records.',
-    metaTitle: 'TFTS 3D Capture Service | Drone 3D Visualisation | TFTS Drone',
-    metaDescription: 'TFTS Drone provides TFTS 3D capture services using drone and ground-level imagery for immersive site visualisation, stakeholder engagement, property, construction and heritage applications.',
+    metaTitle: '3D Drone Modelling & Digital Site Capture | TFTS 3D',
+    metaDescription: 'Interactive 3D drone modelling and digital site capture. Explore buildings, sites and assets in an immersive 3D environment powered by advanced spatial capture technology.',
     heroStat: [
       { value: 'PHOTO', label: 'Realistic 3D' },
       { value: 'WEB', label: 'Ready Viewer' },

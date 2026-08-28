@@ -69,11 +69,25 @@ export default async function ServicePage({ params }: Props) {
     },
   }
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://tfts.co.uk' },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://tfts.co.uk/services' },
+      { '@type': 'ListItem', position: 3, name: service.title, item: `https://tfts.co.uk/services/${slug}` }
+    ]
+  }
+
   return (
     <main className="bg-dark min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* Hero Section */}
@@ -134,6 +148,13 @@ export default async function ServicePage({ params }: Props) {
         
         <div className="container relative z-10 px-8 md:px-20 grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-8">
+            <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-[10px] font-light uppercase tracking-[0.2em] text-white/40">
+              <Link href="/" className="hover:text-accent transition-colors">Home</Link>
+              <span>/</span>
+              <Link href="/services" className="hover:text-accent transition-colors">Services</Link>
+              <span>/</span>
+              <span className="text-white/70">{service.title.replace(" UK", "")}</span>
+            </nav>
             <div className="flex items-center gap-4 mb-8 translate-y-4 opacity-0 animate-[fade-up_0.8s_0.2s_forwards]">
               <div className="w-12 h-[1px] bg-accent" />
               <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">{service.category}</span>

@@ -53,11 +53,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  const industryPages: MetadataRoute.Sitemap = industries.map(i => ({
-    url: `${BASE_URL}/industries/${i}`,
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }))
 
   const sectorPages: MetadataRoute.Sitemap = [
     'construction', 'facilities-management', 'commercial-property',
@@ -78,7 +73,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...servicePages,
     ...resourcePages,
     ...locationPages,
-    ...industryPages,
     ...sectorPages,
   ]
 }

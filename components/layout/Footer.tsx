@@ -72,7 +72,7 @@ export default function Footer() {
             <ul className="space-y-4">
               {industriesData.map((industry) => (
                 <li key={industry.slug}>
-                  <Link href={`/industries/${industry.slug}`} className="font-ui text-[11px] tracking-[0.2em] uppercase text-white/40 hover:text-white transition-colors">
+                  <Link href={`/sectors/${industry.slug}`} className="font-ui text-[11px] tracking-[0.2em] uppercase text-white/40 hover:text-white transition-colors">
                     {industry.title.replace('Drone Services for ', '')}
                   </Link>
                 </li>

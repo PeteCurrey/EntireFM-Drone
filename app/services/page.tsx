@@ -254,10 +254,10 @@ export default function ServicesHubPage() {
             <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">Commercial Service Hub</span>
           </div>
           <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6">
-            COMMERCIAL <br/><span className="text-accent underline underline-offset-8">DRONE SERVICES</span>
+            COMMERCIAL DRONE <br/><span className="text-accent underline underline-offset-8">SURVEYS & INSPECTIONS</span>
           </h1>
           <p className="text-sm sm:text-base lg:text-[1.0625rem] font-light leading-relaxed text-white/70 mb-8 max-w-2xl">
-            TFTS Drone provides commercial drone inspections, surveying and mapping, thermal imaging, construction monitoring, aerial media, TFTS 3D capture and digital twin-style visualisation for property, construction, infrastructure, energy, insurance and asset management teams.
+            TFTS Drone provides specialist commercial drone inspection, surveying, thermal imaging, mapping and 3D capture services across the UK — supporting property, construction, infrastructure and asset management teams.
           </p>
           <div className="flex flex-col sm:flex-row gap-8 mb-16">
             <Link href="/brief?source=services-hero" className="px-6 py-3.5 text-sm font-normal rounded-[2px] bg-accent text-white hover:bg-accent-light transition-all text-center">

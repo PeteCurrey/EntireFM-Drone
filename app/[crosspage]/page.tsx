@@ -147,7 +147,7 @@ export default async function CrossPage({ params }: Props) {
             </h1>
 
             <p className="text-sm sm:text-base lg:text-[1.0625rem] font-light text-white/70 max-w-2xl mb-8 opacity-0 animate-[fade-in_1s_1s_forwards] leading-relaxed">
-              {service.intro} TFTS Drone is the leading provider of {service.title.toLowerCase()} for commercial and industrial clients across {location.name} and {location.region}.
+              {service.intro} TFTS Drone provides specialist {service.title.toLowerCase()} for commercial and industrial clients across {location.name} and {location.region}.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-8 opacity-0 animate-[fade-in_1s_1.2s_forwards]">
