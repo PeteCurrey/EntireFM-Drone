@@ -2,11 +2,12 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
+import { ArrowRight, ShieldCheck, CheckCircle2, Eye, FileText, Layers } from 'lucide-react'
 import { gsap } from '@/lib/gsap-init'
 import VideoBackground from '@/components/ui/VideoBackground'
 import SectionTag from '@/components/ui/SectionTag'
-import FeatureTags from '@/components/ui/FeatureTags'
 import GhostNumber from '@/components/ui/GhostNumber'
+import ScanReveal from '@/components/ui/ScanReveal'
 
 export default function InspectionSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -17,33 +18,18 @@ export default function InspectionSection() {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         ['.svc-tag', '.svc-headline', '.svc-body', '.feature-tags', '.svc-cta'],
-        { opacity: 0, y: 36 },
+        { opacity: 0, y: 30 },
         {
-          opacity: 1, y: 0,
+          opacity: 1,
+          y: 0,
           duration: 0.9,
           ease: 'power3.out',
           stagger: 0.1,
-          scrollTrigger: { 
-            trigger: sectionRef.current, 
-            start: 'top 75%', 
-            toggleActions: 'play none none reverse' 
-          }
-        }
-      )
-
-      gsap.fromTo(
-        '.panel-right',
-        { opacity: 0, x: 50 },
-        {
-          opacity: 1, x: 0,
-          duration: 1.0,
-          ease: 'power3.out',
-          delay: 0.2,
-          scrollTrigger: { 
-            trigger: sectionRef.current, 
-            start: 'top 75%', 
-            toggleActions: 'play none none reverse' 
-          }
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 75%',
+            toggleActions: 'play none none reverse',
+          },
         }
       )
     }, sectionRef)
@@ -51,46 +37,89 @@ export default function InspectionSection() {
     return () => ctx.revert()
   }, [])
 
-  const features = ['Roofing & Facades', 'Powerlines', 'Bridges & Structures', 'Solar Panels', 'Thermal Imaging', 'Defect Reports']
-  const specs = [
-    { label: 'Resolution', value: '4K / 48MP' },
-    { label: 'Thermal Sensor', value: 'Radiometric' },
-    { label: 'Max Structure Ht', value: 'Subject to Flight Plan' },
-    { label: 'Report Format', value: 'PDF + Raw Data' },
-    { label: 'Turnaround', value: 'Subject to Scope' },
-    { label: 'Coverage', value: 'Nationwide' },
+  const capabilities = [
+    { title: 'Commercial Roofs & Gutters', desc: 'Identify standing water, membrane tears, blocked valleys and loose flashing.' },
+    { title: 'High-Level Façades & Cladding', desc: 'Detailed condition records for panels, curtain walling, brickwork and expansion joints.' },
+    { title: 'Industrial Infrastructure', desc: 'Bridges, chimneys, pipe gantries, silos and access-restricted plant.' },
+    { title: 'Condition Evidence Packs', desc: 'Annotated high-res imagery, GPS-tagged defects and RAG-rated PDF summaries.' },
   ]
 
   return (
-    <section ref={sectionRef} data-index="1" className="noise-overlay flex flex-col md:flex-row items-center justify-between gap-12 md:gap-24">
-      <VideoBackground src="/videos/inspection.mp4" poster="/images/inspection_poster.png" brightness={0.72} saturation={1.2} />
+    <section
+      ref={sectionRef}
+      data-index="1"
+      className="noise-overlay min-h-screen py-32 px-8 md:px-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20 relative"
+    >
+      <VideoBackground
+        src="/videos/inspection.mp4"
+        poster="/images/inspection_poster.png"
+        brightness={0.65}
+        saturation={1.2}
+      />
       <div className="grid-lines" />
       <GhostNumber number="01" />
+
+      {/* Left Column: Inspection Proposition */}
       <div className="relative z-10 flex-1 max-w-[640px]">
-        <div className="svc-tag"><SectionTag number="01" text="Service" /></div>
-        <h2 className="svc-headline font-display text-section text-white mb-8">DRONE<br/>INSPECTION</h2>
-        <p className="svc-body font-body text-[16px] font-light leading-relaxed text-white/50 mb-8 max-w-[500px]">Drone inspection can help property, FM and contractor teams gather early-stage visual evidence without defaulting to scaffolding or MEWPs immediately. Physical access may still be required for repairs, intrusive checks or professional sign-off.</p>
-        <div className="feature-tags"><FeatureTags tags={features} /></div>
-        <div className="svc-cta flex flex-col sm:flex-row gap-6 mt-12">
-          <Link href="/services/drone-inspection" className="flex items-center gap-4 font-ui text-[13px] tracking-[0.25em] text-accent group transition-all">
-            VIEW DRONE INSPECTION <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
-          </Link>
-          <Link href="/brief?service=drone-inspection" className="flex items-center gap-4 font-ui text-[13px] tracking-[0.25em] text-white/50 hover:text-white transition-all">
-            START INSPECTION BRIEF
-          </Link>
+        <div className="svc-tag">
+          <SectionTag number="03" text="Aerial Inspection" />
         </div>
-      </div>
-      <div className="panel-right relative z-10 flex-1 w-full max-w-[450px]">
-        <div className="border border-white/10 bg-black/40 backdrop-blur-md">
-          {specs.map((spec) => (
-            <div key={spec.label} className="flex justify-between items-center px-6 py-5 border-b border-white/5 last:border-0">
-              <span className="font-ui text-[11px] tracking-[0.2em] uppercase text-white/30">{spec.label}</span>
-              <div className="flex items-center gap-3">
-                <span className="font-body text-[14px] text-white/75">{spec.value === 'Unlimited' ? 'High-Level Capability' : spec.value}</span>
-                <span className="text-accent text-lg">↗</span>
+
+        <h2 className="svc-headline font-display text-section text-white mb-6">
+          COMMERCIAL<br />
+          <span className="text-accent">ROOF & FAÇADE</span><br />
+          INSPECTIONS
+        </h2>
+
+        <p className="svc-body font-body text-base md:text-lg font-light leading-relaxed text-white/60 mb-8 max-w-[540px]">
+          Gather definitive visual and thermal condition evidence across inaccessible assets without scaffolding, MEWPs or high-risk manual climbing. Scoped specifically for facilities managers, building surveyors and estates directors.
+        </p>
+
+        {/* Micro-Details Pill List */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+          {capabilities.map((cap, i) => (
+            <div key={i} className="p-4 bg-black/40 border border-white/5 backdrop-blur-sm">
+              <div className="font-display text-base text-white uppercase tracking-wider mb-1 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-accent rounded-full" />
+                {cap.title}
+              </div>
+              <div className="font-body text-xs text-white/45 font-light">
+                {cap.desc}
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="svc-cta flex flex-col sm:flex-row gap-6">
+          <Link
+            href="/services/drone-inspection"
+            className="bg-accent text-white font-display text-xl tracking-[0.1em] px-8 py-4 hover:bg-accent-light transition-all flex items-center justify-center gap-3 group"
+          >
+            Explore Drone Inspections <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
+          </Link>
+          <Link
+            href="/brief?service=drone-inspection"
+            className="border border-white/20 text-white font-display text-xl tracking-[0.1em] px-8 py-4 hover:bg-white/10 transition-all text-center flex items-center justify-center"
+          >
+            Start Inspection Brief
+          </Link>
+        </div>
+      </div>
+
+      {/* Right Column: Interactive Scan Comparison Showcase */}
+      <div className="relative z-10 flex-1 w-full max-w-[500px]">
+        <div className="space-y-4">
+          <ScanReveal
+            baseImage="/images/inspection_poster.png"
+            alt="Roofing defect scan comparison"
+            labelLeft="48MP Optical"
+            labelRight="Defect Telemetry"
+            autoScan={false}
+          />
+          <div className="flex items-center justify-between font-mono text-[9px] text-white/40 px-2 uppercase">
+            <span>Sensor: 4/3 CMOS Hasselblad</span>
+            <span>Accuracy: Sub-20mm Resolution</span>
+          </div>
         </div>
       </div>
     </section>

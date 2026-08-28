@@ -18,7 +18,7 @@ import SectionTag from '@/components/ui/SectionTag'
 import { leadMagnets } from '@/lib/lead-magnets-config'
 
 export const metadata: Metadata = {
-  title: 'Commercial Drone Guides, Checklists and Templates | Altitude Hire',
+  title: 'Commercial Drone Guides, Checklists and Templates | EntireFM Drone',
   description: 'Download practical commercial drone guides and checklists for inspections, roof surveys, facilities management, construction monitoring, insurance evidence, Gaussian Splats and drone survey cost planning.',
 }
 
@@ -77,7 +77,7 @@ export default function LeadMagnetHub() {
                <div className="p-8 bg-dark border border-white/5">
                   <h3 className="font-display text-xl text-white mb-4 uppercase tracking-widest">Industry Authority</h3>
                   <p className="font-body text-xs text-white/40 uppercase tracking-widest leading-relaxed">
-                    Altitude Hire provides structured technical guidance to ensure clients receive high-quality, survey-grade data and inspection evidence.
+                    EntireFM Drone provides structured technical guidance to ensure clients receive high-quality, survey-grade data and inspection evidence.
                   </p>
                </div>
                <div className="p-8 bg-dark border border-white/5">
@@ -181,7 +181,7 @@ export default function LeadMagnetHub() {
                },
                {
                  q: "Do I need to know which drone service I need?",
-                 a: "No. Select the closest sector and project type. Altitude Hire can recommend the right service, bundle and deliverable route."
+                 a: "No. Select the closest sector and project type. EntireFM Drone can recommend the right service, bundle and deliverable route."
                },
                {
                  q: "Can I request a project after downloading a guide?",
@@ -208,7 +208,7 @@ export default function LeadMagnetHub() {
             Better Visibility.<br/>Better Decisions.
           </h2>
           <p className="font-body text-xl text-white/50 uppercase tracking-widest leading-relaxed mb-16 font-light">
-            Altitude Hire helps teams move from guessing to knowing by providing technical aerial evidence and structured data.
+            EntireFM Drone helps teams move from guessing to knowing by providing technical aerial evidence and structured data.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-8">
             <Link href="/brief" className="bg-accent text-dark font-display text-2xl tracking-[0.1em] px-12 py-6 hover:bg-white transition-all flex items-center justify-center gap-4 group">

@@ -119,7 +119,7 @@ export default function AssetContentRenderer({ content }: Props) {
           <FileText className="w-4 h-4 text-white/20" />
           <span className="font-ui text-[9px] tracking-widest uppercase text-white/20">{content.version}</span>
         </div>
-        <span className="font-ui text-[9px] tracking-widest uppercase text-white/10">altitude-hire.com</span>
+        <span className="font-ui text-[9px] tracking-widest uppercase text-white/10">drone.entirefm.com</span>
       </div>
     </div>
   )

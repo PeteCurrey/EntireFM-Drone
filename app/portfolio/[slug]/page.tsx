@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = portfolioProjects.find(p => p.slug === slug)
   if (!project) return {}
 
-  const title = `${project.title} | Drone ${project.label} | Altitude Hire`
+  const title = `${project.title} | Drone ${project.label} | EntireFM Drone`
   const description = `${project.intro} Explore this ${project.label.toLowerCase()} for drone capture in the ${project.sector} sector.`
 
   return {
@@ -265,7 +265,7 @@ export default async function ProjectPage({ params }: Props) {
             PLANNING A SIMILAR <br/><span className="underline decoration-dark/30 underline-offset-[10px]">DRONE REQUIREMENT?</span>
           </h2>
           <p className="font-body text-xl md:text-2xl text-dark/70 max-w-3xl mx-auto mb-16 uppercase tracking-widest font-medium leading-relaxed">
-            Tell us what you need to inspect, measure, monitor or visualise. Altitude Hire will recommend the right capture workflow and deliverables.
+            Tell us what you need to inspect, measure, monitor or visualise. EntireFM Drone will recommend the right capture workflow and deliverables.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
             <Link 

@@ -1,3 +1,5 @@
+'use client'
+
 // components/layout/Nav.tsx
 'use client'
 
@@ -121,10 +123,21 @@ export default function Nav() {
       >
         <div className="max-w-[1700px] mx-auto flex justify-between items-center relative">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group" onClick={() => { setMobileMenuOpen(false); setActiveMenu(null); }}>
-            <span className="font-display text-2xl md:text-3xl tracking-[0.15em] text-white">ALTITUDE</span>
-            <span className="font-display text-2xl md:text-3xl tracking-[0.15em] text-accent">DRONE</span>
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link href="/" className="flex items-center gap-2 group" onClick={() => { setMobileMenuOpen(false); setActiveMenu(null); }}>
+              <span className="font-display text-2xl md:text-3xl tracking-[0.15em] text-white">ENTIREFM</span>
+              <span className="font-display text-2xl md:text-3xl tracking-[0.15em] text-accent">DRONE</span>
+            </Link>
+            <div className="hidden sm:block w-[1px] h-6 bg-white/10" />
+            <Link
+              href="https://www.entirefm.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-block font-ui text-[10px] tracking-[0.2em] uppercase text-white/40 hover:text-accent transition-colors"
+            >
+              Part of EntireFM ↗
+            </Link>
+          </div>
 
           {/* Desktop Nav Items */}
           <div className="hidden lg:flex items-center gap-8 xl:gap-10">
@@ -418,14 +431,14 @@ export default function Nav() {
 
           <Link href="/sectors" className="font-display text-5xl tracking-tighter text-white py-4 w-full" onClick={() => setMobileMenuOpen(false)}>SECTORS</Link>
           <Link href="/client-portal-demos" className="font-display text-5xl tracking-tighter text-white py-4 w-full" onClick={() => setMobileMenuOpen(false)}>DEMO PORTALS</Link>
-          <Link href="/gaussian-splat-capture" className="font-display text-5xl tracking-tighter text-white py-4 w-full" onClick={() => setMobileMenuOpen(false)}>GAUSSIAN SPLAT</Link>
+          <Link href="/gaussian-splat" className="font-display text-5xl tracking-tighter text-white py-4 w-full" onClick={() => setMobileMenuOpen(false)}>GAUSSIAN SPLAT</Link>
           <Link href="/fleet" className="font-display text-5xl tracking-tighter text-white py-4 w-full" onClick={() => setMobileMenuOpen(false)}>FLEET</Link>
           <Link href="/resources" className="font-display text-5xl tracking-tighter text-white py-4 w-full" onClick={() => setMobileMenuOpen(false)}>RESOURCES</Link>
           
           <div className="mt-auto w-full pt-10 pb-8">
              <Link 
               href="/brief"
-              className="flex items-center justify-center gap-4 bg-accent text-dark font-display text-3xl tracking-[0.1em] uppercase py-7 w-full shadow-[0_20px_40px_rgba(200,169,110,0.2)]"
+              className="flex items-center justify-center gap-4 bg-accent text-white font-display text-3xl tracking-[0.1em] uppercase py-7 w-full shadow-[0_20px_40px_rgba(0,102,255,0.25)]"
               onClick={() => setMobileMenuOpen(false)}
             >
               <Rocket className="w-6 h-6" />

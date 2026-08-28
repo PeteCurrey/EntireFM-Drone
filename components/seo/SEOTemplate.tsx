@@ -102,7 +102,7 @@ export default function SEOTemplate({ page }: SEOTemplateProps) {
                 {page.searchIntent.split(' - ')[1] || 'Specialist Drone Intelligence for Complex Projects'}
               </h3>
               <p className="font-body text-lg text-white/50 leading-relaxed font-light uppercase tracking-widest">
-                Traditional access methods for {page.parentService?.replace(/-/g, ' ') || 'commercial drone services'} in {page.parentLocation || 'the UK'} often introduce unnecessary risk, cost, and operational downtime. Altitude Hire provides a data-first alternative.
+                Traditional access methods for {page.parentService?.replace(/-/g, ' ') || 'commercial drone services'} in {page.parentLocation || 'the UK'} often introduce unnecessary risk, cost, and operational downtime. EntireFM Drone provides a data-first alternative.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -125,7 +125,7 @@ export default function SEOTemplate({ page }: SEOTemplateProps) {
             <span className="text-accent underline underline-offset-[10px] decoration-accent/30">CLIENT RECEIVES</span>
           </h2>
           <p className="font-body text-xl text-white/50 leading-relaxed font-light uppercase tracking-widest mb-20 max-w-3xl mx-auto">
-            Altitude Hire does not just provide drone flights. We provide usable commercial intelligence formatted for engineering, construction and property teams.
+            EntireFM Drone does not just provide drone flights. We provide usable commercial intelligence formatted for engineering, construction and property teams.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -176,13 +176,13 @@ export default function SEOTemplate({ page }: SEOTemplateProps) {
                 <div>
                    <h4 className="font-display text-xl text-white uppercase tracking-widest mb-6 border-b border-white/5 pb-4">Operational Context</h4>
                    <p className="font-body text-[11px] text-white/40 uppercase tracking-widest leading-relaxed">
-                      Altitude Hire manages all required permissions for drone operations in {page.parentLocation || 'the UK'}. This includes Flight Information Region (FIR) notifications, land owner permissions and site safety cordons.
+                      EntireFM Drone manages all required permissions for drone operations in {page.parentLocation || 'the UK'}. This includes Flight Information Region (FIR) notifications, land owner permissions and site safety cordons.
                    </p>
                 </div>
                 <div>
                    <h4 className="font-display text-xl text-white uppercase tracking-widest mb-6 border-b border-white/5 pb-4">Reporting Standard</h4>
                    <p className="font-body text-[11px] text-white/40 uppercase tracking-widest leading-relaxed">
-                      All deliverables are provided via the Altitude Client Portal, allowing for direct download of high-resolution visual evidence, survey data and technical reports.
+                      All deliverables are provided via the EntireFM Client Portal, allowing for direct download of high-resolution visual evidence, survey data and technical reports.
                    </p>
                 </div>
              </div>
@@ -206,7 +206,7 @@ export default function SEOTemplate({ page }: SEOTemplateProps) {
           
           <div className="space-y-6">
              {[
-               { q: `Can you operate in ${page.parentLocation || 'restricted areas'}?`, a: `Yes, Altitude Hire holds the required Operational Authorisation and flight planning expertise to navigate complex environments safely and legally.` },
+               { q: `Can you operate in ${page.parentLocation || 'restricted areas'}?`, a: `Yes, EntireFM Drone holds the required Operational Authorisation and flight planning expertise to navigate complex environments safely and legally.` },
                { q: 'How quickly is the data delivered?', a: 'Typically within 48-72 hours of the flight mission, depending on the level of processing and reporting required.' },
                { q: 'Is the data survey-grade?', a: 'We can provide survey-grade accuracy (sub-20mm) when scoped with Ground Control Points (GCPs) and appropriate methodology.' }
              ].map((faq, i) => (
@@ -227,7 +227,7 @@ export default function SEOTemplate({ page }: SEOTemplateProps) {
       <section className="py-32 bg-accent text-dark overflow-hidden relative">
         <div className="absolute top-0 right-0 p-12 opacity-10 pointer-events-none hidden md:block">
            <span className="font-display text-[200px] leading-none text-dark uppercase select-none">
-             ALTITUDE
+             ENTIREFM
            </span>
         </div>
         <div className="container px-8 md:px-20 relative z-10">
@@ -237,7 +237,7 @@ export default function SEOTemplate({ page }: SEOTemplateProps) {
               IN <span className="underline underline-offset-8 decoration-dark/20">{page.parentLocation || page.parentSector || 'THE UK'}?</span>
             </h2>
             <p className="font-body text-xl md:text-2xl font-light text-dark/70 uppercase tracking-widest leading-relaxed mb-16">
-              Tell us what you need to inspect, measure, monitor, film or visualise. Altitude Hire will review the site, required output and operational constraints before recommending the right capture route.
+              Tell us what you need to inspect, measure, monitor, film or visualise. EntireFM Drone will review the site, required output and operational constraints before recommending the right capture route.
             </p>
             <Link 
               href={`/brief?source=${page.pageId}&service=${page.parentService || ''}&location=${page.parentLocation || ''}`}

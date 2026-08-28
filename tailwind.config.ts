@@ -13,10 +13,11 @@ const config: Config = {
         ui:      ['var(--font-ui)',      'sans-serif'],
       },
       colors: {
-        accent: '#c8a96e',
-        'accent-light': '#e2cc9e',
+        accent: '#0066ff',
+        'accent-light': '#4da6ff',
+        'accent-violet': '#6b2fff',
         dark: '#080808',
-        mid: '#111111',
+        mid: '#0d0628',
       },
       fontSize: {
         hero: ['clamp(72px, 9vw, 136px)', { lineHeight: '0.92' }],

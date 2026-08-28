@@ -1,4 +1,4 @@
--- Database Schema for Avorria Drone
+-- Database Schema for EntireFM Drone
 -- Run this in the Supabase SQL Editor
 
 -- 1. Enquiries Table (Contact Form)

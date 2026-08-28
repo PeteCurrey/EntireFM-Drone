@@ -19,8 +19,8 @@ import SectionTag from '@/components/ui/SectionTag'
 import FAQAccordion from '@/components/ui/FAQAccordion'
 
 export const metadata: Metadata = {
-  title: 'Commercial Drone Service Packages | Drone Surveys, Inspections & 3D Capture | Altitude Hire',
-  description: 'Altitude Hire provides commercial drone service packages for roof inspections, construction monitoring, mapping, thermal surveys, aerial media, Gaussian Splats and digital twin capture.',
+  title: 'Commercial Drone Service Packages | Drone Surveys, Inspections & 3D Capture | EntireFM Drone',
+  description: 'EntireFM Drone provides commercial drone service packages for roof inspections, construction monitoring, mapping, thermal surveys, aerial media, Gaussian Splats and digital twin capture.',
 }
 
 const BUNDLES = [
@@ -198,7 +198,7 @@ export default function BundlesPage() {
             <span className="text-accent">BUILT AROUND PROJECT OUTCOMES</span>
           </h1>
           <p className="font-body text-xl text-white/60 max-w-[800px] mx-auto mb-12 leading-relaxed">
-            From roof inspections and construction progress reports to high-accuracy mapping, cinematic content and immersive 3D capture, Altitude Hire packages drone services around the result you actually need — not just the flight.
+            From roof inspections and construction progress reports to high-accuracy mapping, cinematic content and immersive 3D capture, EntireFM Drone packages drone services around the result you actually need — not just the flight.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link href="/brief?source=bundles-hero" className="bg-accent text-dark font-display text-xl tracking-widest px-10 py-4 hover:bg-white transition-all duration-300">
@@ -231,7 +231,7 @@ export default function BundlesPage() {
             </div>
             <h2 className="font-display text-5xl leading-tight mb-8">THE VALUE IS IN THE<br/><span className="text-accent underline underline-offset-8 decoration-accent/30">DELIVERABLE</span></h2>
             <p className="font-body text-white/50 leading-relaxed mb-6">
-              Most clients do not need “a drone flight”. They need evidence, visibility, data, measurements, marketing assets or a clear record of site condition. Altitude Hire’s commercial bundles are designed to make that process simple by combining capture, reporting and usable deliverables into clear project-focused packages.
+              Most clients do not need “a drone flight”. They need evidence, visibility, data, measurements, marketing assets or a clear record of site condition. EntireFM Drone’s commercial bundles are designed to make that process simple by combining capture, reporting and usable deliverables into clear project-focused packages.
             </p>
           </div>
           <div className="bg-dark/40 border border-white/5 p-12 backdrop-blur-sm">
@@ -239,7 +239,7 @@ export default function BundlesPage() {
               &quot;A drone is only the capture method. The value is in what the client can do with the output.&quot;
             </p>
             <p className="font-body text-white/40 leading-relaxed">
-              Whether the requirement is reducing access costs, documenting a roof condition, tracking construction progress, producing investor update content, calculating stockpile volumes or creating an immersive 3D site model, Altitude Hire structures each project around the final deliverable.
+              Whether the requirement is reducing access costs, documenting a roof condition, tracking construction progress, producing investor update content, calculating stockpile volumes or creating an immersive 3D site model, EntireFM Drone structures each project around the final deliverable.
             </p>
           </div>
         </div>
@@ -434,7 +434,7 @@ export default function BundlesPage() {
             {[
               { step: "01", title: "Define Outcome", desc: "We establish whether the client needs inspection evidence, survey data, marketing content or visualisation." },
               { step: "02", title: "Plan Capture", desc: "We confirm the flight area, access requirements, safety constraints, weather window and accuracy requirements." },
-              { step: "03", title: "Complete Flight", desc: "Altitude Hire carries out the drone operation using the appropriate capture workflow for the intended output." },
+              { step: "03", title: "Complete Flight", desc: "EntireFM Drone carries out the drone operation using the appropriate capture workflow for the intended output." },
               { step: "04", title: "Process Data", desc: "Images, video, maps, reports, models or data outputs are processed into a usable client-ready format." },
               { step: "05", title: "Deliver Results", desc: "The client receives the agreed deliverables, with clear next-step guidance for maintenance or reporting." }
             ].map((item, idx) => (
@@ -459,11 +459,11 @@ export default function BundlesPage() {
           <h2 className="font-display text-section mb-16 text-center underline decoration-accent/30 underline-offset-8">BUNDLE <span className="text-accent">FAQ</span></h2>
           <FAQAccordion faqs={[
             { question: 'What drone package do I need?', answer: 'Your choice should be based on the required outcome: inspection evidence, survey data, marketing content, progress monitoring or immersive 3D capture. Our specialists can advise the best bundle for your project requirements.' },
-            { question: 'Can you provide a roof inspection report?', answer: 'Yes, Altitude Hire can provide high-resolution image evidence, annotated defect imagery and inspection summaries depending on the project requirement.' },
+            { question: 'Can you provide a roof inspection report?', answer: 'Yes, EntireFM Drone can provide high-resolution image evidence, annotated defect imagery and inspection summaries depending on the project requirement.' },
             { question: 'Can drone surveys replace scaffolding or MEWPs?', answer: 'In many cases drones reduce the need for access equipment during initial inspection and evidence capture, although repair works or hands-on inspection may still require physical access.' },
             { question: 'Can you provide thermal drone inspections?', answer: 'Yes, thermal imaging can be added where suitable for heat loss, roof issues, solar panel anomalies or asset inspection.' },
             { question: 'Can you create Gaussian Splats or 3D models from drone footage?', answer: 'Yes, where the site and capture conditions are suitable. Gaussian Splats and 3D models are excellent for visualisation, stakeholder engagement and immersive site viewing.' },
-            { question: 'Are drone mapping outputs survey-grade?', answer: 'They can be, where the project is planned with appropriate methodology, control points, processing and accuracy requirements. Altitude Hire ensures the correct workflow for measurement-critical data.' },
+            { question: 'Are drone mapping outputs survey-grade?', answer: 'They can be, where the project is planned with appropriate methodology, control points, processing and accuracy requirements. EntireFM Drone ensures the correct workflow for measurement-critical data.' },
             { question: 'Do you offer ongoing construction monitoring?', answer: 'Yes, repeat drone visits can be arranged weekly, fortnightly or monthly for progress records, stakeholder updates and project documentation.' },
             { question: 'Can you help with insurance evidence?', answer: 'Yes, drone capture can provide fast visual evidence for storm damage, roof issues, fire damage, flood impact and access-restricted areas.' }
           ]} />
@@ -475,7 +475,7 @@ export default function BundlesPage() {
         <div className="max-w-[1000px] mx-auto text-center text-dark">
           <h2 className="font-display text-section mb-8">NEED A DRONE OUTPUT YOU CAN <span className="underline decoration-dark/30 underline-offset-8">ACTUALLY USE</span>?</h2>
           <p className="font-body text-xl mb-12 max-w-[800px] mx-auto leading-relaxed">
-            Whether you need a roof inspection, progress record, survey dataset, marketing content package or immersive 3D site capture, Altitude Hire can structure the drone operation around the commercial result.
+            Whether you need a roof inspection, progress record, survey dataset, marketing content package or immersive 3D site capture, EntireFM Drone can structure the drone operation around the commercial result.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link href="/brief?source=bundles-footer" className="bg-dark text-white font-display text-2xl tracking-[0.2em] px-12 py-5 hover:bg-white hover:text-dark transition-all duration-500">

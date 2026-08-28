@@ -36,7 +36,7 @@ export default function TeamPage() {
         <div className="absolute inset-0 z-0">
           <Image 
             src="/images/events_poster.jpg" 
-            alt="Altitude Hire Team" 
+            alt="EntireFM Drone Team" 
             fill
             priority
             className="object-cover opacity-20"
@@ -51,7 +51,7 @@ export default function TeamPage() {
           </div>
           <h1 className="font-display text-7xl md:text-8xl text-white mb-8 tracking-wider leading-none">THE<br/><span className="text-accent underline underline-offset-8">TEAM</span></h1>
           <p className="font-body text-lg md:text-xl text-white/40 leading-relaxed max-w-[600px]">
-            Technology is only as capable as the operators behind it. Altitude Hire is driven by certified aviation professionals, geospatial analysts, and industrial inspection specialists.
+            Technology is only as capable as the operators behind it. EntireFM Drone is driven by certified aviation professionals, geospatial analysts, and industrial inspection specialists.
           </p>
         </div>
       </section>
@@ -89,7 +89,7 @@ export default function TeamPage() {
       
       {/* Careers Callout */}
       <section className="py-24 border-t border-white/10 bg-black text-center px-10">
-         <h2 className="font-display text-4xl text-white tracking-wide mb-6">JOIN THE ALTITUDE SQUADRON</h2>
+         <h2 className="font-display text-4xl text-white tracking-wide mb-6">JOIN THE ENTIREFM DRONE FLEET</h2>
          <p className="font-body text-white/40 mb-10 max-w-lg mx-auto">We are always looking for CAA-certified operators and geospatial data experts to join our rapidly expanding regional hubs.</p>
          <button className="border border-white/20 px-8 py-4 font-ui text-[11px] tracking-widest text-white/70 uppercase hover:text-accent hover:border-accent transition-all mx-auto block">VIEW OPEN OPPORTUNITIES</button>
       </section>

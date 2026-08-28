@@ -1,14 +1,14 @@
-'use client'
-
-import { useEffect } from 'react'
 import HeroSection from '@/components/sections/HeroSection'
+import LifecycleSection from '@/components/sections/LifecycleSection'
 import InspectionSection from '@/components/sections/InspectionSection'
-import PhotographySection from '@/components/sections/PhotographySection'
 import SurveyingSection from '@/components/sections/SurveyingSection'
+import SpatialCaptureSection from '@/components/sections/SpatialCaptureSection'
 import ConstructionSection from '@/components/sections/ConstructionSection'
 import ThermalSection from '@/components/sections/ThermalSection'
 import AgricultureSection from '@/components/sections/AgricultureSection'
 import EventsSection from '@/components/sections/EventsSection'
+import InterventionSection from '@/components/sections/InterventionSection'
+import OutputTeaser from '@/components/sections/OutputTeaser'
 import MetricsSection from '@/components/sections/MetricsSection'
 import SectorSection from '@/components/sections/SectorSection'
 import FAQSection from '@/components/sections/FAQSection'
@@ -16,39 +16,66 @@ import BundlesTeaser from '@/components/sections/BundlesTeaser'
 import PortfolioTeaser from '@/components/sections/PortfolioTeaser'
 import ContactSection from '@/components/sections/ContactSection'
 import BriefAssistantTeaser from '@/components/sections/BriefAssistantTeaser'
-import OutputSelectorTeaser from '@/components/sections/OutputSelectorTeaser'
 import CostEstimatorTeaser from '@/components/sections/CostEstimatorTeaser'
-import LeadMagnetTeaser from '@/components/sections/LeadMagnetTeaser'
 import { TrustedByStrip, AccreditationsStrip } from '@/components/ui/Strips'
-
-import OutputTeaser from '@/components/sections/OutputTeaser'
-import OperationsTrust from '@/components/sections/OperationsTrust'
 
 export default function Home() {
   return (
-    <main className="homepage-snap-container">
-      <div className="homepage-snap-section"><HeroSection /></div>
-      <div className="homepage-snap-section"><OutputTeaser /></div>
+    <main>
+      {/* Chapter 01: Hero */}
+      <HeroSection />
+
+      {/* Chapter 02: The 5-Stage Intelligence Lifecycle */}
+      <LifecycleSection />
+
+      {/* Trust Strip */}
       <TrustedByStrip />
-      <div className="homepage-snap-section"><InspectionSection /></div>
-      <div className="homepage-snap-section"><PhotographySection /></div>
-      <div className="homepage-snap-section"><SurveyingSection /></div>
-      <div className="homepage-snap-section"><ConstructionSection /></div>
+
+      {/* Chapter 03: Inspection */}
+      <InspectionSection />
+
+      {/* Chapter 04: Surveying & Mapping */}
+      <SurveyingSection />
+
+      {/* Chapter 05: Gaussian Splats / Spatial Capture Showcase */}
+      <SpatialCaptureSection />
+
+      {/* Chapter 06: Construction Monitoring */}
+      <ConstructionSection />
+
+      {/* Accreditations Strip */}
       <AccreditationsStrip />
-      <div className="homepage-snap-section"><ThermalSection /></div>
-      <div className="homepage-snap-section"><AgricultureSection /></div>
-      <div className="homepage-snap-section"><EventsSection /></div>
-      <div className="homepage-snap-section"><OperationsTrust /></div>
-      <div className="homepage-snap-section"><CostEstimatorTeaser /></div>
-      <div className="homepage-snap-section"><BriefAssistantTeaser /></div>
-      <div className="homepage-snap-section"><OutputSelectorTeaser /></div>
-      <div className="homepage-snap-section"><MetricsSection /></div>
-      <div className="homepage-snap-section"><SectorSection /></div>
-      <div className="homepage-snap-section"><LeadMagnetTeaser /></div>
-      <div className="homepage-snap-section"><PortfolioTeaser /></div>
-      <div className="homepage-snap-section"><BundlesTeaser /></div>
-      <div className="homepage-snap-section"><FAQSection /></div>
-      <div className="homepage-snap-section"><ContactSection /></div>
+
+      {/* Chapter 07: Thermal Auditing */}
+      <ThermalSection />
+
+      {/* Chapter 08: Agriculture & Rural Estates */}
+      <AgricultureSection />
+
+      {/* Chapter 09: Cinematic Media */}
+      <EventsSection />
+
+      {/* Chapter 10: EntireFM Strategic Integration (Inspection to Intervention) */}
+      <InterventionSection />
+
+      {/* Chapter 11: Tangible Deliverables */}
+      <OutputTeaser />
+
+      {/* Interactive Project Tools */}
+      <CostEstimatorTeaser />
+      <BriefAssistantTeaser />
+
+      {/* Operational Metrics & Sectors */}
+      <MetricsSection />
+      <SectorSection />
+
+      {/* Portfolio & Commercial Packages */}
+      <PortfolioTeaser />
+      <BundlesTeaser />
+
+      {/* FAQ & Contact */}
+      <FAQSection />
+      <ContactSection />
     </main>
   )
 }

@@ -27,27 +27,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!asset) return { title: 'Asset Not Found' }
 
   const seoTitles: Record<string, string> = {
-    'commercial-drone-inspection-buyers-guide': "Commercial Drone Inspection Buyer's Guide | Altitude Hire",
-    'drone-roof-inspection-checklist': 'Drone Roof Inspection Checklist | Altitude Hire',
-    'facilities-manager-drone-survey-guide': "Facilities Manager's Drone Survey Guide | Altitude Hire",
-    'construction-progress-monitoring-template': 'Construction Progress Monitoring Template | Altitude Hire',
-    'insurance-evidence-drone-capture-checklist': 'Insurance Evidence Drone Capture Checklist | Altitude Hire',
-    'gaussian-splat-vs-photogrammetry-guide': 'Gaussian Splat vs Photogrammetry Guide | Altitude Hire',
-    'drone-survey-cost-guide': 'Drone Survey Cost Guide | Altitude Hire',
+    'commercial-drone-inspection-buyers-guide': "Commercial Drone Inspection Buyer's Guide | EntireFM Drone",
+    'drone-roof-inspection-checklist': 'Drone Roof Inspection Checklist | EntireFM Drone',
+    'facilities-manager-drone-survey-guide': "Facilities Manager's Drone Survey Guide | EntireFM Drone",
+    'construction-progress-monitoring-template': 'Construction Progress Monitoring Template | EntireFM Drone',
+    'insurance-evidence-drone-capture-checklist': 'Insurance Evidence Drone Capture Checklist | EntireFM Drone',
+    'gaussian-splat-vs-photogrammetry-guide': 'Gaussian Splat vs Photogrammetry Guide | EntireFM Drone',
+    'drone-survey-cost-guide': 'Drone Survey Cost Guide | EntireFM Drone',
   }
 
   const seoDescriptions: Record<string, string> = {
-    'commercial-drone-inspection-buyers-guide': "Download Altitude Hire's commercial drone inspection buyer's guide for planning, scoping and evaluating drone inspections for roofs, buildings and access-restricted assets.",
-    'drone-roof-inspection-checklist': "Download Altitude Hire's drone roof inspection checklist for planning commercial roof, gutter, drainage and high-level building inspections.",
-    'facilities-manager-drone-survey-guide': "Download Altitude Hire's FM drone survey guide for planned maintenance, contractor scoping, thermal imaging and multi-site portfolio records.",
-    'construction-progress-monitoring-template': "Download Altitude Hire's construction progress monitoring template for repeat drone capture, milestone records and stakeholder-ready site updates.",
-    'insurance-evidence-drone-capture-checklist': "Download Altitude Hire's insurance evidence drone capture checklist for planning aerial evidence after storm, fire, flood or access-restricted property incidents.",
-    'gaussian-splat-vs-photogrammetry-guide': "Download Altitude Hire's guide comparing Gaussian Splats, photogrammetry, LiDAR and 360 panoramas for commercial site visualisation and measurement workflows.",
-    'drone-survey-cost-guide': "Download Altitude Hire's drone survey cost guide covering the factors that affect inspection, mapping and aerial data capture project costs.",
+    'commercial-drone-inspection-buyers-guide': "Download EntireFM Drone's commercial drone inspection buyer's guide for planning, scoping and evaluating drone inspections for roofs, buildings and access-restricted assets.",
+    'drone-roof-inspection-checklist': "Download EntireFM Drone's drone roof inspection checklist for planning commercial roof, gutter, drainage and high-level building inspections.",
+    'facilities-manager-drone-survey-guide': "Download EntireFM Drone's FM drone survey guide for planned maintenance, contractor scoping, thermal imaging and multi-site portfolio records.",
+    'construction-progress-monitoring-template': "Download EntireFM Drone's construction progress monitoring template for repeat drone capture, milestone records and stakeholder-ready site updates.",
+    'insurance-evidence-drone-capture-checklist': "Download EntireFM Drone's insurance evidence drone capture checklist for planning aerial evidence after storm, fire, flood or access-restricted property incidents.",
+    'gaussian-splat-vs-photogrammetry-guide': "Download EntireFM Drone's guide comparing Gaussian Splats, photogrammetry, LiDAR and 360 panoramas for commercial site visualisation and measurement workflows.",
+    'drone-survey-cost-guide': "Download EntireFM Drone's drone survey cost guide covering the factors that affect inspection, mapping and aerial data capture project costs.",
   }
 
   return {
-    title: seoTitles[slug] || `${asset.title} | Altitude Hire`,
+    title: seoTitles[slug] || `${asset.title} | EntireFM Drone`,
     description: seoDescriptions[slug] || asset.description,
     openGraph: {
       title: seoTitles[slug] || asset.title,

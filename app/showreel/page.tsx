@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, Play } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Aerial Videography & Film Showreel | Altitude Hire',
+  title: 'Aerial Videography & Film Showreel | EntireFM Drone',
   description: 'Explore our gallery of cinematic 4K aerial videography, including property reveals, coastal orbits, and commercial glides.',
 }
 

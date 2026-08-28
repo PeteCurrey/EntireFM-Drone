@@ -256,7 +256,7 @@ export default function ResourcesHubPage() {
             NEED ADVICE ON A <br/><span className="underline decoration-dark/30 underline-offset-[10px]">DRONE REQUIREMENT?</span>
           </h2>
           <p className="font-body text-xl md:text-2xl text-dark/70 max-w-3xl mx-auto mb-16 uppercase tracking-widest font-medium leading-relaxed">
-            Submit a project brief and Altitude Hire will recommend the right capture workflow, deliverables and package route.
+            Submit a project brief and EntireFM Drone will recommend the right capture workflow, deliverables and package route.
           </p>
           <Link 
             href="/brief"

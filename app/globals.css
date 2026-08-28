@@ -9,32 +9,14 @@
   }
 }
 
-.homepage-snap-container {
-  scroll-snap-type: y mandatory;
-  overflow-y: auto;
-  height: 100svh;
-  scroll-behavior: smooth;
-  /* Hide scrollbar for a cleaner look */
-  scrollbar-width: none; 
-}
-.homepage-snap-container::-webkit-scrollbar {
-  display: none;
-}
-
-.homepage-snap-section {
-  min-height: 100svh;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  position: relative;
-}
-
 :root {
   --white:          #ffffff;
   --off-white:      #e8e4de;
-  --accent:         #c8a96e;
-  --accent-light:   #e2cc9e;
+  --accent:         #0066ff;
+  --accent-light:   #4da6ff;
+  --accent-violet:  #6b2fff;
   --dark:           #080808;
-  --mid:            #111111;
+  --mid:            #0d0628;
   --overlay:        rgba(0,0,0,0.52);
   --overlay-heavy:  rgba(0,0,0,0.70);
 }
@@ -52,19 +34,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ─── SCROLL CONTAINER ─── */
-.scroll-container {
-  /* Lenis handles scrolling globally on the window */
-}
-
-.scroll-container::-webkit-scrollbar {
-  display: none;
-}
-
 /* ─── SECTIONS ─── */
-/* Full-viewport snap sections (service panels on homepage) */
+/* Full-viewport cinematic sections keep natural document flow */
 section[data-index] {
-  min-height: 100vh;
+  min-height: 100svh;
   width: 100%;
   position: relative;
   padding: 100px 80px;

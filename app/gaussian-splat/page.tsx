@@ -28,8 +28,8 @@ import FAQAccordion from '@/components/ui/FAQAccordion'
 import GaussianSplatViewer from '@/components/interactive/GaussianSplatViewer'
 
 export const metadata: Metadata = {
-  title: 'Gaussian Splat Drone Capture UK | Interactive 3D Site Visualisation | Altitude Hire',
-  description: 'Explore Gaussian Splat drone capture from Altitude Hire, including interactive 3D visualisation, photorealistic site records, property presentation, construction progress, heritage documentation and digital twin-style outputs.',
+  title: 'Gaussian Splat Drone Capture UK | Interactive 3D Site Visualisation | EntireFM Drone',
+  description: 'Explore Gaussian Splat drone capture from EntireFM Drone, including interactive 3D visualisation, photorealistic site records, property presentation, construction progress, heritage documentation and digital twin-style outputs.',
 }
 
 export default function GaussianSplatShowcasePage() {
@@ -122,9 +122,9 @@ export default function GaussianSplatShowcasePage() {
 
             <div className="max-w-6xl mx-auto">
                <GaussianSplatViewer 
-                  title="Altitude Command Centre Demo"
+                  title="EntireFM Drone Command Centre Demo"
                   description="A photorealistic 3D reconstruction of a commercial development site."
-                  viewerSrc="/splats/altitude-demo/index.html"
+                  viewerSrc="/splats/demo/index.html"
                   posterSrc="/images/gaussian-splat/casa-hotel.jpg"
                   viewerAvailable={false} // Placeholder as requested
                   fallbackVideoSrc="/videos/gaussian-flythrough.mp4"

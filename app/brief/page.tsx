@@ -132,7 +132,7 @@ function BriefFormContent() {
         </div>
         <h2 className="font-display text-7xl text-white mb-8 tracking-tighter uppercase">Brief Received</h2>
         <p className="font-body text-xl text-white/50 uppercase tracking-widest max-w-2xl leading-relaxed mb-16">
-          Thanks — your project brief has been submitted. Altitude Hire will review the site details, required output and any constraints before advising on the best capture route.
+          Thanks — your project brief has been submitted. EntireFM Drone will review the site details, required output and any constraints before advising on the best capture route.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-20">
@@ -733,7 +733,7 @@ export default function ProjectBriefPage() {
             START A DRONE <br/><span className="text-accent underline underline-offset-8 decoration-accent/30">PROJECT BRIEF</span>
           </h1>
           <p className="font-body text-xl md:text-2xl font-light text-white/50 max-w-3xl uppercase tracking-widest leading-relaxed mb-12">
-            Tell us what you need to inspect, measure, monitor, film or visualise. Altitude Hire will recommend the right drone capture method, deliverables and project route.
+            Tell us what you need to inspect, measure, monitor, film or visualise. EntireFM Drone will recommend the right drone capture method, deliverables and project route.
           </p>
           <div className="flex flex-wrap gap-x-12 gap-y-6 mb-12">
             <Link href="/cost-estimator" className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent hover:text-white transition-colors flex items-center gap-3">

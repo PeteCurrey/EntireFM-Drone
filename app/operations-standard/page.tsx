@@ -24,7 +24,7 @@ export default function OperationsStandardPage() {
     {
       title: 'Project Brief',
       icon: ClipboardCheck,
-      body: 'The project starts with the required outcome: what the client needs to inspect, measure, monitor, evidence, film or visualise. Altitude Flight Desk records the project requirement, site details, service interest, package route and deliverable expectations.',
+      body: 'The project starts with the required outcome: what the client needs to inspect, measure, monitor, evidence, film or visualise. EntireFM Flight Desk records the project requirement, site details, service interest, package route and deliverable expectations.',
       outputs: ['Client details', 'Site location', 'Required outcome', 'Service type', 'Relevant commercial bundle', 'Urgency', 'Deliverables requested']
     },
     {
@@ -84,15 +84,15 @@ export default function OperationsStandardPage() {
 
   const faqs = [
     {
-      question: "What is the Altitude Operations Standard?",
-      answer: "It is the structured workflow Altitude Hire uses to manage commercial drone projects from brief to deliverable, including project scoping, planning, capture, processing and delivery."
+      question: "What is the EntireFM Operations Standard?",
+      answer: "It is the structured workflow EntireFM Drone uses to manage commercial drone projects from brief to deliverable, including project scoping, planning, capture, processing and delivery."
     },
     {
-      question: "What is Altitude Flight Desk?",
-      answer: "Altitude Flight Desk is the management system that supports Altitude Hire’s drone project workflow, helping organise briefs, site details, service requirements, planning notes, deliverables and project records."
+      question: "What is EntireFM Flight Desk?",
+      answer: "EntireFM Flight Desk is the management system that supports EntireFM Drone’s drone project workflow, helping organise briefs, site details, service requirements, planning notes, deliverables and project records."
     },
     {
-      question: "Does Altitude Flight Desk guarantee flight approval?",
+      question: "Does EntireFM Flight Desk guarantee flight approval?",
       answer: "No. Drone operations remain subject to airspace, weather, site access, permissions, nearby people and property, and operational safety requirements. Flight Desk supports planning and record keeping; it does not remove operational requirements."
     },
     {
@@ -100,8 +100,8 @@ export default function OperationsStandardPage() {
       answer: "Commercial clients need reliable outputs, clear project records and structured delivery. A defined operating standard helps ensure the drone capture is planned around the client’s required outcome rather than treated as a generic flight."
     },
     {
-      question: "Can projects be tracked through Altitude Flight Desk?",
-      answer: "Where enabled, project status, deliverables and workflow information can be managed through Altitude Flight Desk. Client-facing visibility may be provided depending on the project setup."
+      question: "Can projects be tracked through EntireFM Flight Desk?",
+      answer: "Where enabled, project status, deliverables and workflow information can be managed through EntireFM Flight Desk. Client-facing visibility may be provided depending on the project setup."
     },
     {
       question: "Does this replace professional surveyor or engineer review?",
@@ -127,11 +127,11 @@ export default function OperationsStandardPage() {
           </div>
           
           <h1 className="font-display text-5xl md:text-7xl text-white mb-8 tracking-tighter leading-none uppercase">
-            The Altitude<br/>Operations Standard
+            The EntireFM<br/>Operations Standard
           </h1>
           
           <p className="font-body text-xl text-white/60 leading-relaxed mb-12 max-w-[800px] uppercase tracking-widest font-light">
-            A structured operating model for commercial drone projects — from project brief and flight planning to capture, reporting, deliverables and client oversight through Altitude Flight Desk.
+            A structured operating model for commercial drone projects — from project brief and flight planning to capture, reporting, deliverables and client oversight through EntireFM Flight Desk.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-8 mb-16">
@@ -176,7 +176,7 @@ export default function OperationsStandardPage() {
               A commercial drone project is only successful if the client receives a usable output: inspection evidence, survey data, thermal imagery, progress records, media assets or immersive visualisation.
             </p>
             <p className="font-body text-lg text-white/50 leading-relaxed uppercase tracking-widest font-light mb-8">
-              The Altitude Operations Standard is designed to keep every project focused on the deliverable, the site conditions, the risk profile and the decisions the client needs to make.
+              The EntireFM Operations Standard is designed to keep every project focused on the deliverable, the site conditions, the risk profile and the decisions the client needs to make.
             </p>
             <div className="p-6 border border-white/10 bg-dark text-accent font-ui text-[12px] tracking-[0.2em] uppercase mt-10">
               The drone is the capture method. The operating standard is what makes the output reliable.
@@ -194,15 +194,15 @@ export default function OperationsStandardPage() {
         </div>
       </section>
 
-      {/* Altitude Flight Desk */}
+      {/* EntireFM Flight Desk */}
       <section className="py-32 px-10 md:px-20 bg-dark border-y border-white/5">
         <div className="max-w-[1200px] mx-auto text-center mb-24">
           <div className="svc-tag mb-8 inline-flex"><SectionTag number="02" text="Platform" /></div>
           <h2 className="font-display text-5xl text-white uppercase tracking-tighter mb-8">
-            Powered by Altitude Flight Desk
+            Powered by EntireFM Flight Desk
           </h2>
           <p className="font-body text-lg text-white/50 leading-relaxed uppercase tracking-widest font-light max-w-3xl mx-auto">
-            Altitude Flight Desk is the management system behind Altitude Hire’s project workflow. It supports the way commercial drone work is briefed, scoped, planned, tracked and delivered.
+            EntireFM Flight Desk is the management system behind EntireFM Drone’s project workflow. It supports the way commercial drone work is briefed, scoped, planned, tracked and delivered.
           </p>
         </div>
 
@@ -331,7 +331,7 @@ export default function OperationsStandardPage() {
             Connected to Commercial Drone Packages
           </h2>
           <p className="font-body text-lg text-white/50 leading-relaxed uppercase tracking-widest font-light mb-12 relative z-10">
-            The Operations Standard supports Altitude Hire’s commercial bundles by ensuring each package is managed around a defined output.
+            The Operations Standard supports EntireFM Drone’s commercial bundles by ensuring each package is managed around a defined output.
           </p>
           <Link href="/bundles" className="inline-flex items-center gap-4 bg-accent text-dark px-12 py-6 font-display text-2xl tracking-[0.1em] hover:bg-white transition-all relative z-10">
             View Commercial Packages <ArrowRight className="w-6 h-6" />
@@ -357,7 +357,7 @@ export default function OperationsStandardPage() {
             Start With the Output.<br/>We’ll Build the Mission Around It.
           </h2>
           <p className="font-body text-xl text-white/50 uppercase tracking-widest leading-relaxed mb-16">
-            Tell us what you need to inspect, measure, monitor, film or visualise. Altitude Hire will use its structured operating model and Altitude Flight Desk workflow to scope the right capture route and deliverables.
+            Tell us what you need to inspect, measure, monitor, film or visualise. EntireFM Drone will use its structured operating model and EntireFM Flight Desk workflow to scope the right capture route and deliverables.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-8">
             <Link href="/brief?source=ops-standard-footer" className="bg-accent text-dark font-display text-2xl tracking-[0.1em] px-12 py-6 hover:bg-white transition-all flex items-center justify-center gap-4">

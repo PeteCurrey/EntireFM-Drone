@@ -123,7 +123,7 @@ export default function PortalLayout({
                 </div>
                 <div>
                   <h4 className="font-ui text-[10px] tracking-widest uppercase text-white/30 mb-4">Capture Methodology</h4>
-                  <p className="font-body text-sm text-white/80 uppercase tracking-widest">Automated Grid · Altitude Flight Desk Scoped</p>
+                  <p className="font-body text-sm text-white/80 uppercase tracking-widest">Automated Grid · EntireFM Flight Desk Scoped</p>
                 </div>
               </div>
             </section>
@@ -217,7 +217,7 @@ export default function PortalLayout({
             <div className="p-8 border border-accent/20 bg-accent/5">
               <h4 className="font-display text-sm uppercase tracking-widest text-white mb-4">Operational Standard</h4>
               <p className="font-body text-[10px] text-white/40 uppercase tracking-widest leading-relaxed mb-6">
-                Delivery managed through Altitude Flight Desk workflow.
+                Delivery managed through EntireFM Flight Desk workflow.
               </p>
               <Link href="/operations-standard" className="font-ui text-[9px] tracking-widest uppercase text-accent hover:text-white transition-colors flex items-center gap-2">
                 View Standard <ArrowRight className="w-3 h-3" />
@@ -233,7 +233,7 @@ export default function PortalLayout({
           <ShieldAlert className="w-10 h-10 text-accent/20 mx-auto mb-6" />
           <h3 className="font-display text-2xl uppercase tracking-widest text-white mb-6">Demo Portal Information</h3>
           <p className="font-body text-xs text-white/40 uppercase tracking-[0.2em] leading-relaxed">
-            These demo portals show representative delivery formats. Final client portals, reports and deliverables depend on project scope, service type and agreed outputs. Altitude Hire ensures all real client data is hosted in private, secure environments.
+            These demo portals show representative delivery formats. Final client portals, reports and deliverables depend on project scope, service type and agreed outputs. EntireFM Drone ensures all real client data is hosted in private, secure environments.
           </p>
         </div>
       </section>

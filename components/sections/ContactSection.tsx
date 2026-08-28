@@ -88,9 +88,9 @@ export default function ContactSection() {
 
           <div className="space-y-12">
             {[
-              { icon: Phone, label: 'Voice Comms', value: '+44 (0) 121 270 5440' },
-              { icon: Mail, label: 'Data Uplink', value: 'hello@altitude-hire.com' },
-              { icon: MapPin, label: 'Base Ops', value: 'London, United Kingdom' }
+              { icon: Phone, label: 'Central Ops', value: 'EntireFM Operations Desk' },
+              { icon: Mail, label: 'Project Briefing', value: 'Direct Form & Brief Submission' },
+              { icon: MapPin, label: 'UK Coverage', value: 'Nationwide Deployment' }
             ].map((item, i) => (
               <div key={i} data-contact-anim className="flex items-center gap-8 group cursor-pointer">
                 <div className="w-14 h-14 bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent transition-all duration-500">
@@ -108,7 +108,7 @@ export default function ContactSection() {
         <div data-contact-anim className="bg-white/[0.02] border border-white/10 p-12 md:p-16 relative overflow-hidden backdrop-blur-sm">
           {status === 'success' ? (
             <div className="h-full flex flex-col items-center justify-center text-center animate-in fade-in zoom-in duration-700 py-20">
-              <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(200,169,110,0.3)]">
+              <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(0,102,255,0.35)]">
                 <Send className="w-8 h-8 text-dark" />
               </div>
               <h3 className="font-display text-4xl text-white mb-4 uppercase tracking-[0.2em]">Signal Acknowledged</h3>

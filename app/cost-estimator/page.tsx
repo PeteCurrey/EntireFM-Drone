@@ -240,7 +240,7 @@ export default function CostEstimatorPage() {
   }
 
   const copySummary = () => {
-    const summary = `Altitude Hire Drone Cost Estimate:
+    const summary = `EntireFM Drone Drone Cost Estimate:
 Band: ${band.label}
 Indicative Range: ${band.range}
 Service: ${recs.service}
@@ -583,7 +583,7 @@ Location: ${selections['locationComplexity']}`
                        <CheckCircle2 className="w-12 h-12 text-accent mx-auto mb-6" />
                        <h3 className="font-display text-2xl text-white mb-4 uppercase tracking-widest">Estimate Saved</h3>
                        <p className="font-body text-sm text-white/60 uppercase tracking-widest leading-relaxed">
-                          Your indicative estimate has been sent to your email. Altitude Hire will review the details and confirm final pricing after a full brief review.
+                          Your indicative estimate has been sent to your email. EntireFM Drone will review the details and confirm final pricing after a full brief review.
                        </p>
                     </motion.div>
                   )}
@@ -670,7 +670,7 @@ Location: ${selections['locationComplexity']}`
             Start With the Output.<br/>We’ll Build the Mission.
           </h2>
           <p className="font-body text-xl text-white/50 uppercase tracking-widest leading-relaxed mb-16 font-light">
-            Altitude Hire uses its structured operating model to scope the right capture route and deliverables for your project.
+            EntireFM Drone uses its structured operating model to scope the right capture route and deliverables for your project.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-8">
             <Link href="/brief?source=cost-estimator-footer" className="bg-accent text-dark font-display text-2xl tracking-[0.1em] px-12 py-6 hover:bg-white transition-all flex items-center justify-center gap-4 group">

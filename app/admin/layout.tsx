@@ -45,7 +45,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <div className="p-10 border-b border-white/5">
           <div className="flex items-center gap-3 mb-2">
             <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="font-display text-xl tracking-widest uppercase">Altitude</span>
+            <span className="font-display text-xl tracking-widest uppercase">EntireFM Drone</span>
           </div>
           <span className="font-ui text-[9px] tracking-[0.4em] text-white/30 uppercase">Ops Command Center</span>
         </div>

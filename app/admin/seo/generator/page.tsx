@@ -24,7 +24,7 @@ export default function PageGenerator() {
     setTimeout(() => {
       setPreviewData({
         h1: `${selectedService} ${selectedLocation ? `in ${selectedLocation}` : ''} ${selectedSector ? `for ${selectedSector}` : ''}`,
-        seoTitle: `${selectedService} ${selectedLocation ? `in ${selectedLocation}` : ''} ${selectedSector ? `for ${selectedSector}` : ''} | Altitude Hire`,
+        seoTitle: `${selectedService} ${selectedLocation ? `in ${selectedLocation}` : ''} ${selectedSector ? `for ${selectedSector}` : ''} | EntireFM Drone`,
         slug: `/${selectedLocation ? `drone-services/${selectedLocation.toLowerCase()}/` : 'industries/'}${selectedService.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`,
         qualityScore: 65,
         warnings: ['Thin content (AI draft only)', 'Missing local nuance', 'Missing sector-specific FAQs']

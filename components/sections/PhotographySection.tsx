@@ -1,3 +1,5 @@
+'use client'
+
 // components/sections/PhotographySection.tsx
 'use client'
 

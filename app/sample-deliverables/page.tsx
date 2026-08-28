@@ -339,7 +339,7 @@ export default function SampleDeliverablesPage() {
             SAMPLE DRONE <br/><span className="text-accent underline underline-offset-8 decoration-accent/30">DELIVERABLES</span>
           </h1>
           <p className="font-body text-xl md:text-2xl font-light text-white/50 max-w-4xl uppercase tracking-widest leading-relaxed mb-12">
-            See the types of reports, image sets, maps, media assets, evidence packs and immersive visual outputs Altitude Hire can provide after a commercial drone project.
+            See the types of reports, image sets, maps, media assets, evidence packs and immersive visual outputs EntireFM Drone can provide after a commercial drone project.
           </p>
           <div className="flex flex-wrap gap-x-12 gap-y-6 text-white/20 font-ui text-[9px] tracking-[0.3em] uppercase border-t border-white/5 pt-12">
              <span>Inspection reports</span>
@@ -361,7 +361,7 @@ export default function SampleDeliverablesPage() {
            <div className="lg:col-span-5 bg-white/[0.02] border border-white/10 p-12">
               <h2 className="font-display text-4xl text-white uppercase tracking-widest mb-8 leading-none">THE VALUE IS <br/><span className="text-accent">IN THE OUTPUT</span></h2>
               <p className="font-body text-sm text-white/40 uppercase tracking-widest leading-relaxed mb-8">
-                A drone flight only matters if the client receives something useful from it. Altitude Hire structures projects around the final deliverable — whether that is inspection evidence, a survey map, a construction progress record, or a 3D visualisation.
+                A drone flight only matters if the client receives something useful from it. EntireFM Drone structures projects around the final deliverable — whether that is inspection evidence, a survey map, a construction progress record, or a 3D visualisation.
               </p>
               <div className="font-display text-2xl text-accent border-l-2 border-accent/30 pl-8 py-2 uppercase tracking-widest">
                 You are not buying flight time. You are buying usable aerial intelligence.
@@ -480,7 +480,7 @@ export default function SampleDeliverablesPage() {
              KNOW THE OUTPUT <br/>YOU <span className="underline decoration-dark/30 underline-offset-[10px]">NEED?</span>
            </h2>
            <p className="font-body text-xl md:text-2xl text-dark/70 max-w-3xl mx-auto mb-16 uppercase tracking-widest font-medium leading-relaxed">
-             Whether you need an inspection report, evidence pack, survey dataset, progress record, media asset or immersive 3D visualisation, Altitude Hire can structure the drone project around the deliverable.
+             Whether you need an inspection report, evidence pack, survey dataset, progress record, media asset or immersive 3D visualisation, EntireFM Drone can structure the drone project around the deliverable.
            </p>
            <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
              <Link 

@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 
 interface VideoBackgroundProps {
-  src: string          // path to mp4 in /public/videos/
+  src: string          // path to mp4 in /public/videos/ (without extension)
   poster?: string      // poster image while loading
   alt?: string         // alt for the poster image
   brightness?: number  // default 0.40
@@ -16,28 +16,35 @@ interface VideoBackgroundProps {
 export default function VideoBackground({
   src,
   poster,
-  alt = "Cinematic drone operations background",
+  alt = 'Cinematic drone operations background',
   brightness = 0.40,
   saturation = 1.0,
   className = '',
   isHero = false
 }: VideoBackgroundProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const sourceRef = useRef<HTMLSourceElement>(null)
-  const [shouldLoad, setShouldLoad] = useState(isHero)
+  const [shouldLoad, setShouldLoad] = useState(false)
   const [videoLoaded, setVideoLoaded] = useState(false)
+  // mediaCapabilityResolved = JS has finished checking device; until then, NO video elements rendered
+  const [mediaCapabilityResolved, setMediaCapabilityResolved] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
 
   useEffect(() => {
-    // Check for mobile and reduced motion
     const mobileQuery = window.matchMedia('(max-width: 768px)')
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     
-    setTimeout(() => {
-      setIsMobile(mobileQuery.matches)
-      setPrefersReducedMotion(motionQuery.matches)
-    }, 0)
+    const mobile = mobileQuery.matches
+    const reducedMotion = motionQuery.matches
+
+    setIsMobile(mobile)
+    setPrefersReducedMotion(reducedMotion)
+    setMediaCapabilityResolved(true)
+
+    // Hero: if desktop + no reduced motion, begin loading immediately
+    if (isHero && !mobile && !reducedMotion) {
+      setShouldLoad(true)
+    }
 
     const handleMobileChange = (e: MediaQueryListEvent) => setIsMobile(e.matches)
     const handleMotionChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches)
@@ -49,11 +56,13 @@ export default function VideoBackground({
       mobileQuery.removeEventListener('change', handleMobileChange)
       motionQuery.removeEventListener('change', handleMotionChange)
     }
-  }, [])
+  }, [isHero])
 
   useEffect(() => {
     // Non-hero videos are lazy-loaded via IntersectionObserver
-    if (isHero || shouldLoad || isMobile || prefersReducedMotion) return
+    if (!mediaCapabilityResolved) return
+    if (isMobile || prefersReducedMotion) return
+    if (isHero || shouldLoad) return
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -62,56 +71,54 @@ export default function VideoBackground({
           observer.disconnect()
         }
       },
-      { threshold: 0.01, rootMargin: '400px' }
+      { threshold: 0.01, rootMargin: '150px' }
     )
 
     if (videoRef.current) observer.observe(videoRef.current)
     return () => observer.disconnect()
-  }, [isHero, shouldLoad, isMobile, prefersReducedMotion])
+  }, [mediaCapabilityResolved, isHero, shouldLoad, isMobile, prefersReducedMotion])
 
   useEffect(() => {
-    // Disable video entirely for mobile or reduced motion
+    if (!mediaCapabilityResolved) return
     if (isMobile || prefersReducedMotion) return
+    if (!videoRef.current) return
 
-    if (!videoRef.current || !sourceRef.current) return;
-    
-    const video = videoRef.current;
-    const source = sourceRef.current;
+    const video = videoRef.current
 
-    // We use a separate observer for play/pause logic
     const playPauseObserver = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
-          // Play video when >60% visible
-          if (source.dataset.src && !source.src) {
-            source.src = source.dataset.src;
-            video.load();
-          }
-          video.play().catch(() => {});
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+          video.play().catch(() => {})
         } else {
-          // Pause when not visible
-          video.pause();
+          video.pause()
         }
       },
-      { threshold: [0, 0.35, 0.65, 1], rootMargin: '0px' }
-    );
+      { threshold: [0, 0.25, 0.5, 0.75, 1], rootMargin: '0px' }
+    )
 
-    playPauseObserver.observe(video);
+    playPauseObserver.observe(video)
+    return () => playPauseObserver.disconnect()
+  }, [mediaCapabilityResolved, isMobile, prefersReducedMotion])
 
-    return () => playPauseObserver.disconnect();
-  }, [isMobile, prefersReducedMotion])
+  // Derive base path without extension for serving both webm and mp4
+  const baseSrc = src.replace(/\.mp4$/i, '')
+  const mp4Src = `${baseSrc}.mp4`
+  const webmSrc = `${baseSrc}.webm`
 
-  // If mobile or reduced motion, we only show the poster
-  const showVideo = !isMobile && !prefersReducedMotion
+  const showVideo = mediaCapabilityResolved && !isMobile && !prefersReducedMotion
 
   return (
     <div className={`absolute inset-0 w-full h-full z-0 pointer-events-none overflow-hidden ${className}`}>
       {poster && (
-        <div className={`absolute inset-0 transition-opacity duration-1000 ${videoLoaded ? 'opacity-0' : 'opacity-100'}`}>
-          <Image 
-            src={poster} 
-            alt={alt} 
-            fill 
+        <div
+          className={`absolute inset-0 transition-opacity duration-1000 ${
+            videoLoaded ? 'opacity-0' : 'opacity-100'
+          }`}
+        >
+          <Image
+            src={poster}
+            alt={alt}
+            fill
             priority={isHero}
             className="object-cover"
             style={{ filter: `brightness(${brightness}) saturate(${saturation})` }}
@@ -119,32 +126,25 @@ export default function VideoBackground({
           />
         </div>
       )}
-      
+
       {showVideo && (
         <video
           ref={videoRef}
           className="w-full h-full object-cover transition-opacity duration-1000"
-          style={{ 
+          style={{
             filter: `brightness(${brightness}) saturate(${saturation})`,
-            opacity: videoLoaded ? 1 : 0 
+            opacity: videoLoaded ? 1 : 0,
           }}
           onPlaying={() => setVideoLoaded(true)}
           muted
           loop
           playsInline
           autoPlay={isHero}
-          preload={isHero ? "metadata" : "none"}
+          preload={shouldLoad ? 'metadata' : 'none'}
         >
-          <source 
-            ref={sourceRef}
-            src={isHero ? src : undefined}
-            data-src={!isHero ? src : undefined} 
-            type="video/mp4" 
-            onError={() => {
-              console.error(`Video failed to load: ${src}`);
-              setVideoLoaded(false);
-            }}
-          />
+          {shouldLoad && (
+            <source src={mp4Src} type="video/mp4" />
+          )}
         </video>
       )}
 

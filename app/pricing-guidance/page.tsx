@@ -19,7 +19,7 @@ import SectionTag from '@/components/ui/SectionTag'
 import FAQAccordion from '@/components/ui/FAQAccordion'
 
 export const metadata: Metadata = {
-  title: 'Drone Survey Pricing Guidance | Project Investment Factors | Altitude Hire',
+  title: 'Drone Survey Pricing Guidance | Project Investment Factors | EntireFM Drone',
   description: 'Understand the commercial factors that influence drone survey costs, including site complexity, required accuracy, sensor types, deliverables and operational scale.',
 }
 
@@ -118,7 +118,7 @@ export default function PricingGuidancePage() {
             Reliable Data Requires <br/><span className="text-accent underline underline-offset-8 decoration-accent/20">Reliable Execution</span>
           </h2>
           <p className="font-body text-xl text-white/50 leading-relaxed uppercase tracking-widest font-light mb-12">
-            In the commercial drone sector, the lowest price often indicates a lack of proper planning, insufficient insurance, poor data quality, or a lack of understanding of the required technical output. Altitude Hire prices projects based on the operational standard required to deliver professional results.
+            In the commercial drone sector, the lowest price often indicates a lack of proper planning, insufficient insurance, poor data quality, or a lack of understanding of the required technical output. EntireFM Drone prices projects based on the operational standard required to deliver professional results.
           </p>
           <div className="flex items-center justify-center gap-8 text-[10px] tracking-[0.3em] uppercase text-white/30 font-ui pt-10 border-t border-white/5">
              <span>CAA-Compliant</span>
@@ -209,7 +209,7 @@ export default function PricingGuidancePage() {
                 </ul>
              </div>
              <div className="p-8 bg-dark text-white border border-white/10">
-                <h4 className="font-display text-xl mb-4 uppercase tracking-widest text-accent">What Altitude Delivers:</h4>
+                <h4 className="font-display text-xl mb-4 uppercase tracking-widest text-accent">What EntireFM Drone Delivers:</h4>
                 <ul className="space-y-3">
                    {['Technical reliability', 'Operational standard', 'Full compliance', 'Structured reporting', 'Usable site records'].map(item => (
                      <li key={item} className="flex items-center gap-3 font-ui text-[10px] tracking-widest uppercase opacity-80">

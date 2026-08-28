@@ -234,7 +234,7 @@ export const locationsData: LocationData[] = [
     name: 'UK-wide', 
     region: 'United Kingdom', 
     description: 'Nationwide commercial drone service support for multi-site portfolios, large-scale infrastructure and national asset estates.',
-    localRelevance: 'Altitude Hire provides nationwide project support, multi-site portfolio inspections, and repeat monitoring for national clients. We manage operations across property, construction, and FM portfolios with centralized planning and consistent delivery.',
+    localRelevance: 'EntireFM Drone provides nationwide project support, multi-site portfolio inspections, and repeat monitoring for national clients. We manage operations across property, construction, and FM portfolios with centralized planning and consistent delivery.',
     sectors: ['Multi-site Portfolio Management', 'National Construction Projects', 'Infrastructure Networks', 'Utilities', 'National FM Portfolios'],
     operationalConsiderations: 'UK-wide operations are managed through a centralized planning hub, ensuring consistent safety standards, risk assessments, and deliverable quality across all regions.',
     popularBundles: ['roof-intelligence-pack', 'survey-data-pack', 'construction-progress-pack', 'building-envelope-asset-condition-pack', 'insurance-incident-evidence-pack', 'immersive-digital-capture-pack', 'solar-energy-asset-pack', 'visual-sales-pack'],

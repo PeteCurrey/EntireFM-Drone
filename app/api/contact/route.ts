@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'hello@altitude-hire.com'
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'drone@entirefm.com'
 
 export async function POST(req: Request) {
   try {
@@ -38,12 +38,12 @@ export async function POST(req: Request) {
     // 2. Send Email Notification via Resend
     if (resend) {
       await resend.emails.send({
-        from: 'Altitude Operations <ops@altitude-hire.com>',
+        from: process.env.RESEND_FROM_EMAIL || 'EntireFM Drone <onboarding@resend.dev>',
         to: ADMIN_EMAIL,
-        subject: `[NEW LEAD] ${type === 'brief' ? 'Project Brief' : 'Contact Enquiry'} - ${name}`,
+        subject: `[ENTIREFM DRONE LEAD] ${type === 'brief' ? 'Project Brief' : 'Contact Enquiry'} - ${name}`,
         html: `
-          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; background: #080808; color: #fff; padding: 40px; border: 1px solid #c8a96e;">
-            <h1 style="color: #c8a96e; font-size: 24px; text-transform: uppercase; letter-spacing: 2px;">New Signal Received</h1>
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; background: #080808; color: #fff; padding: 40px; border: 1px solid #0066ff;">
+            <h1 style="color: #0066ff; font-size: 24px; text-transform: uppercase; letter-spacing: 2px;">New Signal Received</h1>
             <p style="color: #666; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Type: ${type || 'Standard'}</p>
             <hr style="border: none; border-top: 1px solid #1a1a1a; margin: 20px 0;" />
             <div style="margin-bottom: 20px;">

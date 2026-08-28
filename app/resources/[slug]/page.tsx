@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = blogPosts.find(p => p.slug === slug)
   if (!post) return {}
 
-  const title = `${post.title} | Altitude Hire`
+  const title = `${post.title} | EntireFM Drone`
   
   return {
     title,
@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description: post.metaDescription || post.excerpt,
-      url: `https://altitude-hire.com/resources/${slug}`,
+      url: `https://drone.entirefm.com/resources/${slug}`,
       images: [{ url: post.image }],
       type: 'article',
     },
@@ -66,19 +66,19 @@ export default async function ResourceArticlePage({ params }: Props) {
     '@type': 'Article',
     headline: post.title,
     description: post.metaDescription || post.excerpt,
-    image: `https://altitude-hire.com${post.image}`,
+    image: `https://drone.entirefm.com${post.image}`,
     datePublished: post.date,
     author: {
       '@type': 'Organization',
-      name: 'Altitude Hire',
+      name: 'EntireFM Drone',
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Altitude Hire',
+      name: 'EntireFM Drone',
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://altitude-hire.com/resources/${slug}`,
+      '@id': `https://drone.entirefm.com/resources/${slug}`,
     },
   }
 

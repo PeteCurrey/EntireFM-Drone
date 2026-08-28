@@ -1,66 +1,36 @@
-// components/sections/ConstructionSection.tsx
 'use client'
 
-import Link from 'next/link'
 import { useEffect, useRef } from 'react'
-import { gsap, registerGSAP,  } from '@/lib/gsap-init'
+import Link from 'next/link'
+import { ArrowRight, Calendar, Layers, ShieldCheck } from 'lucide-react'
+import { gsap, registerGSAP } from '@/lib/gsap-init'
 import VideoBackground from '@/components/ui/VideoBackground'
 import SectionTag from '@/components/ui/SectionTag'
-import FeatureTags from '@/components/ui/FeatureTags'
 import GhostNumber from '@/components/ui/GhostNumber'
+import ConstructionTimelineScrubber from '@/components/ui/ConstructionTimelineScrubber'
 
 export default function ConstructionSection() {
   const sectionRef = useRef<HTMLElement>(null)
 
-  useEffect(() => { registerGSAP();
+  useEffect(() => {
+    registerGSAP()
     if (!sectionRef.current) return
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        ['.svc-tag', '.svc-headline', '.svc-body', '.feature-tags', '.svc-cta'],
-        { opacity: 0, y: 36 },
+        ['.svc-tag', '.svc-headline', '.svc-body', '.svc-cta'],
+        { opacity: 0, y: 30 },
         {
-          opacity: 1, y: 0,
+          opacity: 1,
+          y: 0,
           duration: 0.9,
           ease: 'power3.out',
           stagger: 0.1,
-          scrollTrigger: { 
-            trigger: sectionRef.current, 
-            start: 'top 75%', 
-            toggleActions: 'play none none reverse' 
-          }
-        }
-      )
-
-      gsap.fromTo(
-        '.panel-left',
-        { opacity: 0, x: -50 },
-        {
-          opacity: 1, x: 0,
-          duration: 1.0,
-          ease: 'power3.out',
-          delay: 0.2,
-          scrollTrigger: { 
-            trigger: sectionRef.current, 
-            start: 'top 75%', 
-            toggleActions: 'play none none reverse' 
-          }
-        }
-      )
-      
-      // Animate progress bars
-      gsap.fromTo(
-        '.progress-bar-fill',
-        { width: 0 },
-        { 
-          width: (i, target) => target.dataset.width + '%',
-          duration: 1.5,
-          ease: 'power2.inOut',
-          stagger: 0.1,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 70%'
-          }
+            start: 'top 75%',
+            toggleActions: 'play none none reverse',
+          },
         }
       )
     }, sectionRef)
@@ -68,85 +38,71 @@ export default function ConstructionSection() {
     return () => ctx.revert()
   }, [])
 
-  const features = [
-    'Progress Reporting', 'Scheduled Flights', 'Time-lapse', 
-    'Site Safety', 'Stockpile Volume', 'Client Portals'
-  ]
-
-  const milestones = [
-    { label: 'GROUNDWORKS', week: 'Week 01', progress: 100, status: 'complete' },
-    { label: 'FOUNDATIONS', week: 'Week 04', progress: 100, status: 'complete' },
-    { label: 'STEEL FRAME', week: 'Week 10', progress: 80, status: 'active' },
-    { label: 'ENVELOPE', week: 'Week 18', progress: 0, status: 'pending' },
-    { label: 'FIT-OUT', week: 'Week 28', progress: 0, status: 'pending' },
-    { label: 'HANDOVER', week: 'Week 40', progress: 0, status: 'pending' },
-  ]
-
   return (
-    <section ref={sectionRef} data-index="4" className="noise-overlay flex flex-col md:flex-row items-center justify-between gap-12 md:gap-24">
-      <VideoBackground 
-        src="/videos/construction.mp4" 
+    <section
+      ref={sectionRef}
+      data-index="3"
+      className="noise-overlay min-h-screen py-32 px-8 md:px-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 relative"
+    >
+      <VideoBackground
+        src="/videos/construction.mp4"
         poster="/images/construction_poster.png"
-        brightness={0.7} 
+        brightness={0.65}
         saturation={1.2}
       />
       <div className="grid-lines" />
-      <GhostNumber number="04" position="left" />
+      <GhostNumber number="03" position="left" />
 
-      {/* Content Column */}
-      <div className="relative z-10 flex-1 max-w-[640px]">
+      {/* Left Column: Proposition */}
+      <div className="relative z-10 flex-1 max-w-[600px]">
         <div className="svc-tag">
-          <SectionTag number="04" text="Service" />
+          <SectionTag number="06" text="Construction & Progress" />
         </div>
 
-        <h2 className="svc-headline font-display text-section text-white mb-8">
-          CONSTRUCTION<br/>MONITORING
+        <h2 className="svc-headline font-display text-section text-white mb-6">
+          PROGRAMME<br />
+          <span className="text-accent">PROGRESS & MILESTONE</span><br />
+          MONITORING
         </h2>
 
-        <p className="svc-body font-body text-[16px] font-light leading-relaxed text-white/50 mb-8 max-w-[500px]">
-          Repeatable drone capture can support project records, progress meetings, stakeholder updates and visual reporting for contractors, developers and client-side teams.
+        <p className="svc-body font-body text-base md:text-lg font-light leading-relaxed text-white/60 mb-8">
+          Maintain repeatable, georeferenced aerial records across every phase of your build. Provide main contractors, developers, fund monitors and project directors with indisputable progress evidence and remote site visibility.
         </p>
 
-        <div className="feature-tags">
-          <FeatureTags tags={features} />
+        <div className="space-y-3 mb-10">
+          <div className="flex items-center gap-3 font-ui text-xs tracking-wider uppercase text-white/70">
+            <span className="w-1.5 h-1.5 bg-accent rounded-full" />
+            Scheduled Weekly / Fortnightly / Monthly Repeat Flights
+          </div>
+          <div className="flex items-center gap-3 font-ui text-xs tracking-wider uppercase text-white/70">
+            <span className="w-1.5 h-1.5 bg-accent rounded-full" />
+            Aligned Vantage Points & Orthomosaic Timeline Overlays
+          </div>
+          <div className="flex items-center gap-3 font-ui text-xs tracking-wider uppercase text-white/70">
+            <span className="w-1.5 h-1.5 bg-accent rounded-full" />
+            Direct CAFM & Project Portal Asset Archiving
+          </div>
         </div>
 
-        <div className="svc-cta flex flex-col sm:flex-row gap-6 mt-12">
-          <Link href="/services/construction-monitoring" className="flex items-center gap-4 font-ui text-[13px] tracking-[0.25em] text-accent group transition-all">
-            VIEW CONSTRUCTION MONITORING <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
+        <div className="svc-cta flex flex-col sm:flex-row gap-6">
+          <Link
+            href="/services/construction-monitoring"
+            className="bg-accent text-white font-display text-xl tracking-[0.1em] px-8 py-4 hover:bg-accent-light transition-all flex items-center justify-center gap-3 group"
+          >
+            Explore Construction Monitoring <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
           </Link>
-          <Link href="/brief?service=construction-monitoring&package=construction-progress-pack" className="flex items-center gap-4 font-ui text-[13px] tracking-[0.25em] text-white/50 hover:text-white transition-all">
-            PLAN MONITORING BRIEF
+          <Link
+            href="/brief?service=construction-monitoring"
+            className="border border-white/20 text-white font-display text-xl tracking-[0.1em] px-8 py-4 hover:bg-white/10 transition-all text-center flex items-center justify-center"
+          >
+            Plan Monitoring Brief
           </Link>
         </div>
       </div>
 
-      {/* Timeline Panel */}
-      <div className="panel-left relative z-10 flex-1 w-full max-w-[480px]">
-        <div className="bg-black/55 border border-white/7 p-8 backdrop-blur-md">
-          <div className="flex flex-col gap-6">
-            {milestones.map((ms, idx) => (
-              <div key={idx} className="flex flex-col gap-2">
-                <div className="flex justify-between items-center font-ui text-[10px] tracking-[0.2em] uppercase">
-                  <div className="flex items-center gap-3">
-                    <div className={`w-2 h-2 rounded-full ${ms.status === 'complete' || ms.status === 'active' ? 'bg-accent' : 'border border-white/30'}`} />
-                    <span className={ms.status === 'pending' ? 'text-white/30' : 'text-white'}>{ms.label}</span>
-                  </div>
-                  <span className="text-white/30">{ms.week}</span>
-                </div>
-                <div className="h-[3px] w-full bg-white/10 overflow-hidden">
-                  <div 
-                    className="progress-bar-fill h-full bg-accent" 
-                    data-width={ms.progress}
-                  />
-                </div>
-                {ms.status === 'active' && (
-                  <span className="font-ui text-[9px] tracking-[0.1em] text-accent uppercase text-right">In Progress</span>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
+      {/* Right Column: Interactive Construction Scrubber Component */}
+      <div className="relative z-10 flex-1 w-full max-w-[540px]">
+        <ConstructionTimelineScrubber />
       </div>
     </section>
   )

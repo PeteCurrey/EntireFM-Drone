@@ -2,10 +2,8 @@ import type { Metadata } from 'next'
 import { Bebas_Neue, Barlow, Barlow_Condensed } from 'next/font/google'
 import './globals.css'
 import { LenisProvider } from '@/lib/lenis'
-import Nav from '@/components/layout/Nav'
-import Footer from '@/components/layout/Footer'
-import ProgressDots from '@/components/layout/ProgressDots'
 import TrackingProvider from '@/components/analytics/TrackingProvider'
+import PublicLayoutWrapper from '@/components/layout/PublicLayoutWrapper'
 
 const bebasNeue = Bebas_Neue({
   weight: '400',
@@ -29,24 +27,24 @@ const barlowCondensed = Barlow_Condensed({
 })
 
 export const metadata: Metadata = {
-  title: 'Altitude Hire — Professional UAV Services UK',
-  description: 'Altitude Hire delivers CAA-compliant drone inspection, aerial photography, surveying & mapping, and construction monitoring across the UK. See further. Know more.',
-  keywords: 'drone inspection, aerial photography, UAV surveying, drone mapping, construction monitoring, drone services UK, CAA compliant, Altitude Hire',
-  metadataBase: new URL('https://altitude-hire.com'),
+  title: 'EntireFM Drone Services — Aerial Intelligence for Facilities & Engineering',
+  description: 'EntireFM Drone delivers CAA-compliant aerial inspection, surveying, thermal imaging and site intelligence for property, construction, infrastructure and FM teams across the UK. Inspect. Identify. Remediate.',
+  keywords: 'drone inspection, aerial photography, UAV surveying, drone mapping, facilities management, construction monitoring, drone services UK, CAA compliant, EntireFM',
+  metadataBase: new URL('https://drone.entirefm.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Altitude Hire — Professional UAV Services UK',
-    description: 'Altitude Hire delivers professional UAV services for inspection, photography, surveying, and construction monitoring across the UK. See further. Know more.',
-    url: 'https://altitude-hire.com',
-    siteName: 'Altitude Hire',
+    title: 'EntireFM Drone Services — Aerial Intelligence for Facilities & Engineering',
+    description: 'CAA-compliant drone inspection, surveying, thermal imaging and site intelligence — integrated with facilities management and engineering delivery. Part of EntireFM.',
+    url: 'https://drone.entirefm.com',
+    siteName: 'EntireFM Drone Services',
     images: [
       {
         url: '/images/og-default.jpg',
         width: 1200,
         height: 630,
-        alt: 'Altitude Hire — Professional UAV Services UK',
+        alt: 'EntireFM Drone Services — Aerial Intelligence',
       },
     ],
     type: 'website',
@@ -54,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Altitude Hire — Professional UAV Services UK',
-    description: 'Altitude Hire delivers professional UAV services for inspection, photography, surveying, and construction monitoring.',
+    title: 'EntireFM Drone Services — Aerial Intelligence',
+    description: 'CAA-compliant drone inspection, surveying, thermal imaging and site intelligence. Part of EntireFM.',
     images: ['/images/og-default.jpg'],
   },
 }
@@ -63,16 +61,14 @@ export const metadata: Metadata = {
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  '@id': 'https://altitude-hire.com',
-  name: 'Altitude Hire',
-  description: 'Professional CAA-compliant drone services across the UK including inspection, aerial photography, surveying, thermal imaging, and agricultural surveys.',
-  url: 'https://altitude-hire.com',
-  telephone: '+441234000000',
-  email: 'hello@altitude-hire.com',
-  address: {
-    '@type': 'PostalAddress',
-    addressCountry: 'GB',
-    addressRegion: 'England',
+  '@id': 'https://drone.entirefm.com',
+  name: 'EntireFM Drone Services',
+  description: 'Specialist aerial intelligence platform for facilities management, construction, infrastructure and property. Part of EntireFM.',
+  url: 'https://drone.entirefm.com',
+  parentOrganization: {
+    '@type': 'Organization',
+    name: 'EntireFM',
+    url: 'https://www.entirefm.com',
   },
   areaServed: {
     '@type': 'Country',
@@ -92,8 +88,8 @@ const organizationSchema = {
     ],
   },
   sameAs: [
-    'https://www.instagram.com/altitudedrone',
-    'https://www.linkedin.com/company/altitude-drone',
+    'https://www.entirefm.com',
+    'https://www.entirefm.com/services/drone-services',
   ],
 }
 
@@ -122,7 +118,7 @@ const faqSchema = {
       name: 'How quickly is drone survey data delivered?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Standard visual data is delivered within defined working days. Complex LiDAR point clouds or 3D digital twins typically require 3-5 business days for full processing and quality assurance.',
+        text: 'Standard visual data is delivered within defined working days. Complex LiDAR point clouds or 3D digital twins typically require 3–5 business days for full processing and quality assurance.',
       },
     },
     {
@@ -141,10 +137,16 @@ const faqSchema = {
         text: 'As part of our mission planning, we manage all necessary NOTAMs, landowner permissions, and stakeholder notifications to ensure a fully compliant and friction-free deployment.',
       },
     },
+    {
+      '@type': 'Question',
+      name: 'How does EntireFM Drone integrate with facilities management?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'EntireFM Drone can inspect an inaccessible asset by drone and then coordinate the physical repair, compliance record, client evidence and CAFM history — providing a complete inspect-to-remediate workflow under one organisation.',
+      },
+    },
   ],
 }
-
-import PublicLayoutWrapper from '@/components/layout/PublicLayoutWrapper'
 
 export default function RootLayout({
   children,
@@ -157,6 +159,13 @@ export default function RootLayout({
       className={`${bebasNeue.variable} ${barlow.variable} ${barlowCondensed.variable}`}
     >
       <head>
+        {/* LCP hero poster preload — server-rendered for maximum speed */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero_poster.jpg"
+          fetchPriority="high"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
@@ -166,7 +175,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </head>
-      <body className="bg-dark text-white selection:bg-accent selection:text-dark">
+      <body className="bg-dark text-white selection:bg-accent selection:text-white">
         <TrackingProvider>
           <LenisProvider>
             <PublicLayoutWrapper>

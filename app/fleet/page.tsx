@@ -24,8 +24,8 @@ import {
 import SectionTag from '@/components/ui/SectionTag'
 
 export const metadata: Metadata = {
-  title: 'Commercial Drone Fleet & Specialist Capture Capability | Altitude Hire',
-  description: 'Explore Altitude Hire’s commercial drone capability for inspections, thermal imaging, surveying, mapping, LiDAR-supported workflows, aerial media, Gaussian Splats and digital twin-style capture.',
+  title: 'Commercial Drone Fleet & Specialist Capture Capability | EntireFM Drone',
+  description: 'Explore EntireFM Drone’s commercial drone capability for inspections, thermal imaging, surveying, mapping, LiDAR-supported workflows, aerial media, Gaussian Splats and digital twin-style capture.',
 }
 
 export default function FleetPage() {
@@ -164,7 +164,7 @@ export default function FleetPage() {
           </h1>
 
           <p className="font-body text-xl md:text-2xl font-light text-white/50 max-w-4xl mx-auto mb-12 opacity-0 animate-[fade-in_1s_1s_forwards] uppercase tracking-widest">
-            Altitude Hire specifies drone platforms, sensors and capture workflows around the required output — from roof inspection imagery and thermal evidence to mapping, photogrammetry, LiDAR-supported surveys, aerial media and immersive 3D visualisation.
+            EntireFM Drone specifies drone platforms, sensors and capture workflows around the required output — from roof inspection imagery and thermal evidence to mapping, photogrammetry, LiDAR-supported surveys, aerial media and immersive 3D visualisation.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 opacity-0 animate-[fade-in_1s_1.2s_forwards]">
@@ -202,7 +202,7 @@ export default function FleetPage() {
               THE RIGHT PLATFORM FOR THE <br/><span className="text-accent underline underline-offset-8 decoration-accent/30">REQUIRED OUTPUT</span>
             </h2>
             <p className="font-body text-xl text-white/50 leading-relaxed mb-8 uppercase tracking-widest font-light italic">
-              &quot;Altitude Hire selects the equipment and workflow around the deliverable, site constraints, risk profile and intended use of the output.&quot;
+              &quot;EntireFM Drone selects the equipment and workflow around the deliverable, site constraints, risk profile and intended use of the output.&quot;
             </p>
             <p className="font-body text-lg text-white/40 leading-relaxed">
               Different drone projects require different capture workflows. A roof inspection, solar thermal survey, construction progress flight, stockpile volume survey, FPV flythrough and Gaussian Splat capture do not need the same platform or sensor setup.
@@ -212,7 +212,7 @@ export default function FleetPage() {
              <AlertCircle className="w-12 h-12 text-accent/20 mb-8" />
              <p className="font-display text-2xl text-white uppercase tracking-widest mb-6">Operational Setup</p>
              <p className="font-body text-white/60 leading-relaxed uppercase tracking-widest text-sm mb-8">
-               Available through our operational fleet and specialist delivery partners, Altitude Hire works with an operational drone fleet and specialist delivery partners to specify the right platform and payload for each project.
+               Available through our operational fleet and specialist delivery partners, EntireFM Drone works with an operational drone fleet and specialist delivery partners to specify the right platform and payload for each project.
              </p>
              <p className="font-ui text-[11px] tracking-[0.2em] uppercase text-accent/60 italic">
                Specialist platforms and payloads can be specified according to project requirements.
@@ -323,7 +323,7 @@ export default function FleetPage() {
            <div className="svc-tag mb-12 inline-flex"><SectionTag number="04" text="Principle" /></div>
            <h2 className="font-display text-6xl text-white uppercase mb-12 tracking-tighter">OUTPUT-FIRST <br/><span className="text-accent">DRONE OPERATIONS</span></h2>
            <p className="font-body text-xl text-white/50 leading-relaxed uppercase tracking-widest font-light mb-20 max-w-3xl mx-auto">
-             Altitude Hire does not specify equipment simply because it looks impressive on a fleet page. The correct drone is the one that safely captures the required data and produces the deliverable the client can actually use.
+             EntireFM Drone does not specify equipment simply because it looks impressive on a fleet page. The correct drone is the one that safely captures the required data and produces the deliverable the client can actually use.
            </p>
 
            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -387,7 +387,7 @@ export default function FleetPage() {
             NOT SURE WHICH DRONE <br/>OR SENSOR YOUR <br/><span className="underline decoration-dark/30 underline-offset-[10px]">PROJECT NEEDS?</span>
           </h2>
           <p className="font-body text-xl md:text-2xl text-dark/70 max-w-3xl mx-auto mb-16 uppercase tracking-widest font-medium leading-relaxed">
-            Tell us the site, the output and the decision you need to make. Altitude Hire will recommend the right capture workflow, platform and deliverable route.
+            Tell us the site, the output and the decision you need to make. EntireFM Drone will recommend the right capture workflow, platform and deliverable route.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
             <Link 
@@ -410,7 +410,7 @@ export default function FleetPage() {
                 <h4 className="font-ui text-[12px] tracking-[0.4em] uppercase font-bold">Operational Integrity</h4>
              </div>
              <p className="font-body text-sm text-dark/60 uppercase tracking-widest max-w-3xl mx-auto italic">
-               Altitude Hire works with an operational drone fleet and specialist delivery partners to specify the right platform and payload for each project. Some advanced sensors, LiDAR systems or specialist platforms may be deployed through approved partners depending on the project requirement.
+               EntireFM Drone works with an operational drone fleet and specialist delivery partners to specify the right platform and payload for each project. Some advanced sensors, LiDAR systems or specialist platforms may be deployed through approved partners depending on the project requirement.
              </p>
           </div>
         </div>

@@ -55,7 +55,7 @@ export function buildSeoPageContent(url: string, locationSlug?: string, sectorSl
     },
     context: {
       heading: `Why ${serviceName || outcomeName} matters ${locationName ? `in ${locationName}` : ''} ${sectorName ? `for ${sectorName}` : ''}`,
-      body: `Altitude Hire provides specialist aerial capture and visual data. We structure the drone operation around the required output, selecting the right capture method, sensor, workflow and deliverable. ${
+      body: `EntireFM Drone provides specialist aerial capture and visual data. We structure the drone operation around the required output, selecting the right capture method, sensor, workflow and deliverable. ${
         locationName ? `Operating in ${locationName}, we manage local airspace and site constraints to deliver safe, compliant operations.` : ''
       } ${
         sectorName ? `For ${sectorName} professionals, this means actionable visual evidence to support your operational workflows without defaulting to traditional high-risk access methods.` : ''
@@ -96,7 +96,7 @@ export function buildSeoPageContent(url: string, locationSlug?: string, sectorSl
     faqs: [
       {
         question: `Do you provide ${serviceName || outcomeName} ${locationName ? `in ${locationName}` : ''}?`,
-        answer: `Yes, Altitude Hire supports commercial drone projects ${locationName ? `in ${locationName} and the surrounding area` : 'across the UK'}, subject to airspace and site feasibility.`
+        answer: `Yes, EntireFM Drone supports commercial drone projects ${locationName ? `in ${locationName} and the surrounding area` : 'across the UK'}, subject to airspace and site feasibility.`
       },
       {
         question: `How quickly can this be delivered?`,
@@ -109,7 +109,7 @@ export function buildSeoPageContent(url: string, locationSlug?: string, sectorSl
     ],
     finalCta: {
       headline: `Need ${serviceName || outcomeName || 'Drone Services'} ${locationName ? `in ${locationName}` : ''}?`,
-      body: 'Tell us what you need to inspect, measure, monitor, film or visualise. Altitude Hire will review the site, required output and operational constraints before recommending the right capture route.',
+      body: 'Tell us what you need to inspect, measure, monitor, film or visualise. EntireFM Drone will review the site, required output and operational constraints before recommending the right capture route.',
       cta: 'Start Project Brief'
     }
   };

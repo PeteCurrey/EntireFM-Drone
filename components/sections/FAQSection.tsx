@@ -18,7 +18,7 @@ const FAQS = [
   },
   {
     question: "ARE YOU FULLY INSURED?",
-    answer: "Yes. Altitude Hire provides fully insured commercial drone services. Insurance documentation is available for approved projects where required."
+    answer: "Yes. EntireFM Drone provides fully insured commercial drone services. Insurance documentation is available for approved projects where required."
   },
   {
     question: "HOW DO YOU HANDLE AIRSPACE PERMISSIONS?",

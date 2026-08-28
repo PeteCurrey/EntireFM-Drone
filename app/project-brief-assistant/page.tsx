@@ -89,7 +89,7 @@ function getRecommendation(state: AssistantState) {
       serviceSlug: 'drone-inspection',
       bundle: 'Roof Intelligence Pack',
       bundleSlug: 'roof-intelligence-pack',
-      summary: 'Based on your answers, this project looks like a roof or building inspection requirement. Altitude Hire would usually start with drone inspection capture and, where useful, add thermal imaging or annotated reporting.',
+      summary: 'Based on your answers, this project looks like a roof or building inspection requirement. EntireFM Drone would usually start with drone inspection capture and, where useful, add thermal imaging or annotated reporting.',
       deliverables: ['High-resolution image set', 'Annotated inspection images', 'PDF inspection summary', 'Optional thermal image set', 'Contractor briefing pack'],
       considerations: ['Site access', 'Nearby people and property', 'Airspace review', 'Weather window', 'Required reporting level']
     }
@@ -161,7 +161,7 @@ function getRecommendation(state: AssistantState) {
     serviceSlug: 'drone-inspection',
     bundle: 'Custom Project Scoping',
     bundleSlug: 'roof-intelligence-pack',
-    summary: 'Based on your requirements, we recommend a custom scoping session. Altitude Hire will review your project goals and advise on the most effective drone capture strategy.',
+    summary: 'Based on your requirements, we recommend a custom scoping session. EntireFM Drone will review your project goals and advise on the most effective drone capture strategy.',
     deliverables: ['Custom project plan', 'Scoping document', 'Technical advice', 'Deliverable recommendation'],
     considerations: ['Operational feasibility', 'Regulatory compliance', 'Equipment selection', 'Budget alignment']
   }
@@ -645,7 +645,7 @@ export default function ProjectBriefAssistant() {
                    <Info className="w-6 h-6 text-accent/20 mb-6" />
                    <div className="font-ui text-[10px] tracking-[0.3em] uppercase text-white/30 mb-4">What Happens Next?</div>
                    <p className="font-body text-[10px] text-white/20 uppercase tracking-widest leading-relaxed">
-                     Your recommendations will be passed into the project briefing form. Altitude Hire will then perform a full operational review including airspace and site safety before providing a final scope and quote.
+                     Your recommendations will be passed into the project briefing form. EntireFM Drone will then perform a full operational review including airspace and site safety before providing a final scope and quote.
                    </p>
                 </div>
               </div>

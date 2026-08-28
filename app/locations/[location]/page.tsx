@@ -38,8 +38,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = locationsData.find(l => l.slug === location)
   if (!data) return {}
 
-  const title = `Drone Services ${data.name} | Commercial Surveys & Inspections | Altitude Hire`
-  const description = `Altitude Hire provides commercial drone services in ${data.name}, including inspections, roof surveys, thermal imaging, construction monitoring, and 3D capture. CAA-compliant operations.`
+  const title = `Drone Services ${data.name} | Commercial Surveys & Inspections | EntireFM Drone`
+  const description = `EntireFM Drone provides commercial drone services in ${data.name}, including inspections, roof surveys, thermal imaging, construction monitoring, and 3D capture. CAA-compliant operations.`
 
   return {
     title,
@@ -62,8 +62,8 @@ export default async function LocationPage({ params }: Props) {
     description: data.description,
     provider: {
       '@type': 'LocalBusiness',
-      name: 'Altitude Hire',
-      url: 'https://altitude-hire.com',
+      name: 'EntireFM Drone',
+      url: 'https://drone.entirefm.com',
     },
     areaServed: {
       '@type': 'City',
@@ -127,7 +127,7 @@ export default async function LocationPage({ params }: Props) {
           </h1>
 
           <p className="font-body text-xl md:text-2xl font-light text-white/50 max-w-4xl mx-auto mb-12 opacity-0 animate-[fade-in_1s_1s_forwards] uppercase tracking-widest leading-relaxed">
-            Altitude Hire provides commercial drone inspections, surveying and mapping, thermal imaging, construction monitoring, aerial media and immersive 3D capture for {data.name} property, construction, infrastructure, energy and asset management projects.
+            EntireFM Drone provides commercial drone inspections, surveying and mapping, thermal imaging, construction monitoring, aerial media and immersive 3D capture for {data.name} property, construction, infrastructure, energy and asset management projects.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 opacity-0 animate-[fade-in_1s_1.2s_forwards]">
@@ -381,7 +381,7 @@ export default async function LocationPage({ params }: Props) {
             NEED DRONE SERVICES <br/>IN <span className="underline decoration-dark/30 underline-offset-[10px]">{data.name.toUpperCase()}?</span>
           </h2>
           <p className="font-body text-xl md:text-2xl text-dark/70 max-w-3xl mx-auto mb-16 uppercase tracking-widest font-medium leading-relaxed">
-            Tell us what you need to inspect, measure, monitor, film or visualise. Altitude Hire will review the location, site constraints and required output before recommending the right drone capture route.
+            Tell us what you need to inspect, measure, monitor, film or visualise. EntireFM Drone will review the location, site constraints and required output before recommending the right drone capture route.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
             <Link 

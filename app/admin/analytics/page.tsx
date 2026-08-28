@@ -244,7 +244,7 @@ export default function AnalyticsOverviewPage() {
             </div>
          </div>
          <p className="font-ui text-[9px] tracking-widest uppercase text-white/20">
-            Altitude Command Centre • First-Party Attribution Active
+            EntireFM Drone Command Centre • First-Party Attribution Active
          </p>
       </div>
     </div>

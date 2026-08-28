@@ -77,21 +77,21 @@ export default function ContactPage() {
           <div className="space-y-8">
             <div className="flex items-center gap-6 group cursor-pointer">
               <div className="w-12 h-12 bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent transition-colors duration-500">
-                <Mail className="w-5 h-5 text-accent group-hover:text-dark" />
+                <Mail className="w-5 h-5 text-accent group-hover:text-white" />
               </div>
               <div>
-                <div className="font-ui text-[9px] tracking-[0.2em] uppercase text-white/30">Email Uplink</div>
-                <div className="font-display text-xl text-white group-hover:text-accent transition-colors">hello@altitude-hire.com</div>
+                <div className="font-ui text-[9px] tracking-[0.2em] uppercase text-white/30">Project Enquiries</div>
+                <div className="font-display text-xl text-white group-hover:text-accent transition-colors">Direct Brief Submission</div>
               </div>
             </div>
 
             <div className="flex items-center gap-6 group cursor-pointer">
               <div className="w-12 h-12 bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-accent transition-colors duration-500">
-                <MapPin className="w-5 h-5 text-accent group-hover:text-dark" />
+                <MapPin className="w-5 h-5 text-accent group-hover:text-white" />
               </div>
               <div>
-                <div className="font-ui text-[9px] tracking-[0.2em] uppercase text-white/30">Operational HQ</div>
-                <div className="font-display text-xl text-white group-hover:text-accent transition-colors">London, United Kingdom</div>
+                <div className="font-ui text-[9px] tracking-[0.2em] uppercase text-white/30">Operations Scope</div>
+                <div className="font-display text-xl text-white group-hover:text-accent transition-colors">United Kingdom (Nationwide)</div>
               </div>
             </div>
           </div>

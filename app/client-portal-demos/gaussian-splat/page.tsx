@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import PortalLayout from '@/components/portals/PortalLayout'
 
 export const metadata: Metadata = {
-  title: 'Gaussian Splat & 3D Capture Portal Demo | Altitude Hire',
+  title: 'Gaussian Splat & 3D Capture Portal Demo | EntireFM Drone',
   description: 'View a representative immersive capture portal showing Gaussian Splat screenshots, flythrough video, 3D visualisation assets and related deliverables.',
 }
 

@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: service.metaTitle,
       description: service.metaDescription,
-      url: `https://altitude-hire.com/services/${slug}`,
+      url: `https://drone.entirefm.com/services/${slug}`,
       images: [{ url: '/images/og-default.jpg' }],
     },
   }
@@ -49,7 +49,7 @@ export default async function ServicePage({ params }: Props) {
     description: service.metaDescription,
     provider: {
       '@type': 'LocalBusiness',
-      name: 'Altitude Hire',
+      name: 'EntireFM Drone',
     },
     areaServed: {
       '@type': 'Country',

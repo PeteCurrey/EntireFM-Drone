@@ -6,7 +6,7 @@ import { getPublishedSeoPages } from '@/lib/seo-registry-mock';
  */
 export async function GET() {
   const pages = getPublishedSeoPages();
-  const baseUrl = 'https://altitude-hire.com';
+  const baseUrl = 'https://drone.entirefm.com';
   
   // Static pages (could be moved to a central config)
   const staticPages = [

@@ -1,3 +1,5 @@
+'use client'
+
 // components/ui/FAQAccordion.tsx
 'use client'
 

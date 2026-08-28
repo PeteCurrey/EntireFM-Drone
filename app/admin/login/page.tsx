@@ -22,7 +22,7 @@ export default function AdminLoginPage() {
     setError(null)
 
     // Local override for requested credentials
-    if (email === 'pete@avorria.com' && password === 'Vivaro2104!!') {
+    if ((email === 'pete@entirefm.com' || email === 'pete@avorria.com') && password === 'Vivaro2104!!') {
       // Set a bypass cookie to allow access through middleware
       document.cookie = "admin_bypass=true; path=/; max-age=3600; SameSite=Lax"
       window.location.href = '/admin'
@@ -56,7 +56,7 @@ export default function AdminLoginPage() {
             <Shield className="w-8 h-8 text-accent" />
           </div>
           <h1 className="font-display text-4xl text-white tracking-[0.2em] mb-4 uppercase">Ops Terminal</h1>
-          <p className="font-body text-xs text-white/30 tracking-[0.3em] uppercase">Altitude Command Access Only</p>
+          <p className="font-body text-xs text-white/30 tracking-[0.3em] uppercase">EntireFM Drone Command Access Only</p>
         </div>
 
         <div className="bg-white/[0.02] border border-white/10 p-10 backdrop-blur-md">
@@ -74,7 +74,7 @@ export default function AdminLoginPage() {
                 <input 
                   required type="email" value={email} onChange={e => setEmail(e.target.value)}
                   className="w-full bg-white/5 border border-white/10 py-4 pl-12 pr-4 text-white outline-none focus:border-accent transition-colors font-body text-sm"
-                  placeholder="admin@altitude-hire.com"
+                  placeholder="admin@entirefm.com"
                 />
               </div>
             </div>

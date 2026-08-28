@@ -19,8 +19,8 @@ import SectionTag from '@/components/ui/SectionTag'
 import { portfolioProjects } from '@/lib/portfolio-data'
 
 export const metadata: Metadata = {
-  title: 'Drone Project Workflows, Mission Profiles & Case Studies | Altitude Hire',
-  description: 'Explore Altitude Hire’s portfolio of drone project workflows, mission profiles and commercial use cases across property, infrastructure, energy and construction.',
+  title: 'Drone Project Workflows, Mission Profiles & Case Studies | EntireFM Drone',
+  description: 'Explore EntireFM Drone’s portfolio of drone project workflows, mission profiles and commercial use cases across property, infrastructure, energy and construction.',
 }
 
 export default function PortfolioPage() {
@@ -43,7 +43,7 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-white/10 pb-16">
             <div className="lg:col-span-8">
               <p className="font-body text-xl md:text-2xl font-light text-white/50 max-w-3xl uppercase tracking-widest leading-relaxed">
-                Explore how Altitude Hire’s drone services can support commercial inspections, surveying, construction monitoring, insurance evidence, aerial media and immersive 3D capture across property, infrastructure, energy and asset management environments.
+                Explore how EntireFM Drone’s drone services can support commercial inspections, surveying, construction monitoring, insurance evidence, aerial media and immersive 3D capture across property, infrastructure, energy and asset management environments.
               </p>
             </div>
             <div className="lg:col-span-4 flex flex-col justify-end items-start lg:items-end gap-6">
@@ -126,7 +126,7 @@ export default function PortfolioPage() {
             <span className="underline decoration-dark/30 underline-offset-[10px]">REQUIREMENT?</span>
           </h2>
           <p className="font-body text-xl md:text-2xl text-dark/70 max-w-3xl mx-auto mb-16 uppercase tracking-widest font-medium leading-relaxed">
-            Tell us what you need to inspect, measure, monitor or visualise. Altitude Hire will recommend the right capture workflow and deliverables.
+            Tell us what you need to inspect, measure, monitor or visualise. EntireFM Drone will recommend the right capture workflow and deliverables.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
             <Link 

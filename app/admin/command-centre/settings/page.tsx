@@ -26,7 +26,7 @@ export default function CommandCentreSettingsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                <div className="space-y-2">
                   <label className="font-ui text-[9px] text-white/20 uppercase tracking-widest">Business Name</label>
-                  <input type="text" defaultValue="Altitude Hire" className="w-full bg-white/5 border border-white/10 px-4 py-3 font-mono text-xs text-white focus:outline-none focus:border-accent/40" />
+                  <input type="text" defaultValue="EntireFM Drone" className="w-full bg-white/5 border border-white/10 px-4 py-3 font-mono text-xs text-white focus:outline-none focus:border-accent/40" />
                </div>
                <div className="space-y-2">
                   <label className="font-ui text-[9px] text-white/20 uppercase tracking-widest">HQ Location</label>
@@ -43,11 +43,11 @@ export default function CommandCentreSettingsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                <div className="space-y-2">
                   <label className="font-ui text-[9px] text-white/20 uppercase tracking-widest">Primary Enquiry Email</label>
-                  <input type="text" defaultValue="hello@altitude-hire.com" className="w-full bg-white/5 border border-white/10 px-4 py-3 font-mono text-xs text-white focus:outline-none focus:border-accent/40" />
+                  <input type="text" defaultValue="drone@entirefm.com" className="w-full bg-white/5 border border-white/10 px-4 py-3 font-mono text-xs text-white focus:outline-none focus:border-accent/40" />
                </div>
                <div className="space-y-2">
                   <label className="font-ui text-[9px] text-white/20 uppercase tracking-widest">Ops Notification Alert</label>
-                  <input type="text" defaultValue="ops@altitude-hire.com" className="w-full bg-white/5 border border-white/10 px-4 py-3 font-mono text-xs text-white focus:outline-none focus:border-accent/40" />
+                  <input type="text" defaultValue="ops@entirefm.com" className="w-full bg-white/5 border border-white/10 px-4 py-3 font-mono text-xs text-white focus:outline-none focus:border-accent/40" />
                </div>
             </div>
          </section>

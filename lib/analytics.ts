@@ -1,5 +1,5 @@
 /**
- * Altitude Hire Analytics Engine
+ * EntireFM Drone Analytics Engine
  * Provides first-party attribution, session management, and event tracking.
  */
 

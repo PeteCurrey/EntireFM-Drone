@@ -18,7 +18,7 @@ export default function PublicLayoutWrapper({ children }: { children: React.Reac
   return (
     <>
       <Nav />
-      <ProgressDots totalSections={12} />
+      <ProgressDots />
       {children}
       <Footer />
     </>

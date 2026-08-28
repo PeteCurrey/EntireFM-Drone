@@ -12,14 +12,42 @@ export default function Footer() {
   return (
     <footer className="bg-dark/80 backdrop-blur-md border-t border-white/5 py-24 relative z-50">
       <div className="container px-8 md:px-20">
+        {/* Part of EntireFM masterbrand strip */}
+        <div className="mb-16 pb-8 border-b border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div>
+            <div className="font-display text-4xl text-white tracking-tighter mb-2">
+              ENTIREFM<span className="text-accent"> DRONE</span>
+            </div>
+            <div className="font-ui text-[11px] tracking-[0.3em] uppercase text-white/40">
+              Aerial Intelligence
+            </div>
+          </div>
+          <div className="flex flex-col gap-3">
+            <Link 
+              href="https://www.entirefm.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="font-ui text-[11px] tracking-[0.25em] uppercase text-accent hover:text-white transition-colors flex items-center gap-2"
+            >
+              <span className="w-4 h-[1px] bg-accent" />
+              Part of EntireFM →
+            </Link>
+            <Link 
+              href="https://www.entirefm.com/services/drone-services"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-ui text-[11px] tracking-[0.25em] uppercase text-white/40 hover:text-white transition-colors"
+            >
+              EntireFM Drone Services Hub
+            </Link>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           {/* Brand Info */}
           <div className="space-y-8">
-            <div className="font-display text-4xl text-white tracking-tighter">
-              ALTITUDE<span className="text-accent underline underline-offset-4 decoration-1">HIRE.</span>
-            </div>
             <p className="font-body text-sm text-white/30 uppercase tracking-widest leading-relaxed">
-              Professional UAV Services UK Wide. CAA-Compliant Commercial Operations. Leading the industry in technical aerial intelligence.
+              CAA-Compliant commercial drone operations. Aerial intelligence for property, construction, facilities management and infrastructure. Nationwide UK coverage.
             </p>
           </div>
 
@@ -74,7 +102,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="font-ui text-[10px] tracking-[0.2em] text-white/20 uppercase text-center md:text-left">
-            © {new Date().getFullYear()} Altitude Hire. CAA-Compliant Commercial Drone Operations.
+            © {new Date().getFullYear()} EntireFM. CAA-Compliant Commercial Drone Operations.
             <span className="mx-4 opacity-50">|</span>
             <Link href="/privacy" className="hover:text-accent">Privacy Policy</Link>
             <span className="mx-4 opacity-50">|</span>
