@@ -29,7 +29,7 @@ export default function ResourcesHubPage() {
     "Thermal Imaging",
     "Construction Monitoring",
     "Insurance Evidence",
-    "Gaussian Splat & 3D Capture",
+    "TFTS 3D & 3D Capture",
     "Aerial Photography & Film",
     "Facilities Management",
     "Solar & Energy",
@@ -89,7 +89,7 @@ export default function ResourcesHubPage() {
             AND INSIGHTS
           </h1>
           <p className="font-body text-xl md:text-2xl text-white/50 leading-relaxed max-w-4xl uppercase tracking-widest font-light mb-16">
-            Practical guides for drone inspections, roof surveys, thermal imaging, mapping, construction monitoring, insurance evidence, Gaussian Splats, digital twin-style capture and commercial aerial media.
+            Practical guides for drone inspections, roof surveys, thermal imaging, mapping, construction monitoring, insurance evidence, TFTS 3Ds, digital twin-style capture and commercial aerial media.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-8 mb-20">
@@ -238,7 +238,7 @@ export default function ResourcesHubPage() {
                </Link>
             </div>
             <div className="lg:col-span-7 lg:order-1 grid grid-cols-1 sm:grid-cols-2 gap-8">
-               {blogPosts.filter(p => p.category === 'Surveying & Mapping' || p.category === 'Gaussian Splat & 3D Capture').slice(0, 4).map(post => (
+               {blogPosts.filter(p => p.category === 'Surveying & Mapping' || p.category === 'TFTS 3D & 3D Capture').slice(0, 4).map(post => (
                  <Link key={post.slug} href={`/resources/${post.slug}`} className="p-8 border border-white/5 bg-white/[0.01] hover:border-accent/40 transition-all group">
                    <h4 className="font-display text-xl text-white mb-4 uppercase tracking-widest group-hover:text-accent transition-colors leading-tight">{post.title}</h4>
                    <span className="font-ui text-[9px] tracking-widest uppercase text-white/20">Read Guide →</span>
@@ -256,7 +256,7 @@ export default function ResourcesHubPage() {
             NEED ADVICE ON A <br/><span className="underline decoration-dark/30 underline-offset-[10px]">DRONE REQUIREMENT?</span>
           </h2>
           <p className="font-body text-xl md:text-2xl text-dark/70 max-w-3xl mx-auto mb-16 uppercase tracking-widest font-medium leading-relaxed">
-            Submit a project brief and EntireFM Drone will recommend the right capture workflow, deliverables and package route.
+            Submit a project brief and TFTS Drone will recommend the right capture workflow, deliverables and package route.
           </p>
           <Link 
             href="/brief"

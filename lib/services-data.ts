@@ -29,7 +29,7 @@ export const servicesData: ServiceData[] = [
     headline: ['DRONE', 'INSPECTION'],
     category: 'Property & Assets',
     intro: 'Drone-based visual inspection for roofs, facades, assets and hard-to-access areas, helping teams gather clear evidence without defaulting to scaffolding or MEWPs at the first inspection stage.',
-    metaTitle: 'Drone Inspection Services UK | CAA-Compliant | EntireFM Drone',
+    metaTitle: 'Drone Inspection Services UK | CAA-Compliant | TFTS Drone',
     metaDescription: 'Commercial drone inspections for roofs, facades and hard-to-access assets, supporting visual evidence, contractor scoping, maintenance planning and reporting workflows.',
     heroStat: [
       { value: 'PRO', label: 'Visual evidence' },
@@ -72,7 +72,7 @@ export const servicesData: ServiceData[] = [
     headline: ['DRONE', 'ROOF', 'INSPECTIONS'],
     category: 'Property & Assets',
     intro: 'Commercial roof, gutter, drainage and roof plant inspection using drone imagery, with optional annotated evidence and reporting outputs for maintenance, contractor and property workflows.',
-    metaTitle: 'Drone Roof Inspections UK | Commercial Roof Surveys | EntireFM Drone',
+    metaTitle: 'Drone Roof Inspections UK | Commercial Roof Surveys | TFTS Drone',
     metaDescription: 'Drone roof inspections for maintenance planning, contractor scoping, FM records and insurance documentation where clear visual evidence is required.',
     heroStat: [
       { value: 'Visual', label: 'Roof insight' },
@@ -125,7 +125,7 @@ export const servicesData: ServiceData[] = [
     headline: ['FACADE', 'INSPECTIONS'],
     category: 'Property & Assets',
     intro: 'High-resolution vertical imaging for commercial and residential facades — documenting cladding, masonry, and glazing condition at scale.',
-    metaTitle: 'Facade Drone Inspections UK | Vertical Building Surveys | EntireFM Drone',
+    metaTitle: 'Facade Drone Inspections UK | Vertical Building Surveys | TFTS Drone',
     metaDescription: 'Professional drone facade inspections. Vertical building surveys for cladding, glazing and masonry. CAA-compliant, detailed defect reporting.',
     heroStat: [
       { value: 'CLOSE', label: 'Visual capture' },
@@ -169,7 +169,7 @@ export const servicesData: ServiceData[] = [
     headline: ['BUILDING ENVELOPE', 'INSPECTIONS'],
     category: 'Property & Assets',
     intro: 'External condition capture for facades, cladding, parapets, and high-level plant — providing a complete visual record of building health.',
-    metaTitle: 'Building Envelope Drone Inspections UK | Facade & Cladding | EntireFM Drone',
+    metaTitle: 'Building Envelope Drone Inspections UK | Facade & Cladding | TFTS Drone',
     metaDescription: 'Professional drone inspections for building envelopes. Facade, cladding, and asset condition surveys. CAA-compliant, detailed defect reporting.',
     heroStat: [
       { value: '360°', label: 'Asset visibility' },
@@ -216,7 +216,7 @@ export const servicesData: ServiceData[] = [
     headline: ['FACILITIES', 'MANAGEMENT'],
     category: 'Property & Assets',
     intro: 'Outcome-led drone services for FM teams — providing the visual evidence needed for planned maintenance, asset audits, and emergency response.',
-    metaTitle: 'Facilities Management Drone Services UK | Asset Condition | EntireFM Drone',
+    metaTitle: 'Facilities Management Drone Services UK | Asset Condition | TFTS Drone',
     metaDescription: 'Professional drone services for facilities management. Roof, asset and condition surveys to support maintenance and FM reporting. CAA-compliant.',
     heroStat: [
       { value: 'PRO', label: 'Active reporting' },
@@ -260,7 +260,7 @@ export const servicesData: ServiceData[] = [
     headline: ['COMMERCIAL', 'PROPERTY', 'SURVEYS'],
     category: 'Property & Assets',
     intro: 'High-resolution aerial surveys for commercial landlords, investors, and asset managers — providing objective evidence for lease negotiations and condition audits.',
-    metaTitle: 'Commercial Property Drone Surveys UK | Asset Condition | EntireFM Drone',
+    metaTitle: 'Commercial Property Drone Surveys UK | Asset Condition | TFTS Drone',
     metaDescription: 'Professional commercial property drone surveys. Aerial condition audits for landlords, investors and asset managers. CAA-compliant, detailed reporting.',
     heroStat: [
       { value: 'PRO', label: 'Asset visibility' },
@@ -304,7 +304,7 @@ export const servicesData: ServiceData[] = [
     headline: ['DILAPIDATION', 'SURVEYS'],
     category: 'Property & Assets',
     intro: 'Objective aerial evidence for Section 18(1) valuations and terminal dilapidation claims — documenting building condition with high-detail visual documentation.',
-    metaTitle: 'Dilapidation Drone Surveys UK | Lease End Evidence | EntireFM Drone',
+    metaTitle: 'Dilapidation Drone Surveys UK | Lease End Evidence | TFTS Drone',
     metaDescription: 'Professional drone surveys for dilapidations. Objective aerial evidence for lease end claims and schedule of condition. CAA-compliant.',
     heroStat: [
       { value: 'LEGAL', label: 'Defensible data' },
@@ -350,7 +350,7 @@ export const servicesData: ServiceData[] = [
     headline: ['SURVEYING', '& MAPPING'],
     category: 'Construction & Surveying',
     intro: 'high-detail precision topographic surveys, orthomosaic maps, and LiDAR point clouds — delivered faster and at a fraction of the cost of traditional ground survey methods.',
-    metaTitle: 'Drone Surveying & Mapping UK | LiDAR & Orthomosaic | EntireFM Drone',
+    metaTitle: 'Drone Surveying & Mapping UK | LiDAR & Orthomosaic | TFTS Drone',
     metaDescription: 'Professional drone surveying and mapping services across the UK. Topographic surveys, orthomosaic maps, LiDAR point clouds and 3D models. CAA-compliant, GCP accuracy.',
     heroStat: [
       { value: 'HIGH', label: 'RTK relative accuracy' },
@@ -402,7 +402,7 @@ export const servicesData: ServiceData[] = [
     headline: ['CONSTRUCTION', 'MONITORING'],
     category: 'Construction & Surveying',
     intro: 'Scheduled drone flights that keep stakeholders informed from groundworks to handover — progress reports, volumetric earthworks, and time-lapse documentation.',
-    metaTitle: 'Construction Drone Monitoring UK | Progress Surveys | EntireFM Drone',
+    metaTitle: 'Construction Drone Monitoring UK | Progress Surveys | TFTS Drone',
     metaDescription: 'Professional construction drone monitoring. Scheduled progress flights, earthworks volumetrics, and stakeholder updates. CAA-compliant.',
     heroStat: [
       { value: '4D', label: 'Time-lapse documentation' },
@@ -449,7 +449,7 @@ export const servicesData: ServiceData[] = [
     headline: ['VOLUMETRIC', 'SURVEYS'],
     category: 'Construction & Surveying',
     intro: 'Stockpile and earthworks volume measurements for construction, quarries, and aggregate sites — delivered with repeatable visual records.',
-    metaTitle: 'Volumetric Drone Surveys UK | Stockpile & Earthworks | EntireFM Drone',
+    metaTitle: 'Volumetric Drone Surveys UK | Stockpile & Earthworks | TFTS Drone',
     metaDescription: 'Professional volumetric drone surveys for quarries, construction and aggregate sites. Accurate stockpile measurements and cut/fill analysis. CAA-compliant.',
     heroStat: [
       { value: 'SCOPED', label: 'Typical accuracy' },
@@ -495,7 +495,7 @@ export const servicesData: ServiceData[] = [
     headline: ['ORTHOMOSAIC', 'MAPPING'],
     category: 'Construction & Surveying',
     intro: 'High-resolution, georeferenced aerial maps with 1-3cm per pixel detail — perfect for site management, progress tracking, and as-built verification.',
-    metaTitle: 'Orthomosaic Mapping UK | High-Resolution Aerial Maps | EntireFM Drone',
+    metaTitle: 'Orthomosaic Mapping UK | High-Resolution Aerial Maps | TFTS Drone',
     metaDescription: 'Professional drone orthomosaic mapping services. High-resolution georeferenced maps for site management and GIS. CAA-compliant, 1-3cm GSD.',
     heroStat: [
       { value: 'HIGH', label: 'Resolution' },
@@ -539,7 +539,7 @@ export const servicesData: ServiceData[] = [
     headline: ['LIDAR POINT CLOUD', 'SURVEYS'],
     category: 'Construction & Surveying',
     intro: 'High-precision laser scanning from altitude — capturing dense 3D point clouds that penetrate vegetation to reveal true ground terrain.',
-    metaTitle: 'LiDAR Point Cloud Surveys UK | Drone Laser Scanning | EntireFM Drone',
+    metaTitle: 'LiDAR Point Cloud Surveys UK | Drone Laser Scanning | TFTS Drone',
     metaDescription: 'Professional drone LiDAR surveying services. High-density 3D point clouds, vegetation penetration and DTM generation. CAA-compliant.',
     heroStat: [
       { value: 'DENSE', label: 'Points per m²' },
@@ -583,7 +583,7 @@ export const servicesData: ServiceData[] = [
     headline: ['DRONE', 'PHOTOGRAMMETRY'],
     category: 'Construction & Surveying',
     intro: 'Turning aerial imagery into accurate 3D models, point clouds, and maps — the science of extracting precise measurements from drone data.',
-    metaTitle: 'Drone Photogrammetry UK | 3D Mapping & Models | EntireFM Drone',
+    metaTitle: 'Drone Photogrammetry UK | 3D Mapping & Models | TFTS Drone',
     metaDescription: 'Professional drone photogrammetry services. High-accuracy 3D models, maps and point clouds from aerial data. CAA-compliant documentation.',
     heroStat: [
       { value: '3D', label: 'Site modelling' },
@@ -627,7 +627,7 @@ export const servicesData: ServiceData[] = [
     headline: ['AGRICULTURAL', 'SURVEYS'],
     category: 'Construction & Surveying',
     intro: 'NDVI crop health analysis, multispectral field mapping, and drainage assessment — giving landowners the aerial intelligence to improve yield.',
-    metaTitle: 'Agricultural Drone Surveys UK | NDVI & Multispectral | EntireFM Drone',
+    metaTitle: 'Agricultural Drone Surveys UK | NDVI & Multispectral | TFTS Drone',
     metaDescription: 'Professional agricultural drone surveys. NDVI crop health mapping, multispectral analysis and drainage assessment. CAA-compliant.',
     heroStat: [
       { value: 'NDVI', label: 'Crop analysis' },
@@ -672,7 +672,7 @@ export const servicesData: ServiceData[] = [
     headline: ['INFRASTRUCTURE', 'INSPECTIONS'],
     category: 'Infrastructure & Energy',
     intro: 'High-detail aerial inspections for bridges, masts, rail, and highways — providing critical asset visibility while eliminating the need for high-risk manual access.',
-    metaTitle: 'Infrastructure Drone Inspections UK | Bridge & Mast Surveys | EntireFM Drone',
+    metaTitle: 'Infrastructure Drone Inspections UK | Bridge & Mast Surveys | TFTS Drone',
     metaDescription: 'Professional drone inspections for infrastructure assets. Bridge, rail, telecom and highway corridor surveys. CAA-compliant, high-detail reporting.',
     heroStat: [
       { value: 'LOW', label: 'Access risk' },
@@ -766,7 +766,7 @@ export const servicesData: ServiceData[] = [
     headline: ['SOLAR PANEL', 'INSPECTIONS'],
     category: 'Infrastructure & Energy',
     intro: 'Efficiency-focused thermal audits for commercial PV arrays and solar farms — identifying cell-level faults and underperforming strings at scale.',
-    metaTitle: 'Solar Panel Drone Inspections UK | Thermal PV Audits | EntireFM Drone',
+    metaTitle: 'Solar Panel Drone Inspections UK | Thermal PV Audits | TFTS Drone',
     metaDescription: 'Professional solar panel drone inspections. Thermal cell-level fault detection, string audits and anomaly reporting. CAA-compliant, IEC compliant reporting.',
     heroStat: [
       { value: '100%', label: 'Array coverage' },
@@ -815,7 +815,7 @@ export const servicesData: ServiceData[] = [
     headline: ['THERMAL', 'IMAGING'],
     category: 'Specialist & Response',
     intro: 'Thermal drone capture for buildings, roofs, solar panels and assets, helping identify temperature anomalies that may support further investigation, maintenance planning or energy-related review.',
-    metaTitle: 'Thermal Drone Imaging UK | Radiometric Building Surveys | EntireFM Drone',
+    metaTitle: 'Thermal Drone Imaging UK | Radiometric Building Surveys | TFTS Drone',
     metaDescription: 'Professional thermal drone imaging surveys. Radiometric surveys for building envelopes, solar farms, and electrical inspection. CAA-compliant.',
     heroStat: [
       { value: 'HIGH', label: 'Radiometric resolution' },
@@ -861,7 +861,7 @@ export const servicesData: ServiceData[] = [
     headline: ['AERIAL', 'PHOTOGRAPHY', '& FILM'],
     category: 'Specialist & Response',
     intro: 'Cinematic 4K drone footage and ultra-high-resolution stills for property, commercial, and broadcast clients. Every flight is managed by a CAA GVC certified pilot.',
-    metaTitle: 'Aerial Photography UK | 4K Drone Filming | EntireFM Drone',
+    metaTitle: 'Aerial Photography UK | 4K Drone Filming | TFTS Drone',
     metaDescription: 'Professional aerial photography and drone filming services across the UK. 4K/6K video, 45MP stills for real estate, commercial, and broadcast. CAA-compliant.',
     heroStat: [
       { value: '4K', label: 'Cinematic video' },
@@ -904,7 +904,7 @@ export const servicesData: ServiceData[] = [
     headline: ['EVENTS', '& MEDIA'],
     category: 'Specialist & Response',
     intro: 'Aerial photography, drone video, FPV-style visual content and venue media assets for commercial campaigns, property, events and brand storytelling, subject to safe operating conditions.',
-    metaTitle: 'Events Drone Coverage UK | Festivals & Sports | EntireFM Drone',
+    metaTitle: 'Events Drone Coverage UK | Festivals & Sports | TFTS Drone',
     metaDescription: 'Aerial media for venues, events and commercial campaigns, planned around site constraints, permissions, airspace and operational safety requirements.',
     heroStat: [
       { value: 'PRO', label: 'Event media' },
@@ -947,7 +947,7 @@ export const servicesData: ServiceData[] = [
     headline: ['HERITAGE', '& CONSERVATION'],
     category: 'Specialist & Response',
     intro: 'Non-invasive aerial surveys and 3D modelling for historic buildings, listed structures, and archaeological sites — preserving the past with modern technology.',
-    metaTitle: 'Heritage & Conservation Drone Surveys UK | 3D Site Models | EntireFM Drone',
+    metaTitle: 'Heritage & Conservation Drone Surveys UK | 3D Site Models | TFTS Drone',
     metaDescription: 'Professional drone surveys for heritage and conservation. 3D site modelling, condition monitoring and digital preservation. CAA-compliant.',
     heroStat: [
       { value: 'NON', label: 'Invasive capture' },
@@ -984,7 +984,7 @@ export const servicesData: ServiceData[] = [
       { q: 'Can you produce 3D models for public use?', a: 'Yes, we create web-viewable models perfect for museums and online engagement.' },
       { q: 'Do you work with conservation officers?', a: 'Yes, we provide the data they need to approve restoration works.' }
     ],
-    relatedServices: ['digital-twin-capture', 'gaussian-splat-capture', 'drone-photogrammetry'],
+    relatedServices: ['digital-twin-capture', 'tfts-3d', 'drone-photogrammetry'],
     cta: { label: 'DISCUSS HERITAGE CAPTURE', href: '/contact' }
   },
   {
@@ -993,7 +993,7 @@ export const servicesData: ServiceData[] = [
     headline: ['INSURANCE', '& LOSS ADJUSTER'],
     category: 'Specialist & Response',
     intro: 'Rapid aerial damage assessment for loss adjusters and insurers — providing immediate visibility after fire, flood, or storm incidents.',
-    metaTitle: 'Insurance & Loss Adjuster Drone Surveys UK | Damage Assessment | EntireFM Drone',
+    metaTitle: 'Insurance & Loss Adjuster Drone Surveys UK | Damage Assessment | TFTS Drone',
     metaDescription: 'Professional drone surveys for loss adjusters. Rapid damage assessment after fire, flood or storm. CAA-compliant, rapid deployment.',
     heroStat: [
       { value: 'RAPID', label: 'Incident response' },
@@ -1039,7 +1039,7 @@ export const servicesData: ServiceData[] = [
     headline: ['EMERGENCY', 'RESPONSE'],
     category: 'Specialist & Response',
     intro: 'Immediate aerial intelligence for incident commanders and emergency teams — providing real-time visibility in critical situations.',
-    metaTitle: 'Emergency Incident Response Drone Services UK | Rapid Deployment | EntireFM Drone',
+    metaTitle: 'Emergency Incident Response Drone Services UK | Rapid Deployment | TFTS Drone',
     metaDescription: 'Professional drone services for emergency response. Real-time aerial intelligence for fire, flood and structural incidents. CAA-compliant, rapid response.',
     heroStat: [
       { value: 'FAST', label: 'Deployment' },
@@ -1083,7 +1083,7 @@ export const servicesData: ServiceData[] = [
     headline: ['FPV DRONE', 'FILMING'],
     category: 'Specialist & Response',
     intro: 'High-speed, immersive, and dynamic aerial cinematography for brands, events, and property — taking viewers where traditional drones cannot go.',
-    metaTitle: 'FPV Drone Filming UK | Immersive Cinematography | EntireFM Drone',
+    metaTitle: 'FPV Drone Filming UK | Immersive Cinematography | TFTS Drone',
     metaDescription: 'Professional FPV drone filming services. High-speed, immersive cinematography for property, events and marketing. CAA-compliant, 4K/6K video.',
     heroStat: [
       { value: '60FPS', label: 'High-speed 4K' },
@@ -1127,7 +1127,7 @@ export const servicesData: ServiceData[] = [
     headline: ['360° AERIAL', 'PANORAMAS'],
     category: 'Specialist & Response',
     intro: 'Interactive, high-resolution 360° aerial spheres for website integration — providing a complete view of a site, development, or landscape.',
-    metaTitle: '360° Aerial Panoramas UK | Interactive Site Views | EntireFM Drone',
+    metaTitle: '360° Aerial Panoramas UK | Interactive Site Views | TFTS Drone',
     metaDescription: 'Professional 360 degree aerial panoramas. Interactive site views for developers, property and tourism. CAA-compliant, web-ready integration.',
     heroStat: [
       { value: '360°', label: 'Total visibility' },
@@ -1161,7 +1161,7 @@ export const servicesData: ServiceData[] = [
       { q: 'What is the resolution?', a: 'Our panoramas are typically delivered in 8K resolution for crystal-clear detail.' },
       { q: 'Can you link multiple 360s together?', a: 'Yes, we can create a virtual tour with multiple aerial and ground-based points.' }
     ],
-    relatedServices: ['aerial-photography-film', 'digital-twin-capture', 'gaussian-splat-capture'],
+    relatedServices: ['aerial-photography-film', 'digital-twin-capture', 'tfts-3d'],
     cta: { label: 'CREATE 360 TOUR', href: '/contact' }
   },
   {
@@ -1170,7 +1170,7 @@ export const servicesData: ServiceData[] = [
     headline: ['DIGITAL TWIN', 'CAPTURE'],
     category: 'Specialist & Response',
     intro: 'High-fidelity 3D site replicas for BIM integration and virtual management — the foundation of the modern smart building.',
-    metaTitle: 'Digital Twin Drone Capture UK | 3D Site Replicas | EntireFM Drone',
+    metaTitle: 'Digital Twin Drone Capture UK | 3D Site Replicas | TFTS Drone',
     metaDescription: 'Professional drone capture for digital twins. High-fidelity 3D models and site replicas for BIM and management. CAA-compliant.',
     heroStat: [
       { value: 'BIM', label: 'Ready data' },
@@ -1205,23 +1205,23 @@ export const servicesData: ServiceData[] = [
       { q: 'Can you update the twin periodically?', a: 'Yes, we offer scheduled rescans to keep your digital twin current.' },
       { q: 'How accurate is the twin?', a: 'With survey control, we can achieve high-accuracy documentation for engineering-grade twins.' }
     ],
-    relatedServices: ['gaussian-splat-capture', 'drone-photogrammetry', 'lidar-point-cloud-surveys'],
+    relatedServices: ['tfts-3d', 'drone-photogrammetry', 'lidar-point-cloud-surveys'],
     cta: { label: 'BUILD YOUR DIGITAL TWIN', href: '/contact' }
   },
   {
-    slug: 'gaussian-splat-capture',
-    title: 'Gaussian Splat Capture Service',
-    headline: ['GAUSSIAN SPLAT', 'CAPTURE'],
+    slug: 'tfts-3d',
+    title: 'TFTS 3D Capture Service',
+    headline: ['TFTS 3D', 'CAPTURE'],
     category: 'Specialist & Response',
     intro: 'Drone and ground-level image capture for photorealistic 3D visualisation, immersive site walkthroughs and digital twin-style visual records.',
-    metaTitle: 'Gaussian Splat Capture Service | Drone 3D Visualisation | EntireFM Drone',
-    metaDescription: 'EntireFM Drone provides Gaussian Splat capture services using drone and ground-level imagery for immersive site visualisation, stakeholder engagement, property, construction and heritage applications.',
+    metaTitle: 'TFTS 3D Capture Service | Drone 3D Visualisation | TFTS Drone',
+    metaDescription: 'TFTS Drone provides TFTS 3D capture services using drone and ground-level imagery for immersive site visualisation, stakeholder engagement, property, construction and heritage applications.',
     heroStat: [
       { value: 'PHOTO', label: 'Realistic 3D' },
       { value: 'WEB', label: 'Ready Viewer' },
       { value: 'STAKE', label: 'Holder engagement' }
     ],
-    problemStatement: 'Static photos and fixed-angle videos often fail to communicate the true scale, context and material feel of a complex commercial site. Gaussian Splatting bridges the gap between 2D media and 3D models, providing an immersive visual experience that allows stakeholders to explore a site from multiple perspectives with lifelike realism.',
+    problemStatement: 'Static photos and fixed-angle videos often fail to communicate the true scale, context and material feel of a complex commercial site. TFTS 3D modelling bridges the gap between 2D media and 3D models, providing an immersive visual experience that allows stakeholders to explore a site from multiple perspectives with lifelike realism.',
     whatWeCapture: [
       'High-overlap aerial imagery',
       'Ground-level viewpoint capture',
@@ -1248,12 +1248,12 @@ export const servicesData: ServiceData[] = [
     ],
     industries: ['Facilities Management', 'Construction', 'Commercial Property', 'Insurance', 'Heritage', 'Events'],
     faqs: [
-      { q: 'Is a Gaussian Splat suitable for professional surveying?', a: 'Gaussian Splats are primarily visualisation assets. For measurement-critical work, we pair capture with photogrammetry or LiDAR workflows.' },
+      { q: 'Is a TFTS 3D model suitable for professional surveying?', a: 'TFTS 3D models are primarily visualisation assets. For measurement-critical work, we pair capture with photogrammetry or LiDAR workflows.' },
       { q: 'What sites are suitable?', a: 'Almost any commercial site, building or estate can be captured, provided we have suitable access and lighting conditions.' },
       { q: 'Can it be embedded on my site?', a: 'Yes, we can provide a web-ready viewer that can be embedded or shared via a secure link.' }
     ],
     relatedServices: ['digital-twin-capture', 'drone-photogrammetry', '360-aerial-panoramas', 'aerial-photography-film'],
-    cta: { label: 'EXPLORE SHOWCASE', href: '/gaussian-splat' }
+    cta: { label: 'EXPLORE 3D SHOWCASE', href: '/tfts-3d' }
   },
   {
     slug: 'bridge-drone-inspections',
@@ -1261,7 +1261,7 @@ export const servicesData: ServiceData[] = [
     headline: ['BRIDGE', 'INSPECTIONS'],
     category: 'Infrastructure & Energy',
     intro: 'Specialised aerial inspections for road, rail, and pedestrian bridges — capturing high-resolution evidence of deck soffits, piers, and bearings.',
-    metaTitle: 'Bridge Drone Inspections UK | Structural Surveys | EntireFM Drone',
+    metaTitle: 'Bridge Drone Inspections UK | Structural Surveys | TFTS Drone',
     metaDescription: 'Professional drone bridge inspections. High-detail surveys for soffits, piers and abutments. CAA-compliant, zero disruption to traffic.',
     heroStat: [
       { value: 'MINIMAL', label: 'Traffic disruption' },
@@ -1304,7 +1304,7 @@ export const servicesData: ServiceData[] = [
     headline: ['RAIL CORRIDOR', 'SURVEYS'],
     category: 'Infrastructure & Energy',
     intro: 'Safe, rapid aerial surveys for rail infrastructure — monitoring track condition, embankment stability, and vegetation encroachment without line-of-route closures.',
-    metaTitle: 'Rail Corridor Drone Surveys UK | Network Rail Standard | EntireFM Drone',
+    metaTitle: 'Rail Corridor Drone Surveys UK | Network Rail Standard | TFTS Drone',
     metaDescription: 'Professional drone surveys for rail corridors. Track condition, embankment stability and vegetation monitoring. CAA-compliant, zero-closure surveys.',
     heroStat: [
       { value: 'MINIMAL', label: 'Line closures' },
@@ -1347,7 +1347,7 @@ export const servicesData: ServiceData[] = [
     headline: ['PIPELINE', 'SURVEYS'],
     category: 'Infrastructure & Energy',
     intro: 'Aerial monitoring for gas, water, and oil pipelines — detecting leaks, third-party interference, and land movement along critical infrastructure routes.',
-    metaTitle: 'Pipeline Corridor Drone Surveys UK | Leak Detection | EntireFM Drone',
+    metaTitle: 'Pipeline Corridor Drone Surveys UK | Leak Detection | TFTS Drone',
     metaDescription: 'Professional drone surveys for pipeline corridors. Leak detection, land movement and third-party interference monitoring. CAA-compliant.',
     heroStat: [
       { value: 'PRO', label: 'Leak detection' },
@@ -1390,7 +1390,7 @@ export const servicesData: ServiceData[] = [
     headline: ['CUT & FILL', 'ANALYSIS'],
     category: 'Construction & Surveying',
     intro: 'Precise earthworks earthworks tracking — comparing as-built site levels against design surfaces to calculate net volume changes.',
-    metaTitle: 'Drone Cut & Fill Analysis UK | Earthworks Tracking | EntireFM Drone',
+    metaTitle: 'Drone Cut & Fill Analysis UK | Earthworks Tracking | TFTS Drone',
     metaDescription: 'Professional drone cut and fill analysis. Accurately compare site levels against design models for earthworks tracking. CAA-compliant.',
     heroStat: [
       { value: 'HIGH', label: 'Volumetric accuracy' },
@@ -1432,7 +1432,7 @@ export const servicesData: ServiceData[] = [
     headline: ['STOCKPILE', 'VOLUME', 'SURVEYS'],
     category: 'Construction & Surveying',
     intro: 'Rapid, safe, and accurate stockpile measurements for quarries, aggregate sites, and construction projects — delivered within 24 hours.',
-    metaTitle: 'Stockpile Volume Drone Surveys UK | Accurate Audits | EntireFM Drone',
+    metaTitle: 'Stockpile Volume Drone Surveys UK | Accurate Audits | TFTS Drone',
     metaDescription: 'Professional drone stockpile volume surveys. Accurate measurements for aggregates, minerals and earthworks. CAA-compliant, 24h reporting.',
     heroStat: [
       { value: 'SAFE', label: 'No climbing' },
@@ -1474,7 +1474,7 @@ export const servicesData: ServiceData[] = [
     headline: ['CONSTRUCTION', 'PROGRESS', 'PHOTOGRAPHY'],
     category: 'Construction & Surveying',
     intro: 'High-resolution aerial progress records that keep projects on track — providing consistent, timestamped evidence for stakeholders and project teams.',
-    metaTitle: 'Construction Progress Photography UK | Site Monitoring | EntireFM Drone',
+    metaTitle: 'Construction Progress Photography UK | Site Monitoring | TFTS Drone',
     metaDescription: 'Professional construction progress photography. Scheduled drone flights for site monitoring and stakeholder updates. CAA-compliant.',
     heroStat: [
       { value: 'TIME', label: 'Stamped evidence' },
@@ -1516,7 +1516,7 @@ export const servicesData: ServiceData[] = [
     headline: ['DRONE TIME-LAPSE', 'MONITORING'],
     category: 'Construction & Surveying',
     intro: 'Compelling 4D visual stories of your project — combining scheduled aerial capture into cinematic time-lapse sequences that show months of work in seconds.',
-    metaTitle: 'Drone Time-Lapse Monitoring UK | Project Evolution | EntireFM Drone',
+    metaTitle: 'Drone Time-Lapse Monitoring UK | Project Evolution | TFTS Drone',
     metaDescription: 'Professional drone time-lapse site monitoring. Cinematic 4D project records from groundworks to completion. CAA-compliant.',
     heroStat: [
       { value: '4D', label: 'Project flow' },
@@ -1558,7 +1558,7 @@ export const servicesData: ServiceData[] = [
     headline: ['RAIL & HIGHWAY', 'CORRIDOR SURVEYS'],
     category: 'Infrastructure & Energy',
     intro: 'Precision aerial mapping and inspection for linear transport assets — delivering high-resolution corridor data for vegetation management, drainage audits, and structural monitoring.',
-    metaTitle: 'Rail & Highway Corridor Drone Surveys UK | Transport Infrastructure | EntireFM Drone',
+    metaTitle: 'Rail & Highway Corridor Drone Surveys UK | Transport Infrastructure | TFTS Drone',
     metaDescription: 'Specialist drone surveys for rail and highway corridors. High-resolution mapping, vegetation audits and structural inspections. CAA-compliant.',
     heroStat: [
       { value: 'LIN', label: 'ear assets' },
@@ -1601,7 +1601,7 @@ export const servicesData: ServiceData[] = [
     headline: ['PIPELINE & UTILITY', 'CORRIDOR SURVEYS'],
     category: 'Infrastructure & Energy',
     intro: 'Non-disruptive monitoring for oil, gas, and water pipelines — using aerial intelligence to identify encroachment, leaks, and environmental changes along utility routes.',
-    metaTitle: 'Pipeline & Utility Corridor Drone Surveys UK | Remote Monitoring | EntireFM Drone',
+    metaTitle: 'Pipeline & Utility Corridor Drone Surveys UK | Remote Monitoring | TFTS Drone',
     metaDescription: 'Professional drone surveys for pipeline and utility corridors. Remote monitoring, encroachment detection and environmental audits. CAA-compliant.',
     heroStat: [
       { value: 'REM', label: 'ote access' },
@@ -1644,7 +1644,7 @@ export const servicesData: ServiceData[] = [
     headline: ['EVENTS', '& MEDIA', 'FILMING'],
     category: 'Specialist & Response',
     intro: 'Cinematic aerial content for high-impact brand campaigns, large-scale events, and production media — delivering 6K resolution and dynamic FPV perspectives.',
-    metaTitle: 'Drone Filming for Events & Media UK | Cinematic Aerials | EntireFM Drone',
+    metaTitle: 'Drone Filming for Events & Media UK | Cinematic Aerials | TFTS Drone',
     metaDescription: 'Premium drone filming for events, media and brand campaigns. High-resolution 6K aerials and cinematic FPV. CAA-compliant pilots.',
     heroStat: [
       { value: '6K', label: 'Resolution' },
@@ -1687,7 +1687,7 @@ export const servicesData: ServiceData[] = [
     headline: ['CINEMATIC', 'FPV FILMING'],
     category: 'Specialist & Response',
     intro: 'Immersive, high-speed flythroughs that take viewers inside the action — providing a dynamic perspective that traditional drones cannot achieve.',
-    metaTitle: 'Cinematic FPV Drone Filming UK | Dynamic Aerials | EntireFM Drone',
+    metaTitle: 'Cinematic FPV Drone Filming UK | Dynamic Aerials | TFTS Drone',
     metaDescription: 'Professional FPV drone filming. High-speed indoor and outdoor flythroughs for property, events and media. GVC qualified pilots.',
     heroStat: [
       { value: 'IMM', label: 'ersive flow' },
@@ -1721,7 +1721,7 @@ export const servicesData: ServiceData[] = [
       { q: 'Is it safe to fly FPV indoors?', a: 'Yes, we use "Cine-whoop" drones with ducted propellers designed for indoor environments.' },
       { q: 'What is the benefit of FPV?', a: 'It provides a "cockpit" view that feels visceral and immersive, unlike standard drone shots.' }
     ],
-    relatedServices: ['events-media', 'aerial-photography-film', 'gaussian-splat-capture'],
+    relatedServices: ['events-media', 'aerial-photography-film', 'tfts-3d'],
     cta: { label: 'START FPV BRIEF', href: '/contact' }
   },
   {
@@ -1730,7 +1730,7 @@ export const servicesData: ServiceData[] = [
     headline: ['DIGITAL TWIN', 'CAPTURE'],
     category: 'Specialist & Response',
     intro: 'Precise 3D digital replicas of physical assets — providing a foundational data layer for asset management, design review, and virtual walkthroughs.',
-    metaTitle: 'Drone Digital Twin Capture UK | Asset Digitalization | EntireFM Drone',
+    metaTitle: 'Drone Digital Twin Capture UK | Asset Digitalization | TFTS Drone',
     metaDescription: 'Professional drone digital twin capture. Accurate 3D replicas for asset management, construction and FM. High-fidelity visual data.',
     heroStat: [
       { value: '1:1', label: 'Digital replica' },
@@ -1764,7 +1764,7 @@ export const servicesData: ServiceData[] = [
       { q: 'What is a digital twin?', a: 'It is a virtual representation of an object or system that bridges the physical and digital worlds.' },
       { q: 'Can I measure from it?', a: 'Yes, our digital twins are georeferenced and georectified for accurate 3D measurement.' }
     ],
-    relatedServices: ['gaussian-splat-capture', 'photogrammetry', 'lidar-point-cloud-surveys'],
+    relatedServices: ['tfts-3d', 'photogrammetry', 'lidar-point-cloud-surveys'],
     cta: { label: 'DIGITIZE YOUR ASSET', href: '/contact' }
   },
   {
@@ -1773,7 +1773,7 @@ export const servicesData: ServiceData[] = [
     headline: ['360° AERIAL', 'PANORAMAS'],
     category: 'Specialist & Response',
     intro: 'Interactive, high-resolution panoramic tours from the air — providing total site context and immersive viewing for stakeholders and the public.',
-    metaTitle: '360 Aerial Panorama Drone Services UK | Site Context | EntireFM Drone',
+    metaTitle: '360 Aerial Panorama Drone Services UK | Site Context | TFTS Drone',
     metaDescription: 'Professional 360 aerial drone panoramas. Interactive site tours and context capture for development and tourism. High-res imagery.',
     heroStat: [
       { value: '360°', label: 'Full view' },

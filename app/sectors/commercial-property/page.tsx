@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 export const metadata: Metadata = {
-  title: 'Drone Services for Commercial Property | EntireFM Drone',
+  title: 'Drone Services for Commercial Property | TFTS Drone',
   description: 'Specialist drone services for commercial property. Cinematic sales footage, development reveals, context mapping and condition audits.',
 }
 

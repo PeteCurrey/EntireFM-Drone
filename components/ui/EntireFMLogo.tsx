@@ -186,7 +186,7 @@ export function BrandMarkSvg({
       viewBox={VIEWBOX}
       className={`brand-mark-svg block w-full ${className}`}
       role="img"
-      aria-label="EntireFM"
+      aria-label="TFTS Drone"
       shapeRendering="geometricPrecision"
     >
       <defs>
@@ -482,12 +482,12 @@ export default function EntireFMLogo({
 
       {/* ── Wordmark Typography ── */}
       <span className="flex flex-col leading-none">
-        <span className="text-[19px] font-extralight tracking-[0.08em] text-white">
-          Entire<span className="font-bold text-white">FM</span>
+        <span className="text-[19px] font-extralight tracking-[0.12em] text-white flex items-center gap-1.5">
+          TFTS <span className="text-[12px] font-light tracking-[0.18em] text-accent">DRONE</span>
         </span>
         {showDescriptor && (
-          <span className="mt-1 text-[9px] font-light tracking-[0.22em] uppercase text-white/45">
-            Drone Services
+          <span className="mt-1 text-[8px] font-light tracking-[0.2em] uppercase text-white/45">
+            Technical Flight & Thermal Surveys
           </span>
         )}
       </span>

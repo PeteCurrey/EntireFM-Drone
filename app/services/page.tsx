@@ -12,8 +12,8 @@ import FAQAccordion from '@/components/ui/FAQAccordion'
 import SectionTag from '@/components/ui/SectionTag'
 
 export const metadata: Metadata = {
-  title: 'Commercial Drone Services UK | Drone Surveys, Inspections & Aerial Media | EntireFM Drone',
-  description: 'EntireFM Drone provides commercial drone services across the UK, including drone inspections, roof surveys, thermal imaging, construction monitoring, mapping, photogrammetry, Gaussian Splat capture, digital twin visualisation and aerial media.',
+  title: 'Commercial Drone Services UK | Drone Surveys, Inspections & Aerial Media | TFTS Drone',
+  description: 'TFTS Drone provides commercial drone services across the UK, including drone inspections, roof surveys, thermal imaging, construction monitoring, mapping, photogrammetry, TFTS 3D capture, digital twin visualisation and aerial media.',
 }
 
 const CATEGORIES = [
@@ -74,7 +74,7 @@ const CATEGORIES = [
       { name: "Emergency Drone Response", slug: "emergency-response", desc: "Urgent drone capture for post-incident evidence, damage assessment and access-restricted site review." },
       { name: "Events & Media", slug: "events-media", desc: "Aerial filming and photography for venues, events, brand campaigns, tourism and commercial content." },
       { name: "FPV Drone Filming", slug: "fpv-drone-filming", desc: "Dynamic indoor and outdoor flythrough content for venues, property, events, factories and branded media." },
-      { name: "Gaussian Splat Capture", slug: "gaussian-splat-capture", desc: "Photorealistic 3D visualisation from drone imagery for immersive site viewing and stakeholder engagement." },
+      { name: "TFTS 3D Capture", slug: "tfts-3d", desc: "Photorealistic 3D visualisation from drone imagery for immersive site viewing and stakeholder engagement." },
       { name: "Drone Digital Twin Capture", slug: "digital-twin-capture", desc: "Visual digital twin-style capture for assets, sites, buildings, estates, progress records and visual documentation." },
       { name: "360 Aerial Panoramas", slug: "360-aerial-panoramas", desc: "Interactive aerial panoramas for developments, venues, estates, tourism, public consultation and site context." }
     ]
@@ -136,7 +136,7 @@ const OUTCOMES = [
     text: "For visualisation, walkthroughs, stakeholder engagement, heritage documentation and digital twin-style outputs.",
     cta: "View 3D Capture Services",
     links: [
-      { name: "Gaussian Splat Capture", href: "/services/gaussian-splat-capture" },
+      { name: "TFTS 3D Capture", href: "/services/tfts-3d" },
       { name: "Drone Photogrammetry", href: "/services/photogrammetry" },
       { name: "Digital Twin Capture", href: "/services/digital-twin-capture" },
       { name: "360 Aerial Panoramas", href: "/services/360-aerial-panoramas" },
@@ -176,11 +176,11 @@ const LOCATIONS = [
 const FAQS = [
   { 
     question: "What drone service do I need?", 
-    answer: "It depends on the outcome required. If you need visual evidence, start with inspection services. If you need measurements or maps, start with surveying and mapping. If you need progress records, use construction monitoring. If you need promotional content, use aerial photography and film. If you need immersive visualisation, use Gaussian Splat, photogrammetry or digital twin capture." 
+    answer: "It depends on the outcome required. If you need visual evidence, start with inspection services. If you need measurements or maps, start with surveying and mapping. If you need progress records, use construction monitoring. If you need promotional content, use aerial photography and film. If you need immersive visualisation, use TFTS 3D, photogrammetry or digital twin capture." 
   },
   { 
-    question: "Can EntireFM Drone help define the right drone output?", 
-    answer: "Yes. Clients do not need to know the technical workflow before making contact. EntireFM Drone can advise on the right capture method, deliverables, permissions and processing route based on the project objective." 
+    question: "Can TFTS Drone help define the right drone output?", 
+    answer: "Yes. Clients do not need to know the technical workflow before making contact. TFTS Drone can advise on the right capture method, deliverables, permissions and processing route based on the project objective." 
   },
   { 
     question: "Do drone inspections replace scaffolding or MEWPs?", 
@@ -196,7 +196,7 @@ const FAQS = [
   },
   { 
     question: "Do you operate across the UK?", 
-    answer: "EntireFM Drone supports commercial drone work across the UK, subject to project requirements, airspace, permissions, weather, site constraints and scheduling." 
+    answer: "TFTS Drone supports commercial drone work across the UK, subject to project requirements, airspace, permissions, weather, site constraints and scheduling." 
   }
 ]
 
@@ -204,11 +204,11 @@ export default function ServicesHubPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "EntireFM Drone Commercial Drone Services",
+    "name": "TFTS Drone Commercial Drone Services",
     "description": "Professional drone surveys, inspections, mapping and media services across the UK.",
     "provider": {
       "@type": "LocalBusiness",
-      "name": "EntireFM Drone"
+      "name": "TFTS Drone"
     },
     "mainEntity": {
       "@type": "ItemList",
@@ -257,7 +257,7 @@ export default function ServicesHubPage() {
             COMMERCIAL <br/><span className="text-accent underline underline-offset-8">DRONE SERVICES</span>
           </h1>
           <p className="text-sm sm:text-base lg:text-[1.0625rem] font-light leading-relaxed text-white/70 mb-8 max-w-2xl">
-            EntireFM Drone provides commercial drone inspections, surveying and mapping, thermal imaging, construction monitoring, aerial media, Gaussian Splat capture and digital twin-style visualisation for property, construction, infrastructure, energy, insurance and asset management teams.
+            TFTS Drone provides commercial drone inspections, surveying and mapping, thermal imaging, construction monitoring, aerial media, TFTS 3D capture and digital twin-style visualisation for property, construction, infrastructure, energy, insurance and asset management teams.
           </p>
           <div className="flex flex-col sm:flex-row gap-8 mb-16">
             <Link href="/brief?source=services-hero" className="px-6 py-3.5 text-sm font-normal rounded-[2px] bg-accent text-white hover:bg-accent-light transition-all text-center">
@@ -297,7 +297,7 @@ export default function ServicesHubPage() {
           <div className="svc-tag mb-12 inline-flex"><SectionTag number="00" text="Philosophy" /></div>
           <h2 className="font-display text-5xl md:text-6xl text-white mb-10 uppercase tracking-tighter">CHOOSE THE <span className="text-accent underline underline-offset-8">OUTCOME</span> FIRST.</h2>
           <p className="font-body text-xl md:text-2xl text-white/50 max-w-[900px] mx-auto leading-relaxed uppercase tracking-widest font-light mb-16">
-            Clients do not usually need a drone flight for its own sake. They need evidence, visibility, measurements, inspection records, progress updates, marketing assets or immersive visualisation. EntireFM Drone structures drone operations around the required output, then selects the right capture method, sensor, workflow and deliverable.
+            Clients do not usually need a drone flight for its own sake. They need evidence, visibility, measurements, inspection records, progress updates, marketing assets or immersive visualisation. TFTS Drone structures drone operations around the required output, then selects the right capture method, sensor, workflow and deliverable.
           </p>
           <div className="p-12 border border-white/5 bg-white/[0.02] inline-block">
              <span className="font-display text-3xl text-white uppercase tracking-widest italic">&quot;Choose the outcome first. We’ll structure the drone capture around it.&quot;</span>
@@ -385,7 +385,7 @@ export default function ServicesHubPage() {
             <span className="font-ui text-[12px] tracking-[0.4em] uppercase font-bold mb-4 block">Fixed Outcome Packages</span>
             <h2 className="font-display text-6xl uppercase leading-none mb-8 tracking-tighter">COMMERCIAL DRONE <br/><span className="underline decoration-dark/30 underline-offset-8">SERVICE BUNDLES</span></h2>
             <p className="font-body text-xl uppercase tracking-widest font-medium opacity-80 leading-relaxed mb-12">
-              For clients who want a clearer route to delivery, EntireFM Drone packages common requirements into outcome-led commercial bundles. Each bundle combines capture, processing and usable deliverables around a specific project need.
+              For clients who want a clearer route to delivery, TFTS Drone packages common requirements into outcome-led commercial bundles. Each bundle combines capture, processing and usable deliverables around a specific project need.
             </p>
             <Link href="/bundles" className="inline-flex items-center gap-6 bg-dark text-white px-12 py-6 font-display text-3xl tracking-widest hover:bg-white hover:text-dark transition-all shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
               VIEW BUNDLES <ArrowRight className="w-8 h-8" />
@@ -433,7 +433,7 @@ export default function ServicesHubPage() {
         <div className="max-w-[1200px] mx-auto text-center">
            <h2 className="font-display text-4xl text-white uppercase mb-12 tracking-widest">DRONE SERVICES <span className="text-accent">ACROSS THE UK</span></h2>
            <p className="font-body text-sm text-white/40 uppercase tracking-widest mb-16 max-w-2xl mx-auto leading-relaxed">
-             EntireFM Drone supports commercial drone projects across the UK, with priority service coverage for major cities, industrial regions, construction hubs and commercial property portfolios.
+             TFTS Drone supports commercial drone projects across the UK, with priority service coverage for major cities, industrial regions, construction hubs and commercial property portfolios.
            </p>
            <div className="flex flex-wrap justify-center gap-4">
               {LOCATIONS.map(loc => (
@@ -466,7 +466,7 @@ export default function ServicesHubPage() {
                 <span className="text-accent underline underline-offset-[10px] decoration-accent/30">INDUSTRY SECTOR</span>
               </h2>
               <p className="font-body text-xl md:text-2xl text-white/50 leading-relaxed font-light uppercase tracking-widest mb-12">
-                EntireFM Drone provides specialist drone workflows for Facilities Management, Construction, Commercial Property, Insurance, Surveying and Infrastructure.
+                TFTS Drone provides specialist drone workflows for Facilities Management, Construction, Commercial Property, Insurance, Surveying and Infrastructure.
               </p>
               <Link 
                 href="/sectors"
@@ -540,7 +540,7 @@ export default function ServicesHubPage() {
             TELL US WHAT YOU <br/>NEED TO <span className="underline decoration-dark/30 underline-offset-[10px]">INSPECT</span>
           </h2>
           <p className="font-body text-xl md:text-2xl text-dark/70 max-w-3xl mx-auto mb-16 uppercase tracking-widest font-medium leading-relaxed">
-            Whether you know the exact service or only know the result you need, EntireFM Drone can structure the drone operation around the required output.
+            Whether you know the exact service or only know the result you need, TFTS Drone can structure the drone operation around the required output.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
             <Link 

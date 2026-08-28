@@ -132,7 +132,7 @@ function BriefFormContent() {
         </div>
         <h2 className="font-display text-7xl text-white mb-8 tracking-tighter uppercase">Brief Received</h2>
         <p className="font-body text-xl text-white/50 uppercase tracking-widest max-w-2xl leading-relaxed mb-16">
-          Thanks — your project brief has been submitted. EntireFM Drone will review the site details, required output and any constraints before advising on the best capture route.
+          Thanks — your project brief has been submitted. TFTS Drone will review the site details, required output and any constraints before advising on the best capture route.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-20">
@@ -412,7 +412,7 @@ function BriefFormContent() {
                "Create aerial photography or video",
                "Capture thermal imagery",
                "Inspect solar panels or energy assets",
-               "Create a Gaussian Splat or immersive 3D model",
+               "Create a TFTS 3D or immersive 3D model",
                "Create a 360 aerial panorama",
                "Capture event, venue or media content",
                "Support facilities management or maintenance",
@@ -466,7 +466,7 @@ function BriefFormContent() {
             <optgroup label="Specialist & Media">
               <option value="thermal-imaging">Thermal Drone Surveys</option>
               <option value="solar-panel-inspections">Solar Panel Inspections</option>
-              <option value="gaussian-splat-capture">Gaussian Splat Capture</option>
+              <option value="tfts-3d">TFTS 3D Capture</option>
               <option value="aerial-photography-film">Aerial Photography & Film</option>
               <option value="fpv-drone-filming">FPV Drone Filming</option>
             </optgroup>
@@ -514,7 +514,7 @@ function BriefFormContent() {
              "Orthomosaic map",
              "Point cloud",
              "3D model",
-             "Gaussian Splat",
+             "TFTS 3D",
              "Digital twin-style viewer",
              "360 aerial panorama",
              "Volume report",
@@ -733,7 +733,7 @@ export default function ProjectBriefPage() {
             START A DRONE <br/><span className="text-accent underline underline-offset-8 decoration-accent/30">PROJECT BRIEF</span>
           </h1>
           <p className="font-body text-xl md:text-2xl font-light text-white/50 max-w-3xl uppercase tracking-widest leading-relaxed mb-12">
-            Tell us what you need to inspect, measure, monitor, film or visualise. EntireFM Drone will recommend the right drone capture method, deliverables and project route.
+            Tell us what you need to inspect, measure, monitor, film or visualise. TFTS Drone will recommend the right drone capture method, deliverables and project route.
           </p>
           <div className="flex flex-wrap gap-x-12 gap-y-6 mb-12">
             <Link href="/cost-estimator" className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent hover:text-white transition-colors flex items-center gap-3">
@@ -756,7 +756,7 @@ export default function ProjectBriefPage() {
            <div className="lg:col-span-4 bg-white/[0.02] border border-white/10 p-12">
               <h3 className="font-display text-2xl text-white uppercase tracking-widest mb-6 leading-tight">YOU DO NOT NEED TO KNOW THE TECHNICAL SETUP</h3>
               <p className="font-body text-sm text-white/40 uppercase tracking-widest leading-relaxed">
-                You only need to tell us the site, the outcome and any deadlines or constraints. If you are unsure whether you need inspection imagery, survey data, thermal capture, video, a Gaussian Splat or a full commercial bundle, submit the brief and we’ll advise the right route.
+                You only need to tell us the site, the outcome and any deadlines or constraints. If you are unsure whether you need inspection imagery, survey data, thermal capture, video, a TFTS 3D or a full commercial bundle, submit the brief and we’ll advise the right route.
               </p>
            </div>
            <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-8">

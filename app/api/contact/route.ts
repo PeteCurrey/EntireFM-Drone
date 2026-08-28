@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'drone@entirefm.com'
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'enquiries@tfts.co.uk'
 
 export async function POST(req: Request) {
   try {
@@ -38,7 +38,7 @@ export async function POST(req: Request) {
     // 2. Send Email Notification via Resend
     if (resend) {
       await resend.emails.send({
-        from: process.env.RESEND_FROM_EMAIL || 'EntireFM Drone <onboarding@resend.dev>',
+        from: process.env.RESEND_FROM_EMAIL || 'TFTS Drone <onboarding@resend.dev>',
         to: ADMIN_EMAIL,
         subject: `[ENTIREFM DRONE LEAD] ${type === 'brief' ? 'Project Brief' : 'Contact Enquiry'} - ${name}`,
         html: `

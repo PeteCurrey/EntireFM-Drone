@@ -85,9 +85,9 @@ const MOCK_LM_LEADS = [
     name: 'Marcus Bell',
     company: 'Urban Vision 3D',
     email: 'm.bell@urbanvision.co.uk',
-    asset: 'Gaussian Splat vs Photogrammetry Guide',
+    asset: 'TFTS 3D vs Photogrammetry Guide',
     sector: 'Developer / Property Owner',
-    projectType: 'Gaussian Splat / 3D capture',
+    projectType: 'TFTS 3D / 3D capture',
     bundle: 'Immersive Digital Capture Pack',
     status: 'Contacted',
     date: '2026-05-02',
@@ -117,7 +117,7 @@ export default function AdminLeadMagnetsPage() {
            <div>
              <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-px bg-accent" />
-                <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">EntireFM Drone Command Centre</span>
+                <span className="font-ui text-[11px] tracking-[0.4em] uppercase text-accent">TFTS Drone Command Centre</span>
              </div>
              <h1 className="font-display text-5xl md:text-6xl text-white uppercase tracking-tighter leading-none">
                 Lead <span className="text-accent">Magnets</span>

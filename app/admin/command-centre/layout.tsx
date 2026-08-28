@@ -71,7 +71,7 @@ export default function CommandCentreLayout({ children }: { children: React.Reac
           {isSidebarOpen ? (
             <div className="flex items-center gap-4">
               <div className="w-3 h-3 rounded-full bg-accent animate-pulse shadow-[0_0_15px_rgba(200,169,110,0.5)]" />
-              <span className="font-display text-2xl tracking-[0.2em] uppercase">EntireFM Drone</span>
+              <span className="font-display text-2xl tracking-[0.2em] uppercase">TFTS Drone</span>
             </div>
           ) : (
             <div className="w-3 h-3 rounded-full bg-accent mx-auto" />

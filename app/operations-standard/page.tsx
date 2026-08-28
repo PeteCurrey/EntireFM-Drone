@@ -24,7 +24,7 @@ export default function OperationsStandardPage() {
     {
       title: 'Project Brief',
       icon: ClipboardCheck,
-      body: 'The project starts with the required outcome: what the client needs to inspect, measure, monitor, evidence, film or visualise. EntireFM Flight Desk records the project requirement, site details, service interest, package route and deliverable expectations.',
+      body: 'The project starts with the required outcome: what the client needs to inspect, measure, monitor, evidence, film or visualise. TFTS Flight Desk records the project requirement, site details, service interest, package route and deliverable expectations.',
       outputs: ['Client details', 'Site location', 'Required outcome', 'Service type', 'Relevant commercial bundle', 'Urgency', 'Deliverables requested']
     },
     {
@@ -48,7 +48,7 @@ export default function OperationsStandardPage() {
     {
       title: 'Capture Planning',
       icon: LayoutDashboard,
-      body: 'The capture method is selected based on the deliverable. A roof inspection, thermal survey, or Gaussian Splat each require different capture patterns and equipment specifications.',
+      body: 'The capture method is selected based on the deliverable. A roof inspection, thermal survey, or TFTS 3D each require different capture patterns and equipment specifications.',
       outputs: ['Inspection: close visual imagery', 'Thermal: timing & environmental conditions', 'Mapping: overlap & control requirements', 'Media: shot list & movement']
     },
     {
@@ -84,15 +84,15 @@ export default function OperationsStandardPage() {
 
   const faqs = [
     {
-      question: "What is the EntireFM Operations Standard?",
-      answer: "It is the structured workflow EntireFM Drone uses to manage commercial drone projects from brief to deliverable, including project scoping, planning, capture, processing and delivery."
+      question: "What is the TFTS Operations Standard?",
+      answer: "It is the structured workflow TFTS Drone uses to manage commercial drone projects from brief to deliverable, including project scoping, planning, capture, processing and delivery."
     },
     {
-      question: "What is EntireFM Flight Desk?",
-      answer: "EntireFM Flight Desk is the management system that supports EntireFM Drone’s drone project workflow, helping organise briefs, site details, service requirements, planning notes, deliverables and project records."
+      question: "What is TFTS Flight Desk?",
+      answer: "TFTS Flight Desk is the management system that supports TFTS Drone’s drone project workflow, helping organise briefs, site details, service requirements, planning notes, deliverables and project records."
     },
     {
-      question: "Does EntireFM Flight Desk guarantee flight approval?",
+      question: "Does TFTS Flight Desk guarantee flight approval?",
       answer: "No. Drone operations remain subject to airspace, weather, site access, permissions, nearby people and property, and operational safety requirements. Flight Desk supports planning and record keeping; it does not remove operational requirements."
     },
     {
@@ -100,8 +100,8 @@ export default function OperationsStandardPage() {
       answer: "Commercial clients need reliable outputs, clear project records and structured delivery. A defined operating standard helps ensure the drone capture is planned around the client’s required outcome rather than treated as a generic flight."
     },
     {
-      question: "Can projects be tracked through EntireFM Flight Desk?",
-      answer: "Where enabled, project status, deliverables and workflow information can be managed through EntireFM Flight Desk. Client-facing visibility may be provided depending on the project setup."
+      question: "Can projects be tracked through TFTS Flight Desk?",
+      answer: "Where enabled, project status, deliverables and workflow information can be managed through TFTS Flight Desk. Client-facing visibility may be provided depending on the project setup."
     },
     {
       question: "Does this replace professional surveyor or engineer review?",
@@ -127,11 +127,11 @@ export default function OperationsStandardPage() {
           </div>
           
           <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6 uppercase">
-            The EntireFM<br/>Operations Standard
+            The TFTS<br/>Operations Standard
           </h1>
           
           <p className="font-body text-xl text-white/60 leading-relaxed mb-12 max-w-[800px] uppercase tracking-widest font-light">
-            A structured operating model for commercial drone projects — from project brief and flight planning to capture, reporting, deliverables and client oversight through EntireFM Flight Desk.
+            A structured operating model for commercial drone projects — from project brief and flight planning to capture, reporting, deliverables and client oversight through TFTS Flight Desk.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-8 mb-16">
@@ -176,7 +176,7 @@ export default function OperationsStandardPage() {
               A commercial drone project is only successful if the client receives a usable output: inspection evidence, survey data, thermal imagery, progress records, media assets or immersive visualisation.
             </p>
             <p className="font-body text-lg text-white/50 leading-relaxed uppercase tracking-widest font-light mb-8">
-              The EntireFM Operations Standard is designed to keep every project focused on the deliverable, the site conditions, the risk profile and the decisions the client needs to make.
+              The TFTS Operations Standard is designed to keep every project focused on the deliverable, the site conditions, the risk profile and the decisions the client needs to make.
             </p>
             <div className="p-6 border border-white/10 bg-dark text-accent font-ui text-[12px] tracking-[0.2em] uppercase mt-10">
               The drone is the capture method. The operating standard is what makes the output reliable.
@@ -194,15 +194,15 @@ export default function OperationsStandardPage() {
         </div>
       </section>
 
-      {/* EntireFM Flight Desk */}
+      {/* TFTS Flight Desk */}
       <section className="py-32 px-10 md:px-20 bg-dark border-y border-white/5">
         <div className="max-w-[1200px] mx-auto text-center mb-24">
           <div className="svc-tag mb-8 inline-flex"><SectionTag number="02" text="Platform" /></div>
           <h2 className="font-display text-5xl text-white uppercase tracking-tighter mb-8">
-            Powered by EntireFM Flight Desk
+            Powered by TFTS Drone Flight Desk
           </h2>
           <p className="font-body text-lg text-white/50 leading-relaxed uppercase tracking-widest font-light max-w-3xl mx-auto">
-            EntireFM Flight Desk is the management system behind EntireFM Drone’s project workflow. It supports the way commercial drone work is briefed, scoped, planned, tracked and delivered.
+            TFTS Flight Desk is the management system behind TFTS Drone’s project workflow. It supports the way commercial drone work is briefed, scoped, planned, tracked and delivered.
           </p>
         </div>
 
@@ -282,7 +282,7 @@ export default function OperationsStandardPage() {
               { title: 'Thermal Intelligence', desc: 'For solar, building, and asset anomaly capture. Planned around timing, environment and interpretation limits.' },
               { title: 'Construction Monitoring', desc: 'For repeatable project records and timeline visibility. Focused on consistency and stakeholder updates.' },
               { title: 'Aerial Media', desc: 'For marketing, property, and brand content. Planned around shot design, movement and final edit requirements.' },
-              { title: 'Immersive 3D Capture', desc: 'For Gaussian Splats, digital twin-style records and walkthroughs. Planned around visual continuity and viewer experience.' }
+              { title: 'Immersive 3D Capture', desc: 'For TFTS 3Ds, digital twin-style records and walkthroughs. Planned around visual continuity and viewer experience.' }
             ].map((card, i) => (
               <div key={i} className="p-10 border border-white/5 bg-dark">
                 <h3 className="font-display text-2xl text-white mb-6 uppercase tracking-widest">{card.title}</h3>
@@ -331,7 +331,7 @@ export default function OperationsStandardPage() {
             Connected to Commercial Drone Packages
           </h2>
           <p className="font-body text-lg text-white/50 leading-relaxed uppercase tracking-widest font-light mb-12 relative z-10">
-            The Operations Standard supports EntireFM Drone’s commercial bundles by ensuring each package is managed around a defined output.
+            The Operations Standard supports TFTS Drone’s commercial bundles by ensuring each package is managed around a defined output.
           </p>
           <Link href="/bundles" className="inline-flex items-center gap-4 bg-accent text-dark px-12 py-6 font-display text-2xl tracking-[0.1em] hover:bg-white transition-all relative z-10">
             View Commercial Packages <ArrowRight className="w-6 h-6" />
@@ -357,7 +357,7 @@ export default function OperationsStandardPage() {
             Start With the Output.<br/>We’ll Build the Mission Around It.
           </h2>
           <p className="font-body text-xl text-white/50 uppercase tracking-widest leading-relaxed mb-16">
-            Tell us what you need to inspect, measure, monitor, film or visualise. EntireFM Drone will use its structured operating model and EntireFM Flight Desk workflow to scope the right capture route and deliverables.
+            Tell us what you need to inspect, measure, monitor, film or visualise. TFTS Drone will use its structured operating model and TFTS Flight Desk workflow to scope the right capture route and deliverables.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-8">
             <Link href="/brief?source=ops-standard-footer" className="bg-accent text-dark font-display text-2xl tracking-[0.1em] px-12 py-6 hover:bg-white transition-all flex items-center justify-center gap-4">

@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: data.metaTitle,
       description: data.metaDescription,
-      url: `https://drone.entirefm.com/industries/${industry}`,
+      url: `https://tfts.co.uk/industries/${industry}`,
       images: [{ url: '/images/og-default.jpg' }],
     },
   }

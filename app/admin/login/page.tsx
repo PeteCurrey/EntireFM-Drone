@@ -56,7 +56,7 @@ export default function AdminLoginPage() {
             <Shield className="w-8 h-8 text-accent" />
           </div>
           <h1 className="font-display text-4xl text-white tracking-[0.2em] mb-4 uppercase">Ops Terminal</h1>
-          <p className="font-body text-xs text-white/30 tracking-[0.3em] uppercase">EntireFM Drone Command Access Only</p>
+          <p className="font-body text-xs text-white/30 tracking-[0.3em] uppercase">TFTS Drone Command Access Only</p>
         </div>
 
         <div className="bg-white/[0.02] border border-white/10 p-10 backdrop-blur-md">

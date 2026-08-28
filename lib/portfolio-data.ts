@@ -220,22 +220,22 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     slug: 'gaussian-splat-site-visualisation-workflow',
-    title: 'Gaussian Splat Site Visualisation Workflow',
+    title: 'TFTS 3D Site Visualisation Workflow',
     label: 'Mission Profile',
     sector: 'Property & Stakeholder Engagement',
-    services: ['Gaussian Splat Capture', 'Digital Twin Capture'],
+    services: ['TFTS 3D Capture', 'Digital Twin Capture'],
     outputs: ['Photorealistic 3D visualisation', 'Immersive walkthrough', 'Flythrough video'],
-    intro: 'Creating photorealistic, immersive 3D walkthroughs of site environments using advanced Gaussian Splat drone capture.',
-    scenario: 'Clients need to present a site to investors, planning boards or stakeholders in a way that feels real. Traditional photos lack immersion. Gaussian Splatting provides a photorealistic 3D record that people can virtually explore.',
+    intro: 'Creating photorealistic, immersive 3D walkthroughs of site environments using advanced TFTS 3D drone capture.',
+    scenario: 'Clients need to present a site to investors, planning boards or stakeholders in a way that feels real. Traditional photos lack immersion. TFTS 3D modelling provides a photorealistic 3D record that people can virtually explore.',
     workflow: [
       'Define the visualisation area and desired viewer experience.',
       'Perform high-overlap drone capture from multiple heights and angles.',
       'Combine with ground-level imagery for interior or close-range detail.',
-      'Process imagery into a Gaussian Splat volumetric radiance field.',
+      'Process imagery into a TFTS 3D volumetric radiance field.',
       'Refine the scene, clean artefacts and prepare the web-ready viewer.'
     ],
     deliverables: [
-      'Photorealistic 3D Gaussian Splat scene',
+      'Photorealistic TFTS 3D scene',
       'Web-ready immersive viewer',
       'High-quality screenshot set from the model',
       'Cinematic flythrough video',
@@ -248,7 +248,7 @@ export const portfolioProjects: PortfolioProject[] = [
       'High-fidelity visual record for heritage or project archives'
     ],
     image: '/images/gaussian-splat/casa-hotel.jpg',
-    relatedServices: ['gaussian-splat-capture', 'digital-twin-capture', 'drone-photogrammetry', '360-aerial-panoramas'],
+    relatedServices: ['tfts-3d', 'digital-twin-capture', 'drone-photogrammetry', '360-aerial-panoramas'],
     recommendedBundle: { name: 'Immersive Digital Capture Pack', slug: 'immersive-digital-capture-pack' }
   },
   {

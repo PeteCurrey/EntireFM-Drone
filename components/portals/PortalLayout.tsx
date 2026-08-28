@@ -233,7 +233,7 @@ export default function PortalLayout({
           <ShieldAlert className="w-10 h-10 text-accent/20 mx-auto mb-6" />
           <h3 className="font-display text-2xl uppercase tracking-widest text-white mb-6">Demo Portal Information</h3>
           <p className="font-body text-xs text-white/40 uppercase tracking-[0.2em] leading-relaxed">
-            These demo portals show representative delivery formats. Final client portals, reports and deliverables depend on project scope, service type and agreed outputs. EntireFM Drone ensures all real client data is hosted in private, secure environments.
+            These demo portals show representative delivery formats. Final client portals, reports and deliverables depend on project scope, service type and agreed outputs. TFTS Drone ensures all real client data is hosted in private, secure environments.
           </p>
         </div>
       </section>

@@ -26,7 +26,7 @@ export default function CommandCentreSettingsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                <div className="space-y-2">
                   <label className="font-ui text-[9px] text-white/20 uppercase tracking-widest">Business Name</label>
-                  <input type="text" defaultValue="EntireFM Drone" className="w-full bg-white/5 border border-white/10 px-4 py-3 font-mono text-xs text-white focus:outline-none focus:border-accent/40" />
+                  <input type="text" defaultValue="TFTS Drone" className="w-full bg-white/5 border border-white/10 px-4 py-3 font-mono text-xs text-white focus:outline-none focus:border-accent/40" />
                </div>
                <div className="space-y-2">
                   <label className="font-ui text-[9px] text-white/20 uppercase tracking-widest">HQ Location</label>

@@ -20,7 +20,7 @@ export default function MediaLibraryAdminPage() {
             <span className="font-ui text-[10px] tracking-[0.4em] uppercase text-accent/60">Digital Assets</span>
           </div>
           <h1 className="font-display text-5xl text-white tracking-widest uppercase mb-4">Media Library</h1>
-          <p className="font-body text-xs text-white/30 tracking-[0.3em] uppercase">Manage videos, posters, images and 3D assets across the EntireFM Drone platform.</p>
+          <p className="font-body text-xs text-white/30 tracking-[0.3em] uppercase">Manage videos, posters, images and 3D assets across the TFTS Drone platform.</p>
         </div>
       </div>
 

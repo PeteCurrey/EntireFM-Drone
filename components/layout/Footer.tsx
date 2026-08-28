@@ -20,7 +20,7 @@ export default function Footer() {
               <EntireFMLogo animated={false} size="w-10" showDescriptor className="gap-2.5" />
             </div>
             <div className="text-[11px] font-light tracking-[0.3em] uppercase text-white/35 mt-3">
-              Aerial Intelligence
+              Technical Flight & Thermal Surveys
             </div>
           </div>
           <div className="flex flex-col gap-3">
@@ -31,7 +31,7 @@ export default function Footer() {
               className="text-[11px] font-light tracking-[0.25em] uppercase text-accent hover:text-white transition-colors flex items-center gap-2"
             >
               <span className="w-4 h-[1px] bg-accent" />
-              Part of EntireFM →
+              Part of the EntireFM group →
             </Link>
             <Link 
               href="https://www.entirefm.com/services/drone-services"
@@ -39,7 +39,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-[11px] font-light tracking-[0.25em] uppercase text-white/40 hover:text-white transition-colors"
             >
-              EntireFM Drone Services Hub
+              TFTS Drone Hub
             </Link>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="font-ui text-[10px] tracking-[0.2em] text-white/20 uppercase text-center md:text-left">
-            © {new Date().getFullYear()} EntireFM. CAA-Compliant Commercial Drone Operations.
+            © {new Date().getFullYear()} TFTS Drone. TFTS Drone is a trading brand of EntireFM Ltd.
             <span className="mx-4 opacity-50">|</span>
             <Link href="/privacy" className="hover:text-accent">Privacy Policy</Link>
             <span className="mx-4 opacity-50">|</span>

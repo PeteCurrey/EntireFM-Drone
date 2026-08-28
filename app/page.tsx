@@ -37,7 +37,7 @@ export default function Home() {
       {/* Chapter 04: Surveying & Mapping */}
       <SurveyingSection />
 
-      {/* Chapter 05: Gaussian Splats / Spatial Capture Showcase */}
+      {/* Chapter 05: TFTS 3Ds / Spatial Capture Showcase */}
       <SpatialCaptureSection />
 
       {/* Chapter 06: Construction Monitoring */}

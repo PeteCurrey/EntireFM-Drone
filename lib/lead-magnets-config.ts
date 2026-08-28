@@ -236,13 +236,13 @@ export const leadMagnets: LeadMagnetAsset[] = [
   {
     id: 'gaussian-splat-guide',
     slug: 'gaussian-splat-vs-photogrammetry-guide',
-    title: 'Gaussian Splat vs Photogrammetry Guide',
-    subtitle: 'A plain-English guide to choosing between Gaussian Splats, photogrammetry, LiDAR, 360 panoramas and drone video for commercial site capture.',
+    title: 'TFTS 3D vs Photogrammetry Guide',
+    subtitle: 'A plain-English guide to choosing between TFTS 3Ds, photogrammetry, LiDAR, 360 panoramas and drone video for commercial site capture.',
     type: 'Guide',
     audience: ['Developers', 'Architects', 'Heritage teams', 'Construction teams', 'Property marketers', 'Surveyors', 'Stakeholder engagement teams'],
-    description: 'A plain-English guide comparing Gaussian Splats, photogrammetry, LiDAR, 360 panoramas and drone video for commercial site visualisation and measurement workflows.',
+    description: 'A plain-English guide comparing TFTS 3Ds, photogrammetry, LiDAR, 360 panoramas and drone video for commercial site visualisation and measurement workflows.',
     relatedServices: [
-      { name: 'Gaussian Splat Capture', href: '/services/gaussian-splat-capture' },
+      { name: 'TFTS 3D Capture', href: '/services/tfts-3d' },
       { name: 'Drone Photogrammetry', href: '/services/photogrammetry' },
       { name: 'Digital Twin Capture', href: '/services/digital-twin-capture' },
       { name: '360 Aerial Panoramas', href: '/services/360-aerial-panoramas' },
@@ -252,7 +252,7 @@ export const leadMagnets: LeadMagnetAsset[] = [
       { name: 'Immersive Digital Capture Pack', href: '/bundles#immersive-digital-capture-pack', slug: 'immersive-digital-capture-pack' },
     ],
     contentsPreview: [
-      'What Gaussian Splats are best for',
+      'What TFTS 3Ds are best for',
       'What photogrammetry is best for',
       'When LiDAR is a better fit',
       'When 360 panoramas are enough',
@@ -260,8 +260,8 @@ export const leadMagnets: LeadMagnetAsset[] = [
       'Visualisation vs measurement guidance',
       'Choosing the right output for your project',
     ],
-    sampleDeliverables: ['Photorealistic 3D Gaussian Splat', 'Web-ready immersive viewer', 'Flythrough video', 'Orthomosaic map', 'Point cloud (LAS/LAZ)'],
-    caveat: 'Gaussian Splats are visualisation-first assets. Measurement-critical outputs should be planned with photogrammetry, LiDAR or survey-control workflows where required.',
+    sampleDeliverables: ['Photorealistic TFTS 3D', 'Web-ready immersive viewer', 'Flythrough video', 'Orthomosaic map', 'Point cloud (LAS/LAZ)'],
+    caveat: 'TFTS 3Ds are visualisation-first assets. Measurement-critical outputs should be planned with photogrammetry, LiDAR or survey-control workflows where required.',
     status: 'preparing',
     pdfStatus: 'pending',
     version: '1.0',
@@ -270,7 +270,7 @@ export const leadMagnets: LeadMagnetAsset[] = [
     analyticsEvents: makeEvents(),
     adminStatus: 'preview_available',
     targetSector: 'Developer / Property Owner',
-    targetProjectType: 'Gaussian Splat / 3D capture',
+    targetProjectType: 'TFTS 3D / 3D capture',
   },
   {
     id: 'survey-cost-guide',
@@ -337,7 +337,7 @@ export const projectTypes = [
   'Solar panel inspection',
   'Insurance or incident evidence',
   'Aerial photography / video',
-  'Gaussian Splat / 3D capture',
+  'TFTS 3D / 3D capture',
   'Facilities management inspections',
   'Stockpile / volume measurement',
   'Not sure yet',
@@ -389,9 +389,9 @@ export const getAutomationRoute = (sector: string, projectType: string) => {
       sectorSlug: 'surveyors',
     };
   }
-  if (projectType === 'Gaussian Splat / 3D capture') {
+  if (projectType === 'TFTS 3D / 3D capture') {
     return {
-      name: 'Gaussian Splat / 3D Nurture',
+      name: 'TFTS 3D / 3D Nurture',
       category: 'Immersive / 3D',
       recommendedBundle: 'Immersive Digital Capture Pack',
       secondaryBundle: 'Visual Sales Pack',

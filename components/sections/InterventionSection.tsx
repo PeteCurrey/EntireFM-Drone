@@ -13,7 +13,7 @@ export default function InterventionSection() {
       num: '01',
       title: 'Drone Identifies Defect',
       desc: 'High-resolution 4K/6K visual or radiometric thermal capture spots roofing fissures, drainage blockages or facade issues without scaffolding.',
-      role: 'EntireFM Drone Operations',
+      role: 'TFTS Drone Operations',
       icon: Camera,
       meta: '48MP Optical / Radiometric IR',
     },

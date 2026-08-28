@@ -54,7 +54,7 @@ export default function HeroSection() {
       <VideoBackground
         src="/videos/hero.mp4"
         poster="/images/hero_poster.jpg"
-        alt="EntireFM Drone — commercial aerial intelligence and facilities inspection"
+        alt="TFTS Drone — commercial aerial surveys, thermal imaging and inspection"
         brightness={0.65}
         saturation={1.2}
         isHero={true}
@@ -66,7 +66,7 @@ export default function HeroSection() {
         {/* Eyebrow */}
         <div className="hero-eyebrow inline-flex items-center gap-2.5 mb-5 sm:mb-6 text-[11px] font-light uppercase tracking-[0.18em] text-white/70">
           <span className="w-6 h-[1px] bg-accent" />
-          <span>Part of EntireFM<span className="mx-2 text-white/25">/</span>Aerial Intelligence Platform</span>
+          <span>TFTS Drone<span className="mx-2 text-white/25">·</span>Technical Flight & Thermal Surveys</span>
         </div>
 
         {/* Primary Headline — Work Sans 200, matching EntireFM masterbrand scale */}
@@ -78,7 +78,7 @@ export default function HeroSection() {
         {/* Supporting Proposition */}
         <div className="hero-supporting mb-8 sm:mb-10 max-w-2xl">
           <p className="text-sm sm:text-base lg:text-[1.0625rem] font-light leading-relaxed text-white/70">
-            Inspection, surveying, mapping and spatial capture integrated with EntireFM’s wider facilities management and engineering delivery capability.
+            Commercial drone inspection, surveying, thermal imaging and high-fidelity 3D digital capture for property, construction, infrastructure and the built environment.
           </p>
         </div>
 

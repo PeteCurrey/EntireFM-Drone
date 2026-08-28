@@ -91,7 +91,7 @@ export default function SpatialCaptureSection() {
                     : 'border-white/10 text-white/40 hover:text-white'
                 }`}
               >
-                3. Gaussian Splat Model
+                3. TFTS 3D Model
               </button>
             </div>
 
@@ -152,12 +152,12 @@ export default function SpatialCaptureSection() {
               </div>
             )}
 
-            {/* Gaussian Splat Mode */}
+            {/* TFTS 3D Mode */}
             {activeMode === 'splat' && (
               <div className="relative w-full h-full animate-fadeIn">
                 <Image
                   src="/images/gaussian-splat/casa-hotel.jpg"
-                  alt="Casa Hotel Gaussian Splat Reconstruction"
+                  alt="Casa Hotel TFTS 3D Reconstruction"
                   fill
                   className="object-cover brightness-105 contrast-105"
                   sizes="100vw"
@@ -203,7 +203,7 @@ export default function SpatialCaptureSection() {
             <div className="font-ui text-[10px] tracking-[0.25em] text-accent uppercase mb-3">01 · Reality Capture</div>
             <h4 className="font-display text-2xl text-white uppercase mb-2">Photorealistic Fidelity</h4>
             <p className="font-body text-xs text-white/45 leading-relaxed font-light">
-              Unlike traditional polygonal 3D models with blurred textures, Gaussian Splatting captures true surface reflections, foliage transparency and intricate architectural geometries.
+              Unlike traditional polygonal 3D models with blurred textures, TFTS 3D modelling captures true surface reflections, foliage transparency and intricate architectural geometries.
             </p>
           </div>
           <div className="p-8 border border-white/5 bg-white/[0.01]">

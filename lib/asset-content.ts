@@ -23,7 +23,7 @@ export const assetContent: AssetContent[] = [
   {
     slug: 'commercial-drone-inspection-buyers-guide',
     disclaimer: 'This guide is intended for planning and scoping support only. Drone inspections can support commercial decision-making but do not replace professional surveyor, engineer or legal sign-off where required. Outputs depend on project scope, site conditions and methodology. Thermal findings should be interpreted in context.',
-    version: 'Version 1.0 · EntireFM Drone · 2026',
+    version: 'Version 1.0 · TFTS Drone · 2026',
     sections: [
       {
         heading: 'When Drone Inspections Make Sense',
@@ -114,7 +114,7 @@ export const assetContent: AssetContent[] = [
   {
     slug: 'drone-roof-inspection-checklist',
     disclaimer: 'This checklist is a planning and scoping tool. Drone roof inspection supports visual evidence gathering but does not replace specialist surveyor sign-off, invasive testing or structural assessment.',
-    version: 'Version 1.0 · EntireFM Drone · 2026',
+    version: 'Version 1.0 · TFTS Drone · 2026',
     sections: [
       {
         heading: 'Section 1: Project Details',
@@ -206,7 +206,7 @@ export const assetContent: AssetContent[] = [
   {
     slug: 'facilities-manager-drone-survey-guide',
     disclaimer: 'This guide is a planning resource. Drone surveys support FM workflows but do not replace professional inspection, engineering assessment or compliance sign-off. Thermal findings should be interpreted alongside other evidence.',
-    version: 'Version 1.0 · EntireFM Drone · 2026',
+    version: 'Version 1.0 · TFTS Drone · 2026',
     sections: [
       {
         heading: 'Why FM Teams Use Drone Capture',
@@ -276,7 +276,7 @@ export const assetContent: AssetContent[] = [
   {
     slug: 'construction-progress-monitoring-template',
     disclaimer: 'This template is a planning and project management support tool. Drone capture provides visual and spatial evidence for construction monitoring but does not replace engineering, QS or contractual oversight.',
-    version: 'Version 1.0 · EntireFM Drone · 2026',
+    version: 'Version 1.0 · TFTS Drone · 2026',
     sections: [
       {
         heading: 'Section 1: Project Setup',
@@ -348,7 +348,7 @@ export const assetContent: AssetContent[] = [
   {
     slug: 'insurance-evidence-drone-capture-checklist',
     disclaimer: 'Drone evidence can support insurance documentation, contractor scoping and internal property records. Acceptance of drone imagery as insurance evidence depends on the insurer, policy wording, claim context and required evidence standard. This checklist is a planning tool only.',
-    version: 'Version 1.0 · EntireFM Drone · 2026',
+    version: 'Version 1.0 · TFTS Drone · 2026',
     sections: [
       {
         heading: 'Section 1: Incident Information',
@@ -415,14 +415,14 @@ export const assetContent: AssetContent[] = [
   },
   {
     slug: 'gaussian-splat-vs-photogrammetry-guide',
-    disclaimer: 'Gaussian Splats are visualisation-first assets and are not professional mapping outputs. For measurement-critical work, we recommend photogrammetry, LiDAR or appropriate survey-control workflows. Output accuracy depends on methodology, control and verification.',
-    version: 'Version 1.0 · EntireFM Drone · 2026',
+    disclaimer: 'TFTS 3Ds are visualisation-first assets and are not professional mapping outputs. For measurement-critical work, we recommend photogrammetry, LiDAR or appropriate survey-control workflows. Output accuracy depends on methodology, control and verification.',
+    version: 'Version 1.0 · TFTS Drone · 2026',
     sections: [
       {
-        heading: 'What Is a Gaussian Splat?',
+        heading: 'What Is a TFTS 3D?',
         paragraphs: [
-          'Gaussian Splatting is a technique for creating photorealistic 3D scenes from overlapping imagery. Unlike traditional 3D models, it represents the scene as millions of small transparent ellipsoids (splats) that together create an immersive, photo-realistic view.',
-          'Gaussian Splats are best for: stakeholder engagement, property visualisation, immersive site walkthroughs, heritage capture and public consultation. They are not primarily designed for measurement or professional surveying outputs.',
+          'TFTS 3D modelling is a technique for creating photorealistic 3D scenes from overlapping imagery. Unlike traditional 3D models, it represents the scene as millions of small transparent ellipsoids (splats) that together create an immersive, photo-realistic view.',
+          'TFTS 3Ds are best for: stakeholder engagement, property visualisation, immersive site walkthroughs, heritage capture and public consultation. They are not primarily designed for measurement or professional surveying outputs.',
         ],
       },
       {
@@ -454,7 +454,7 @@ export const assetContent: AssetContent[] = [
           col3: 'Strengths',
           col4: 'Limitations',
           rows: [
-            ['Gaussian Splat', 'Stakeholder engagement, marketing', 'Photorealistic, immersive, web-ready', 'Visualisation only — not measurement-grade'],
+            ['TFTS 3D', 'Stakeholder engagement, marketing', 'Photorealistic, immersive, web-ready', 'Visualisation only — not measurement-grade'],
             ['Photogrammetry', 'Surveying, mapping, monitoring', 'High-accuracy when controlled, versatile', 'Accuracy requires GCPs and verification'],
             ['LiDAR', 'Infrastructure, terrain, forestry', 'Penetrates canopy, high-density geometry', 'Specialist workflow, higher cost'],
             ['360 Panorama', 'Context, marketing, consultation', 'Lightweight, interactive, web-embeddable', 'Fixed viewpoints — not full 3D'],
@@ -464,10 +464,10 @@ export const assetContent: AssetContent[] = [
       },
       {
         heading: 'Visualisation vs Measurement — Key Rule',
-        warning: 'Gaussian Splats are ideal for visualisation. If your project requires measurement, volume calculations, high-accuracy mapping or engineering data, use photogrammetry or LiDAR with appropriate methodology, control and verification.',
+        warning: 'TFTS 3Ds are ideal for visualisation. If your project requires measurement, volume calculations, high-accuracy mapping or engineering data, use photogrammetry or LiDAR with appropriate methodology, control and verification.',
         paragraphs: [
-          'The choice between output types depends on what the data needs to do. Immersive stakeholder presentations favour Gaussian Splats. Quantity surveying, engineering and spatial analysis favour photogrammetry or LiDAR.',
-          'Many projects benefit from combining approaches — for example, a Gaussian Splat for the client presentation alongside an orthomosaic for the QS team.',
+          'The choice between output types depends on what the data needs to do. Immersive stakeholder presentations favour TFTS 3Ds. Quantity surveying, engineering and spatial analysis favour photogrammetry or LiDAR.',
+          'Many projects benefit from combining approaches — for example, a TFTS 3D for the client presentation alongside an orthomosaic for the QS team.',
         ],
       },
     ],
@@ -475,7 +475,7 @@ export const assetContent: AssetContent[] = [
   {
     slug: 'drone-survey-cost-guide',
     disclaimer: 'This guide explains cost factors only. No pricing is quoted. Actual project costs depend on site-specific scope, methodology, deliverables, processing, reporting and operational requirements. Request a formal quote for your project.',
-    version: 'Version 1.0 · EntireFM Drone · 2026',
+    version: 'Version 1.0 · TFTS Drone · 2026',
     sections: [
       {
         heading: 'Why Drone Project Costs Vary',
@@ -509,7 +509,7 @@ export const assetContent: AssetContent[] = [
           { label: 'Standard commercial project', note: 'Roof inspection, construction progress, basic mapping' },
           { label: 'Reporting / evidence project', note: 'Annotated inspection, insurance evidence, condition summary' },
           { label: 'Technical data project', note: 'GCP-controlled photogrammetry, volumetric survey, orthomosaic' },
-          { label: 'Advanced / specialist project', note: 'LiDAR, Gaussian Splat, BVLoS, thermal with full radiometric analysis' },
+          { label: 'Advanced / specialist project', note: 'LiDAR, TFTS 3D, BVLoS, thermal with full radiometric analysis' },
         ],
       },
       {

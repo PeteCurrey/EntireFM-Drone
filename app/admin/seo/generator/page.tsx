@@ -6,7 +6,7 @@ import {
   Target, Zap, AlertCircle, ArrowRight, CheckCircle2
 } from 'lucide-react'
 
-const SERVICES = ['Drone Roof Inspections', 'Drone Surveying & Mapping', 'Construction Drone Monitoring', 'Drone Thermal Imaging', 'Gaussian Splat Capture']
+const SERVICES = ['Drone Roof Inspections', 'Drone Surveying & Mapping', 'Construction Drone Monitoring', 'Drone Thermal Imaging', 'TFTS 3D Capture']
 const LOCATIONS = ['London', 'Manchester', 'Birmingham', 'Leeds', 'Bristol', 'Sheffield', 'Glasgow', 'Bristol', 'Newcastle']
 const SECTORS = ['Facilities Management', 'Construction', 'Commercial Property', 'Insurance', 'Civil Engineering', 'Managing Agents']
 
@@ -24,7 +24,7 @@ export default function PageGenerator() {
     setTimeout(() => {
       setPreviewData({
         h1: `${selectedService} ${selectedLocation ? `in ${selectedLocation}` : ''} ${selectedSector ? `for ${selectedSector}` : ''}`,
-        seoTitle: `${selectedService} ${selectedLocation ? `in ${selectedLocation}` : ''} ${selectedSector ? `for ${selectedSector}` : ''} | EntireFM Drone`,
+        seoTitle: `${selectedService} ${selectedLocation ? `in ${selectedLocation}` : ''} ${selectedSector ? `for ${selectedSector}` : ''} | TFTS Drone`,
         slug: `/${selectedLocation ? `drone-services/${selectedLocation.toLowerCase()}/` : 'industries/'}${selectedService.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`,
         qualityScore: 65,
         warnings: ['Thin content (AI draft only)', 'Missing local nuance', 'Missing sector-specific FAQs']

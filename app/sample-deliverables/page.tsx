@@ -48,7 +48,7 @@ interface Deliverable {
 
 const CATEGORIES = [
   'All', 'Inspection', 'Roof & Building', 'Thermal', 'Survey & Mapping', 
-  'Construction', 'Insurance', 'Aerial Media', 'Gaussian Splat / 3D', 
+  'Construction', 'Insurance', 'Aerial Media', 'TFTS 3D / 3D', 
   'Facilities Management', 'Solar & Energy'
 ]
 
@@ -185,7 +185,7 @@ const DELIVERABLES: Deliverable[] = [
     id: 'point-cloud',
     title: 'Drone Point Cloud',
     category: 'Survey & Mapping / 3D Data',
-    categories: ['Survey & Mapping', 'Gaussian Splat / 3D'],
+    categories: ['Survey & Mapping', 'TFTS 3D / 3D'],
     description: 'A point cloud output created through photogrammetry or LiDAR-supported workflows, useful for 3D site understanding and modelling.',
     bestFor: ['Surveyors', 'Engineers', 'Infrastructure teams', 'Developers', 'Construction teams'],
     service: 'Drone Photogrammetry',
@@ -269,24 +269,24 @@ const DELIVERABLES: Deliverable[] = [
   },
   {
     id: 'gaussian-splat',
-    title: 'Gaussian Splat Visualisation',
-    category: 'Gaussian Splat / 3D',
-    categories: ['Gaussian Splat / 3D'],
+    title: 'TFTS 3D Visualisation',
+    category: 'TFTS 3D / 3D',
+    categories: ['TFTS 3D / 3D'],
     description: 'A photorealistic 3D visualisation created from drone imagery, allowing users to explore a captured environment from any viewpoint.',
     bestFor: ['Property visualisation', 'Construction records', 'Heritage documentation', 'Stakeholder presentations'],
-    service: 'Gaussian Splat Capture',
-    serviceHref: '/services/gaussian-splat-capture',
+    service: 'TFTS 3D Capture',
+    serviceHref: '/services/tfts-3d',
     bundle: 'Immersive Digital Capture Pack',
     bundleHref: '/bundles#immersive-digital-capture-pack',
-    formats: ['Gaussian Splat file', 'Web-ready viewer', 'Screenshot set', 'Flythrough video'],
-    cta: 'Request Gaussian Splat Capture',
-    caveat: 'Gaussian Splats are visualisation-first assets. Measurement-critical outputs should use photogrammetry or LiDAR.'
+    formats: ['TFTS 3D file', 'Web-ready viewer', 'Screenshot set', 'Flythrough video'],
+    cta: 'Request TFTS 3D Capture',
+    caveat: 'TFTS 3Ds are visualisation-first assets. Measurement-critical outputs should use photogrammetry or LiDAR.'
   },
   {
     id: 'digital-twin',
     title: 'Digital Twin-Style Visual Record',
     category: '3D / Asset Records',
-    categories: ['Gaussian Splat / 3D', 'Facilities Management'],
+    categories: ['TFTS 3D / 3D', 'Facilities Management'],
     description: 'A visual record of a site, building, or asset environment, combining drone capture, imagery, and 3D outputs.',
     bestFor: ['Asset owners', 'FM teams', 'Estates', 'Developers', 'Infrastructure teams'],
     service: 'Digital Twin Capture',
@@ -300,7 +300,7 @@ const DELIVERABLES: Deliverable[] = [
     id: '360-pano',
     title: '360 Aerial Panorama',
     category: '3D / Visualisation / Media',
-    categories: ['Gaussian Splat / 3D', 'Aerial Media'],
+    categories: ['TFTS 3D / 3D', 'Aerial Media'],
     description: 'Interactive aerial panorama for developments, venues, estates, public consultation, tourism and site context.',
     bestFor: ['Property marketing', 'Public consultation', 'Estates', 'Tourism', 'Venues'],
     service: '360 Aerial Panoramas',
@@ -339,7 +339,7 @@ export default function SampleDeliverablesPage() {
             SAMPLE DRONE <br/><span className="text-accent underline underline-offset-8 decoration-accent/30">DELIVERABLES</span>
           </h1>
           <p className="font-body text-xl md:text-2xl font-light text-white/50 max-w-4xl uppercase tracking-widest leading-relaxed mb-12">
-            See the types of reports, image sets, maps, media assets, evidence packs and immersive visual outputs EntireFM Drone can provide after a commercial drone project.
+            See the types of reports, image sets, maps, media assets, evidence packs and immersive visual outputs TFTS Drone can provide after a commercial drone project.
           </p>
           <div className="flex flex-wrap gap-x-12 gap-y-6 text-white/20 font-ui text-[9px] tracking-[0.3em] uppercase border-t border-white/5 pt-12">
              <span>Inspection reports</span>
@@ -361,7 +361,7 @@ export default function SampleDeliverablesPage() {
            <div className="lg:col-span-5 bg-white/[0.02] border border-white/10 p-12">
               <h2 className="font-display text-4xl text-white uppercase tracking-widest mb-8 leading-none">THE VALUE IS <br/><span className="text-accent">IN THE OUTPUT</span></h2>
               <p className="font-body text-sm text-white/40 uppercase tracking-widest leading-relaxed mb-8">
-                A drone flight only matters if the client receives something useful from it. EntireFM Drone structures projects around the final deliverable — whether that is inspection evidence, a survey map, a construction progress record, or a 3D visualisation.
+                A drone flight only matters if the client receives something useful from it. TFTS Drone structures projects around the final deliverable — whether that is inspection evidence, a survey map, a construction progress record, or a 3D visualisation.
               </p>
               <div className="font-display text-2xl text-accent border-l-2 border-accent/30 pl-8 py-2 uppercase tracking-widest">
                 You are not buying flight time. You are buying usable aerial intelligence.
@@ -480,7 +480,7 @@ export default function SampleDeliverablesPage() {
              KNOW THE OUTPUT <br/>YOU <span className="underline decoration-dark/30 underline-offset-[10px]">NEED?</span>
            </h2>
            <p className="font-body text-xl md:text-2xl text-dark/70 max-w-3xl mx-auto mb-16 uppercase tracking-widest font-medium leading-relaxed">
-             Whether you need an inspection report, evidence pack, survey dataset, progress record, media asset or immersive 3D visualisation, EntireFM Drone can structure the drone project around the deliverable.
+             Whether you need an inspection report, evidence pack, survey dataset, progress record, media asset or immersive 3D visualisation, TFTS Drone can structure the drone project around the deliverable.
            </p>
            <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
              <Link 

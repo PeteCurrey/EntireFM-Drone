@@ -36,7 +36,7 @@ export default function OutputTeaser() {
     {
       label: 'Spatial 3D Splats',
       icon: Box,
-      headline: 'Photorealistic Gaussian Splat Digital Twins',
+      headline: 'Photorealistic TFTS 3D Digital Twins',
       desc: 'Navigable 6-DoF 3D site captures allowing stakeholders to virtually inspect developments and complex architectural structures.',
       deliverables: ['Interactive Web-Viewer Link', 'High-Fidelity 3D Flythrough Video', 'Before/After Milestone Comparison', 'Shareable Client Stakeholder Portal'],
       cta: '/gaussian-splat',

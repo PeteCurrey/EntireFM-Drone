@@ -7,7 +7,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useLenis } from '@/lib/lenis'
 import { Rocket, Menu, X, ChevronDown, Box, ShieldCheck, Zap, BarChart3, Hammer, Building2, Search, Camera, Database, LayoutGrid } from 'lucide-react'
-import EntireFMLogo from '@/components/ui/EntireFMLogo'
+import TFTSLogo from '@/components/ui/TFTSLogo'
 
 
 const sectorMenu = [
@@ -45,7 +45,7 @@ const sectorMenu = [
     title: 'Specialist & Response',
     image: '/images/nav/photography.png',
     services: [
-      { name: 'Gaussian Splat Capture', slug: 'gaussian-splat-capture', desc: 'Photorealistic 3D site visualisation.' },
+      { name: 'TFTS 3D Capture', slug: 'tfts-3d', desc: 'Photorealistic 3D site visualisation.' },
       { name: 'Thermal Drone Surveys', slug: 'thermal-imaging', desc: 'Radiometric evidence for building physics.' },
       { name: 'Emergency Response', slug: 'emergency-response', desc: 'Rapid intelligence for incidents and claims.' },
       { name: 'Insurance Surveys', slug: 'insurance-loss-adjuster-surveys', desc: 'Detailed evidence for adjusters and insurers.' },
@@ -61,7 +61,7 @@ const packagesMenu = [
   { name: 'Visual Sales', slug: 'visual-sales', icon: Camera, desc: 'High-end marketing and media assets.' },
   { name: 'Insurance Evidence', slug: 'insurance-incident', icon: ShieldCheck, desc: 'Rapid post-incident damage records.' },
   { name: 'Solar & Energy', slug: 'solar-energy', icon: Zap, desc: 'PV array thermal and visual audits.' },
-  { name: 'Immersive Digital', slug: 'immersive-digital', icon: Box, desc: 'Gaussian Splats and 3D digital twins.' },
+  { name: 'Immersive Digital', slug: 'immersive-digital', icon: Box, desc: 'TFTS 3D and spatial digital twins.' },
 ]
 
 const portfolioMenu = [
@@ -126,7 +126,7 @@ export default function Nav() {
           {/* Logo */}
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-0 group" onClick={() => { setMobileMenuOpen(false); setActiveMenu(null); }}>
-              <EntireFMLogo animated size="w-9" showDescriptor className="gap-2" />
+              <TFTSLogo animated size="w-9" showDescriptor className="gap-2" />
               <span className="ml-2.5 text-[10px] font-light tracking-[0.22em] uppercase text-white/40 border-l border-white/10 pl-2.5">
                 Drone
               </span>
@@ -177,7 +177,7 @@ export default function Nav() {
             </Link>
 
             <Link href="/gaussian-splat" className="font-light text-[13px] tracking-[0.12em] text-white/75 hover:text-white transition-colors">
-              Gaussian Splat
+              TFTS 3D
             </Link>
 
             {/* Portfolio Dropdown */}

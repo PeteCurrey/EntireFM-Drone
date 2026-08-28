@@ -69,7 +69,7 @@ export const industriesData: IndustryData[] = [
     title: 'Facilities Management',
     headline: ['FACILITIES', 'MANAGEMENT'],
     description: 'Non-disruptive envelope inspections and thermal audits that inform planned maintenance and protect property value.',
-    metaTitle: 'Drone Services for Facilities Management | Roof & Asset Inspections | EntireFM Drone',
+    metaTitle: 'Drone Services for Facilities Management | Roof & Asset Inspections | TFTS Drone',
     metaDescription: 'Roof inspections, building envelope capture, and thermal imaging for FM teams managing commercial buildings and estates. Professional reporting without scaffolding.',
     benefits: ['Reduced need for scaffolding', 'Budget-certain planned maintenance', 'Total building envelope data', 'Non-disruptive site operation'],
     missions: ['Annual roof inspections', 'Thermal air leakage surveys', 'Facade condition audits', 'Gutter and drainage checks'],
@@ -96,7 +96,7 @@ export const industriesData: IndustryData[] = [
     workflow: [
       { title: 'Define the requirement', desc: 'Inspection, survey, evidence, monitoring, media or 3D capture.' },
       { title: 'Review site constraints', desc: 'Access, airspace, people, property, safety and operating windows.' },
-      { title: 'Select capture workflow', desc: 'Visual inspection, thermal, mapping, media, Gaussian Splat or photogrammetry.' },
+      { title: 'Select capture workflow', desc: 'Visual inspection, thermal, mapping, media, TFTS 3D or photogrammetry.' },
       { title: 'Process deliverables', desc: 'Image sets, reports, maps, models, videos or evidence packs.' },
       { title: 'Deliver usable outputs', desc: 'Files, reports, portal records, sample deliverables and next-step guidance.' }
     ],
@@ -137,7 +137,7 @@ export const industriesData: IndustryData[] = [
     title: 'Construction',
     headline: ['CONSTRUCTION', '& DEVELOPMENT'],
     description: 'From site appraisal to final handover, drone technology provides the aerial intelligence required to keep projects on track, on budget, and site-safe.',
-    metaTitle: 'Drone Services for Construction | Progress Monitoring & Site Surveys | EntireFM Drone',
+    metaTitle: 'Drone Services for Construction | Progress Monitoring & Site Surveys | TFTS Drone',
     metaDescription: 'Construction monitoring, progress photography, stockpile volumes, and site surveying. High-accuracy data to keep projects on track and stakeholders informed.',
     benefits: ['Increase site visibility', 'High-accuracy earthworks tracking', 'Stakeholder communication support', 'Claim prevention with objective data'],
     missions: ['Weekly progress surveys', 'Stockpile volume calculations', 'Pre-construction site appraisal', 'Roof and facade inspections'],
@@ -158,7 +158,7 @@ export const industriesData: IndustryData[] = [
       { title: 'Measure stockpile volumes', desc: 'Accurate earthworks tracking without manual site walkdowns.', href: '/services/stockpile-volume-surveys' },
       { title: 'Map site boundaries', desc: 'High-accuracy orthomosaic maps for site planning and management.', href: '/services/orthomosaic-mapping' },
       { title: 'Capture as-built evidence', desc: 'Objective visual records for dispute resolution and handover.', href: '/services/construction-monitoring' },
-      { title: 'Support stakeholder updates', desc: 'High-quality media and 3D models for project reporting.', href: '/services/gaussian-splat-capture' }
+      { title: 'Support stakeholder updates', desc: 'High-quality media and 3D models for project reporting.', href: '/services/tfts-3d' }
     ],
     workflow: [
       { title: 'Define the requirement', desc: 'Progress, mapping, volumetrics or immersive visualisation.' },
@@ -203,7 +203,7 @@ export const industriesData: IndustryData[] = [
     title: 'Insurance & Loss Adjusters',
     headline: ['INSURANCE', '& CLAIMS'],
     description: 'Objective, timestamped aerial evidence for loss adjustment, damage assessment, and asset verification.',
-    metaTitle: 'Drone Evidence for Insurance & Loss Adjusters | EntireFM Drone',
+    metaTitle: 'Drone Evidence for Insurance & Loss Adjusters | TFTS Drone',
     metaDescription: 'Professional drone damage surveys for loss adjusters and insurers. High-resolution imagery, thermal audits, and objective evidence capture for claims.',
     benefits: ['Rapid response site evidence', 'Objective radiometric data', 'Safe access to damaged structures', 'Reduced loss adjustment timescales'],
     missions: ['Post-incident damage survey', 'Roof thermal audits', 'Fraud prevention verification', 'Large loss site recording'],
@@ -267,7 +267,7 @@ export const industriesData: IndustryData[] = [
     title: 'Infrastructure & Transport',
     headline: ['INFRASTRUCTURE', '& TRANSPORT'],
     description: 'Precision mapping and structural assessment for railways, highways, bridges, and maritime assets.',
-    metaTitle: 'Drone Services for Infrastructure & Transport | EntireFM Drone',
+    metaTitle: 'Drone Services for Infrastructure & Transport | TFTS Drone',
     metaDescription: 'Specialist drone services for infrastructure. Bridge inspection, rail corridor mapping, and port surveys. CAA-compliant, high-accuracy LiDAR and photogrammetry.',
     benefits: ['Minimise asset downtime', 'Reduce operative trackside risk', 'Scalable mapping for long corridors', 'High-accuracy data'],
     missions: ['Bridge and pier inspection', 'Rail corridor LiDAR mapping', 'Highway as-built surveys', 'Port and maritime audits'],
@@ -331,7 +331,7 @@ export const industriesData: IndustryData[] = [
     title: 'Utilities & Energy',
     headline: ['UTILITIES', '& ENERGY'],
     description: 'Safely inspect high-voltage infrastructure, renewable energy assets, and pipeline corridors without service interruptions.',
-    metaTitle: 'Drone Services for Utilities & Energy | Solar, Wind & Power | EntireFM Drone',
+    metaTitle: 'Drone Services for Utilities & Energy | Solar, Wind & Power | TFTS Drone',
     metaDescription: 'Specialist drone services for utilities. Solar farm audits, powerline inspection, and wind turbine assessment. CAA-compliant, thermal imaging specialist.',
     benefits: ['Inspect without service outages', 'Reduce risk to life for high-voltage inspections', 'Rapid assessment of remote assets', 'Early detection of thermal anomalies'],
     missions: ['Pylon and insulator checks', 'Solar farm radiometric auditing', 'Vegetation encroachment mapping', 'Pipeline corridor surveillance'],
@@ -395,7 +395,7 @@ export const industriesData: IndustryData[] = [
     title: 'Commercial Property',
     headline: ['COMMERCIAL', 'PROPERTY'],
     description: 'Cinematic reveals and high-accuracy context shots for industrial, commercial, and luxury residential property marketing.',
-    metaTitle: 'Drone Services for Commercial Property | Marketing & Condition | EntireFM Drone',
+    metaTitle: 'Drone Services for Commercial Property | Marketing & Condition | TFTS Drone',
     metaDescription: 'Specialist drone services for commercial property. Cinematic sales footage, development reveals, context mapping and condition audits. Professional visual assets.',
     benefits: ['Unlock exclusive property perspectives', 'Show site context and connectivity', 'High-quality 4K/6K marketing assets', 'Fast turnaround for sales cycles'],
     missions: ['High-end property filming', 'Site reveal sequences', 'Viewpoint simulation', 'Boundary mapping'],
@@ -459,7 +459,7 @@ export const industriesData: IndustryData[] = [
     title: 'Surveyors',
     headline: ['SURVEYORS', '& ENGINEERS'],
     description: 'High-accuracy aerial data to support topographic, engineering and condition survey workflows.',
-    metaTitle: 'Drone Data for Surveyors & Engineers | RTK/LiDAR | EntireFM Drone',
+    metaTitle: 'Drone Data for Surveyors & Engineers | RTK/LiDAR | TFTS Drone',
     metaDescription: 'Professional drone data for surveyors. Orthomosaic mapping, topographic surveys, LiDAR point clouds and as-built verification. High-accuracy data outputs.',
     benefits: ['Efficient site documentation', 'High-accuracy earthworks tracking', 'Scalable mapping for complex sites', 'Objective as-built documentation'],
     missions: ['Topographic site mapping', 'Stockpile volumetrics', 'Elevation and facade surveys', 'Point cloud generation'],
@@ -523,11 +523,11 @@ export const industriesData: IndustryData[] = [
     title: 'Heritage & Conservation',
     headline: ['HERITAGE', '& CONSERVATION'],
     description: 'Sensitive documentation and digital preservation for listed buildings, monuments and historic assets.',
-    metaTitle: 'Drone Surveys for Heritage & Conservation | Digital Preservation | EntireFM Drone',
+    metaTitle: 'Drone Surveys for Heritage & Conservation | Digital Preservation | TFTS Drone',
     metaDescription: 'Specialist drone services for heritage sites. High-resolution building documentation, listed structure audits and digital twin preservation. CAA-compliant, sensitive approach.',
     benefits: ['Zero-contact asset documentation', 'Safe access to fragile structures', 'High-fidelity digital preservation', 'Non-disruptive site operation'],
     missions: ['Listed building inspections', 'Monument condition audits', 'Digital twin reconstruction', 'Heritage site mapping'],
-    relatedServices: ['drone-inspection', 'gaussian-splat-capture', 'digital-twin-capture'],
+    relatedServices: ['drone-inspection', 'tfts-3d', 'digital-twin-capture'],
     
     hero: {
       title: 'Drone Services for Heritage',
@@ -541,20 +541,20 @@ export const industriesData: IndustryData[] = [
     },
     outcomes: [
       { title: 'Capture high-detail condition records', desc: 'Objective visual documentation of masonry, timber and roofing.', href: '/services/heritage-conservation-archaeology' },
-      { title: 'Preserve assets digitally', desc: 'Create immersive 3D models and Gaussian Splats of historic sites.', href: '/services/gaussian-splat-capture' },
+      { title: 'Preserve assets digitally', desc: 'Create immersive 3D models and TFTS 3Ds of historic sites.', href: '/services/tfts-3d' },
       { title: 'Inspect fragile structures safely', desc: 'Audit high-level areas without the need for physical contact or scaffolding.', href: '/services/drone-inspection' },
       { title: 'Support conservation planning', desc: 'Provide architects and conservators with clear evidence for grant applications and repair works.', href: '/brief' }
     ],
     workflow: [
       { title: 'Define Objective', desc: 'Audit, record-keeping or immersive visualisation.' },
       { title: 'Heritage Sensitivity Review', desc: 'Coordination with site managers and heritage authorities.' },
-      { title: 'Sensor Selection', desc: 'High-res visual, multispectral or Gaussian Splat capture.' },
+      { title: 'Sensor Selection', desc: 'High-res visual, multispectral or TFTS 3D capture.' },
       { title: 'Non-Contact Capture', desc: 'Safe standoff flight focusing on structural detail and texture.' },
       { title: 'Deliverable Processing', desc: 'Reports, 3D models or immersive archives.' }
     ],
     serviceStack: [
       { name: 'Heritage Inspections', benefit: 'Detailed condition auditing for listed structures.', deliverables: ['Heritage audit report', 'Condition archive', 'Defect log'], href: '/services/heritage-conservation-archaeology' },
-      { name: 'Gaussian Splat Capture', benefit: 'Photorealistic immersive records of historic sites.', deliverables: ['Interactive viewer', 'Flythrough video', 'PLY model'], href: '/services/gaussian-splat-capture' },
+      { name: 'TFTS 3D Capture', benefit: 'Photorealistic immersive records of historic sites.', deliverables: ['Interactive viewer', 'Flythrough video', 'PLY model'], href: '/services/tfts-3d' },
       { name: 'Digital Twin Capture', benefit: 'Total digital preservation for complex assets.', deliverables: ['3D mesh model', 'Orthomosaic facades', 'Point cloud'], href: '/services/digital-twin-capture' }
     ],
     deliverables: [
@@ -587,7 +587,7 @@ export const industriesData: IndustryData[] = [
     title: 'Agriculture & Rural Estates',
     headline: ['AGRICULTURE', '& RURAL ESTATES'],
     description: 'Drone mapping, land surveys, estate visual records, and agricultural aerial imagery for farms, estates and landowners.',
-    metaTitle: 'Drone Services for Agriculture & Rural Estates | EntireFM Drone',
+    metaTitle: 'Drone Services for Agriculture & Rural Estates | TFTS Drone',
     metaDescription: 'Drone mapping, land surveys, estate visual records, agricultural aerial imagery, drainage context, rural asset inspections and development site capture for farms, estates and landowners.',
     benefits: ['Estate boundary and land mapping', 'Rural asset and building inspections', 'Drainage and water management context', 'Agricultural land-use evidence'],
     missions: ['Estate boundary surveys', 'Drainage audits', 'Crop health context', 'Asset condition checks'],
@@ -596,7 +596,7 @@ export const industriesData: IndustryData[] = [
     hero: {
       title: 'Drone Services for Agriculture and Rural Estates',
       subheading: 'Drone mapping, land surveys, estate visual records, agricultural aerial imagery, drainage context, rural asset inspections and development site capture for farms, estates and landowners.',
-      badges: ['Land Mapping', 'Estate Records', 'Crop Health Context', 'Asset Inspections', 'EntireFM Flight Desk Workflow'],
+      badges: ['Land Mapping', 'Estate Records', 'Crop Health Context', 'Asset Inspections', 'TFTS Flight Desk Workflow'],
       ctaPrimary: 'Start Agricultural Brief'
     },
     challenge: {
@@ -650,7 +650,7 @@ export const industriesData: IndustryData[] = [
     title: 'Events, Venues & Media',
     headline: ['EVENTS', '& VENUES'],
     description: 'Aerial photography, drone video, FPV flythroughs, and venue showcases for events, tourism and commercial media teams.',
-    metaTitle: 'Drone Services for Events, Venues & Media | EntireFM Drone',
+    metaTitle: 'Drone Services for Events, Venues & Media | TFTS Drone',
     metaDescription: 'Aerial photography, drone video, FPV flythroughs, venue showcases, 360 panoramas and campaign-ready content for events, venues, tourism and commercial media teams.',
     benefits: ['Venue and estate showcases', 'Cinematic 4K event filming', 'Dynamic FPV drone flythroughs', '360 aerial site panoramas'],
     missions: ['Venue marketing reels', 'Event coverage', 'Indoor FPV tours', 'Brand campaigns'],
@@ -659,7 +659,7 @@ export const industriesData: IndustryData[] = [
     hero: {
       title: 'Drone Services for Events, Venues and Media',
       subheading: 'Aerial photography, drone video, FPV flythroughs, venue showcases, 360 panoramas and campaign-ready content for events, venues, tourism and commercial media teams.',
-      badges: ['Aerial Media', 'FPV Flythroughs', 'Venue Showcases', 'Campaign Content', 'EntireFM Flight Desk Workflow'],
+      badges: ['Aerial Media', 'FPV Flythroughs', 'Venue Showcases', 'Campaign Content', 'TFTS Flight Desk Workflow'],
       ctaPrimary: 'Start Media Brief'
     },
     challenge: {
@@ -692,7 +692,7 @@ export const industriesData: IndustryData[] = [
     ],
     recommendedBundles: [
       { name: 'Visual Sales Pack', fit: 'For premium venue marketing and brand campaigns.', outputs: ['Edited film', 'Pro image set', 'Social clips'], href: '/bundles#visual-sales-pack' },
-      { name: 'Immersive Digital Capture Pack', fit: 'For high-value asset visualisation and engagement.', outputs: ['Gaussian Splat', '3D model', 'Web viewer'], href: '/bundles#immersive-digital-capture-pack' }
+      { name: 'Immersive Digital Capture Pack', fit: 'For high-value asset visualisation and engagement.', outputs: ['TFTS 3D', '3D model', 'Web viewer'], href: '/bundles#immersive-digital-capture-pack' }
     ],
     missionProfiles: [
       { title: 'Prestige Venue Marketing Workflow', href: '/operations-standard' },
@@ -713,7 +713,7 @@ export const industriesData: IndustryData[] = [
     title: 'Solar & Renewable Energy',
     headline: ['SOLAR', '& RENEWABLES'],
     description: 'Visual and thermal drone inspections for rooftop solar arrays, commercial PV systems and solar farms.',
-    metaTitle: 'Drone Services for Solar PV & Renewable Energy | EntireFM Drone',
+    metaTitle: 'Drone Services for Solar PV & Renewable Energy | TFTS Drone',
     metaDescription: 'Visual and thermal drone inspections for rooftop solar arrays, commercial PV systems and solar farms. Helping renewable energy teams identify anomalies and monitor asset health.',
     benefits: ['Inspect without service outages', 'Rapid assessment of solar farms', 'Identify thermal anomalies early', 'Warranty and claim documentation'],
     missions: ['Solar farm thermal audits', 'Rooftop PV inspections', 'Asset health monitoring', 'Claim evidence'],
@@ -722,7 +722,7 @@ export const industriesData: IndustryData[] = [
     hero: {
       title: 'Drone Services for Solar and Renewable Energy',
       subheading: 'Visual and thermal drone inspections for rooftop solar arrays, commercial PV systems and solar farms. Helping renewable energy teams identify anomalies and monitor asset health.',
-      badges: ['Solar Audits', 'Thermal Anomaly Detection', 'Renewable Support', 'Asset Health Monitoring', 'EntireFM Flight Desk Workflow'],
+      badges: ['Solar Audits', 'Thermal Anomaly Detection', 'Renewable Support', 'Asset Health Monitoring', 'TFTS Flight Desk Workflow'],
       ctaPrimary: 'Start Solar Brief'
     },
     challenge: {

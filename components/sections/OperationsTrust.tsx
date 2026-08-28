@@ -21,7 +21,7 @@ export default function OperationsTrust() {
             Commercial Drone Work Managed Through<br/><span className="text-accent">A Structured Operating Standard</span>
           </h2>
           <p className="font-body text-lg text-white/50 uppercase tracking-widest leading-relaxed max-w-3xl mx-auto font-light">
-            EntireFM Drone uses a structured operating model supported by EntireFM Flight Desk to manage project briefs, site information, planning notes, capture requirements, deliverables and project records.
+            TFTS Drone uses a structured operating model supported by TFTS Drone Flight Desk to manage project briefs, site information, planning notes, capture requirements, deliverables and project records.
           </p>
         </div>
 

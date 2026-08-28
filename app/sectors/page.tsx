@@ -41,7 +41,7 @@ const SECTOR_CATEGORIES = [
     sectors: [
       { name: "Construction", href: "/sectors/construction", icon: HardHat, desc: "Progress photography, stakeholder updates and site logistics monitoring." },
       { name: "Surveyors & Mapping Professionals", href: "/sectors/surveyors", icon: MapIcon, desc: "Orthomosaics, point clouds, LiDAR and survey-supported outputs." },
-      { name: "Developers & Property Marketing", href: "/sectors/developers-property-marketing", icon: LayoutDashboard, desc: "Aerial media, 360 panoramas and Gaussian Splat visualisation." },
+      { name: "Developers & Property Marketing", href: "/sectors/developers-property-marketing", icon: LayoutDashboard, desc: "Aerial media, 360 panoramas and TFTS 3D visualisation." },
       { name: "Civil Engineering", href: "/sectors/civil-engineering", icon: Hammer, desc: "Infrastructure monitoring, cut & fill analysis and site data." }
     ]
   },
@@ -108,7 +108,7 @@ export default function SectorsPage() {
           <div className="svc-tag mb-12 inline-flex"><SectionTag number="00" text="Philosophy" /></div>
           <h2 className="font-display text-5xl md:text-6xl text-white mb-10 uppercase tracking-tighter leading-none">THE VALUE OF <span className="text-accent">SPECIFICITY.</span></h2>
           <p className="font-body text-xl text-white/40 uppercase tracking-widest leading-relaxed font-light">
-            Commercial drone projects require more than just a flight. They require sector-specific understanding of risks, outputs, reporting standards and deliverable requirements. EntireFM Drone structures every mission around the industry it serves.
+            Commercial drone projects require more than just a flight. They require sector-specific understanding of risks, outputs, reporting standards and deliverable requirements. TFTS Drone structures every mission around the industry it serves.
           </p>
         </div>
       </section>
@@ -158,7 +158,7 @@ export default function SectorsPage() {
           NEED SECTOR-SPECIFIC <br/>DRONE <span className="underline decoration-dark/30 underline-offset-[10px]">SUPPORT?</span>
         </h2>
         <p className="font-body text-xl md:text-2xl text-dark/70 max-w-3xl mx-auto mb-16 uppercase tracking-widest font-medium leading-relaxed">
-          Tell us about your industry requirements. EntireFM Drone will recommend the right capture workflow, sensors and deliverables for your project.
+          Tell us about your industry requirements. TFTS Drone will recommend the right capture workflow, sensors and deliverables for your project.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
           <Link 

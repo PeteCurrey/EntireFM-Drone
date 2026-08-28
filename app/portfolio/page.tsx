@@ -19,8 +19,8 @@ import SectionTag from '@/components/ui/SectionTag'
 import { portfolioProjects } from '@/lib/portfolio-data'
 
 export const metadata: Metadata = {
-  title: 'Drone Project Workflows, Mission Profiles & Case Studies | EntireFM Drone',
-  description: 'Explore EntireFM Drone’s portfolio of drone project workflows, mission profiles and commercial use cases across property, infrastructure, energy and construction.',
+  title: 'Drone Project Workflows, Mission Profiles & Case Studies | TFTS Drone',
+  description: 'Explore TFTS Drone’s portfolio of drone project workflows, mission profiles and commercial use cases across property, infrastructure, energy and construction.',
 }
 
 export default function PortfolioPage() {
@@ -43,7 +43,7 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-white/10 pb-16">
             <div className="lg:col-span-8">
               <p className="font-body text-xl md:text-2xl font-light text-white/50 max-w-3xl uppercase tracking-widest leading-relaxed">
-                Explore how EntireFM Drone’s drone services can support commercial inspections, surveying, construction monitoring, insurance evidence, aerial media and immersive 3D capture across property, infrastructure, energy and asset management environments.
+                Explore how TFTS Drone’s drone services can support commercial inspections, surveying, construction monitoring, insurance evidence, aerial media and immersive 3D capture across property, infrastructure, energy and asset management environments.
               </p>
             </div>
             <div className="lg:col-span-4 flex flex-col justify-end items-start lg:items-end gap-6">
@@ -65,7 +65,7 @@ export default function PortfolioPage() {
       <section className="px-8 md:px-20 mb-20">
         <div className="max-w-[1400px] mx-auto">
           <div className="flex flex-wrap gap-3">
-             {["All", "Verified Case Studies", "Anonymised Profiles", "Mission Profiles", "Inspection", "Surveying & Mapping", "Construction Monitoring", "Thermal", "Insurance", "Aerial Media", "Gaussian Splat / 3D Capture"].map((tab) => (
+             {["All", "Verified Case Studies", "Anonymised Profiles", "Mission Profiles", "Inspection", "Surveying & Mapping", "Construction Monitoring", "Thermal", "Insurance", "Aerial Media", "TFTS 3D / 3D Capture"].map((tab) => (
                <button 
                  key={tab}
                  className={`px-6 py-2 border font-ui text-[11px] tracking-widest uppercase transition-all ${tab === "All" ? "border-accent text-accent bg-accent/5" : "border-white/10 text-white/40 hover:border-white/30 hover:text-white"}`}
@@ -126,7 +126,7 @@ export default function PortfolioPage() {
             <span className="underline decoration-dark/30 underline-offset-[10px]">REQUIREMENT?</span>
           </h2>
           <p className="font-body text-xl md:text-2xl text-dark/70 max-w-3xl mx-auto mb-16 uppercase tracking-widest font-medium leading-relaxed">
-            Tell us what you need to inspect, measure, monitor or visualise. EntireFM Drone will recommend the right capture workflow and deliverables.
+            Tell us what you need to inspect, measure, monitor or visualise. TFTS Drone will recommend the right capture workflow and deliverables.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
             <Link 

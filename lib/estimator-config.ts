@@ -39,7 +39,7 @@ export const estimatorConfig = {
         { id: 'aerial-media', label: 'Aerial photography or video', score: 1 },
         { id: 'fpv-flythrough', label: 'FPV flythrough', score: 3 },
         { id: 'event-media', label: 'Event / venue media', score: 2 },
-        { id: 'gaussian-splat', label: 'Gaussian Splat / 3D capture', score: 5 },
+        { id: 'gaussian-splat', label: 'TFTS 3D / 3D capture', score: 5 },
         { id: 'insurance-evidence', label: 'Insurance / damage evidence', score: 3 },
         { id: 'emergency-response', label: 'Emergency / urgent response', score: 5 },
         { id: 'not-sure', label: 'Not sure yet', score: 2 }
@@ -109,7 +109,7 @@ export const estimatorConfig = {
         { id: 'orthomosaic', label: 'Orthomosaic map', score: 4 },
         { id: 'point-cloud', label: 'Point cloud', score: 5 },
         { id: '3d-model', label: '3D model', score: 5 },
-        { id: 'gaussian-splat', label: 'Gaussian Splat', score: 5 },
+        { id: 'gaussian-splat', label: 'TFTS 3D', score: 5 },
         { id: 'digital-twin', label: 'Digital twin-style viewer', score: 6 },
         { id: 'panorama', label: '360 aerial panorama', score: 3 },
         { id: 'volume-report', label: 'Stockpile volume report', score: 4 },
@@ -128,7 +128,7 @@ export const estimatorConfig = {
         { id: 'standard', label: 'Standard delivery', description: 'Organised files, selected images, basic summary or simple edit.', score: 2 },
         { id: 'annotated', label: 'Annotated report', description: 'Image annotations, PDF summary, evidence pack or contractor briefing.', score: 4 },
         { id: 'technical', label: 'Technical data processing', description: 'Mapping, point clouds, volumes, cut/fill, 3D model or CAD/GIS-ready exports where scoped.', score: 6 },
-        { id: 'advanced', label: 'Advanced visualisation', description: 'Gaussian Splat, immersive viewer, flythrough, digital twin-style output or combined visual pack.', score: 8 },
+        { id: 'advanced', label: 'Advanced visualisation', description: 'TFTS 3D, immersive viewer, flythrough, digital twin-style output or combined visual pack.', score: 8 },
         { id: 'not-sure', label: 'Not sure yet', score: 3 }
       ]
     },
@@ -167,7 +167,7 @@ export const estimatorConfig = {
         { id: 'survey-accuracy', label: 'Survey / mapping accuracy matters', score: 6 },
         { id: 'volume-accuracy', label: 'Stockpile or volume accuracy matters', score: 6 },
         { id: 'lidar', label: 'LiDAR may be required', score: 8 },
-        { id: '3d-viewer', label: 'Gaussian Splat / 3D viewer required', score: 8 },
+        { id: '3d-viewer', label: 'TFTS 3D / 3D viewer required', score: 8 },
         { id: 'fpv', label: 'FPV indoor or close-proximity filming required', score: 6 },
         { id: 'not-sure', label: 'Not sure yet', score: 4 }
       ]
@@ -210,7 +210,7 @@ export const estimatorConfig = {
       id: 'advanced',
       label: 'Advanced / Specialist Project',
       range: '£3,500–£10,000+',
-      description: 'Typical for Gaussian Splat capture, LiDAR surveys, multi-site programmes, and complex urban operations.',
+      description: 'Typical for TFTS 3D capture, LiDAR surveys, multi-site programmes, and complex urban operations.',
       minScore: 53,
       maxScore: 999
     }

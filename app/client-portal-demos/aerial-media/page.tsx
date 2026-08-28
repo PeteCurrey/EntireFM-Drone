@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import PortalLayout from '@/components/portals/PortalLayout'
 
 export const metadata: Metadata = {
-  title: 'Aerial Media Client Portal Demo | EntireFM Drone',
+  title: 'Aerial Media Client Portal Demo | TFTS Drone',
   description: 'View a representative media delivery portal showing aerial image packs, edited videos, social clips, website hero loops and download-ready assets.',
 }
 

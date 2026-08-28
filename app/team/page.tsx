@@ -36,7 +36,7 @@ export default function TeamPage() {
         <div className="absolute inset-0 z-0">
           <Image 
             src="/images/events_poster.jpg" 
-            alt="EntireFM Drone Team" 
+            alt="TFTS Drone Team" 
             fill
             priority
             className="object-cover opacity-20"
@@ -51,7 +51,7 @@ export default function TeamPage() {
           </div>
           <h1 className="text-[clamp(2.25rem,3.7vw,3.5rem)] font-extralight tracking-[-0.04em] leading-[1.02] text-white mb-5 sm:mb-6">THE<br/><span className="text-accent underline underline-offset-8">TEAM</span></h1>
           <p className="font-body text-lg md:text-xl text-white/40 leading-relaxed max-w-[600px]">
-            Technology is only as capable as the operators behind it. EntireFM Drone is driven by certified aviation professionals, geospatial analysts, and industrial inspection specialists.
+            Technology is only as capable as the operators behind it. TFTS Drone is driven by certified aviation professionals, geospatial analysts, and industrial inspection specialists.
           </p>
         </div>
       </section>

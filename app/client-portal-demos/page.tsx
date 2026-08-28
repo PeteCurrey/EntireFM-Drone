@@ -50,8 +50,8 @@ const DEMO_PORTALS = [
   },
   {
     slug: 'gaussian-splat',
-    title: 'Gaussian Splat / 3D Capture Demo Portal',
-    desc: 'A sample immersive capture portal showing Gaussian Splat screenshots, flythrough video, 3D visualisation assets and related deliverables.',
+    title: 'TFTS 3D / 3D Capture Demo Portal',
+    desc: 'A sample immersive capture portal showing TFTS 3D screenshots, flythrough video, 3D visualisation assets and related deliverables.',
     icon: Box,
     href: '/client-portal-demos/gaussian-splat'
   },
@@ -70,12 +70,12 @@ const FAQS = [
     answer: "These are representative demo portals showing potential delivery formats. Real client portals and project outputs depend on scope, confidentiality, deliverables and agreed service requirements."
   },
   {
-    question: "Can EntireFM Drone provide a portal for my project?",
+    question: "Can TFTS Drone provide a portal for my project?",
     answer: "Where suitable, project outputs can be organised into a structured delivery area or client-facing portal format to help teams review, share and download deliverables."
   },
   {
     question: "What can a client portal include?",
-    answer: "A portal can include project summaries, image galleries, annotated evidence, PDF reports, maps, videos, Gaussian Splat previews, download links and next-step records depending on the project."
+    answer: "A portal can include project summaries, image galleries, annotated evidence, PDF reports, maps, videos, TFTS 3D previews, download links and next-step records depending on the project."
   },
   {
     question: "Are client portals private?",
@@ -105,7 +105,7 @@ export default function ClientPortalDemosIndex() {
             CLIENT PORTAL <br/><span className="text-accent underline underline-offset-8 decoration-accent/30">DEMO EXPERIENCE</span>
           </h1>
           <p className="font-body text-xl md:text-2xl text-white/60 leading-relaxed mb-12 max-w-[900px] uppercase tracking-widest font-light">
-            See how EntireFM Drone can organise drone project outputs into clear client-facing portals — from roof inspections and construction progress records to survey data, insurance evidence, aerial media and Gaussian Splat visualisation.
+            See how TFTS Drone can organise drone project outputs into clear client-facing portals — from roof inspections and construction progress records to survey data, insurance evidence, aerial media and TFTS 3D visualisation.
           </p>
           <div className="flex flex-col sm:flex-row gap-8 mb-16">
             <Link href="/brief?source=portal-demos-index" className="bg-accent text-dark font-display text-2xl tracking-[0.1em] px-12 py-6 hover:bg-white transition-all text-center flex items-center justify-center gap-4 group">
@@ -135,7 +135,7 @@ export default function ClientPortalDemosIndex() {
             A BETTER WAY TO <span className="text-accent">RECEIVE DRONE OUTPUTS</span>
           </h2>
           <p className="font-body text-xl text-white/40 uppercase tracking-widest leading-relaxed font-light mb-12">
-            Commercial drone work should not end with a random folder of files. EntireFM Drone can organise project outputs into structured client-facing portals so teams can review imagery, download reports, inspect evidence, track progress and share deliverables with stakeholders.
+            Commercial drone work should not end with a random folder of files. TFTS Drone can organise project outputs into structured client-facing portals so teams can review imagery, download reports, inspect evidence, track progress and share deliverables with stakeholders.
           </p>
           <p className="font-display text-3xl text-accent uppercase tracking-widest">
             The capture matters. The delivery experience matters just as much.
@@ -186,7 +186,7 @@ export default function ClientPortalDemosIndex() {
             READY FOR A <br/><span className="text-accent underline underline-offset-[10px] decoration-accent/30">BETTER DELIVERY?</span>
           </h2>
           <p className="font-body text-xl text-white/50 uppercase tracking-widest leading-relaxed mb-16 max-w-2xl mx-auto font-light">
-            Tell us about your project requirements. EntireFM Drone will structure the delivery format around your specific project outputs.
+            Tell us about your project requirements. TFTS Drone will structure the delivery format around your specific project outputs.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-8">
             <Link href="/brief?source=portal-demos-index-footer" className="bg-accent text-dark font-display text-3xl tracking-[0.1em] px-12 py-8 hover:bg-white transition-all flex items-center justify-center gap-4 group">

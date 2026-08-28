@@ -453,7 +453,7 @@ export default function SectorLayout({
             NEED DRONE SUPPORT <br/>FOR <span className="text-accent underline underline-offset-8 decoration-accent/20">{title}?</span>
           </h2>
           <p className="font-body text-xl md:text-2xl text-white/50 uppercase tracking-widest leading-relaxed mb-20 font-light max-w-3xl mx-auto">
-            Tell us what you need to inspect, measure, monitor, evidence, film or visualise. EntireFM Drone will recommend the right service, package and deliverables for your project.
+            Tell us what you need to inspect, measure, monitor, evidence, film or visualise. TFTS Drone will recommend the right service, package and deliverables for your project.
           </p>
           <div className="flex flex-col md:flex-row justify-center gap-8">
             <Link 

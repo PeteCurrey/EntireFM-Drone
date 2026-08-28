@@ -31,3 +31,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large raw source 3D files (production uses /public/splats/*.ksplat)
+*.ply

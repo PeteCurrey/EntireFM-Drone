@@ -36,7 +36,7 @@ export function calculateLeadScore(data: any): LeadScoreResult {
 
   // 3. Commercial Value (Max 20)
   // Higher value for technical or repeat services
-  const highValueServices = ['surveying-mapping', 'construction-monitoring', 'lidar-point-cloud-surveys', 'gaussian-splat-capture']
+  const highValueServices = ['surveying-mapping', 'construction-monitoring', 'lidar-point-cloud-surveys', 'tfts-3d']
   if (highValueServices.includes(data.serviceInterest)) value += 10
   if (data.deliverables?.includes('Volume report') || data.deliverables?.includes('Point cloud')) value += 5
   if (data.budget && data.budget !== 'Not sure yet' && data.budget !== 'Under £500') value += 5
@@ -50,7 +50,7 @@ export function calculateLeadScore(data: any): LeadScoreResult {
   const prioritySectors = ['facilities-management', 'construction', 'utilities', 'insurance']
   if (prioritySectors.includes(data.sector)) strategic += 10
   if (data.packageInterest && data.packageInterest !== 'Not sure yet') strategic += 5
-  const premiumOutputs = ['Gaussian Splat', '3D model', 'Point cloud', 'Digital twin-style viewer']
+  const premiumOutputs = ['TFTS 3D', '3D model', 'Point cloud', 'Digital twin-style viewer']
   if (data.deliverables?.some((d: string) => premiumOutputs.includes(d))) strategic += 5
 
   const totalScore = intent + clarity + value + readiness + strategic

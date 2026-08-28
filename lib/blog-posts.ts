@@ -5,7 +5,7 @@ export interface BlogPost {
   title: string
   date: string
   author: string
-  category: 'Drone Inspections' | 'Roof & Building Surveys' | 'Surveying & Mapping' | 'Thermal Imaging' | 'Construction Monitoring' | 'Insurance Evidence' | 'Gaussian Splat & 3D Capture' | 'Aerial Photography & Film' | 'Facilities Management' | 'Solar & Energy' | 'Regulations & Planning' | 'Buyer Guides'
+  category: 'Drone Inspections' | 'Roof & Building Surveys' | 'Surveying & Mapping' | 'Thermal Imaging' | 'Construction Monitoring' | 'Insurance Evidence' | 'TFTS 3D & 3D Capture' | 'Aerial Photography & Film' | 'Facilities Management' | 'Solar & Energy' | 'Regulations & Planning' | 'Buyer Guides'
   excerpt: string
   content: string
   image: string
@@ -134,7 +134,7 @@ Drone survey pricing is not a single "off-the-shelf" figure. It is based on the 
 - **Accuracy**: High-accuracy results using Ground Control Points (GCPs) and RTK systems increases the technical requirement.
 
 ## Inspection vs Mapping vs Media vs 3D Capture
-Each service uses different hardware and software. A Gaussian Splat or a Digital Twin requires significantly more processing time and data than a standard roof inspection set.
+Each service uses different hardware and software. A TFTS 3D or a Digital Twin requires significantly more processing time and data than a standard roof inspection set.
 
 ## Why cheap drone flights are not the same as usable deliverables
 The UK market has many hobbyist operators. For commercial clients, the value is in the **data reliability, insurance, and compliance**. A "cheap" flight often lacks the technical metadata, accuracy, and professional reporting required for engineering or legal use.
@@ -227,24 +227,24 @@ Drone data can be shared directly with your insurer and your chosen repair contr
   },
   {
     slug: 'gaussian-splat-vs-photogrammetry',
-    title: 'Gaussian Splat vs Photogrammetry: Which 3D Capture Output Do You Need?',
+    title: 'TFTS 3D vs Photogrammetry: Which 3D Capture Output Do You Need?',
     date: '2024-04-05',
     author: 'Digital Construction',
-    category: 'Gaussian Splat & 3D Capture',
+    category: 'TFTS 3D & 3D Capture',
     excerpt: 'A comparison of the two leading 3D drone capture technologies for commercial sites.',
-    metaDescription: 'Compare Gaussian Splatting and Photogrammetry for 3D site visualisation. Learn the strengths, weaknesses, and commercial use cases for each.',
+    metaDescription: 'Compare TFTS 3D modelling and Photogrammetry for 3D site visualisation. Learn the strengths, weaknesses, and commercial use cases for each.',
     readTime: '8 min',
     image: '/images/blog/splat-vs-photo.jpg',
-    relatedServices: ['gaussian-splat-capture', 'photogrammetry'],
+    relatedServices: ['tfts-3d', 'photogrammetry'],
     relatedBundle: { name: 'Immersive Digital Capture Pack', slug: 'immersive-digital-capture-pack' },
     content: `
-## What is a Gaussian Splat?
-A Gaussian Splat is a photorealistic 3D scene reconstructed from images. Unlike a mesh, it preserves lighting, transparency, and complex material properties, making it feel like you are "walking through" a real photo.
+## What is a TFTS 3D?
+A TFTS 3D is a photorealistic 3D scene reconstructed from images. Unlike a mesh, it preserves lighting, transparency, and complex material properties, making it feel like you are "walking through" a real photo.
 
 ## What is photogrammetry?
 Photogrammetry is the science of making measurements from photographs. It produces 3D meshes, point clouds, and orthomosaic maps that are geometrically accurate and measurable.
 
-## Strengths of Gaussian Splat
+## Strengths of TFTS 3D
 - **Visual Realism**: Unmatched photorealistic quality.
 - **Immersive**: Best for stakeholder engagement and marketing.
 - **Speed**: Often faster to process into a viewable scene than a complex high-res mesh.
@@ -255,15 +255,15 @@ Photogrammetry is the science of making measurements from photographs. It produc
 - **Established**: A proven workflow for engineering and construction.
 
 ## Visualisation vs Measurement
-If your goal is to show a client a site and make them "feel" the space, choose a Gaussian Splat. If your goal is to measure the site or integrate it into a design workflow, choose photogrammetry.
+If your goal is to show a client a site and make them "feel" the space, choose a TFTS 3D. If your goal is to measure the site or integrate it into a design workflow, choose photogrammetry.
 
 ## Commercial use cases
-- **Gaussian Splat**: Property marketing, public consultation, heritage records.
+- **TFTS 3D**: Property marketing, public consultation, heritage records.
 - **Photogrammetry**: Topographical surveys, earthworks monitoring, as-built records.
     `,
     faqs: [
       { q: 'Can you have both?', a: 'Yes! We often capture for both workflows in a single flight to provide the best of both worlds—visual impact and technical data.' },
-      { q: 'Is a Gaussian Splat suitable for professional surveying?', a: 'Not by default. It is a visualisation asset. For measurements, we use high-accuracy photogrammetry or LiDAR where scoped.' }
+      { q: 'Is a TFTS 3D suitable for professional surveying?', a: 'Not by default. It is a visualisation asset. For measurements, we use high-accuracy photogrammetry or LiDAR where scoped.' }
     ]
   },
   {
@@ -307,7 +307,7 @@ Orthomosaics are typically delivered as GeoTIFF files for use in GIS/CAD softwar
     title: 'Drone Photogrammetry Explained for Commercial Sites',
     date: '2024-03-25',
     author: 'Digital Construction',
-    category: 'Gaussian Splat & 3D Capture',
+    category: 'TFTS 3D & 3D Capture',
     excerpt: 'Discover how 3D drone models are built and why they are becoming essential for modern project management.',
     metaDescription: 'Explore the world of drone photogrammetry for commercial sites. Learn about 3D meshes, point clouds, and how this data integrates into BIM and CAD workflows.',
     readTime: '7 min',

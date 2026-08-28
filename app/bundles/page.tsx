@@ -19,8 +19,8 @@ import SectionTag from '@/components/ui/SectionTag'
 import FAQAccordion from '@/components/ui/FAQAccordion'
 
 export const metadata: Metadata = {
-  title: 'Commercial Drone Service Packages | Drone Surveys, Inspections & 3D Capture | EntireFM Drone',
-  description: 'EntireFM Drone provides commercial drone service packages for roof inspections, construction monitoring, mapping, thermal surveys, aerial media, Gaussian Splats and digital twin capture.',
+  title: 'Commercial Drone Service Packages | Drone Surveys, Inspections & 3D Capture | TFTS Drone',
+  description: 'TFTS Drone provides commercial drone service packages for roof inspections, construction monitoring, mapping, thermal surveys, aerial media, TFTS 3Ds and digital twin capture.',
 }
 
 const BUNDLES = [
@@ -142,13 +142,13 @@ const BUNDLES = [
     slug: "immersive-digital-capture-pack",
     title: "Immersive Digital Capture Pack",
     icon: Box,
-    positioning: "Advanced visual capture for clients who need more than flat photos — including 3D models, Gaussian Splats, digital twin-style assets and immersive site visualisation.",
+    positioning: "Advanced visual capture for clients who need more than flat photos — including 3D models, TFTS 3Ds, digital twin-style assets and immersive site visualisation.",
     bestFor: ["Developers", "Architects", "Heritage teams", "Film/location scouts", "Property marketers", "Construction teams", "Estate owners", "Public consultation teams"],
-    includes: ["Drone image capture for 3D reconstruction", "Photogrammetry workflow", "Gaussian Splat capture workflow where suitable", "Optional ground-level image capture", "Optional 360 aerial panorama", "Optional edited flythrough video", "Optional digital twin-style web viewer"],
-    deliverables: ["Gaussian Splat visualisation", "3D model", "3D mesh", "Point cloud where required", "Interactive web viewer", "Flythrough video", "Still renders", "Immersive stakeholder presentation asset"],
+    includes: ["Drone image capture for 3D reconstruction", "Photogrammetry workflow", "TFTS 3D capture workflow where suitable", "Optional ground-level image capture", "Optional 360 aerial panorama", "Optional edited flythrough video", "Optional digital twin-style web viewer"],
+    deliverables: ["TFTS 3D visualisation", "3D model", "3D mesh", "Point cloud where required", "Interactive web viewer", "Flythrough video", "Still renders", "Immersive stakeholder presentation asset"],
     cta: "Build an Immersive Site Model",
     links: [
-      { name: "Gaussian Splat Drone Capture", href: "/services/gaussian-splat-capture" },
+      { name: "TFTS 3D Capture", href: "/services/tfts-3d" },
       { name: "Drone Photogrammetry", href: "/services/photogrammetry" },
       { name: "Heritage & Conservation", href: "/services/heritage-conservation-archaeology" },
       { name: "Digital Twin Capture", href: "/services/digital-twin-capture" },
@@ -198,7 +198,7 @@ export default function BundlesPage() {
             <span className="text-accent">BUILT AROUND PROJECT OUTCOMES</span>
           </h1>
           <p className="font-body text-xl text-white/60 max-w-[800px] mx-auto mb-12 leading-relaxed">
-            From roof inspections and construction progress reports to high-accuracy mapping, cinematic content and immersive 3D capture, EntireFM Drone packages drone services around the result you actually need — not just the flight.
+            From roof inspections and construction progress reports to high-accuracy mapping, cinematic content and immersive 3D capture, TFTS Drone packages drone services around the result you actually need — not just the flight.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link href="/brief?source=bundles-hero" className="bg-accent text-dark font-display text-xl tracking-widest px-10 py-4 hover:bg-white transition-all duration-300">
@@ -231,7 +231,7 @@ export default function BundlesPage() {
             </div>
             <h2 className="font-display text-5xl leading-tight mb-8">THE VALUE IS IN THE<br/><span className="text-accent underline underline-offset-8 decoration-accent/30">DELIVERABLE</span></h2>
             <p className="font-body text-white/50 leading-relaxed mb-6">
-              Most clients do not need “a drone flight”. They need evidence, visibility, data, measurements, marketing assets or a clear record of site condition. EntireFM Drone’s commercial bundles are designed to make that process simple by combining capture, reporting and usable deliverables into clear project-focused packages.
+              Most clients do not need “a drone flight”. They need evidence, visibility, data, measurements, marketing assets or a clear record of site condition. TFTS Drone’s commercial bundles are designed to make that process simple by combining capture, reporting and usable deliverables into clear project-focused packages.
             </p>
           </div>
           <div className="bg-dark/40 border border-white/5 p-12 backdrop-blur-sm">
@@ -239,7 +239,7 @@ export default function BundlesPage() {
               &quot;A drone is only the capture method. The value is in what the client can do with the output.&quot;
             </p>
             <p className="font-body text-white/40 leading-relaxed">
-              Whether the requirement is reducing access costs, documenting a roof condition, tracking construction progress, producing investor update content, calculating stockpile volumes or creating an immersive 3D site model, EntireFM Drone structures each project around the final deliverable.
+              Whether the requirement is reducing access costs, documenting a roof condition, tracking construction progress, producing investor update content, calculating stockpile volumes or creating an immersive 3D site model, TFTS Drone structures each project around the final deliverable.
             </p>
           </div>
         </div>
@@ -348,7 +348,7 @@ export default function BundlesPage() {
                   { bundle: "Construction Progress", suited: "Contractors, developers, investors", output: "Regular progress imagery and stakeholder reports", add: "Time-lapse, video edits, site map, investor film" },
                   { bundle: "Survey Data", suited: "Surveyors, landowners, civil contractors", output: "Orthomosaic, point cloud, volume or mapping data", add: "CAD/GIS exports, cut/fill, ground control" },
                   { bundle: "Visual Sales", suited: "Property, venues, tourism, marketing", output: "Aerial images and edited video content", add: "FPV, social clips, 360 panoramas" },
-                  { bundle: "Immersive Digital", suited: "Developers, architects, heritage, digital twin use cases", output: "Gaussian Splat, 3D model or immersive viewer", add: "Photogrammetry, LiDAR, flythrough video" },
+                  { bundle: "Immersive Digital", suited: "Developers, architects, heritage, digital twin use cases", output: "TFTS 3D, 3D model or immersive viewer", add: "Photogrammetry, LiDAR, flythrough video" },
                   { bundle: "Insurance & Incident", suited: "Insurers, loss adjusters, owners, contractors", output: "Damage evidence pack", add: "Thermal imaging, annotated report, emergency visit" },
                 ].map((row, i) => (
                   <tr key={i} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors group">
@@ -371,7 +371,7 @@ export default function BundlesPage() {
           <div className="flex flex-wrap justify-center gap-4">
             {[
               "Roof condition report", "Annotated defect imagery", "Thermal inspection report", 
-              "Orthomosaic map", "Point cloud", "3D model", "Gaussian Splat", 
+              "Orthomosaic map", "Point cloud", "3D model", "TFTS 3D", 
               "Digital twin-style viewer", "Construction progress report", "Stockpile volume report", 
               "Cut and fill calculation", "Marketing video", "FPV flythrough", 
               "360 aerial panorama", "Insurance evidence pack", "Investor update film"
@@ -396,7 +396,7 @@ export default function BundlesPage() {
             {[
               "Thermal imaging", "FPV flythrough", "Edited video production", "Social media clips", 
               "360 aerial panoramas", "Annotated reporting", "Repeat monitoring visits", 
-              "Ground-level image capture", "Photogrammetry processing", "Gaussian Splat processing", 
+              "Ground-level image capture", "Photogrammetry processing", "TFTS 3D processing", 
               "CAD/GIS export support", "Contractor tender evidence pack", "Client portal/image archive", 
               "Emergency response visit", "Before-and-after comparison"
             ].map((addon) => (
@@ -434,7 +434,7 @@ export default function BundlesPage() {
             {[
               { step: "01", title: "Define Outcome", desc: "We establish whether the client needs inspection evidence, survey data, marketing content or visualisation." },
               { step: "02", title: "Plan Capture", desc: "We confirm the flight area, access requirements, safety constraints, weather window and accuracy requirements." },
-              { step: "03", title: "Complete Flight", desc: "EntireFM Drone carries out the drone operation using the appropriate capture workflow for the intended output." },
+              { step: "03", title: "Complete Flight", desc: "TFTS Drone carries out the drone operation using the appropriate capture workflow for the intended output." },
               { step: "04", title: "Process Data", desc: "Images, video, maps, reports, models or data outputs are processed into a usable client-ready format." },
               { step: "05", title: "Deliver Results", desc: "The client receives the agreed deliverables, with clear next-step guidance for maintenance or reporting." }
             ].map((item, idx) => (
@@ -459,11 +459,11 @@ export default function BundlesPage() {
           <h2 className="font-display text-section mb-16 text-center underline decoration-accent/30 underline-offset-8">BUNDLE <span className="text-accent">FAQ</span></h2>
           <FAQAccordion faqs={[
             { question: 'What drone package do I need?', answer: 'Your choice should be based on the required outcome: inspection evidence, survey data, marketing content, progress monitoring or immersive 3D capture. Our specialists can advise the best bundle for your project requirements.' },
-            { question: 'Can you provide a roof inspection report?', answer: 'Yes, EntireFM Drone can provide high-resolution image evidence, annotated defect imagery and inspection summaries depending on the project requirement.' },
+            { question: 'Can you provide a roof inspection report?', answer: 'Yes, TFTS Drone can provide high-resolution image evidence, annotated defect imagery and inspection summaries depending on the project requirement.' },
             { question: 'Can drone surveys replace scaffolding or MEWPs?', answer: 'In many cases drones reduce the need for access equipment during initial inspection and evidence capture, although repair works or hands-on inspection may still require physical access.' },
             { question: 'Can you provide thermal drone inspections?', answer: 'Yes, thermal imaging can be added where suitable for heat loss, roof issues, solar panel anomalies or asset inspection.' },
-            { question: 'Can you create Gaussian Splats or 3D models from drone footage?', answer: 'Yes, where the site and capture conditions are suitable. Gaussian Splats and 3D models are excellent for visualisation, stakeholder engagement and immersive site viewing.' },
-            { question: 'Are drone mapping outputs survey-grade?', answer: 'They can be, where the project is planned with appropriate methodology, control points, processing and accuracy requirements. EntireFM Drone ensures the correct workflow for measurement-critical data.' },
+            { question: 'Can you create TFTS 3Ds or 3D models from drone footage?', answer: 'Yes, where the site and capture conditions are suitable. TFTS 3Ds and 3D models are excellent for visualisation, stakeholder engagement and immersive site viewing.' },
+            { question: 'Are drone mapping outputs survey-grade?', answer: 'They can be, where the project is planned with appropriate methodology, control points, processing and accuracy requirements. TFTS Drone ensures the correct workflow for measurement-critical data.' },
             { question: 'Do you offer ongoing construction monitoring?', answer: 'Yes, repeat drone visits can be arranged weekly, fortnightly or monthly for progress records, stakeholder updates and project documentation.' },
             { question: 'Can you help with insurance evidence?', answer: 'Yes, drone capture can provide fast visual evidence for storm damage, roof issues, fire damage, flood impact and access-restricted areas.' }
           ]} />
@@ -475,7 +475,7 @@ export default function BundlesPage() {
         <div className="max-w-[1000px] mx-auto text-center text-dark">
           <h2 className="font-display text-section mb-8">NEED A DRONE OUTPUT YOU CAN <span className="underline decoration-dark/30 underline-offset-8">ACTUALLY USE</span>?</h2>
           <p className="font-body text-xl mb-12 max-w-[800px] mx-auto leading-relaxed">
-            Whether you need a roof inspection, progress record, survey dataset, marketing content package or immersive 3D site capture, EntireFM Drone can structure the drone operation around the commercial result.
+            Whether you need a roof inspection, progress record, survey dataset, marketing content package or immersive 3D site capture, TFTS Drone can structure the drone operation around the commercial result.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link href="/brief?source=bundles-footer" className="bg-dark text-white font-display text-2xl tracking-[0.2em] px-12 py-5 hover:bg-white hover:text-dark transition-all duration-500">

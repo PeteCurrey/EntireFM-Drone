@@ -6,9 +6,9 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/', '/admin/'],
+        disallow: ['/admin/', '/api/'],
       },
     ],
-    sitemap: 'https://drone.entirefm.com/sitemap.xml',
+    sitemap: 'https://tfts.co.uk/sitemap.xml',
   }
 }

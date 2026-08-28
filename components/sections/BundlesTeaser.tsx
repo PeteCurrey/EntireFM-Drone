@@ -10,7 +10,7 @@ export default function BundlesTeaser() {
     { title: 'Survey Data Pack', desc: 'High-accuracy mapping, orthomosaics and site measurement data.' },
     { title: 'Insurance Evidence Pack', desc: 'Aerial capture for damage assessment and incident records.' },
     { title: 'Visual Sales Pack', desc: 'Cinematic aerial media for property and brand marketing.' },
-    { title: 'Immersive Digital Capture', desc: 'Gaussian Splats and digital twin-style 3D visualisation.' }
+    { title: 'Immersive Digital Capture', desc: 'TFTS 3Ds and digital twin-style 3D visualisation.' }
   ]
 
   return (

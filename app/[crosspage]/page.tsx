@@ -23,19 +23,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = getCrossPageData(crosspage)
   if (!data) return {}
 
-  const title = `${data.service.title} ${data.location.name} — EntireFM Drone`
+  const title = `${data.service.title} ${data.location.name} — TFTS Drone`
   const description = `Professional ${data.service.title.toLowerCase()} in ${data.location.name}. ${data.service.intro} Serving ${data.location.region} with CAA-compliant UAV technology.`
 
   return {
     title,
     description,
+    robots: {
+      index: false,
+      follow: true,
+    },
     alternates: {
       canonical: `/${crosspage}`,
     },
     openGraph: {
       title,
       description,
-      url: `https://drone.entirefm.com/${crosspage}`,
+      url: `https://tfts.co.uk/${crosspage}`,
       images: [{ url: '/images/og-default.jpg' }],
     },
   }
@@ -55,8 +59,8 @@ export default async function CrossPage({ params }: Props) {
     description: service.metaDescription,
     provider: {
       '@type': 'LocalBusiness',
-      name: 'EntireFM Drone',
-      url: 'https://drone.entirefm.com',
+      name: 'TFTS Drone',
+      url: 'https://tfts.co.uk',
       address: {
         '@type': 'PostalAddress',
         addressLocality: location.name,
@@ -109,7 +113,7 @@ export default async function CrossPage({ params }: Props) {
             'fpv-drone-filming': 'photography',
             '360-aerial-panoramas': 'photography',
             'digital-twin-capture': 'surveying',
-            'gaussian-splat-capture': 'surveying',
+            'tfts-3d': 'surveying',
             'construction-progress-photography': 'construction',
             'drone-time-lapse-monitoring': 'construction'
           }
@@ -143,7 +147,7 @@ export default async function CrossPage({ params }: Props) {
             </h1>
 
             <p className="text-sm sm:text-base lg:text-[1.0625rem] font-light text-white/70 max-w-2xl mb-8 opacity-0 animate-[fade-in_1s_1s_forwards] leading-relaxed">
-              {service.intro} EntireFM Drone is the leading provider of {service.title.toLowerCase()} for commercial and industrial clients across {location.name} and {location.region}.
+              {service.intro} TFTS Drone is the leading provider of {service.title.toLowerCase()} for commercial and industrial clients across {location.name} and {location.region}.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-8 opacity-0 animate-[fade-in_1s_1.2s_forwards]">

@@ -24,8 +24,8 @@ import {
 import SectionTag from '@/components/ui/SectionTag'
 
 export const metadata: Metadata = {
-  title: 'Commercial Drone Fleet & Specialist Capture Capability | EntireFM Drone',
-  description: 'Explore EntireFM Drone’s commercial drone capability for inspections, thermal imaging, surveying, mapping, LiDAR-supported workflows, aerial media, Gaussian Splats and digital twin-style capture.',
+  title: 'Commercial Drone Fleet & Specialist Capture Capability | TFTS Drone',
+  description: 'Explore TFTS Drone’s commercial drone capability for inspections, thermal imaging, surveying, mapping, LiDAR-supported workflows, aerial media, TFTS 3Ds and digital twin-style capture.',
 }
 
 export default function FleetPage() {
@@ -124,12 +124,12 @@ export default function FleetPage() {
     {
       id: "immersive",
       title: "3D & Immersive Capture Workflows",
-      purpose: "For Gaussian Splats, photogrammetry, digital twin-style visual records, 360 aerial panoramas and immersive site visualisation.",
-      platforms: ["High-overlap mapping drones", "360-degree capture payloads", "Gaussian Splat-optimized capture workflows"],
+      purpose: "For TFTS 3Ds, photogrammetry, digital twin-style visual records, 360 aerial panoramas and immersive site visualisation.",
+      platforms: ["High-overlap mapping drones", "360-degree capture payloads", "TFTS 3D-optimized capture workflows"],
       copy: "Immersive outputs depend on the capture pattern, image overlap, site coverage, lighting, processing workflow and intended viewer experience. Drone capture can be combined with ground-level imagery where required.",
-      outputs: ["Gaussian Splats", "Photogrammetry models", "3D meshes", "Point clouds", "360 aerial panoramas", "Flythrough videos", "Digital twin-style visual records"],
+      outputs: ["TFTS 3Ds", "Photogrammetry models", "3D meshes", "Point clouds", "360 aerial panoramas", "Flythrough videos", "Digital twin-style visual records"],
       services: [
-        { name: "Gaussian Splat Capture", href: "/services/gaussian-splat-capture" },
+        { name: "TFTS 3D Capture", href: "/services/tfts-3d" },
         { name: "Drone Photogrammetry", href: "/services/photogrammetry" },
         { name: "Digital Twin Capture", href: "/services/digital-twin-capture" },
         { name: "360 Aerial Panoramas", href: "/services/360-aerial-panoramas" }
@@ -164,7 +164,7 @@ export default function FleetPage() {
           </h1>
 
           <p className="font-body text-xl md:text-2xl font-light text-white/50 max-w-4xl mx-auto mb-12 opacity-0 animate-[fade-in_1s_1s_forwards] uppercase tracking-widest">
-            EntireFM Drone specifies drone platforms, sensors and capture workflows around the required output — from roof inspection imagery and thermal evidence to mapping, photogrammetry, LiDAR-supported surveys, aerial media and immersive 3D visualisation.
+            TFTS Drone specifies drone platforms, sensors and capture workflows around the required output — from roof inspection imagery and thermal evidence to mapping, photogrammetry, LiDAR-supported surveys, aerial media and immersive 3D visualisation.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 opacity-0 animate-[fade-in_1s_1.2s_forwards]">
@@ -202,17 +202,17 @@ export default function FleetPage() {
               THE RIGHT PLATFORM FOR THE <br/><span className="text-accent underline underline-offset-8 decoration-accent/30">REQUIRED OUTPUT</span>
             </h2>
             <p className="font-body text-xl text-white/50 leading-relaxed mb-8 uppercase tracking-widest font-light italic">
-              &quot;EntireFM Drone selects the equipment and workflow around the deliverable, site constraints, risk profile and intended use of the output.&quot;
+              &quot;TFTS Drone selects the equipment and workflow around the deliverable, site constraints, risk profile and intended use of the output.&quot;
             </p>
             <p className="font-body text-lg text-white/40 leading-relaxed">
-              Different drone projects require different capture workflows. A roof inspection, solar thermal survey, construction progress flight, stockpile volume survey, FPV flythrough and Gaussian Splat capture do not need the same platform or sensor setup.
+              Different drone projects require different capture workflows. A roof inspection, solar thermal survey, construction progress flight, stockpile volume survey, FPV flythrough and TFTS 3D capture do not need the same platform or sensor setup.
             </p>
           </div>
           <div className="p-12 border border-white/10 bg-dark relative group">
              <AlertCircle className="w-12 h-12 text-accent/20 mb-8" />
              <p className="font-display text-2xl text-white uppercase tracking-widest mb-6">Operational Setup</p>
              <p className="font-body text-white/60 leading-relaxed uppercase tracking-widest text-sm mb-8">
-               Available through our operational fleet and specialist delivery partners, EntireFM Drone works with an operational drone fleet and specialist delivery partners to specify the right platform and payload for each project.
+               Available through our operational fleet and specialist delivery partners, TFTS Drone works with an operational drone fleet and specialist delivery partners to specify the right platform and payload for each project.
              </p>
              <p className="font-ui text-[11px] tracking-[0.2em] uppercase text-accent/60 italic">
                Specialist platforms and payloads can be specified according to project requirements.
@@ -323,7 +323,7 @@ export default function FleetPage() {
            <div className="svc-tag mb-12 inline-flex"><SectionTag number="04" text="Principle" /></div>
            <h2 className="font-display text-6xl text-white uppercase mb-12 tracking-tighter">OUTPUT-FIRST <br/><span className="text-accent">DRONE OPERATIONS</span></h2>
            <p className="font-body text-xl text-white/50 leading-relaxed uppercase tracking-widest font-light mb-20 max-w-3xl mx-auto">
-             EntireFM Drone does not specify equipment simply because it looks impressive on a fleet page. The correct drone is the one that safely captures the required data and produces the deliverable the client can actually use.
+             TFTS Drone does not specify equipment simply because it looks impressive on a fleet page. The correct drone is the one that safely captures the required data and produces the deliverable the client can actually use.
            </p>
 
            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -333,7 +333,7 @@ export default function FleetPage() {
                 { name: "Survey and mapping", href: "/services/surveying-mapping" },
                 { name: "Construction progress", href: "/services/construction-monitoring" },
                 { name: "Commercial media assets", href: "/services/aerial-photography-film" },
-                { name: "Immersive 3D visualization", href: "/services/gaussian-splat-capture" },
+                { name: "Immersive 3D visualization", href: "/services/tfts-3d" },
                 { name: "Insurance evidence packs", href: "/services/insurance-loss-adjuster-surveys" },
                 { name: "Asset condition records", href: "/services/building-envelope-inspections" }
               ].map((item) => (
@@ -366,7 +366,7 @@ export default function FleetPage() {
               { title: "LiDAR", desc: "Uses laser scanning to create point clouds, often useful for terrain, vegetation, corridors and geometry-focused survey work." },
               { title: "FPV Camera", desc: "Used for dynamic close-range flythrough filming and immersive motion-based video content." },
               { title: "360 Capture", desc: "Creates panoramic views for fixed-point interactive viewing and site context." },
-              { title: "High-Overlap Imagery", desc: "Used for photogrammetry, Gaussian Splats, 3D reconstruction and mapping workflows." }
+              { title: "High-Overlap Imagery", desc: "Used for photogrammetry, TFTS 3Ds, 3D reconstruction and mapping workflows." }
             ].map((p) => (
               <div key={p.title} className="bg-dark p-12 group hover:bg-accent/5 transition-all border border-transparent hover:border-accent/20">
                 <h3 className="font-display text-2xl text-white mb-6 uppercase tracking-widest group-hover:text-accent transition-colors leading-tight">{p.title}</h3>
@@ -387,7 +387,7 @@ export default function FleetPage() {
             NOT SURE WHICH DRONE <br/>OR SENSOR YOUR <br/><span className="underline decoration-dark/30 underline-offset-[10px]">PROJECT NEEDS?</span>
           </h2>
           <p className="font-body text-xl md:text-2xl text-dark/70 max-w-3xl mx-auto mb-16 uppercase tracking-widest font-medium leading-relaxed">
-            Tell us the site, the output and the decision you need to make. EntireFM Drone will recommend the right capture workflow, platform and deliverable route.
+            Tell us the site, the output and the decision you need to make. TFTS Drone will recommend the right capture workflow, platform and deliverable route.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
             <Link 
@@ -410,7 +410,7 @@ export default function FleetPage() {
                 <h4 className="font-ui text-[12px] tracking-[0.4em] uppercase font-bold">Operational Integrity</h4>
              </div>
              <p className="font-body text-sm text-dark/60 uppercase tracking-widest max-w-3xl mx-auto italic">
-               EntireFM Drone works with an operational drone fleet and specialist delivery partners to specify the right platform and payload for each project. Some advanced sensors, LiDAR systems or specialist platforms may be deployed through approved partners depending on the project requirement.
+               TFTS Drone works with an operational drone fleet and specialist delivery partners to specify the right platform and payload for each project. Some advanced sensors, LiDAR systems or specialist platforms may be deployed through approved partners depending on the project requirement.
              </p>
           </div>
         </div>

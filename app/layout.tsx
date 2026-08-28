@@ -4,9 +4,10 @@ import './globals.css'
 import { LenisProvider } from '@/lib/lenis'
 import TrackingProvider from '@/components/analytics/TrackingProvider'
 import PublicLayoutWrapper from '@/components/layout/PublicLayoutWrapper'
+import { SITE_URL } from '@/lib/brand'
 
-// Work Sans — EntireFM masterbrand typeface
-// 200 = dominant display/headlines, 300 = supporting UI, 400 = body copy, 700 = FM wordmark bold
+// Work Sans — TFTS Drone brand typeface
+// 200 = dominant display/headlines, 300 = supporting UI, 400 = body copy, 700 = wordmark
 const workSans = Work_Sans({
   subsets: ['latin'],
   weight: ['200', '300', '400', '700'],
@@ -15,24 +16,27 @@ const workSans = Work_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'EntireFM Drone Services — Aerial Intelligence for Facilities & Engineering',
-  description: 'EntireFM Drone delivers CAA-compliant aerial inspection, surveying, thermal imaging and site intelligence for property, construction, infrastructure and FM teams across the UK. Inspect. Identify. Remediate.',
-  keywords: 'drone inspection, aerial photography, UAV surveying, drone mapping, facilities management, construction monitoring, drone services UK, CAA compliant, EntireFM',
-  metadataBase: new URL('https://drone.entirefm.com'),
+  title: {
+    template: '%s | TFTS Drone',
+    default: 'Commercial Drone Surveys & Inspections | TFTS Drone',
+  },
+  description: 'TFTS Drone (Technical Flight & Thermal Surveys) provides commercial drone inspections, roof surveys, thermal imaging, mapping, construction monitoring and high-fidelity 3D capture across the UK.',
+  keywords: 'drone inspection, aerial survey, drone roof survey, thermal imaging drone, UAV surveying, drone mapping, construction monitoring, drone services UK, TFTS Drone, Technical Flight and Thermal Surveys',
+  metadataBase: new URL('https://tfts.co.uk'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'EntireFM Drone Services — Aerial Intelligence for Facilities & Engineering',
-    description: 'CAA-compliant drone inspection, surveying, thermal imaging and site intelligence — integrated with facilities management and engineering delivery. Part of EntireFM.',
-    url: 'https://drone.entirefm.com',
-    siteName: 'EntireFM Drone Services',
+    title: 'Commercial Drone Surveys & Inspections | TFTS Drone',
+    description: 'Commercial drone inspections, roof surveys, thermal imaging, mapping and high-fidelity 3D capture across the UK. TFTS Drone — Technical Flight & Thermal Surveys.',
+    url: 'https://tfts.co.uk',
+    siteName: 'TFTS Drone',
     images: [
       {
         url: '/images/og-default.jpg',
         width: 1200,
         height: 630,
-        alt: 'EntireFM Drone Services — Aerial Intelligence',
+        alt: 'TFTS Drone — Technical Flight & Thermal Surveys',
       },
     ],
     type: 'website',
@@ -40,8 +44,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'EntireFM Drone Services — Aerial Intelligence',
-    description: 'CAA-compliant drone inspection, surveying, thermal imaging and site intelligence. Part of EntireFM.',
+    title: 'Commercial Drone Surveys & Inspections | TFTS Drone',
+    description: 'Commercial drone inspections, roof surveys, thermal imaging and 3D capture across the UK. TFTS Drone.',
     images: ['/images/og-default.jpg'],
   },
 }
@@ -49,13 +53,14 @@ export const metadata: Metadata = {
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  '@id': 'https://drone.entirefm.com',
-  name: 'EntireFM Drone Services',
-  description: 'Specialist aerial intelligence platform for facilities management, construction, infrastructure and property. Part of EntireFM.',
-  url: 'https://drone.entirefm.com',
+  '@id': 'https://tfts.co.uk/#organization',
+  name: 'TFTS Drone',
+  alternateName: 'Technical Flight & Thermal Surveys',
+  description: 'Specialist commercial drone inspection, thermal imaging, surveying and 3D digital capture across the UK.',
+  url: 'https://tfts.co.uk',
   parentOrganization: {
     '@type': 'Organization',
-    name: 'EntireFM',
+    name: 'EntireFM Ltd',
     url: 'https://www.entirefm.com',
   },
   areaServed: {
@@ -64,21 +69,29 @@ const organizationSchema = {
   },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Drone Services',
+    name: 'Drone Survey & Inspection Services',
     itemListElement: [
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Drone Inspection' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Aerial Photography' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Drone Roof Inspection' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Thermal Drone Survey' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Aerial Photography & Videography' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Drone Surveying & Mapping' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Construction Monitoring' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Thermal Imaging' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Agricultural Surveys' } },
-      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Events Drone Coverage' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Construction Progress Monitoring' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'TFTS 3D Interactive Capture' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Solar PV Drone Inspection' } },
     ],
   },
   sameAs: [
     'https://www.entirefm.com',
-    'https://www.entirefm.com/services/drone-services',
   ],
+}
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://tfts.co.uk/#website',
+  name: 'TFTS Drone',
+  url: 'https://tfts.co.uk',
+  publisher: { '@id': 'https://tfts.co.uk/#organization' },
 }
 
 const faqSchema = {
@@ -90,7 +103,7 @@ const faqSchema = {
       name: 'What are the weather constraints for drone flight?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Our enterprise assets like the Matrice 350 RTK are IP55 rated, allowing for operation in light rain and winds up to 12m/s. For high-precision surveying or thermal auditing, we recommend dry conditions for maximum data integrity.',
+        text: 'Our enterprise platforms are IP55 rated, allowing operation in light rain and winds up to 12m/s. For high-precision surveying or thermal auditing, dry conditions provide maximum data integrity.',
       },
     },
     {
@@ -106,31 +119,23 @@ const faqSchema = {
       name: 'How quickly is drone survey data delivered?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Standard visual data is delivered within defined working days. Complex LiDAR point clouds or 3D digital twins typically require 3–5 business days for full processing and quality assurance.',
+        text: 'Standard visual data is delivered within defined working days. Complex outputs such as 3D models or thermal analysis typically require 3–5 business days for processing and quality assurance.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Are you insured for high-risk drone environments?',
+      name: 'Are you insured for commercial drone environments?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. We carry comprehensive Public Liability Insurance specifically tailored for commercial UAV operations in industrial and urban environments.',
+        text: 'Yes. TFTS Drone carries comprehensive Public Liability Insurance specifically for commercial UAV operations in industrial and urban environments.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Do you handle NOTAMs and permissions?',
+      name: 'Do you handle NOTAMs and airspace permissions?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'As part of our mission planning, we manage all necessary NOTAMs, landowner permissions, and stakeholder notifications to ensure a fully compliant and friction-free deployment.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How does EntireFM Drone integrate with facilities management?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'EntireFM Drone can inspect an inaccessible asset by drone and then coordinate the physical repair, compliance record, client evidence and CAFM history — providing a complete inspect-to-remediate workflow under one organisation.',
+        text: 'As part of mission planning, we manage all necessary NOTAMs, landowner permissions and stakeholder notifications to ensure a fully compliant deployment.',
       },
     },
   ],
@@ -157,6 +162,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
         <script
           type="application/ld+json"

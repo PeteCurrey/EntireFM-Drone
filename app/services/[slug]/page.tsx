@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: service.metaTitle,
       description: service.metaDescription,
-      url: `https://drone.entirefm.com/services/${slug}`,
+      url: `https://tfts.co.uk/services/${slug}`,
       images: [{ url: '/images/og-default.jpg' }],
     },
   }
@@ -49,7 +49,7 @@ export default async function ServicePage({ params }: Props) {
     description: service.metaDescription,
     provider: {
       '@type': 'LocalBusiness',
-      name: 'EntireFM Drone',
+      name: 'TFTS Drone',
     },
     areaServed: {
       '@type': 'Country',
@@ -99,7 +99,7 @@ export default async function ServicePage({ params }: Props) {
             'lidar-point-cloud-surveys': 'surveying',
             'photogrammetry': 'surveying',
             'digital-twin-capture': 'surveying',
-            'gaussian-splat-capture': 'surveying',
+            'tfts-3d': 'surveying',
             'cut-fill-analysis': 'surveying',
             'stockpile-volume-surveys': 'surveying',
             'construction-monitoring': 'construction',

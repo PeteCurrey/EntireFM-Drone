@@ -7,7 +7,7 @@ export default function LeadMagnetsAdminPage() {
   const magnets = [
     { title: 'Drone Roof Inspection Checklist', downloads: 342, leads: 45, status: 'Live' },
     { title: 'Facilities Manager’s Drone Guide', downloads: 185, leads: 22, status: 'Live' },
-    { title: 'Gaussian Splat vs Photogrammetry', downloads: 92, leads: 12, status: 'Live' },
+    { title: 'TFTS 3D vs Photogrammetry', downloads: 92, leads: 12, status: 'Live' },
   ]
 
   return (

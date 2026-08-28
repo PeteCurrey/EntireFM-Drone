@@ -40,7 +40,7 @@ const INTENT_OPTIONS = [
   { id: 'construction', label: 'Monitor construction or project progress', desc: 'Route toward Construction Monitoring, Progress Photography, Time-Lapse' },
   { id: 'insurance', label: 'Capture evidence for insurance, damage or an incident', desc: 'Route toward Insurance & Claims, Emergency Response, Thermal Imaging' },
   { id: 'media', label: 'Create aerial photography or video', desc: 'Route toward Aerial Photography & Film, Events & Media, FPV' },
-  { id: 'visualisation', label: 'Create immersive 3D visualisation', desc: 'Route toward Gaussian Splat, Digital Twin Capture, Photogrammetry' },
+  { id: 'visualisation', label: 'Create immersive 3D visualisation', desc: 'Route toward TFTS 3D, Digital Twin Capture, Photogrammetry' },
   { id: 'energy', label: 'Inspect solar panels or energy assets', desc: 'Route toward Solar Panel Inspections, Thermal Imaging, Utilities' },
   { id: 'not-sure', label: 'I’m not sure yet', desc: 'We will help you identify the right route based on your project goals' },
 ]
@@ -56,7 +56,7 @@ const SITE_TYPES = [
 const DELIVERABLE_OPTIONS = [
   'High-resolution image set', 'Annotated inspection images', 'PDF inspection summary',
   'Thermal image set', 'Edited drone video', 'Social media clips',
-  'Orthomosaic map', 'Point cloud', '3D model', 'Gaussian Splat',
+  'Orthomosaic map', 'Point cloud', '3D model', 'TFTS 3D',
   'Digital twin-style viewer', '360 aerial panorama', 'Stockpile volume report',
   'Cut and fill calculation', 'Construction progress report', 'Insurance evidence pack',
   'Contractor briefing pack', 'Not sure yet'
@@ -89,7 +89,7 @@ function getRecommendation(state: AssistantState) {
       serviceSlug: 'drone-inspection',
       bundle: 'Roof Intelligence Pack',
       bundleSlug: 'roof-intelligence-pack',
-      summary: 'Based on your answers, this project looks like a roof or building inspection requirement. EntireFM Drone would usually start with drone inspection capture and, where useful, add thermal imaging or annotated reporting.',
+      summary: 'Based on your answers, this project looks like a roof or building inspection requirement. TFTS Drone would usually start with drone inspection capture and, where useful, add thermal imaging or annotated reporting.',
       deliverables: ['High-resolution image set', 'Annotated inspection images', 'PDF inspection summary', 'Optional thermal image set', 'Contractor briefing pack'],
       considerations: ['Site access', 'Nearby people and property', 'Airspace review', 'Weather window', 'Required reporting level']
     }
@@ -133,12 +133,12 @@ function getRecommendation(state: AssistantState) {
 
   if (intent === 'visualisation' || intent === 'visualisation') {
     return {
-      service: 'Gaussian Splat Capture',
-      serviceSlug: 'gaussian-splat-capture',
+      service: 'TFTS 3D Capture',
+      serviceSlug: 'tfts-3d',
       bundle: 'Immersive Digital Capture Pack',
       bundleSlug: 'immersive-digital-capture-pack',
-      summary: 'For immersive 3D visualisation, Gaussian Splatting provides the highest level of visual fidelity. We create photorealistic digital replicas that allow stakeholders to navigate the site virtually.',
-      deliverables: ['Gaussian Splat', '3D model', 'Screenshot set', 'Flythrough video', 'Web-ready viewer'],
+      summary: 'For immersive 3D visualisation, TFTS 3D modelling provides the highest level of visual fidelity. We create photorealistic digital replicas that allow stakeholders to navigate the site virtually.',
+      deliverables: ['TFTS 3D', '3D model', 'Screenshot set', 'Flythrough video', 'Web-ready viewer'],
       considerations: ['Visual vs Measurement priority', 'Site lighting/weather', 'Viewing platform (Web/Desktop/VR)', 'Data hosting']
     }
   }
@@ -161,7 +161,7 @@ function getRecommendation(state: AssistantState) {
     serviceSlug: 'drone-inspection',
     bundle: 'Custom Project Scoping',
     bundleSlug: 'roof-intelligence-pack',
-    summary: 'Based on your requirements, we recommend a custom scoping session. EntireFM Drone will review your project goals and advise on the most effective drone capture strategy.',
+    summary: 'Based on your requirements, we recommend a custom scoping session. TFTS Drone will review your project goals and advise on the most effective drone capture strategy.',
     deliverables: ['Custom project plan', 'Scoping document', 'Technical advice', 'Deliverable recommendation'],
     considerations: ['Operational feasibility', 'Regulatory compliance', 'Equipment selection', 'Budget alignment']
   }
@@ -250,7 +250,7 @@ export default function ProjectBriefAssistant() {
       'construction': 'Monitor construction progress',
       'insurance': 'Capture evidence for insurance or damage',
       'media': 'Create aerial photography or video',
-      'visualisation': 'Create a Gaussian Splat or immersive 3D model',
+      'visualisation': 'Create a TFTS 3D or immersive 3D model',
       'energy': 'Inspect solar panels or energy assets'
     }
     
@@ -645,7 +645,7 @@ export default function ProjectBriefAssistant() {
                    <Info className="w-6 h-6 text-accent/20 mb-6" />
                    <div className="font-ui text-[10px] tracking-[0.3em] uppercase text-white/30 mb-4">What Happens Next?</div>
                    <p className="font-body text-[10px] text-white/20 uppercase tracking-widest leading-relaxed">
-                     Your recommendations will be passed into the project briefing form. EntireFM Drone will then perform a full operational review including airspace and site safety before providing a final scope and quote.
+                     Your recommendations will be passed into the project briefing form. TFTS Drone will then perform a full operational review including airspace and site safety before providing a final scope and quote.
                    </p>
                 </div>
               </div>

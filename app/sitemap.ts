@@ -3,7 +3,7 @@ import { servicesData } from '@/lib/services-data'
 import { locationsData } from '@/lib/locations-data'
 import { blogPosts } from '@/lib/blog-posts'
 
-const BASE_URL = 'https://drone.entirefm.com'
+const BASE_URL = 'https://tfts.co.uk'
 
 const services = servicesData.map(s => s.slug)
 const locations = locationsData.map(l => l.slug)
@@ -14,76 +14,64 @@ const industries = [
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = [
-    { url: BASE_URL, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 1 },
-    { url: `${BASE_URL}/services`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.9 },
-    { url: `${BASE_URL}/fleet`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.7 },
-    { url: `${BASE_URL}/team`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.7 },
-    { url: `${BASE_URL}/portfolio`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.8 },
-    { url: `${BASE_URL}/resources`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.8 },
-    { url: `${BASE_URL}/brief`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.8 },
-    { url: `${BASE_URL}/contact`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.8 },
-    { url: `${BASE_URL}/cost-estimator`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.85 },
-    { url: `${BASE_URL}/project-brief-assistant`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.85 },
-    { url: `${BASE_URL}/choose-your-output`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.8 },
-    { url: `${BASE_URL}/sample-deliverables`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.75 },
-    { url: `${BASE_URL}/operations-standard`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.75 },
-    { url: `${BASE_URL}/showreel`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.7 },
-    { url: `${BASE_URL}/gaussian-splat`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.6 },
-    { url: `${BASE_URL}/bundles`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.8 },
-    { url: `${BASE_URL}/sectors`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.85 },
-    { url: `${BASE_URL}/pricing-guidance`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.75 },
-  ] as MetadataRoute.Sitemap
+  const staticPages: MetadataRoute.Sitemap = [
+    { url: BASE_URL, changeFrequency: 'weekly', priority: 1.0 },
+    { url: `${BASE_URL}/services`, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE_URL}/sectors`, changeFrequency: 'monthly', priority: 0.85 },
+    { url: `${BASE_URL}/tfts-3d`, changeFrequency: 'monthly', priority: 0.85 },
+    { url: `${BASE_URL}/portfolio`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/resources`, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/bundles`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/brief`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/contact`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/cost-estimator`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/project-brief-assistant`, changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${BASE_URL}/choose-your-output`, changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${BASE_URL}/sample-deliverables`, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/operations-standard`, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/showreel`, changeFrequency: 'monthly', priority: 0.65 },
+    { url: `${BASE_URL}/pricing-guidance`, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/fleet`, changeFrequency: 'monthly', priority: 0.65 },
+    { url: `${BASE_URL}/team`, changeFrequency: 'monthly', priority: 0.65 },
+  ]
 
-  const resourcePages = blogPosts.map(p => ({
+  const resourcePages: MetadataRoute.Sitemap = blogPosts.map(p => ({
     url: `${BASE_URL}/resources/${p.slug}`,
-    lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }))
 
-  const servicePages = services.map(s => ({
+  const servicePages: MetadataRoute.Sitemap = services.map(s => ({
     url: `${BASE_URL}/services/${s}`,
-    lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.85,
   }))
 
-  const locationPages = locations.map(l => ({
+  const locationPages: MetadataRoute.Sitemap = locations.map(l => ({
     url: `${BASE_URL}/locations/${l}`,
-    lastModified: new Date(),
     changeFrequency: 'monthly' as const,
-    priority: 0.75,
+    priority: 0.7,
   }))
 
-  const industryPages = industries.map(i => ({
+  const industryPages: MetadataRoute.Sitemap = industries.map(i => ({
     url: `${BASE_URL}/industries/${i}`,
-    lastModified: new Date(),
     changeFrequency: 'monthly' as const,
-    priority: 0.75,
+    priority: 0.7,
   }))
 
-  const sectorPages = [
+  const sectorPages: MetadataRoute.Sitemap = [
     'construction', 'facilities-management', 'commercial-property',
     'utilities-energy', 'solar-renewable-energy', 'agriculture-rural-estates',
     'events-venues-media', 'insurance-loss-adjusters', 'infrastructure',
     'heritage-conservation', 'surveyors',
   ].map(s => ({
     url: `${BASE_URL}/sectors/${s}`,
-    lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }))
 
-  // Cross pages: /drone-inspection-london etc — highest commercial value
-  const crossPages = services.flatMap(s =>
-    locations.map(l => ({
-      url: `${BASE_URL}/${s}-${l}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    }))
-  )
+  // NOTE: Programmatic cross pages (service × location) are omitted from sitemap
+  // and set to noindex until audited per Phase 1 Technical SEO policy.
 
   return [
     ...staticPages,
@@ -92,6 +80,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...locationPages,
     ...industryPages,
     ...sectorPages,
-    ...crossPages,
   ]
 }

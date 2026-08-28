@@ -106,7 +106,7 @@ const OUTCOME_OPTIONS: Option[] = [
   {
     id: '3d',
     title: 'Create immersive 3D visualisation',
-    description: 'For Gaussian Splats, photogrammetry, 3D models, digital twin-style records, or 360 panoramas.',
+    description: 'For TFTS 3Ds, photogrammetry, 3D models, digital twin-style records, or 360 panoramas.',
     icon: Box,
     routeTo: 'immersive-3d'
   },
@@ -142,7 +142,7 @@ const STYLE_OPTIONS: Option[] = [
   { id: 'technical', title: 'Technical data', description: 'Maps, point clouds, volume calculations or 3D models.' },
   { id: 'report', title: 'Report or evidence pack', description: 'PDF summaries, insurance support or FM documents.' },
   { id: 'media', title: 'Media assets', description: 'Edited video, social clips, or property visuals.' },
-  { id: 'interactive', title: 'Interactive visualisation', description: 'Gaussian Splat, 360 panorama or immersive viewer.' }
+  { id: 'interactive', title: 'Interactive visualisation', description: 'TFTS 3D, 360 panorama or immersive viewer.' }
 ]
 
 const RESULTS: Record<string, Result> = {
@@ -285,9 +285,9 @@ const RESULTS: Record<string, Result> = {
     id: 'immersive-3d',
     title: 'Immersive 3D Visualisation',
     description: 'This is best when you need a site, building, or asset to be explored visually rather than viewed as flat media.',
-    deliverables: ['Gaussian Splat', '3D model', '360 aerial panorama', 'Web-ready viewer'],
+    deliverables: ['TFTS 3D', '3D model', '360 aerial panorama', 'Web-ready viewer'],
     services: [
-      { name: 'Gaussian Splat Capture', href: '/services/gaussian-splat-capture' },
+      { name: 'TFTS 3D Capture', href: '/services/tfts-3d' },
       { name: 'Drone Digital Twin Capture', href: '/services/digital-twin-capture' },
       { name: 'Drone Photogrammetry', href: '/services/photogrammetry' }
     ],
@@ -295,10 +295,10 @@ const RESULTS: Record<string, Result> = {
       { name: 'Immersive Digital Capture Pack', href: '/bundles#immersive-digital-capture-pack' }
     ],
     samples: [
-      { name: 'Gaussian Splat Visualisation', href: '/sample-deliverables' },
+      { name: 'TFTS 3D Visualisation', href: '/sample-deliverables' },
       { name: 'Digital Twin-Style Visual Record', href: '/sample-deliverables' }
     ],
-    caveat: 'Gaussian Splats are visualisation-first assets. Measurement-critical outputs should use photogrammetry or LiDAR.',
+    caveat: 'TFTS 3Ds are visualisation-first assets. Measurement-critical outputs should use photogrammetry or LiDAR.',
     ctaLabel: 'Request Immersive Capture Brief'
   },
   'fm-records': {
@@ -643,7 +643,7 @@ Recommended Route: ${result?.title}.`
                    { title: 'Progress Records', icon: Hammer, best: 'Construction updates, repeat visits and stakeholder reporting.' },
                    { title: 'Media Assets', icon: Video, best: 'Marketing, property, venues, events and social content.' },
                    { title: 'Thermal Evidence', icon: Zap, best: 'Heat loss, solar anomalies, roof issues and asset temperature review.' },
-                   { title: '3D Visualisation', icon: Box, best: 'Gaussian Splats, photogrammetry, immersive viewing and digital twin records.' }
+                   { title: '3D Visualisation', icon: Box, best: 'TFTS 3Ds, photogrammetry, immersive viewing and digital twin records.' }
                  ].map(item => (
                    <div key={item.title} className="bg-dark p-10 flex flex-col h-full">
                       <div className="p-4 bg-white/5 w-fit rounded-sm mb-8">

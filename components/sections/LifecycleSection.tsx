@@ -22,7 +22,7 @@ export default function LifecycleSection() {
       title: 'Process',
       subtitle: 'Geospatial Reconstruction',
       icon: Cpu,
-      desc: 'Raw aerial imagery and telemetry are processed through photogrammetry, Gaussian Splatting and point cloud pipelines calibrated to real-world ground control.',
+      desc: 'Raw aerial imagery and telemetry are processed through photogrammetry, TFTS 3D modelling and point cloud pipelines calibrated to real-world ground control.',
       deliverable: 'Orthomosaics / 3D Point Clouds / Digital Elevation Models',
     },
     {
@@ -38,7 +38,7 @@ export default function LifecycleSection() {
       title: 'Act',
       subtitle: 'Operational Intervention',
       icon: Wrench,
-      desc: 'Aerial findings seamlessly convert into physical work orders executed by EntireFM’s nationwide facilities, maintenance and engineering teams.',
+      desc: 'Aerial findings seamlessly convert into physical work orders executed by TFTS Drone’s nationwide facilities, maintenance and engineering teams.',
       deliverable: 'CAFM Work Orders / Contractor Briefings / Access Strategy',
     },
     {
@@ -62,7 +62,7 @@ export default function LifecycleSection() {
               <span className="text-accent">INTELLIGENCE LIFECYCLE</span>
             </h2>
             <p className="font-body text-lg text-white/50 uppercase tracking-widest font-light leading-relaxed max-w-2xl">
-              This is not just someone with a drone. EntireFM Drone captures, interprets and converts physical assets into actionable operational intelligence.
+              This is not just someone with a drone. TFTS Drone captures, interprets and converts physical assets into actionable operational intelligence.
             </p>
           </div>
           <div className="lg:col-span-4 flex justify-start lg:justify-end">

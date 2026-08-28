@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = blogPosts.find(p => p.slug === slug)
   if (!post) return {}
 
-  const title = `${post.title} | EntireFM Drone`
+  const title = `${post.title} | TFTS Drone`
   
   return {
     title,
@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title,
       description: post.metaDescription || post.excerpt,
-      url: `https://drone.entirefm.com/resources/${slug}`,
+      url: `https://tfts.co.uk/resources/${slug}`,
       images: [{ url: post.image }],
       type: 'article',
     },
@@ -66,19 +66,19 @@ export default async function ResourceArticlePage({ params }: Props) {
     '@type': 'Article',
     headline: post.title,
     description: post.metaDescription || post.excerpt,
-    image: `https://drone.entirefm.com${post.image}`,
+    image: `https://tfts.co.uk${post.image}`,
     datePublished: post.date,
     author: {
       '@type': 'Organization',
-      name: 'EntireFM Drone',
+      name: 'TFTS Drone',
     },
     publisher: {
       '@type': 'Organization',
-      name: 'EntireFM Drone',
+      name: 'TFTS Drone',
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://drone.entirefm.com/resources/${slug}`,
+      '@id': `https://tfts.co.uk/resources/${slug}`,
     },
   }
 
@@ -204,7 +204,7 @@ export default async function ResourceArticlePage({ params }: Props) {
                      {post.slug.includes('thermal') && <p>— Thermal imaging can indicate temperature anomalies but should be interpreted in context and verified where required.</p>}
                      {post.slug.includes('survey') && <p>— Survey-grade outputs require suitable methodology, control, processing and accuracy verification.</p>}
                      {post.slug.includes('insurance') && <p>— Drone evidence can support claim documentation but acceptance depends on the insurer, policy, claim context and required evidence.</p>}
-                     {post.slug.includes('gaussian') && <p>— Gaussian Splats are visualisation-first assets and should not be treated as survey-grade by default.</p>}
+                     {post.slug.includes('gaussian') && <p>— TFTS 3Ds are visualisation-first assets and should not be treated as survey-grade by default.</p>}
                   </div>
                </div>
 

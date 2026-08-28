@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import PortalLayout from '@/components/portals/PortalLayout'
 
 export const metadata: Metadata = {
-  title: 'Construction Monitoring Client Portal Demo | EntireFM Drone',
+  title: 'Construction Monitoring Client Portal Demo | TFTS Drone',
   description: 'View a representative construction progress portal showing dated image archives, milestone records, site updates and stakeholder reporting outputs.',
 }
 
