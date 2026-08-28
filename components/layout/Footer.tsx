@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { servicesData } from '@/lib/services-data'
 import { locationsData } from '@/lib/locations-data'
 import { industriesData } from '@/lib/industries-data'
+import EntireFMLogo from '@/components/ui/EntireFMLogo'
 
 export default function Footer() {
   const highIntentLocations = locationsData.filter(l => 
@@ -15,10 +16,10 @@ export default function Footer() {
         {/* Part of EntireFM masterbrand strip */}
         <div className="mb-16 pb-8 border-b border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div>
-            <div className="font-display text-4xl text-white tracking-tighter mb-2">
-              ENTIREFM<span className="text-accent"> DRONE</span>
+            <div className="mb-2">
+              <EntireFMLogo animated={false} size="w-10" showDescriptor className="gap-2.5" />
             </div>
-            <div className="font-ui text-[11px] tracking-[0.3em] uppercase text-white/40">
+            <div className="text-[11px] font-light tracking-[0.3em] uppercase text-white/35 mt-3">
               Aerial Intelligence
             </div>
           </div>
@@ -27,7 +28,7 @@ export default function Footer() {
               href="https://www.entirefm.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="font-ui text-[11px] tracking-[0.25em] uppercase text-accent hover:text-white transition-colors flex items-center gap-2"
+              className="text-[11px] font-light tracking-[0.25em] uppercase text-accent hover:text-white transition-colors flex items-center gap-2"
             >
               <span className="w-4 h-[1px] bg-accent" />
               Part of EntireFM →
@@ -36,7 +37,7 @@ export default function Footer() {
               href="https://www.entirefm.com/services/drone-services"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-ui text-[11px] tracking-[0.25em] uppercase text-white/40 hover:text-white transition-colors"
+              className="text-[11px] font-light tracking-[0.25em] uppercase text-white/40 hover:text-white transition-colors"
             >
               EntireFM Drone Services Hub
             </Link>

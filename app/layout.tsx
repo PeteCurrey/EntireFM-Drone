@@ -1,29 +1,17 @@
 import type { Metadata } from 'next'
-import { Bebas_Neue, Barlow, Barlow_Condensed } from 'next/font/google'
+import { Work_Sans } from 'next/font/google'
 import './globals.css'
 import { LenisProvider } from '@/lib/lenis'
 import TrackingProvider from '@/components/analytics/TrackingProvider'
 import PublicLayoutWrapper from '@/components/layout/PublicLayoutWrapper'
 
-const bebasNeue = Bebas_Neue({
-  weight: '400',
+// Work Sans — EntireFM masterbrand typeface
+// 200 = dominant display/headlines, 300 = supporting UI, 400 = body copy, 700 = FM wordmark bold
+const workSans = Work_Sans({
   subsets: ['latin'],
-  variable: '--font-display',
+  weight: ['200', '300', '400', '700'],
   display: 'swap',
-})
-
-const barlow = Barlow({
-  weight: ['300', '400', '500'],
-  subsets: ['latin'],
-  variable: '--font-body',
-  display: 'swap',
-})
-
-const barlowCondensed = Barlow_Condensed({
-  weight: ['200', '300', '400'],
-  subsets: ['latin'],
-  variable: '--font-ui',
-  display: 'swap',
+  variable: '--font-work-sans',
 })
 
 export const metadata: Metadata = {
@@ -156,7 +144,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bebasNeue.variable} ${barlow.variable} ${barlowCondensed.variable}`}
+      className={workSans.variable}
     >
       <head>
         {/* LCP hero poster preload — server-rendered for maximum speed */}

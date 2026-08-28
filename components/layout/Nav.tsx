@@ -1,13 +1,14 @@
 'use client'
 
 // components/layout/Nav.tsx
-'use client'
 
 import { useEffect, useState, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useLenis } from '@/lib/lenis'
 import { Rocket, Menu, X, ChevronDown, Box, ShieldCheck, Zap, BarChart3, Hammer, Building2, Search, Camera, Database, LayoutGrid } from 'lucide-react'
+import EntireFMLogo from '@/components/ui/EntireFMLogo'
+
 
 const sectorMenu = [
   {
@@ -124,18 +125,20 @@ export default function Nav() {
         <div className="max-w-[1700px] mx-auto flex justify-between items-center relative">
           {/* Logo */}
           <div className="flex items-center gap-4">
-            <Link href="/" className="flex items-center gap-2 group" onClick={() => { setMobileMenuOpen(false); setActiveMenu(null); }}>
-              <span className="font-display text-2xl md:text-3xl tracking-[0.15em] text-white">ENTIREFM</span>
-              <span className="font-display text-2xl md:text-3xl tracking-[0.15em] text-accent">DRONE</span>
+            <Link href="/" className="flex items-center gap-0 group" onClick={() => { setMobileMenuOpen(false); setActiveMenu(null); }}>
+              <EntireFMLogo animated size="w-9" showDescriptor className="gap-2" />
+              <span className="ml-2.5 text-[10px] font-light tracking-[0.22em] uppercase text-white/40 border-l border-white/10 pl-2.5">
+                Drone
+              </span>
             </Link>
-            <div className="hidden sm:block w-[1px] h-6 bg-white/10" />
+            <div className="hidden sm:block w-[1px] h-5 bg-white/10" />
             <Link
               href="https://www.entirefm.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-block font-ui text-[10px] tracking-[0.2em] uppercase text-white/40 hover:text-accent transition-colors"
+              className="hidden sm:inline-block text-[10px] font-light tracking-[0.2em] uppercase text-white/35 hover:text-accent transition-colors"
             >
-              Part of EntireFM ↗
+              entirefm.com ↗
             </Link>
           </div>
 
@@ -149,7 +152,7 @@ export default function Nav() {
             >
               <Link 
                 href="/services" 
-                className={`font-ui text-[15px] font-medium tracking-[0.2em] uppercase transition-colors flex items-center gap-2 ${activeMenu === 'services' ? 'text-accent' : 'text-white/80 hover:text-white'}`}
+                className={`font-light text-[13px] tracking-[0.12em] transition-colors flex items-center gap-2 ${activeMenu === 'services' ? 'text-accent' : 'text-white/80 hover:text-white'}`}
               >
                 Services <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeMenu === 'services' ? 'rotate-180 text-accent' : ''}`} />
               </Link>
@@ -163,17 +166,17 @@ export default function Nav() {
             >
               <Link 
                 href="/bundles" 
-                className={`font-ui text-[15px] font-medium tracking-[0.2em] uppercase transition-colors flex items-center gap-2 ${activeMenu === 'packages' ? 'text-accent' : 'text-white/80 hover:text-white'}`}
+                className={`font-light text-[13px] tracking-[0.12em] transition-colors flex items-center gap-2 ${activeMenu === 'packages' ? 'text-accent' : 'text-white/80 hover:text-white'}`}
               >
                 Packages <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeMenu === 'packages' ? 'rotate-180 text-accent' : ''}`} />
               </Link>
             </div>
 
-            <Link href="/sectors" className="font-ui text-[15px] font-medium tracking-[0.2em] uppercase text-white/80 hover:text-white transition-colors">
+            <Link href="/sectors" className="font-light text-[13px] tracking-[0.12em] text-white/75 hover:text-white transition-colors">
               Sectors
             </Link>
 
-            <Link href="/gaussian-splat" className="font-ui text-[15px] font-medium tracking-[0.2em] uppercase text-white/80 hover:text-white transition-colors">
+            <Link href="/gaussian-splat" className="font-light text-[13px] tracking-[0.12em] text-white/75 hover:text-white transition-colors">
               Gaussian Splat
             </Link>
 
@@ -185,13 +188,13 @@ export default function Nav() {
             >
               <Link 
                 href="/portfolio" 
-                className={`font-ui text-[15px] font-medium tracking-[0.2em] uppercase transition-colors flex items-center gap-2 ${activeMenu === 'portfolio' ? 'text-accent' : 'text-white/80 hover:text-white'}`}
+                className={`font-light text-[13px] tracking-[0.12em] transition-colors flex items-center gap-2 ${activeMenu === 'portfolio' ? 'text-accent' : 'text-white/80 hover:text-white'}`}
               >
                 Portfolio <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeMenu === 'portfolio' ? 'rotate-180 text-accent' : ''}`} />
               </Link>
             </div>
 
-            <Link href="/client-portal-demos" className="font-ui text-[15px] font-medium tracking-[0.2em] uppercase text-white/80 hover:text-white transition-colors">
+            <Link href="/client-portal-demos" className="font-light text-[13px] tracking-[0.12em] text-white/75 hover:text-white transition-colors">
               Demo Portals
             </Link>
           </div>
@@ -200,7 +203,7 @@ export default function Nav() {
           <div className="flex items-center gap-4 lg:gap-6">
             <Link 
               href="/brief"
-              className="hidden lg:flex items-center gap-3 font-ui text-[12px] bg-accent text-dark font-bold tracking-[0.25em] uppercase px-10 py-4 hover:bg-white transition-all duration-300"
+              className="hidden lg:flex items-center gap-3 font-light text-[11px] bg-accent text-white tracking-[0.2em] uppercase px-10 py-4 hover:bg-white hover:text-dark transition-all duration-300"
             >
               START BRIEF
             </Link>
@@ -351,7 +354,7 @@ export default function Nav() {
           <div className="w-full">
             <button 
               onClick={() => setMobileSectorsOpen(!mobileSectorsOpen)}
-              className="font-display text-5xl tracking-tighter text-white flex items-center justify-between w-full py-4"
+              className="font-extralight text-4xl tracking-tight text-white flex items-center justify-between w-full py-4"
             >
               SERVICES <ChevronDown className={`w-8 h-8 text-accent transition-transform ${mobileSectorsOpen ? 'rotate-180' : ''}`} />
             </button>
@@ -370,7 +373,7 @@ export default function Nav() {
                         className="group flex flex-col gap-1"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        <span className="font-ui text-[14px] tracking-[0.2em] uppercase text-white/70 active:text-accent">{service.name}</span>
+                        <span className="font-light text-[13px] tracking-[0.1em] uppercase text-white/60 active:text-accent">{service.name}</span>
                         <span className="font-body text-[10px] text-white/30 uppercase tracking-tighter">{service.desc}</span>
                       </Link>
                     ))}
@@ -384,7 +387,7 @@ export default function Nav() {
           <div className="w-full">
             <button 
               onClick={() => setMobilePackagesOpen(!mobilePackagesOpen)}
-              className="font-display text-5xl tracking-tighter text-white flex items-center justify-between w-full py-4"
+              className="font-extralight text-4xl tracking-tight text-white flex items-center justify-between w-full py-4"
             >
               PACKAGES <ChevronDown className={`w-8 h-8 text-accent transition-transform ${mobilePackagesOpen ? 'rotate-180' : ''}`} />
             </button>
@@ -397,7 +400,7 @@ export default function Nav() {
                     className="group flex flex-col gap-1"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <span className="font-ui text-[14px] tracking-[0.2em] uppercase text-white/70 active:text-accent">{pkg.name}</span>
+                    <span className="font-light text-[13px] tracking-[0.1em] uppercase text-white/60 active:text-accent">{pkg.name}</span>
                     <span className="font-body text-[10px] text-white/30 uppercase tracking-tighter">{pkg.desc}</span>
                   </Link>
                 ))}
@@ -409,7 +412,7 @@ export default function Nav() {
           <div className="w-full">
             <button 
               onClick={() => setMobilePortfolioOpen(!mobilePortfolioOpen)}
-              className="font-display text-5xl tracking-tighter text-white flex items-center justify-between w-full py-4"
+              className="font-extralight text-4xl tracking-tight text-white flex items-center justify-between w-full py-4"
             >
               PORTFOLIO <ChevronDown className={`w-8 h-8 text-accent transition-transform ${mobilePortfolioOpen ? 'rotate-180' : ''}`} />
             </button>
@@ -419,7 +422,7 @@ export default function Nav() {
                   <Link 
                     key={item.name}
                     href={`/${item.slug}`}
-                    className="font-ui text-[14px] tracking-[0.2em] uppercase text-white/70 active:text-accent"
+                    className="font-light text-[13px] tracking-[0.1em] uppercase text-white/60 active:text-accent"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.name}
@@ -429,16 +432,16 @@ export default function Nav() {
             </div>
           </div>
 
-          <Link href="/sectors" className="font-display text-5xl tracking-tighter text-white py-4 w-full" onClick={() => setMobileMenuOpen(false)}>SECTORS</Link>
-          <Link href="/client-portal-demos" className="font-display text-5xl tracking-tighter text-white py-4 w-full" onClick={() => setMobileMenuOpen(false)}>DEMO PORTALS</Link>
-          <Link href="/gaussian-splat" className="font-display text-5xl tracking-tighter text-white py-4 w-full" onClick={() => setMobileMenuOpen(false)}>GAUSSIAN SPLAT</Link>
-          <Link href="/fleet" className="font-display text-5xl tracking-tighter text-white py-4 w-full" onClick={() => setMobileMenuOpen(false)}>FLEET</Link>
-          <Link href="/resources" className="font-display text-5xl tracking-tighter text-white py-4 w-full" onClick={() => setMobileMenuOpen(false)}>RESOURCES</Link>
+          <Link href="/sectors" className="font-extralight text-4xl tracking-tight text-white py-4 w-full" onClick={() => setMobileMenuOpen(false)}>SECTORS</Link>
+          <Link href="/client-portal-demos" className="font-extralight text-4xl tracking-tight text-white py-4 w-full" onClick={() => setMobileMenuOpen(false)}>DEMO PORTALS</Link>
+          <Link href="/gaussian-splat" className="font-extralight text-4xl tracking-tight text-white py-4 w-full" onClick={() => setMobileMenuOpen(false)}>GAUSSIAN SPLAT</Link>
+          <Link href="/fleet" className="font-extralight text-4xl tracking-tight text-white py-4 w-full" onClick={() => setMobileMenuOpen(false)}>FLEET</Link>
+          <Link href="/resources" className="font-extralight text-4xl tracking-tight text-white py-4 w-full" onClick={() => setMobileMenuOpen(false)}>RESOURCES</Link>
           
           <div className="mt-auto w-full pt-10 pb-8">
              <Link 
               href="/brief"
-              className="flex items-center justify-center gap-4 bg-accent text-white font-display text-3xl tracking-[0.1em] uppercase py-7 w-full shadow-[0_20px_40px_rgba(0,102,255,0.25)]"
+              className="flex items-center justify-center gap-4 bg-accent text-white font-light text-xl tracking-[0.15em] uppercase py-7 w-full shadow-[0_20px_40px_rgba(0,102,255,0.25)]"
               onClick={() => setMobileMenuOpen(false)}
             >
               <Rocket className="w-6 h-6" />
