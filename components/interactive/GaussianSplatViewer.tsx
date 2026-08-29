@@ -3,7 +3,7 @@
 /**
  * GaussianSplatViewer — shell component (SSR-safe)
  *
- * Handles: poster, real progress bar (driven by canvas onProgress),
+ * Handles: poster, real progress bar (driven by canvas onProgress + smooth animation),
  * mobile/no-WebGL fallback, fullscreen toggle, control overlay.
  *
  * The heavy WebGL canvas is loaded via next/dynamic { ssr: false } so
@@ -34,8 +34,8 @@ interface GaussianSplatViewerProps {
 
 const LOAD_LABELS: Record<number, string> = {
   0:  'Connecting to spatial data server',
-  20: 'Downloading spatial splat data',
-  60: 'Processing Gaussian primitives',
+  25: 'Downloading spatial splat data',
+  70: 'Processing Gaussian primitives',
   90: 'Rendering 3D environment',
 }
 
@@ -105,6 +105,24 @@ export default function GaussianSplatViewer({
     }
   }, [inView, webgl, phase, shouldFallback])
 
+  // Continuous subtle progress simulation while loading so the UI never feels frozen
+  useEffect(() => {
+    if (phase !== 'loading') return
+
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev < 90) {
+          return prev + Math.random() * 3 + 1
+        } else if (prev < 98) {
+          return prev + 0.4
+        }
+        return prev
+      })
+    }, 300)
+
+    return () => clearInterval(interval)
+  }, [phase])
+
   useEffect(() => {
     if (!isFullscreen) return
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') setIsFS(false) }
@@ -113,12 +131,17 @@ export default function GaussianSplatViewer({
   }, [isFullscreen])
 
   const handleProgress = useCallback((pct: number) => {
-    setProgress(pct)
+    setProgress((prev) => Math.max(prev, pct))
   }, [])
+
   const handleReady = useCallback(() => {
     setProgress(100)
-    setPhase('live')
+    // Small delay to let user see 100% before smooth reveal
+    setTimeout(() => {
+      setPhase('live')
+    }, 250)
   }, [])
+
   const handleError = useCallback(() => setPhase('error'), [])
   const handleReset = useCallback(() => setResetKey(k => k + 1), [])
   const handleRetry = useCallback(() => {
@@ -126,6 +149,18 @@ export default function GaussianSplatViewer({
     setProgress(0)
     setResetKey(k => k + 1)
   }, [])
+
+  // Failsafe timeout: if loading has been ongoing for 18s and no error was thrown, open live
+  useEffect(() => {
+    if (phase !== 'loading') return
+    const timer = setTimeout(() => {
+      setProgress(100)
+      setPhase('live')
+    }, 18000)
+    return () => clearTimeout(timer)
+  }, [phase])
+
+  const displayProgress = Math.min(100, Math.round(progress))
 
   return (
     <div
@@ -167,7 +202,7 @@ export default function GaussianSplatViewer({
           </div>
         )}
 
-        {/* LOADING — real progress driven by canvas onProgress */}
+        {/* LOADING — dynamic progress bar */}
         {phase === 'loading' && (
           <div className="absolute inset-0 z-20 flex flex-col items-center justify-center p-10 text-center">
             <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center mb-8 relative" aria-hidden="true">
@@ -177,30 +212,30 @@ export default function GaussianSplatViewer({
                   cx="32" cy="32" r="30" fill="none"
                   stroke="#0066ff" strokeWidth="1.5"
                   strokeDasharray={`${2 * Math.PI * 30}`}
-                  strokeDashoffset={`${2 * Math.PI * 30 * (1 - progress / 100)}`}
-                  className="transition-all duration-500"
+                  strokeDashoffset={`${2 * Math.PI * 30 * (1 - displayProgress / 100)}`}
+                  className="transition-all duration-300"
                 />
               </svg>
-              <span className="text-white/60 text-[11px] font-ui tabular-nums">{Math.round(progress)}%</span>
+              <span className="text-white/80 text-[12px] font-ui tabular-nums font-light">{displayProgress}%</span>
             </div>
             <p className="font-ui text-[10px] tracking-[0.35em] uppercase text-accent mb-2">
-              {getLabel(progress)}
+              {getLabel(displayProgress)}
             </p>
             <p className="font-ui text-[9px] tracking-[0.25em] uppercase text-white/30">
               Preparing {splatCount.toLocaleString()} spatial splats
             </p>
             <div className="mt-8 w-64 h-[1px] bg-white/10 relative overflow-hidden">
               <div
-                className="absolute inset-y-0 left-0 bg-accent transition-all duration-500"
-                style={{ width: `${progress}%` }}
+                className="absolute inset-y-0 left-0 bg-accent transition-all duration-300"
+                style={{ width: `${displayProgress}%` }}
               />
             </div>
           </div>
         )}
 
-        {/* WebGL canvas — mounted during loading, visible when live */}
+        {/* WebGL canvas — mounted during loading, smoothly fades in when live */}
         {(phase === 'loading' || phase === 'live') && !shouldFallback && (
-          <div className={`absolute inset-0 z-10 transition-opacity duration-1000 ${
+          <div className={`absolute inset-0 z-10 transition-opacity duration-700 ${
             phase === 'live' ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}>
             <GaussianSplatCanvas

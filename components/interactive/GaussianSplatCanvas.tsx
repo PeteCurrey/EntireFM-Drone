@@ -24,8 +24,6 @@ interface Props {
 export default function GaussianSplatCanvas({ splatSrc, onReady, onError, onProgress }: Props) {
   const mountRef   = useRef<HTMLDivElement>(null)
   const viewerRef  = useRef<InstanceType<typeof GaussianSplats3D.Viewer> | null>(null)
-  const frameRef   = useRef<number>(0)
-  const pausedRef  = useRef(false)
   const readyFired = useRef(false)
 
   const safeReady = useCallback(() => {
@@ -35,8 +33,12 @@ export default function GaussianSplatCanvas({ splatSrc, onReady, onError, onProg
   }, [onReady])
 
   const cleanup = useCallback(() => {
-    if (frameRef.current) cancelAnimationFrame(frameRef.current)
-    try { viewerRef.current?.dispose() } catch {}
+    try {
+      if (viewerRef.current) {
+        viewerRef.current.stop()
+        viewerRef.current.dispose()
+      }
+    } catch {}
     viewerRef.current = null
   }, [])
 
@@ -54,11 +56,13 @@ export default function GaussianSplatCanvas({ splatSrc, onReady, onError, onProg
           cameraUp: [0, -1, 0],
           initialCameraPosition: [2, -8, 12],
           initialCameraLookAt:   [0,  0,  0],
-          gpuAcceleratedSort: true,
-          halfPrecisionCovariancesOnGPU: true,
-          progressiveLoad: true,
+          selfDrivenMode: true,
+          useBuiltInControls: true,
+          gpuAcceleratedSort: false,
+          sharedMemoryForWorkers: false,
+          halfPrecisionCovariancesOnGPU: false,
           dynamicScene: false,
-          logLevel: GaussianSplats3D.LogLevel.Error,
+          logLevel: GaussianSplats3D.LogLevel.None,
           orbitControls: {
             enableDamping: true,
             dampingFactor: 0.08,
@@ -80,32 +84,30 @@ export default function GaussianSplatCanvas({ splatSrc, onReady, onError, onProg
           rotation: [1, 0, 0, 0],
           position: [0, 0, 0],
           scale: [1, 1, 1],
-          progressiveLoad: true,
+          progressiveLoad: false,
           showLoadingUI: false,
-          onProgress: (pct: number) => {
-            onProgress?.(Math.min(99, Math.round(pct * 100)))
+          onProgress: (percentComplete: number) => {
+            if (!cancelled && typeof percentComplete === 'number') {
+              const clamped = Math.min(98, Math.max(1, Math.round(percentComplete)))
+              onProgress?.(clamped)
+            }
           },
         })
 
-        if (cancelled) { viewer.dispose(); return }
+        if (cancelled) {
+          try {
+            viewer.stop()
+            viewer.dispose()
+          } catch {}
+          return
+        }
 
-        // Signal 100% and ready
-        onProgress?.(100)
-        safeReady()
+        // Start viewer render loop
         viewer.start()
 
-        // ── Pause rendering when offscreen ──────────────────────────────
-        const obs = new IntersectionObserver(([entry]) => {
-          pausedRef.current = !entry.isIntersecting
-          // @ts-ignore — renderer exists on viewer
-          if (viewer.renderer) {
-            // @ts-ignore
-            viewer.renderer.setAnimationLoop(pausedRef.current ? null : () => viewer.update())
-          }
-        }, { threshold: 0.05 })
-        if (el) obs.observe(el)
-
-        return () => obs.disconnect()
+        // Signal completion
+        onProgress?.(100)
+        safeReady()
       } catch (err) {
         if (!cancelled) {
           console.error('[GaussianSplatCanvas] init error:', err)
@@ -114,11 +116,10 @@ export default function GaussianSplatCanvas({ splatSrc, onReady, onError, onProg
       }
     }
 
-    const cleanupObs = init()
+    init()
 
     return () => {
       cancelled = true
-      cleanupObs?.then(fn => fn?.())
       cleanup()
     }
   }, [splatSrc, onReady, onError, onProgress, safeReady, cleanup])
