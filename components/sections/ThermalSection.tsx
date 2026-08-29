@@ -2,9 +2,9 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, Thermometer, ShieldAlert, Zap, Sun } from 'lucide-react'
 import { gsap } from '@/lib/gsap-init'
-import VideoBackground from '@/components/ui/VideoBackground'
 import SectionTag from '@/components/ui/SectionTag'
 import GhostNumber from '@/components/ui/GhostNumber'
 import ThermalCompare from '@/components/ui/ThermalCompare'
@@ -50,12 +50,19 @@ export default function ThermalSection() {
       data-index="4"
       className="noise-overlay min-h-screen py-32 px-8 md:px-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 relative"
     >
-      <VideoBackground
-        src="/media/drone/thermal/tfts-rooftop-solar-thermal.mp4"
-        poster="/media/drone/thermal/tfts-rooftop-solar-thermal.jpg"
-        brightness={0.65}
-        saturation={1.2}
-      />
+      {/* Static thermal drone image background */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <Image
+          src="/media/drone/thermal/tfts-rooftop-solar-thermal.jpg"
+          alt="Drone thermal infrared audit of commercial rooftop solar array"
+          fill
+          className="object-cover"
+          style={{ filter: 'brightness(0.55) saturate(1.3)' }}
+          sizes="100vw"
+          priority={false}
+        />
+      </div>
+
       <div className="grid-lines" />
       <GhostNumber number="04" />
 
