@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Play, ArrowRight } from 'lucide-react'
 import { gsap } from '@/lib/gsap-init'
-import HeroVideoSequence from '@/components/ui/HeroVideoSequence'
+import VideoBackground from '@/components/ui/VideoBackground'
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -51,7 +51,9 @@ export default function HeroSection() {
       data-index="0"
       className="noise-overlay min-h-screen pt-32 sm:pt-36 lg:pt-40 pb-20 px-6 sm:px-12 lg:px-20 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 relative"
     >
-      <HeroVideoSequence
+      <VideoBackground
+        src="/videos/hero.mp4"
+        poster="/images/hero_poster.jpg"
         brightness={0.65}
         saturation={1.2}
       />
@@ -62,7 +64,7 @@ export default function HeroSection() {
         {/* Eyebrow */}
         <div className="hero-eyebrow inline-flex items-center gap-2.5 mb-5 sm:mb-6 text-[11px] font-light uppercase tracking-[0.18em] text-white/70">
           <span className="w-6 h-[1px] bg-accent" />
-          <span>TFTS Drone<span className="mx-2 text-white/25">·</span>Technical Flight & Thermal Surveys</span>
+          <span>TFTS Drone<span className="mx-2 text-white/25">·</span>Technical Flight &amp; Thermal Surveys</span>
         </div>
 
         {/* Primary Headline — Work Sans 200, matching EntireFM masterbrand scale */}
