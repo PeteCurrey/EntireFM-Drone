@@ -18,13 +18,21 @@ interface Props {
   splatSrc: string
   onReady: () => void
   onError: () => void
+  onProgress?: (pct: number) => void
 }
 
-export default function GaussianSplatCanvas({ splatSrc, onReady, onError }: Props) {
+export default function GaussianSplatCanvas({ splatSrc, onReady, onError, onProgress }: Props) {
   const mountRef   = useRef<HTMLDivElement>(null)
   const viewerRef  = useRef<InstanceType<typeof GaussianSplats3D.Viewer> | null>(null)
   const frameRef   = useRef<number>(0)
   const pausedRef  = useRef(false)
+  const readyFired = useRef(false)
+
+  const safeReady = useCallback(() => {
+    if (readyFired.current) return
+    readyFired.current = true
+    onReady()
+  }, [onReady])
 
   const cleanup = useCallback(() => {
     if (frameRef.current) cancelAnimationFrame(frameRef.current)
@@ -37,27 +45,20 @@ export default function GaussianSplatCanvas({ splatSrc, onReady, onError }: Prop
     if (!el) return
 
     let cancelled = false
+    readyFired.current = false
 
     async function init() {
       try {
         const viewer = new GaussianSplats3D.Viewer({
-          // Mount into our div rather than taking over document.body
           rootElement: el || undefined,
-          // Polycam Y-down: flip camera "up" to compensate
           cameraUp: [0, -1, 0],
-          // Elevated 3/4 aerial view of the site
           initialCameraPosition: [2, -8, 12],
           initialCameraLookAt:   [0,  0,  0],
-          // Render quality
           gpuAcceleratedSort: true,
           halfPrecisionCovariancesOnGPU: true,
-          // Progressive loading
           progressiveLoad: true,
-          // Damped orbit controls
           dynamicScene: false,
-          // Log level: errors only
           logLevel: GaussianSplats3D.LogLevel.Error,
-          // Orbit controls configuration
           orbitControls: {
             enableDamping: true,
             dampingFactor: 0.08,
@@ -76,17 +77,21 @@ export default function GaussianSplatCanvas({ splatSrc, onReady, onError }: Prop
 
         await viewer.addSplatScene(splatSrc, {
           splatAlphaRemovalThreshold: 5,
-          // Rotate scene 180° around X to correct Polycam Y-down orientation
-          rotation: [1, 0, 0, 0], // identity — we handled it with cameraUp above
+          rotation: [1, 0, 0, 0],
           position: [0, 0, 0],
           scale: [1, 1, 1],
           progressiveLoad: true,
           showLoadingUI: false,
+          onProgress: (pct: number) => {
+            onProgress?.(Math.min(99, Math.round(pct * 100)))
+          },
         })
 
         if (cancelled) { viewer.dispose(); return }
 
-        onReady()
+        // Signal 100% and ready
+        onProgress?.(100)
+        safeReady()
         viewer.start()
 
         // ── Pause rendering when offscreen ──────────────────────────────
@@ -116,7 +121,7 @@ export default function GaussianSplatCanvas({ splatSrc, onReady, onError }: Prop
       cleanupObs?.then(fn => fn?.())
       cleanup()
     }
-  }, [splatSrc, onReady, onError, cleanup])
+  }, [splatSrc, onReady, onError, onProgress, safeReady, cleanup])
 
   return (
     <div

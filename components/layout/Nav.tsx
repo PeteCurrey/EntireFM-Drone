@@ -54,21 +54,21 @@ const sectorMenu = [
 ]
 
 const packagesMenu = [
-  { name: 'Roof Intelligence', slug: 'roof-intelligence', icon: Search, desc: 'Complete roof and gutter audit pack.' },
-  { name: 'Asset Condition', slug: 'building-envelope', icon: Building2, desc: 'External envelope and facade record.' },
-  { name: 'Construction Progress', slug: 'construction-progress', icon: Hammer, desc: 'Scheduled build monitoring cycles.' },
-  { name: 'Survey Data', slug: 'survey-data', icon: BarChart3, desc: 'Accurate mapping and volumetric data.' },
-  { name: 'Visual Sales', slug: 'visual-sales', icon: Camera, desc: 'High-end marketing and media assets.' },
-  { name: 'Insurance Evidence', slug: 'insurance-incident', icon: ShieldCheck, desc: 'Rapid post-incident damage records.' },
-  { name: 'Solar & Energy', slug: 'solar-energy', icon: Zap, desc: 'PV array thermal and visual audits.' },
-  { name: 'Immersive Digital', slug: 'immersive-digital', icon: Box, desc: 'TFTS 3D and spatial digital twins.' },
+  { name: 'Roof Intelligence',     slug: 'roof-intelligence',    icon: Search,      desc: 'Complete roof and gutter audit pack.',         image: '/images/nav/inspection.png' },
+  { name: 'Asset Condition',       slug: 'building-envelope',    icon: Building2,   desc: 'External envelope and facade record.',          image: '/images/nav/surveying.png' },
+  { name: 'Construction Progress', slug: 'construction-progress',icon: Hammer,      desc: 'Scheduled build monitoring cycles.',            image: '/images/nav/construction.png' },
+  { name: 'Survey Data',           slug: 'survey-data',          icon: BarChart3,   desc: 'Accurate mapping and volumetric data.',         image: '/images/nav/surveying.png' },
+  { name: 'Visual Sales',          slug: 'visual-sales',         icon: Camera,      desc: 'High-end marketing and media assets.',          image: '/images/nav/photography.png' },
+  { name: 'Insurance Evidence',    slug: 'insurance-incident',   icon: ShieldCheck, desc: 'Rapid post-incident damage records.',           image: '/images/nav/inspection.png' },
+  { name: 'Solar & Energy',        slug: 'solar-energy',         icon: Zap,         desc: 'PV array thermal and visual audits.',           image: '/images/nav/thermal.png' },
+  { name: 'Immersive Digital',     slug: 'immersive-digital',    icon: Box,         desc: 'TFTS 3D and spatial digital twins.',            image: '/images/nav/photography.png' },
 ]
 
 const portfolioMenu = [
-  { name: 'Featured Work', slug: 'portfolio', desc: 'High-impact project highlights.' },
-  { name: 'Case Studies', slug: 'portfolio', desc: 'Detailed mission breakdowns.' },
-  { name: 'Mission Profiles', slug: 'portfolio', desc: 'Technical execution examples.' },
-  { name: 'Example Outputs', slug: 'portfolio', desc: 'Raw data and deliverable samples.' },
+  { name: 'Featured Work',    slug: 'portfolio', desc: 'High-impact project highlights.',        image: '/images/nav/inspection.png' },
+  { name: 'Case Studies',     slug: 'portfolio', desc: 'Detailed mission breakdowns.',           image: '/images/nav/construction.png' },
+  { name: 'Mission Profiles', slug: 'portfolio', desc: 'Technical execution examples.',          image: '/images/nav/surveying.png' },
+  { name: 'Example Outputs',  slug: 'portfolio', desc: 'Raw data and deliverable samples.',      image: '/images/nav/thermal.png' },
 ]
 
 export default function Nav() {
@@ -294,15 +294,28 @@ export default function Nav() {
                 <Link 
                   key={pkg.slug}
                   href={`/bundles#${pkg.slug}`}
-                  className="bg-white/[0.02] border border-white/5 p-10 flex flex-col gap-6 group hover:bg-accent/5 hover:border-accent/40 transition-all duration-500"
+                  className="group/pkg relative overflow-hidden border border-white/10 group-hover/pkg:border-accent/40 hover:border-accent/40 transition-colors duration-500 flex flex-col"
                   onClick={() => setActiveMenu(null)}
                 >
-                  <div className="flex items-center justify-between">
-                    <pkg.icon className="w-8 h-8 text-white/30 group-hover:text-accent transition-colors" />
-                    <ArrowRight className="w-4 h-4 text-white/10 group-hover:text-accent group-hover:translate-x-2 transition-all" />
+                  {/* Background image — same reveal as services */}
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <Image
+                      src={pkg.image}
+                      alt={pkg.name}
+                      fill
+                      className="object-cover opacity-40 group-hover/pkg:opacity-100 group-hover/pkg:scale-105 transition-all duration-700 ease-out grayscale group-hover/pkg:grayscale-0"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/30 to-transparent" />
+                    <div className="absolute bottom-4 left-4">
+                      <pkg.icon className="w-6 h-6 text-white/50 group-hover/pkg:text-accent transition-colors duration-300" />
+                    </div>
+                    <div className="absolute top-4 right-4">
+                      <ArrowRight className="w-4 h-4 text-white/10 group-hover/pkg:text-accent group-hover/pkg:translate-x-1 transition-all duration-300" />
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-display text-2xl tracking-widest text-white uppercase group-hover:text-accent transition-colors mb-2">{pkg.name}</h3>
+                  {/* Text area */}
+                  <div className="p-6 flex flex-col gap-2 bg-dark/80 group-hover/pkg:bg-accent/5 transition-colors duration-500">
+                    <h3 className="font-display text-xl tracking-widest text-white uppercase group-hover/pkg:text-accent transition-colors">{pkg.name}</h3>
                     <p className="font-body text-[10px] text-white/30 uppercase tracking-tighter leading-relaxed">{pkg.desc}</p>
                   </div>
                 </Link>
@@ -319,7 +332,7 @@ export default function Nav() {
 
         {/* Portfolio Dropdown */}
         <div 
-          className={`absolute top-full left-0 w-full bg-dark/95 backdrop-blur-3xl border-b border-white/5 transition-all duration-500 ease-in-out hidden lg:block overflow-hidden ${activeMenu === 'portfolio' ? 'max-h-[600px] opacity-100 shadow-[0_40px_100px_rgba(0,0,0,0.9)]' : 'max-h-0 opacity-0 pointer-events-none'}`}
+          className={`absolute top-full left-0 w-full bg-dark/95 backdrop-blur-3xl border-b border-white/5 transition-all duration-500 ease-in-out hidden lg:block overflow-hidden ${activeMenu === 'portfolio' ? 'max-h-[700px] opacity-100 shadow-[0_40px_100px_rgba(0,0,0,0.9)]' : 'max-h-0 opacity-0 pointer-events-none'}`}
           onMouseEnter={() => handleMouseEnter('portfolio')}
           onMouseLeave={handleMouseLeave}
         >
@@ -333,16 +346,30 @@ export default function Nav() {
                 <Link 
                   key={item.name}
                   href={`/${item.slug}`}
-                  className="group flex flex-col gap-4 border-l border-white/10 pl-8 hover:border-accent transition-all py-2"
+                  className="group/port relative overflow-hidden border border-white/10 hover:border-accent/40 transition-colors duration-500 flex flex-col"
                   onClick={() => setActiveMenu(null)}
                 >
-                  <h3 className="font-display text-2xl text-white uppercase tracking-widest group-hover:text-accent transition-colors">{item.name}</h3>
-                  <p className="font-body text-[11px] text-white/30 uppercase tracking-tighter">{item.desc}</p>
+                  {/* Background image — same reveal as services */}
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fill
+                      className="object-cover opacity-40 group-hover/port:opacity-100 group-hover/port:scale-105 transition-all duration-700 ease-out grayscale group-hover/port:grayscale-0"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent" />
+                  </div>
+                  {/* Text area */}
+                  <div className="p-6 flex flex-col gap-2 bg-dark/80 group-hover/port:bg-accent/5 transition-colors duration-500">
+                    <h3 className="font-display text-xl text-white uppercase tracking-widest group-hover/port:text-accent transition-colors">{item.name}</h3>
+                    <p className="font-body text-[11px] text-white/30 uppercase tracking-tighter">{item.desc}</p>
+                  </div>
                 </Link>
               ))}
             </div>
           </div>
         </div>
+
       </nav>
 
       {/* Fullscreen Mobile Menu Overlay */}
