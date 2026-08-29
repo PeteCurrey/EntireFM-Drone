@@ -7,8 +7,8 @@
  * runs in the browser. It mounts and owns the Three.js / WebGL lifecycle.
  *
  * Polycam exports with Y-axis down. We compensate by setting:
- *   cameraUp: [0, -1, 0]
- * which flips the viewer's sense of "up" so the scene renders correctly.
+ *   rotation: [1, 0, 0, 0] (180° around X) with standard cameraUp [0, 1, 0]
+ * so the scene renders upright and properly framed on load.
  */
 
 import { useEffect, useRef, useCallback } from 'react'
@@ -53,9 +53,9 @@ export default function GaussianSplatCanvas({ splatSrc, onReady, onError, onProg
       try {
         const viewer = new GaussianSplats3D.Viewer({
           rootElement: el || undefined,
-          cameraUp: [0, -1, 0],
-          initialCameraPosition: [2, -8, 12],
-          initialCameraLookAt:   [0,  0,  0],
+          cameraUp: [0, 1, 0],
+          initialCameraPosition: [0.2, 1.8, 4.5],
+          initialCameraLookAt:   [0, 0.2, 0],
           selfDrivenMode: true,
           useBuiltInControls: true,
           gpuAcceleratedSort: false,
@@ -68,12 +68,12 @@ export default function GaussianSplatCanvas({ splatSrc, onReady, onError, onProg
             dampingFactor: 0.08,
             enableZoom: true,
             zoomSpeed: 0.8,
-            minDistance: 1,
-            maxDistance: 60,
+            minDistance: 0.5,
+            maxDistance: 30,
             enablePan: true,
             panSpeed: 0.6,
             autoRotate: false,
-            maxPolarAngle: Math.PI,
+            maxPolarAngle: Math.PI / 2 + 0.2, // Prevents flipping under the ground plane
           },
         })
 
