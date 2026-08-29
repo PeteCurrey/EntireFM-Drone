@@ -222,7 +222,12 @@ export default function Nav() {
           onMouseEnter={() => handleMouseEnter('services')}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="max-w-[1700px] mx-auto px-12 py-16 grid grid-cols-4 gap-12">
+          <div className="max-w-[1700px] mx-auto px-12 py-16">
+            <div className="flex items-center gap-6 mb-12">
+              <div className="w-16 h-[1px] bg-accent" />
+              <h2 className="font-display text-4xl tracking-widest text-white uppercase">AERIAL <span className="text-accent">DRONE SERVICES</span></h2>
+            </div>
+            <div className="grid grid-cols-4 gap-12">
             {sectorMenu.map((sector) => (
               <div key={sector.title} className="group/sector flex flex-col h-full">
                 {/* Sector Header with Image */}
@@ -261,6 +266,7 @@ export default function Nav() {
                 </ul>
               </div>
             ))}
+            </div>
           </div>
           <div className="bg-white/[0.03] py-8 px-12 flex justify-between items-center border-t border-white/10">
             <div className="flex items-center gap-6">
